@@ -9,7 +9,7 @@ export const RecruitersCarousel = () => {
   const testimonials = [
     {
       company: "Google",
-      logo: "/assets/google.jpg",
+      logo: "/assets/Google.jpg",
       quote: "SPIT graduates consistently demonstrate exceptional problem-solving skills and technical expertise.",
       author: "Sarah Johnson",
       role: "Technical Recruiting Manager"
@@ -23,7 +23,7 @@ export const RecruitersCarousel = () => {
     },
     {
       company: "Amazon",
-      logo: "/assets/amazon.jpeg",
+      logo: "/assets/images.jpg",
       quote: "SPIT's focus on practical learning produces industry-ready professionals.",
       author: "David Miller",
       role: "Campus Relations Lead"
