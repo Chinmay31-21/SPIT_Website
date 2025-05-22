@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu } from '@headlessui/react';
-import { ChevronDown, Menu as MenuIcon, Search, X } from 'lucide-react';
+import { ChevronDown, Menu as MenuIcon, Search, X, Home } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
@@ -282,6 +282,8 @@ const DropdownMenu = ({ item }: { item: NavItem }) => {
 
 const MobileMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const allItems = [...firstRowItems, ...secondRowItems];
 
   useEffect(() => {
     if (isOpen) {
@@ -294,7 +296,12 @@ const MobileMenu = () => {
     };
   }, [isOpen]);
 
-  const allItems = [...firstRowItems, ...secondRowItems];
+  const filteredItems = allItems.filter(item => 
+    item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    item.items?.some(subItem => 
+      subItem.title.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+  );
 
   return (
     <div className="lg:hidden">
@@ -309,57 +316,75 @@ const MobileMenu = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ type: 'tween', duration: 0.3 }}
-            className="fixed inset-y-0 right-0 w-full max-w-sm bg-black/95 backdrop-blur-lg shadow-lg z-50"
+            initial={{ clipPath: 'circle(0% at top right)' }}
+            animate={{ clipPath: 'circle(150% at top right)' }}
+            exit={{ clipPath: 'circle(0% at top right)' }}
+            transition={{ type: 'tween', duration: 0.5, ease: 'easeInOut' }}
+            className="fixed inset-0 bg-black/95 backdrop-blur-lg z-50 overflow-y-auto"
           >
-            <div className="p-4 overflow-y-auto h-full">
-              <div className="mb-8">
-                <div className="relative">
-                  <input
-                    type="text"
-                    placeholder="Search..."
-                    className="w-full px-4 py-2 rounded-lg bg-white/5 border border-[#00BFFF]/30 text-white placeholder-white/50 focus:outline-none focus:border-[#00BFFF] min-h-[44px]"
-                  />
-                  <Search className="absolute right-3 top-1/2 -translate-y-1/2 text-white/50" size={18} />
-                </div>
+            <div className="container mx-auto px-4 py-6">
+              <div className="flex items-center justify-between mb-8">
+                <Link 
+                  to="/" 
+                  className="flex items-center gap-2 text-white hover:text-[#FFD700] transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <Home size={24} />
+                  <span>Home</span>
+                </Link>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="text-white hover:text-[#FFD700] transition-colors p-2"
+                >
+                  <X size={24} />
+                </button>
               </div>
 
-              {allItems.map((item) => (
-                <div key={item.title} className="py-2">
-                  {item.items ? (
+              <div className="relative mb-8">
+                <input
+                  type="text"
+                  placeholder="Search menu..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full px-4 py-3 rounded-lg bg-white/5 border border-[#00BFFF]/30 text-white placeholder-white/50 focus:outline-none focus:border-[#00BFFF]"
+                />
+                <Search className="absolute right-3 top-1/2 -translate-y-1/2 text-white/50" size={20} />
+              </div>
+
+              <div className="space-y-6">
+                {filteredItems.map((item) => (
+                  <motion.div
+                    key={item.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
                     <details className="group">
-                      <summary className="mobile-nav-item flex items-center justify-between cursor-pointer min-h-[44px]">
+                      <summary className="flex items-center justify-between cursor-pointer text-white text-lg font-semibold mb-2">
                         {item.title}
-                        <ChevronDown
-                          size={16}
-                          className="transform transition-transform group-open:rotate-180"
-                        />
+                        <ChevronDown className="transform transition-transform group-open:rotate-180" />
                       </summary>
-                      <div className="pl-4 mt-2 space-y-2">
-                        {item.items.map((subItem) => (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="pl-4 space-y-2"
+                      >
+                        {item.items?.map((subItem) => (
                           <Link
                             key={subItem.title}
                             to={subItem.href}
-                            className="mobile-nav-item pl-8 min-h-[44px] flex items-center"
+                            onClick={() => setIsOpen(false)}
+                            className="block py-2 px-4 text-white/80 hover:text-[#FFD700] hover:bg-white/5 rounded transition-colors"
                           >
                             {subItem.title}
                           </Link>
                         ))}
-                      </div>
+                      </motion.div>
                     </details>
-                  ) : (
-                    <Link 
-                      to={item.href || '#'} 
-                      className="mobile-nav-item min-h-[44px] flex items-center"
-                    >
-                      {item.title}
-                    </Link>
-                  )}
-                </div>
-              ))}
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </motion.div>
         )}
