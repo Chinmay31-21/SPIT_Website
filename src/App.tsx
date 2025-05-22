@@ -10,34 +10,64 @@ import { Students } from './pages/Students';
 import { Research } from './pages/Research';
 import { Library } from './pages/Library';
 import { Placements } from './pages/Placements';
+import Spline from '@splinetool/react-spline';
+import { motion, AnimatePresence } from 'framer-motion';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [loadingProgress, setLoadingProgress] = useState(0);
+  const [splineLoaded, setSplineLoaded] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => {
-      setIsAnimating(true);
+    const timer = setInterval(() => {
+      setLoadingProgress(prev => {
+        if (prev >= 100) {
+          clearInterval(timer);
+          return 100;
+        }
+        return prev + 1;
+      });
+    }, 30);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    if (loadingProgress === 100 && splineLoaded) {
       setTimeout(() => {
         setIsLoading(false);
-      }, 2000);
-    }, 1500);
-  }, []);
+      }, 1000);
+    }
+  }, [loadingProgress, splineLoaded]);
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-[#0D0D0D] flex items-center justify-center">
-        <div className={`relative w-32 h-32 ${isAnimating ? 'animate-coin-flip' : ''}`}>
-          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#FFD700] to-[#DAA520] shadow-lg transform-gpu backface-hidden">
-            <div className="w-full h-full flex items-center justify-center">
-              <img 
-                src="https://www.spit.ac.in/wp-content/themes/spit-main/images/SPIT_logo.png" 
-                alt="SPIT Logo"
-                className="w-24 h-24 object-contain"
-              />
-            </div>
-          </div>
+      <div className="min-h-screen bg-[#0D0D0D] flex items-center justify-center relative overflow-hidden">
+        <div className="absolute inset-0">
+          <Spline 
+            scene="https://prod.spline.design/6Wq1Q9yFvGsHyFZw/scene.splinecode"
+            onLoad={() => setSplineLoaded(true)}
+          />
         </div>
+        
+        <motion.div 
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 w-64"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="relative h-2 bg-[#00BFFF]/20 rounded-full overflow-hidden">
+            <motion.div
+              className="absolute left-0 top-0 h-full bg-[#00BFFF]"
+              initial={{ width: "0%" }}
+              animate={{ width: `${loadingProgress}%` }}
+              transition={{ duration: 0.5 }}
+            />
+          </div>
+          <div className="text-center mt-4 text-white/70 text-sm">
+            {loadingProgress}% - Powering up SPIT Network
+          </div>
+        </motion.div>
       </div>
     );
   }
