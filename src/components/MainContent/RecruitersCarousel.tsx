@@ -16,7 +16,7 @@ export const RecruitersCarousel = () => {
     },
     {
       company: "Microsoft",
-      logo: "/assets/Microsoft.jpg",
+      logo: "/assets/Micro.jpg",
       quote: "The quality of talent from SPIT aligns perfectly with our innovation-driven culture.",
       author: "Michael Chen",
       role: "Senior HR Director"
