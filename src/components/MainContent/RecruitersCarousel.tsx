@@ -23,7 +23,7 @@ export const RecruitersCarousel = () => {
     },
     {
       company: "Amazon",
-      logo: "https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg",
+      logo: "https://d2fxn1d7fsdeeo.cloudfront.net/riverridgecc.com/wp-content/uploads/2018/02/11085554/Amazon-Logo-2000.png",
       quote: "SPIT's focus on practical learning produces industry-ready professionals.",
       author: "David Miller",
       role: "Campus Relations Lead"
