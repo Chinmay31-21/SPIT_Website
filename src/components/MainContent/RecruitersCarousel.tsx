@@ -9,21 +9,21 @@ export const RecruitersCarousel = () => {
   const testimonials = [
     {
       company: "Google",
-      logo: "https://static.vecteezy.com/system/resources/previews/013/948/549/non_2x/google-logo-on-transparent-white-background-free-vector.jpg",
+      logo: "/assets/google.jpg",
       quote: "SPIT graduates consistently demonstrate exceptional problem-solving skills and technical expertise.",
       author: "Sarah Johnson",
       role: "Technical Recruiting Manager"
     },
     {
       company: "Microsoft",
-      logo: "https://static.vecteezy.com/system/resources/previews/027/127/493/non_2x/microsoft-logo-microsoft-icon-transparent-free-png.png",
+      logo: "/assets/Microsoft.jpg",
       quote: "The quality of talent from SPIT aligns perfectly with our innovation-driven culture.",
       author: "Michael Chen",
       role: "Senior HR Director"
     },
     {
       company: "Amazon",
-      logo: "https://static.vecteezy.com/system/resources/previews/014/018/563/non_2x/amazon-logo-on-transparent-background-free-vector.jpg",
+      logo: "/assets/amazon.jpeg",
       quote: "SPIT's focus on practical learning produces industry-ready professionals.",
       author: "David Miller",
       role: "Campus Relations Lead"
