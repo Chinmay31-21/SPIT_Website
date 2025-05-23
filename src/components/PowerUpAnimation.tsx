@@ -212,12 +212,15 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
 
       {/* Earth Rotating */}
       <motion.img
-        src="/assets/Earth.jpg"
-        alt="Earth"
-        className="w-96 h-96 object-cover rounded-full z-10"
-        animate={{ rotate: 360 }}
-        transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
-      />
+  src="/assets/Earth.png" // Use a transparent PNG!
+  alt="Earth"
+  className="w-96 h-96 z-10 rounded-full"
+  animate={{ rotate: 360 }}
+  transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
+  style={{
+    filter: 'drop-shadow(0 0 10px rgba(0, 191, 255, 0.2))',
+    background: 'transparent',
+  }}
 
       {/* 🚀 Rocket Landing */}
       <motion.img
