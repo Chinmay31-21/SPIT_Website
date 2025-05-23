@@ -149,7 +149,7 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
     <motion.div
       className="w-96 h-96 rounded-full overflow-hidden relative"
       style={{
-        backgroundImage: `url('/Earth.jpg')`, // Assumes Earth.jpg is in public folder
+        backgroundImage: `url('/assets/Earth.jpg')`, // Assumes Earth.jpg is in public folder
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         boxShadow: '0 0 40px #00BFFF55',
