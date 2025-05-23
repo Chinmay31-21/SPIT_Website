@@ -78,24 +78,24 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
       >
         {/* ⚡ Spark Overlay */}
         <AnimatePresence>
-          {showSpark && (
-            <motion.div
-              className="fixed inset-0 z-[999] pointer-events-none"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="w-full h-full flex items-center justify-center bg-black bg-opacity-40">
-                <img
-                  src="/assets/spark.gif"
-                  alt="Spark Effect"
-                  className="w-[80%] h-[80%] object-contain mix-blend-screen drop-shadow-[0_0_60px_rgba(255,255,255,0.3)] animate-fade"
-                />
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+  {showSpark && (
+    <motion.div
+      className="fixed inset-0 z-[9999] pointer-events-none"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.6 }}
+    >
+      <div className="absolute inset-0 w-full h-full bg-black bg-opacity-60 z-[9999] flex items-center justify-center">
+        <img
+          src="https://media.tenor.com/GVfjPbm4TpcAAAAC/electricity-electric-shock.gif"
+          alt="Spark Effect"
+          className="w-full h-full object-cover mix-blend-screen opacity-90 animate-fade"
+        />
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
 
         {/* Power Button */}
         {stage === 'initial' && (
