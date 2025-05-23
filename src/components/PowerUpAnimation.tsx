@@ -145,32 +145,29 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
 
         {/* Landing on Earth */}
         {stage === 'landing' && (
-          <div className="relative w-full h-full flex items-center justify-center">
-            <motion.div
-              className="w-96 h-96 rounded-full bg-[/assets/Earth.jpg] relative overflow-hidden"
-              initial={{ scale: 0.5 }}
-              animate={{ scale: 1 }}
-            >
-              <motion.div
-                className="absolute inset-0"
-                style={{
-                  background: '/assets/Earth.jpg',
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  mixBlendMode: 'overlay',
-                }}
-              />
-              <motion.img
-                src="/assets/spitship.png"
-                alt="Rocket"
-                className="w-16 h-16 absolute top-0 left-1/2 -translate-x-1/2"
-                initial={{ y: '-100%' }}
-                animate={{ y: '100%' }}
-                transition={{ duration: 2, ease: "easeIn" }}
-              />
-            </motion.div>
-          </div>
-        )}
+  <div className="relative w-full h-full flex items-center justify-center">
+    <motion.div
+      className="w-96 h-96 rounded-full overflow-hidden relative"
+      style={{
+        backgroundImage: `url('/Earth.jpg')`, // Assumes Earth.jpg is in public folder
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        boxShadow: '0 0 40px #00BFFF55',
+      }}
+      initial={{ scale: 0.5 }}
+      animate={{ scale: 1 }}
+    >
+      <motion.img
+        src="/assets/spitship.png"
+        alt="Rocket"
+        className="w-16 h-16 absolute top-0 left-1/2 -translate-x-1/2"
+        initial={{ y: '-100%' }}
+        animate={{ y: '100%' }}
+        transition={{ duration: 2, ease: 'easeIn' }}
+      />
+    </motion.div>
+  </div>
+)}
 
         {/* Logo Animation */}
         {stage === 'logo' && (
