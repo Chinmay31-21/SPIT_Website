@@ -84,7 +84,7 @@ const handlePowerButtonClick = () => {
     transition={{ duration: 1.2, ease: 'easeInOut' }}
   >
     <img
-      src="/assets/sparkburst.gif"
+      src="/assets/spark.gif"
       alt="Shock Spark"
       className="absolute top-1/2 left-1/2 w-full h-full object-cover transform -translate-x-1/2 -translate-y-1/2 opacity-80"
     />
@@ -111,7 +111,7 @@ const handlePowerButtonClick = () => {
             <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDBNIDAgMjAgTCA0MCAyMCBNIDIwIDAgTCAyMCA0MCBNIDAgMzAgTCA0MCAzMCBNIDMwIDAgTCAzMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDBCRkZGMjAiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-30" />
             <motion.button
               className="w-40 h-40 bg-black/80 rounded-2xl border-4 border-[#00BFFF] relative overflow-hidden group"
-              onClick={handlePowerButtonClick const audio = new Audio('/assets/electric-spark.mp3');
+              onClick={handlePowerButtonClick const audio = new Audio('/assets/spark.mp3');
 audio.play();}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
