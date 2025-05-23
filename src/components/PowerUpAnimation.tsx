@@ -2,32 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Zap } from 'lucide-react';
 
-type AnimationStage = 'initial' | 'spark' | 'journey' | 'landing' | 'logo' | 'loading' | 'complete';
-
-const RocketAnimation = ({ startStage }: { startStage: AnimationStage }) => (
-  <motion.img
-    src="/assets/spitship.png"
-    alt="Rocket"
-    className="w-32 h-32 absolute"
-    initial={
-      startStage === 'journey'
-        ? { x: '100%', y: '400%', scale: 4 }
-        : { x: '0%', y: '100%', scale: 1.2 }
-    }
-    animate={
-      startStage === 'journey'
-        ? { x: '300%', y: '-30%', scale: 0.6, rotate: -45 }
-        : { x: '150%', y: '-50%', scale: 0.6, rotate: -45 }
-    }
-    transition={{ duration: 3, ease: 'easeInOut' }}
-  />
-);
+type AnimationStage = 'initial' | 'journey' | 'landing' | 'logo' | 'loading' | 'complete';
 
 export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => {
   const [stage, setStage] = useState<AnimationStage>('initial');
   const [loading, setLoading] = useState(0);
   const [isButtonClicked, setIsButtonClicked] = useState(false);
-  const [showSpark, setShowSpark] = useState(false);
+  const [showSpark, setShowSpark] = useState(false); // 🌩️ New spark state
 
   useEffect(() => {
     const stageTimings: { [key in AnimationStage]?: number } = {
@@ -40,7 +21,6 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
     if (isButtonClicked && stage !== 'complete') {
       const nextStage: { [key in AnimationStage]: AnimationStage } = {
         initial: 'journey',
-        spark: 'journey',
         journey: 'landing',
         landing: 'logo',
         logo: 'loading',
@@ -83,13 +63,11 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
 
   const handlePowerButtonClick = () => {
     setIsButtonClicked(true);
-    setShowSpark(true);
-    setStage('spark');
+    setShowSpark(true); // ⚡ Trigger spark effect
+    setStage('journey');
 
-    setTimeout(() => {
-      setShowSpark(false);
-      setStage('journey');
-    }, 2000); // spark duration
+    // ⚡ Stop spark after 2 seconds
+    setTimeout(() => setShowSpark(false), 2000);
   };
 
   return (
@@ -101,18 +79,18 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
         exit={{ opacity: 0 }}
         transition={{ duration: 1 }}
       >
-        {/* Spark Overlay */}
+        {/* ⚡ Spark Overlay */}
         <AnimatePresence>
           {showSpark && (
             <motion.div
-              className="fixed inset-0 z-[1000] bg-black pointer-events-none"
+              className="fixed inset-0 z-[999] pointer-events-none"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.4 }}
+              transition={{ duration: 0.5 }}
             >
               <img
-                src="/assets/spark.gif"
+                src="https://media.tenor.com/GVfjPbm4TpcAAAAC/electricity-electric-shock.gif"
                 alt="Spark Effect"
                 className="w-full h-full object-cover"
               />
@@ -121,9 +99,9 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
         </AnimatePresence>
 
         {/* Power Button */}
-        {(stage === 'initial' || stage === 'spark') && !showSpark && (
+        {stage === 'initial' && (
           <div className="relative z-10">
-            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,...')] opacity-30" />
+            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDBNIDAgMjAgTCA0MCAyMCBNIDIwIDAgTCAyMCA0MCBNIDAgMzAgTCA0MCAzMCBNIDMwIDAgTCAzMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDBCRkZGMjAiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-30" />
             <motion.button
               className="w-40 h-40 bg-black/80 rounded-2xl border-4 border-[#00BFFF] relative overflow-hidden group"
               onClick={handlePowerButtonClick}
@@ -167,7 +145,14 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
                 }}
               />
             ))}
-            <RocketAnimation startStage="journey" />
+            <motion.img
+              src="/assets/spitship.png"
+              alt="Rocket"
+              className="w-32 h-32 absolute"
+              initial={{ x: '100%', y: '400%', scale: 4 }}
+              animate={{ x: '300%', y: '-30%', scale: 0.6, rotate: -45 }}
+              transition={{ duration: 3, ease: "easeInOut" }}
+            />
           </div>
         )}
 
@@ -223,7 +208,14 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
                   background: 'transparent',
                 }}
               />
-              <RocketAnimation startStage="landing" />
+              <motion.img
+                src="/assets/spitship.png"
+                alt="Rocket"
+                className="w-16 h-16 absolute top-0 left-1/2 -translate-x-1/2 z-20"
+                initial={{ y: '-100%' }}
+                animate={{ y: '100%' }}
+                transition={{ duration: 2, ease: 'easeIn' }}
+              />
             </div>
           </div>
         )}
