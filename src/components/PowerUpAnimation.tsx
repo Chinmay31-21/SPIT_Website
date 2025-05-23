@@ -146,7 +146,7 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
         {/* Landing on Earth */}
  {stage === 'landing' && (
   <div className="relative w-full h-full flex items-center justify-center overflow-hidden bg-black">
-    
+
     {/* ✨ Animated Stars */}
     {Array.from({ length: 60 }).map((_, i) => (
       <motion.div
@@ -170,29 +170,51 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
       />
     ))}
 
-    {/* 🌍 Rotating Earth with animated glow */}
-    <motion.div
-      className="w-96 h-96 rounded-full overflow-hidden relative shadow-2xl"
-      style={{
-        boxShadow: '0 0 60px 20px rgba(0, 191, 255, 0.3)',
-      }}
-      animate={{
-        boxShadow: [
-          '0 0 40px 10px rgba(0, 191, 255, 0.2)',
-          '0 0 80px 30px rgba(0, 191, 255, 0.5)',
-          '0 0 40px 10px rgba(0, 191, 255, 0.2)'
-        ]
-      }}
-      transition={{
-        duration: 4,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }}
-    >
+    {/* 🌍 Earth with animated NEON TECH GLOW */}
+    <div className="relative w-96 h-96 flex items-center justify-center">
+      {/* Neon Glow Ring */}
+      <motion.div
+        className="absolute rounded-full border-4 border-[#00BFFF]/40 blur-xl"
+        style={{
+          width: '420px',
+          height: '420px',
+        }}
+        animate={{
+          scale: [1, 1.05, 1],
+          opacity: [0.6, 1, 0.6],
+          boxShadow: [
+            '0 0 20px #00BFFF',
+            '0 0 40px #00BFFF',
+            '0 0 20px #00BFFF'
+          ]
+        }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: 'easeInOut'
+        }}
+      />
+
+      {/* Outer pulsing glow aura */}
+      <motion.div
+        className="absolute rounded-full bg-[#00BFFF]/20 blur-2xl"
+        style={{ width: '500px', height: '500px' }}
+        animate={{
+          opacity: [0.3, 0.6, 0.3],
+          scale: [1, 1.1, 1],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: 'easeInOut'
+        }}
+      />
+
+      {/* Earth Rotating */}
       <motion.img
         src="/assets/Earth.jpg"
         alt="Earth"
-        className="w-full h-full object-cover rounded-full"
+        className="w-96 h-96 object-cover rounded-full z-10"
         animate={{ rotate: 360 }}
         transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
       />
@@ -201,12 +223,12 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
       <motion.img
         src="/assets/spitship.png"
         alt="Rocket"
-        className="w-16 h-16 absolute top-0 left-1/2 -translate-x-1/2"
+        className="w-16 h-16 absolute top-0 left-1/2 -translate-x-1/2 z-20"
         initial={{ y: '-100%' }}
         animate={{ y: '100%' }}
         transition={{ duration: 2, ease: 'easeIn' }}
       />
-    </motion.div>
+    </div>
   </div>
 )}
 
