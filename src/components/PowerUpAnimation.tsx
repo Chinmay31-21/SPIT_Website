@@ -147,14 +147,14 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
         {stage === 'landing' && (
           <div className="relative w-full h-full flex items-center justify-center">
             <motion.div
-              className="w-96 h-96 rounded-full bg-/assets/Earth.png relative overflow-hidden"
+              className="w-96 h-96 rounded-full bg-[/assets/Earth.jpg] relative overflow-hidden"
               initial={{ scale: 0.5 }}
               animate={{ scale: 1 }}
             >
               <motion.div
                 className="absolute inset-0"
                 style={{
-                  background: '/assets/Earth.png',
+                  background: '/assets/Earth.jpg',
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   mixBlendMode: 'overlay',
