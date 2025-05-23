@@ -213,30 +213,33 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
         )}
 
         {/* Logo */}
-        {stage === 'logo' && (
-          <motion.div
-            className="text-center"
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            <motion.img
-              src="https://www.spit.ac.in/wp-content/themes/spit-main/images/SPIT_logo.png"
-              alt="SPIT Logo"
-              className="w-40 h-40 mx-auto mb-4"
-              animate={{ rotate: [0, 360] }}
-              transition={{ duration: 3 }}
-            />
-            <motion.h1
-              className="text-2xl font-bold bg-gradient-to-r from-[#FFD700] to-[#00BFFF] bg-clip-text text-transparent"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
-            >
-              Welcome to SPIT
-            </motion.h1>
-          </motion.div>
-        )}
+{stage === 'logo' && (
+  <motion.div
+    className="text-center font-sans"
+    initial={{ opacity: 0, scale: 0.8 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.6 }}
+  >
+    <div className="relative inline-block p-4 rounded-full border-4 border-[#00BFFF] shadow-[0_0_40px_#00BFFF] bg-black/20 backdrop-blur-lg">
+      <motion.img
+        src="https://www.spit.ac.in/wp-content/themes/spit-main/images/SPIT_logo.png"
+        alt="SPIT Logo"
+        className="w-40 h-40 rounded-full object-cover"
+        animate={{ rotate: [0, 360] }}
+        transition={{ duration: 3, ease: 'easeInOut' }}
+      />
+    </div>
+
+    <motion.h1
+      className="text-3xl md:text-4xl font-semibold mt-6 bg-gradient-to-r from-[#FFD700] to-[#00BFFF] bg-clip-text text-transparent tracking-wide"
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.5, duration: 0.6 }}
+    >
+      Welcome to SPIT
+    </motion.h1>
+  </motion.div>
+)}
 
         {/* Loading */}
         {stage === 'loading' && (
