@@ -125,7 +125,7 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
             
             {/* Rocket */}
             <motion.img
-              src="https://www.svgrepo.com/show/530440/rocket.svg"
+              src="/assets/spitship.png"
               alt="Rocket"
               className="w-32 h-32 absolute"
               initial={{ x: '100%', y: '400%', scale: 4 }}
@@ -154,14 +154,14 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
               <motion.div
                 className="absolute inset-0"
                 style={{
-                  background: 'https://media.istockphoto.com/id/173027360/photo/blue-glowing-earth-lower-asia.jpg?s=612x612&w=0&k=20&c=ZKMWsA3ODlhzzzESzt3lLAMjq8Zyz9DHwOyd0ws4tpA=',
+                  background: '/assets/Earth.png',
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   mixBlendMode: 'overlay',
                 }}
               />
               <motion.img
-                src="https://www.svgrepo.com/show/530440/rocket.svg"
+                src="/assets/spitship.png"
                 alt="Rocket"
                 className="w-16 h-16 absolute top-0 left-1/2 -translate-x-1/2"
                 initial={{ y: '-100%' }}
