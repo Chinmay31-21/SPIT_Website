@@ -212,7 +212,7 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
 
       {/* Earth Rotating */}
       <motion.img
-     src="/assets/Earth.png" 
+     src="/assets/Earth.jpg" 
      alt="Earth"
      className="w-96 h-96 z-10 rounded-full"
      animate={{ rotate: 360 }}
