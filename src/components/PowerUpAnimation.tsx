@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Zap } from 'lucide-react';
 
-type AnimationStage = 'initial' | 'journey' | 'landing' | 'logo' | 'loading' | 'complete';
+type AnimationStage = 'initial' | 'spark' | 'journey' | 'landing' | 'logo' | 'loading' | 'complete';
+
 
 export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => {
   const [stage, setStage] = useState<AnimationStage>('initial');
@@ -61,14 +62,17 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
     }
   }, [loading, onComplete]);
 
-  const handlePowerButtonClick = () => {
-    setIsButtonClicked(true);
-    setShowSpark(true); // ⚡ Trigger spark effect
-    setStage('journey');
+ const handlePowerButtonClick = () => {
+  setIsButtonClicked(true);
+  setShowSpark(true);
+  setStage('spark');
 
-    // ⚡ Stop spark after 2 seconds
-    setTimeout(() => setShowSpark(false), 2000);
-  };
+  setTimeout(() => {
+    setShowSpark(false);
+    setStage('journey'); // Only go to 'journey' after spark ends
+  }, 2000); // spark duration
+};
+
 
   return (
     <AnimatePresence>
@@ -80,26 +84,26 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
         transition={{ duration: 1 }}
       >
         {/* ⚡ Spark Overlay */}
-        <AnimatePresence>
-          {showSpark && (
-            <motion.div
-              className="fixed inset-0 z-[999] pointer-events-none"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <img
-                src="/assets/spark.gif"
-                alt="Spark Effect"
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
-          )}
-        </AnimatePresence>
+<AnimatePresence>
+  {showSpark && (
+    <motion.div
+      className="fixed inset-0 z-[1000] bg-black pointer-events-none"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.4 }}
+    >
+      <img
+        src="/assets/spark.gif"
+        alt="Spark Effect"
+        className="w-full h-full object-cover"
+      />
+    </motion.div>
+  )}
+</AnimatePresence>
 
         {/* Power Button */}
-        {stage === 'initial' && (
+        {stage === 'initial' && !showSpark && (
           <div className="relative z-10">
             <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDBNIDAgMjAgTCA0MCAyMCBNIDIwIDAgTCAyMCA0MCBNIDAgMzAgTCA0MCAzMCBNIDMwIDAgTCAzMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDBCRkZGMjAiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-30" />
             <motion.button
@@ -189,6 +193,12 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
                   opacity: [0.6, 1, 0.6],
                   boxShadow: ['0 0 20px #00BFFF', '0 0 40px #00BFFF', '0 0 20px #00BFFF']
                 }}
+
+  initial={{ opacity: 0, scale: 0.95 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 1 }}
+
+
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
               />
               <motion.div
@@ -196,6 +206,9 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
                 style={{ width: '500px', height: '500px' }}
                 animate={{ opacity: [0.3, 0.6, 0.3], scale: [1, 1.1, 1] }}
                 transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+                 initial={{ opacity: 0, scale: 0.95 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 1 }}
               />
               <motion.img
                 src="/assets/Earth.jpg"
@@ -209,13 +222,14 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
                 }}
               />
               <motion.img
-                src="/assets/spitship.png"
-                alt="Rocket"
-                className="w-16 h-16 absolute top-0 left-1/2 -translate-x-1/2 z-20"
-                initial={{ y: '-100%' }}
-                animate={{ y: '100%' }}
-                transition={{ duration: 2, ease: 'easeIn' }}
-              />
+  src="/assets/spitship.png"
+  alt="Rocket"
+  className="w-32 h-32 absolute"
+  initial={{ x: '0%', y: '100%', scale: 1.2 }}
+  animate={{ x: '150%', y: '-50%', scale: 0.6, rotate: -45 }}
+  transition={{ duration: 3, ease: "easeInOut" }}
+/>
+
             </div>
           </div>
         )}
