@@ -88,7 +88,7 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
     >
       <div className="absolute inset-0 w-full h-full bg-black bg-opacity-60 z-[9999] flex items-center justify-center">
         <img
-          src="https://media.tenor.com/GVfjPbm4TpcAAAAC/electricity-electric-shock.gif"
+          src="/assets/spark.gif"
           alt="Spark Effect"
           className="w-full h-full object-cover mix-blend-screen opacity-90 animate-fade"
         />
