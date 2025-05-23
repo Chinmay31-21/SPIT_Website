@@ -8,7 +8,7 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
   const [stage, setStage] = useState<AnimationStage>('initial');
   const [loading, setLoading] = useState(0);
   const [isButtonClicked, setIsButtonClicked] = useState(false);
-  const [showSpark, setShowSpark] = useState(false); // 🌩️ New spark state
+  const [showSpark, setShowSpark] = useState(false);
 
   useEffect(() => {
     const stageTimings: { [key in AnimationStage]?: number } = {
@@ -47,7 +47,6 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
           return prev + 1;
         });
       }, 30);
-
       return () => clearInterval(interval);
     }
   }, [stage]);
@@ -63,10 +62,8 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
 
   const handlePowerButtonClick = () => {
     setIsButtonClicked(true);
-    setShowSpark(true); // ⚡ Trigger spark effect
+    setShowSpark(true);
     setStage('journey');
-
-    // ⚡ Stop spark after 2 seconds
     setTimeout(() => setShowSpark(false), 2000);
   };
 
@@ -89,23 +86,24 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <img
-                src="https://media.tenor.com/GVfjPbm4TpcAAAAC/electricity-electric-shock.gif"
-                alt="Spark Effect"
-                className="w-full h-full object-cover"
-              />
+              <div className="w-full h-full flex items-center justify-center bg-black bg-opacity-40">
+                <img
+                  src="https://media.tenor.com/GVfjPbm4TpcAAAAC/electricity-electric-shock.gif"
+                  alt="Spark Effect"
+                  className="w-[80%] h-[80%] object-contain mix-blend-screen drop-shadow-[0_0_60px_rgba(255,255,255,0.3)] animate-fade"
+                />
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
 
         {/* Power Button */}
         {stage === 'initial' && (
-          <div className="relative z-10">
-            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDBNIDAgMjAgTCA0MCAyMCBNIDIwIDAgTCAyMCA0MCBNIDAgMzAgTCA0MCAzMCBNIDMwIDAgTCAzMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDBCRkZGMjAiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-30" />
+          <div className="relative z-10 flex flex-col items-center">
             <motion.button
-              className="w-40 h-40 bg-black/80 rounded-2xl border-4 border-[#00BFFF] relative overflow-hidden group"
+              className="w-40 h-40 rounded-full backdrop-blur-md bg-white/5 border border-[#00BFFF] shadow-[0_0_20px_rgba(0,191,255,0.3)] relative overflow-hidden group animate-pulse"
               onClick={handlePowerButtonClick}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
               <Zap className="w-16 h-16 text-[#00BFFF] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 group-hover:text-[#FFD700] transition-colors duration-300" />
@@ -115,8 +113,8 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
                 transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
               />
             </motion.button>
-            <p className="text-[#00BFFF] mt-4 text-center text-lg font-semibold">
-              Press to Power Up the SPIT Network ⚡
+            <p className="text-center mt-6 text-lg font-medium text-white/80 tracking-wide">
+              Power Up the <span className="text-[#00BFFF] font-semibold">SPIT Network ⚡</span>
             </p>
           </div>
         )}
@@ -134,10 +132,7 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
                   left: Math.random() * 100 + '%',
                   top: Math.random() * 100 + '%',
                 }}
-                animate={{
-                  scale: [1, 0, 1],
-                  opacity: [1, 0.5, 1],
-                }}
+                animate={{ scale: [1, 0, 1], opacity: [1, 0.5, 1] }}
                 transition={{
                   duration: Math.random() * 2 + 1,
                   repeat: Infinity,
@@ -169,10 +164,7 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
                   left: Math.random() * 100 + '%',
                   top: Math.random() * 100 + '%',
                 }}
-                animate={{
-                  opacity: [1, 0.5, 1],
-                  scale: [1, 0.8, 1.2, 1],
-                }}
+                animate={{ opacity: [1, 0.5, 1], scale: [1, 0.8, 1.2, 1] }}
                 transition={{
                   duration: Math.random() * 3 + 2,
                   repeat: Infinity,
