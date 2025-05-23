@@ -90,7 +90,7 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
               transition={{ duration: 0.5 }}
             >
               <img
-                src="https://media.tenor.com/GVfjPbm4TpcAAAAC/electricity-electric-shock.gif"
+                src="/assets/spark.gif"
                 alt="Spark Effect"
                 className="w-full h-full object-cover"
               />
