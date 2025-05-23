@@ -8,6 +8,17 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
   const [stage, setStage] = useState<AnimationStage>('initial');
   const [loading, setLoading] = useState(0);
   const [isButtonClicked, setIsButtonClicked] = useState(false);
+const [shockEffect, setShockEffect] = useState(false);
+
+const handlePowerButtonClick = () => {
+  setShockEffect(true);
+  setTimeout(() => {
+    setShockEffect(false);
+    setIsButtonClicked(true);
+    setStage('journey');
+  }, 1500); // shock duration
+};
+
 
   useEffect(() => {
     const stageTimings: { [key in AnimationStage]?: number } = {
@@ -64,23 +75,44 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
     setIsButtonClicked(true);
     setStage('journey');
   };
+  
+{shockEffect && (
+  <motion.div
+    className="fixed inset-0 bg-black z-[100] pointer-events-none"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: [0, 1, 0.7, 0], scale: [1, 1.05, 0.95, 1] }}
+    transition={{ duration: 1.2, ease: 'easeInOut' }}
+  >
+    <img
+      src="/assets/sparkburst.gif"
+      alt="Shock Spark"
+      className="absolute top-1/2 left-1/2 w-full h-full object-cover transform -translate-x-1/2 -translate-y-1/2 opacity-80"
+    />
+  </motion.div>
+)}
 
   return (
     <AnimatePresence>
-      <motion.div
-        className="fixed inset-0 bg-black z-50 flex items-center justify-center overflow-hidden"
-        initial={{ opacity: 1 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 1 }}
-      >
+     <motion.div
+  key={stage}
+  className="fixed inset-0 bg-black z-50 flex items-center justify-center overflow-hidden"
+  initial={{ opacity: 1 }}
+  animate={{
+    opacity: 1,
+    x: shockEffect ? [0, -10, 10, -5, 5, 0] : 0,
+    y: shockEffect ? [0, 5, -5, 5, -2, 0] : 0,
+  }}
+  exit={{ opacity: 0 }}
+  transition={{ duration: shockEffect ? 0.5 : 1 }}
+>
         {/* Power Button */}
         {stage === 'initial' && (
           <div className="relative z-10">
             <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDBNIDAgMjAgTCA0MCAyMCBNIDIwIDAgTCAyMCA0MCBNIDAgMzAgTCA0MCAzMCBNIDMwIDAgTCAzMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDBCRkZGMjAiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-30" />
             <motion.button
               className="w-40 h-40 bg-black/80 rounded-2xl border-4 border-[#00BFFF] relative overflow-hidden group"
-              onClick={handlePowerButtonClick}
+              onClick={handlePowerButtonClick const audio = new Audio('/assets/electric-spark.mp3');
+audio.play();}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
