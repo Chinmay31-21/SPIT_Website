@@ -148,6 +148,10 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
           <div className="relative w-full h-full flex items-center justify-center">
             <motion.div
               className="w-96 h-96 rounded-full bg-[#0066FF] relative overflow-hidden"
+              background: '/assets/Earth.png',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              mixBlendMode: 'overlay',
               initial={{ scale: 0.5 }}
               animate={{ scale: 1 }}
             >
@@ -185,7 +189,7 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
               alt="SPIT Logo"
               className="w-40 h-40 mx-auto mb-4"
               animate={{ rotate: [0, 360] }}
-              transition={{ duration: 2 }}
+              transition={{ duration: 3 }}
             />
             <motion.h1
               className="text-2xl font-bold bg-gradient-to-r from-[#FFD700] to-[#00BFFF] bg-clip-text text-transparent"
