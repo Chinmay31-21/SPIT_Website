@@ -3,45 +3,28 @@
 @tailwind utilities;
 
 @keyframes coin-flip {
-  0% {
-    transform: rotateY(0) translateY(0);
-  }
-  25% {
-    transform: rotateY(180deg) translateY(-50px);
-  }
-  50% {
-    transform: rotateY(360deg) translateY(0);
-  }
-  75% {
-    transform: rotateY(540deg) translateY(-25px);
-  }
-  100% {
-    transform: rotateY(720deg) translateY(0) translateX(-200px);
-  }
+  0% { transform: rotateY(0) translateY(0); }
+  25% { transform: rotateY(180deg) translateY(-50px); }
+  50% { transform: rotateY(360deg) translateY(0); }
+  75% { transform: rotateY(540deg) translateY(-25px); }
+  100% { transform: rotateY(720deg) translateY(0) translateX(-200px); }
+}
+
+@keyframes cosmic {
+  0% { transform: translate(100vw, -100%) rotate(-45deg); }
+  100% { transform: translate(-100vw, 100%) rotate(-45deg); }
 }
 
 @keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0px); }
 }
 
 @keyframes glow {
-  0% {
-    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
-  }
-  50% {
-    text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
-  }
-  100% {
-    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
-  }
+  0% { text-shadow: 0 0 5px rgba(255, 215, 0, 0.5); }
+  50% { text-shadow: 0 0 20px rgba(255, 215, 0, 0.8); }
+  100% { text-shadow: 0 0 5px rgba(255, 215, 0, 0.5); }
 }
 
 @keyframes sparkle {
@@ -56,14 +39,8 @@
 }
 
 @keyframes slide-in {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fade-in {
