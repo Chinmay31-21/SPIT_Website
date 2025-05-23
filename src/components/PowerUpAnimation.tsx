@@ -144,19 +144,60 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
         )}
 
         {/* Landing on Earth */}
-        {stage === 'landing' && (
-  <div className="relative w-full h-full flex items-center justify-center">
+ {stage === 'landing' && (
+  <div className="relative w-full h-full flex items-center justify-center overflow-hidden bg-black">
+    
+    {/* ✨ Animated Stars */}
+    {Array.from({ length: 60 }).map((_, i) => (
+      <motion.div
+        key={i}
+        className="absolute bg-white rounded-full"
+        style={{
+          width: Math.random() * 2 + 1 + 'px',
+          height: Math.random() * 2 + 1 + 'px',
+          left: Math.random() * 100 + '%',
+          top: Math.random() * 100 + '%',
+        }}
+        animate={{
+          opacity: [1, 0.5, 1],
+          scale: [1, 0.8, 1.2, 1],
+        }}
+        transition={{
+          duration: Math.random() * 3 + 2,
+          repeat: Infinity,
+          delay: Math.random() * 2,
+        }}
+      />
+    ))}
+
+    {/* 🌍 Rotating Earth with animated glow */}
     <motion.div
-      className="w-96 h-96 rounded-full overflow-hidden relative"
+      className="w-96 h-96 rounded-full overflow-hidden relative shadow-2xl"
       style={{
-        backgroundImage: `url('/assets/Earth.jpg')`, // Assumes Earth.jpg is in public folder
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        boxShadow: '0 0 40px #00BFFF55',
+        boxShadow: '0 0 60px 20px rgba(0, 191, 255, 0.3)',
       }}
-      initial={{ scale: 0.5 }}
-      animate={{ scale: 1 }}
+      animate={{
+        boxShadow: [
+          '0 0 40px 10px rgba(0, 191, 255, 0.2)',
+          '0 0 80px 30px rgba(0, 191, 255, 0.5)',
+          '0 0 40px 10px rgba(0, 191, 255, 0.2)'
+        ]
+      }}
+      transition={{
+        duration: 4,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }}
     >
+      <motion.img
+        src="/assets/Earth.jpg"
+        alt="Earth"
+        className="w-full h-full object-cover rounded-full"
+        animate={{ rotate: 360 }}
+        transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
+      />
+
+      {/* 🚀 Rocket Landing */}
       <motion.img
         src="/assets/spitship.png"
         alt="Rocket"
@@ -168,6 +209,7 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
     </motion.div>
   </div>
 )}
+
 
         {/* Logo Animation */}
         {stage === 'logo' && (
