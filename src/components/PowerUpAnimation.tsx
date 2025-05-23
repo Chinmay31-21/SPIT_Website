@@ -65,6 +65,7 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
     setStage('journey');
   };
 
+
   return (
     <AnimatePresence>
       <motion.div
@@ -75,27 +76,56 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
         transition={{ duration: 1 }}
       >
         {/* Power Button */}
-        {stage === 'initial' && (
-          <div className="relative z-10">
-            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDBNIDAgMjAgTCA0MCAyMCBNIDIwIDAgTCAyMCA0MCBNIDAgMzAgTCA0MCAzMCBNIDMwIDAgTCAzMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDBCRkZGMjAiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-30" />
-            <motion.button
-              className="w-40 h-40 bg-black/80 rounded-2xl border-4 border-[#00BFFF] relative overflow-hidden group"
-              onClick={handlePowerButtonClick}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Zap className="w-16 h-16 text-[#00BFFF] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 group-hover:text-[#FFD700] transition-colors duration-300" />
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-[#00BFFF]/20 to-transparent"
-                animate={{ x: ['0%', '200%'] }}
-                transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-              />
-            </motion.button>
-            <p className="text-[#00BFFF] mt-4 text-center text-lg font-semibold">
-              Press to Power Up the SPIT Network ⚡
-            </p>
-          </div>
-        )}
+       {stage === 'initial' && (
+  <div className="relative z-10 w-full h-full flex items-center justify-center bg-black">
+    
+    {/* Radiating Power Effect - when clicked */}
+    {isButtonClicked && (
+      <motion.div
+        className="absolute w-[3000px] h-[3000px] rounded-full bg-gradient-radial from-[#00BFFF]/30 via-[#00BFFF]/10 to-transparent"
+        initial={{ scale: 0, opacity: 1 }}
+        animate={{ scale: 1.5, opacity: 0 }}
+        transition={{ duration: 2 }}
+      />
+    )}
+
+    {/* Power Button */}
+    <motion.button
+      className="w-40 h-40 rounded-full bg-black border-4 border-[#00BFFF] shadow-[0_0_30px_#00BFFF] relative overflow-hidden flex items-center justify-center group"
+      onClick={handlePowerButtonClick}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      animate={{
+        boxShadow: [
+          "0 0 20px #00BFFF",
+          "0 0 40px #00BFFF",
+          "0 0 20px #00BFFF",
+        ],
+      }}
+      transition={{
+        repeat: Infinity,
+        duration: 2,
+        ease: "easeInOut",
+      }}
+    >
+      {/* Glowing Spark Icon */}
+      <Zap className="w-16 h-16 text-[#00BFFF] group-hover:text-[#FFD700] transition-colors duration-300 z-10" />
+
+      {/* Shimmer Animation */}
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-r from-[#00BFFF]/30 via-white/10 to-[#00BFFF]/30 blur-sm"
+        animate={{ x: ['-100%', '100%'] }}
+        transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
+      />
+    </motion.button>
+
+    <p className="text-[#00BFFF] mt-6 text-center text-lg font-semibold">
+      Press to Power Up the SPIT Network ⚡
+    </p>
+  </div>
+)}
+
+       
 
         {/* Journey with Rocket */}
         {stage === 'journey' && (
