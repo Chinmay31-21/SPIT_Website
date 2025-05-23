@@ -193,12 +193,6 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
                   opacity: [0.6, 1, 0.6],
                   boxShadow: ['0 0 20px #00BFFF', '0 0 40px #00BFFF', '0 0 20px #00BFFF']
                 }}
-
-  initial={{ opacity: 0, scale: 0.95 }}
-  animate={{ opacity: 1, scale: 1 }}
-  transition={{ duration: 1 }}
-
-
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
               />
               <motion.div
@@ -206,9 +200,7 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
                 style={{ width: '500px', height: '500px' }}
                 animate={{ opacity: [0.3, 0.6, 0.3], scale: [1, 1.1, 1] }}
                 transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-                 initial={{ opacity: 0, scale: 0.95 }}
-  animate={{ opacity: 1, scale: 1 }}
-  transition={{ duration: 1 }}
+                 
               />
               <motion.img
                 src="/assets/Earth.jpg"
