@@ -8,17 +8,7 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
   const [stage, setStage] = useState<AnimationStage>('initial');
   const [loading, setLoading] = useState(0);
   const [isButtonClicked, setIsButtonClicked] = useState(false);
-const [shockEffect, setShockEffect] = useState(false);
-
-const handlePowerButtonClick = () => {
-  setShockEffect(true);
-  setTimeout(() => {
-    setShockEffect(false);
-    setIsButtonClicked(true);
-    setStage('journey');
-  }, 1500); // shock duration
-};
-
+  const [showSpark, setShowSpark] = useState(false); // 🌩️ New spark state
 
   useEffect(() => {
     const stageTimings: { [key in AnimationStage]?: number } = {
@@ -73,46 +63,48 @@ const handlePowerButtonClick = () => {
 
   const handlePowerButtonClick = () => {
     setIsButtonClicked(true);
+    setShowSpark(true); // ⚡ Trigger spark effect
     setStage('journey');
+
+    // ⚡ Stop spark after 2 seconds
+    setTimeout(() => setShowSpark(false), 2000);
   };
-  
-{shockEffect && (
-  <motion.div
-    className="fixed inset-0 bg-black z-[100] pointer-events-none"
-    initial={{ opacity: 0 }}
-    animate={{ opacity: [0, 1, 0.7, 0], scale: [1, 1.05, 0.95, 1] }}
-    transition={{ duration: 1.2, ease: 'easeInOut' }}
-  >
-    <img
-      src="/assets/spark.gif"
-      alt="Shock Spark"
-      className="absolute top-1/2 left-1/2 w-full h-full object-cover transform -translate-x-1/2 -translate-y-1/2 opacity-80"
-    />
-  </motion.div>
-)}
 
   return (
     <AnimatePresence>
-     <motion.div
-  key={stage}
-  className="fixed inset-0 bg-black z-50 flex items-center justify-center overflow-hidden"
-  initial={{ opacity: 1 }}
-  animate={{
-    opacity: 1,
-    x: shockEffect ? [0, -10, 10, -5, 5, 0] : 0,
-    y: shockEffect ? [0, 5, -5, 5, -2, 0] : 0,
-  }}
-  exit={{ opacity: 0 }}
-  transition={{ duration: shockEffect ? 0.5 : 1 }}
->
+      <motion.div
+        className="fixed inset-0 bg-black z-50 flex items-center justify-center overflow-hidden"
+        initial={{ opacity: 1 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 1 }}
+      >
+        {/* ⚡ Spark Overlay */}
+        <AnimatePresence>
+          {showSpark && (
+            <motion.div
+              className="fixed inset-0 z-[999] pointer-events-none"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <img
+                src="https://media.tenor.com/GVfjPbm4TpcAAAAC/electricity-electric-shock.gif"
+                alt="Spark Effect"
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         {/* Power Button */}
         {stage === 'initial' && (
           <div className="relative z-10">
             <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDBNIDAgMjAgTCA0MCAyMCBNIDIwIDAgTCAyMCA0MCBNIDAgMzAgTCA0MCAzMCBNIDMwIDAgTCAzMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDBCRkZGMjAiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-30" />
             <motion.button
               className="w-40 h-40 bg-black/80 rounded-2xl border-4 border-[#00BFFF] relative overflow-hidden group"
-              onClick={handlePowerButtonClick const audio = new Audio('/assets/spark.mp3');
-audio.play();}
+              onClick={handlePowerButtonClick}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -129,10 +121,9 @@ audio.play();}
           </div>
         )}
 
-        {/* Journey with Rocket */}
+        {/* Journey */}
         {stage === 'journey' && (
           <div className="relative w-full h-full overflow-hidden">
-            {/* Stars Background */}
             {Array.from({ length: 50 }).map((_, i) => (
               <motion.div
                 key={i}
@@ -154,122 +145,82 @@ audio.play();}
                 }}
               />
             ))}
-            
-            {/* Rocket */}
             <motion.img
               src="/assets/spitship.png"
               alt="Rocket"
               className="w-32 h-32 absolute"
               initial={{ x: '100%', y: '400%', scale: 4 }}
-              animate={{ 
-                x: '300%',
-                y: '-30%',
-                scale: 0.6,
-                rotate: -45
-              }}
-              transition={{ 
-                duration: 3,
-                ease: "easeInOut"
-              }}
+              animate={{ x: '300%', y: '-30%', scale: 0.6, rotate: -45 }}
+              transition={{ duration: 3, ease: "easeInOut" }}
             />
           </div>
         )}
 
-        {/* Landing on Earth */}
- {stage === 'landing' && (
-  <div className="relative w-full h-full flex items-center justify-center overflow-hidden bg-black">
+        {/* Landing */}
+        {stage === 'landing' && (
+          <div className="relative w-full h-full flex items-center justify-center overflow-hidden bg-black">
+            {Array.from({ length: 60 }).map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute bg-white rounded-full"
+                style={{
+                  width: Math.random() * 2 + 1 + 'px',
+                  height: Math.random() * 2 + 1 + 'px',
+                  left: Math.random() * 100 + '%',
+                  top: Math.random() * 100 + '%',
+                }}
+                animate={{
+                  opacity: [1, 0.5, 1],
+                  scale: [1, 0.8, 1.2, 1],
+                }}
+                transition={{
+                  duration: Math.random() * 3 + 2,
+                  repeat: Infinity,
+                  delay: Math.random() * 2,
+                }}
+              />
+            ))}
+            <div className="relative w-96 h-96 flex items-center justify-center">
+              <motion.div
+                className="absolute rounded-full border-4 border-[#00BFFF]/40 blur-xl"
+                style={{ width: '420px', height: '420px' }}
+                animate={{
+                  scale: [1, 1.05, 1],
+                  opacity: [0.6, 1, 0.6],
+                  boxShadow: ['0 0 20px #00BFFF', '0 0 40px #00BFFF', '0 0 20px #00BFFF']
+                }}
+                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+              />
+              <motion.div
+                className="absolute rounded-full bg-[#00BFFF]/20 blur-2xl"
+                style={{ width: '500px', height: '500px' }}
+                animate={{ opacity: [0.3, 0.6, 0.3], scale: [1, 1.1, 1] }}
+                transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+              />
+              <motion.img
+                src="/assets/Earth.jpg"
+                alt="Earth"
+                className="w-96 h-96 z-10 rounded-full"
+                animate={{ rotate: 360 }}
+                transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
+                style={{
+                  filter: 'drop-shadow(0 0 10px rgba(0, 191, 255, 0.2))',
+                  background: 'transparent',
+                }}
+              />
+              <motion.img
+                src="/assets/spitship.png"
+                alt="Rocket"
+                className="w-16 h-16 absolute top-0 left-1/2 -translate-x-1/2 z-20"
+                initial={{ y: '-100%' }}
+                animate={{ y: '100%' }}
+                transition={{ duration: 2, ease: 'easeIn' }}
+              />
+            </div>
+          </div>
+        )}
 
-    {/* ✨ Animated Stars */}
-    {Array.from({ length: 60 }).map((_, i) => (
-      <motion.div
-        key={i}
-        className="absolute bg-white rounded-full"
-        style={{
-          width: Math.random() * 2 + 1 + 'px',
-          height: Math.random() * 2 + 1 + 'px',
-          left: Math.random() * 100 + '%',
-          top: Math.random() * 100 + '%',
-        }}
-        animate={{
-          opacity: [1, 0.5, 1],
-          scale: [1, 0.8, 1.2, 1],
-        }}
-        transition={{
-          duration: Math.random() * 3 + 2,
-          repeat: Infinity,
-          delay: Math.random() * 2,
-        }}
-      />
-    ))}
-
-    {/* 🌍 Earth with animated NEON TECH GLOW */}
-    <div className="relative w-96 h-96 flex items-center justify-center">
-      {/* Neon Glow Ring */}
-      <motion.div
-        className="absolute rounded-full border-4 border-[#00BFFF]/40 blur-xl"
-        style={{
-          width: '420px',
-          height: '420px',
-        }}
-        animate={{
-          scale: [1, 1.05, 1],
-          opacity: [0.6, 1, 0.6],
-          boxShadow: [
-            '0 0 20px #00BFFF',
-            '0 0 40px #00BFFF',
-            '0 0 20px #00BFFF'
-          ]
-        }}
-        transition={{
-          duration: 4,
-          repeat: Infinity,
-          ease: 'easeInOut'
-        }}
-      />
-
-      {/* Outer pulsing glow aura */}
-      <motion.div
-        className="absolute rounded-full bg-[#00BFFF]/20 blur-2xl"
-        style={{ width: '500px', height: '500px' }}
-        animate={{
-          opacity: [0.3, 0.6, 0.3],
-          scale: [1, 1.1, 1],
-        }}
-        transition={{
-          duration: 6,
-          repeat: Infinity,
-          ease: 'easeInOut'
-        }}
-      />
-
-      {/* Earth Rotating */}
-      <motion.img
-     src="/assets/Earth.jpg" 
-     alt="Earth"
-     className="w-96 h-96 z-10 rounded-full"
-     animate={{ rotate: 360 }}
-     transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
-     style={{
-       filter: 'drop-shadow(0 0 10px rgba(0, 191, 255, 0.2))',
-       background: 'transparent',
-       }}
-        />
-
-      {/* 🚀 Rocket Landing */}
-      <motion.img
-        src="/assets/spitship.png"
-        alt="Rocket"
-        className="w-16 h-16 absolute top-0 left-1/2 -translate-x-1/2 z-20"
-        initial={{ y: '-100%' }}
-        animate={{ y: '100%' }}
-        transition={{ duration: 2, ease: 'easeIn' }}
-      />
-    </div>
-  </div>
-)}
-
-
-        {/* Logo Animation */}
+        {/* Logo */}
         {stage === 'logo' && (
           <motion.div
             className="text-center"
@@ -295,14 +246,14 @@ audio.play();}
           </motion.div>
         )}
 
-        {/* Loading Progress */}
+        {/* Loading */}
         {stage === 'loading' && (
           <div className="text-center">
             <h2 className="text-[#00BFFF] mb-4">Entering the Campus Network</h2>
             <div className="w-64 h-2 bg-white/10 rounded-full overflow-hidden">
               <motion.div
                 className="h-full bg-gradient-to-r from-[#00BFFF] to-[#FFD700]"
-                style={{ width: ${loading}% }}
+                style={{ width: `${loading}%` }}
               />
             </div>
             <p className="text-white/60 mt-2">{loading}%</p>
