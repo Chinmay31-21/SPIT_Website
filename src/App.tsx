@@ -22,13 +22,13 @@ import { Placements } from './pages/Placements';
 import { Admissions } from './pages/Admissions';
 import { Contact } from './pages/Contact';
 import { MandatoryDisclosure } from './pages/resources/MandatoryDisclosure';
-import { IQAC } from './pages/resources/IQAC';
-import { NIRF } from './pages/resources/NIRF';
-import { NAAC } from './pages/resources/NAAC';
-import { Tender } from './pages/resources/Tender';
-import { AntiRagging } from './pages/resources/AntiRagging';
-import { RTI } from './pages/resources/RTI';
-import { Grievance } from './pages/resources/Grievance';
+import { IQAC } from './pages/resources/MandatoryDisclosure';
+import { NIRF } from './pages/resources/MandatoryDisclosure';
+import { NAAC } from './pages/resources/MandatoryDisclosure';
+import { Tender } from './pages/resources/MandatoryDisclosure';
+import { AntiRagging } from './pages/resources/MandatoryDisclosure';
+import { RTI } from './pages/resources/MandatoryDisclosure';
+import { Grievance } from './pages/resources/MandatoryDisclosure';
 
 const PageTransition = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
