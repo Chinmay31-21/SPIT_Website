@@ -114,7 +114,7 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
               />
             </motion.button>
             <p className="text-center mt-6 text-lg font-medium text-white/80 tracking-wide">
-              Power Up the <span className="text-[#00BFFF] font-semibold">SPIT Network ⚡</span>
+              Click above to Power Up the <span className="text-[#00BFFF] font-semibold">SPIT Network ⚡</span>
             </p>
           </div>
         )}
