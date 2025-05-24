@@ -154,7 +154,13 @@ export const Contact = () => {
             <h2 className="text-2xl font-bold text-[#FFD700] mb-6">Location</h2>
             <div className="aspect-video rounded-lg overflow-hidden">
              <iframe 
-               src="https://www.google.com/maps/place/Bharatiya+Vidya+Bhavan's+Sardar+Patel+Institute+of+Technology+(SPIT)/@19.1234481,72.8361436,20z/data=!4m14!1m7!3m6!1s0x3be7c9d90e067ba9:0x16268e5d6bca2e6a!2sBharatiya+Vidya+Bhavan's+Sardar+Patel+Institute+of+Technology+(SPIT)!8m2!3d19.1231776!4d72.8361154!16s%2Fg%2F122qyrv_!3m5!1s0x3be7c9d90e067ba9:0x16268e5d6bca2e6a!8m2!3d19.1231776!4d72.8361154!16s%2Fg%2F122qyrv_?entry=ttu&g_ep=EgoyMDI1MDUyMS4wIKXMDSoASAFQAw%3D%3D"
+               src=<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d792.4709154135721!2d72.835634613488!3d19.12308312390606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c9d90e067ba9%3A0x16268e5d6bca2e6a!2sBharatiya%20Vidya%20Bhavan&#39;s%20Sardar%20Patel%20Institute%20of%20Technology%20(SPIT)!5e0!3m2!1sen!2sin!4v1748075101979!5m2!1sen!2sin" 
+                     width="600" 
+                     height="450" 
+                     style="border:0;" 
+                     allowfullscreen="" 
+                     loading="lazy" 
+                     referrerpolicy="no-referrer-when-downgrade"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
