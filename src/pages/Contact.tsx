@@ -154,7 +154,7 @@ export const Contact = () => {
             <h2 className="text-2xl font-bold text-[#FFD700] mb-6">Location</h2>
             <div className="aspect-video rounded-lg overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/place/Bharatiya+Vidya+Bhavan's+Sardar+Patel+Institute+of+Technology+(SPIT)/@19.124223,72.837996,15z/data=!4m6!3m5!1s0x3be7c9d90e067ba9:0x16268e5d6bca2e6a!8m2!3d19.1231776!4d72.8361154!16s%2Fg%2F122qyrv_?hl=en&entry=ttu&g_ep=EgoyMDI1MDUyMS4wIKXMDSoASAFQAw%3D%3D"
+                src="https://www.google.com/maps/place/Bharatiya+Vidya+Bhavan's+Sardar+Patel+Institute+of+Technology+(SPIT)/@19.1231776,72.8361154,17z/data=!4m14!1m7!3m6!1s0x3be7c9d90e067ba9:0x16268e5d6bca2e6a!2sBharatiya+Vidya+Bhavan's+Sardar+Patel+Institute+of+Technology+(SPIT)!8m2!3d19.1231776!4d72.8361154!16s%2Fg%2F122qyrv_!3m5!1s0x3be7c9d90e067ba9:0x16268e5d6bca2e6a!8m2!3d19.1231776!4d72.8361154!16s%2Fg%2F122qyrv_?entry=ttu&g_ep=EgoyMDI1MDUyMS4wIKXMDSoASAFQAw%3D%3D"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
