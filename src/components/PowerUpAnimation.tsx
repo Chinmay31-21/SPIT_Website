@@ -209,7 +209,7 @@ const handlePowerButtonClick = () => {
 
             {/* Earth with city lights */}
             <motion.img
-              src="/assets/india.jpg"
+              src="/assets/india.png"
               alt="Earth from Space"
               className="absolute bottom-0 left-0 w-full object-cover z-5"
               initial={{ opacity: 0 }}
