@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Cloud, Map } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export const Footer = () => {
   const [time, setTime] = useState(new Date());
@@ -33,11 +34,23 @@ export const Footer = () => {
               Quick Links
             </h3>
             <ul className="space-y-2">
-              {['About Us', 'Academics', 'Admission', 'Research', 'Placements', 'Contact Us'].map((link) => (
-                <li key={link}>
-                  <a href="#" className="text-[#F0F0F0]/80 hover:text-[#00BFFF] transition-colors duration-300 text-sm">
-                    {link}
-                  </a>
+              {[
+                { title: 'About Us', path: '/about' },
+                { title: 'Academics', path: '/academics' },
+                { title: 'Admissions', path: '/admissions' },
+                { title: 'Research', path: '/research' },
+                { title: 'Placements', path: '/placements' },
+                { title: 'Library', path: '/library' },
+                { title: 'Students', path: '/students' },
+                { title: 'Contact Us', path: '/contact' }
+              ].map((link) => (
+                <li key={link.title}>
+                  <Link
+                    to={link.path}
+                    className="text-[#F0F0F0]/80 hover:text-[#00BFFF] transition-colors duration-300 text-sm"
+                  >
+                    {link.title}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -49,11 +62,23 @@ export const Footer = () => {
               Resources & Policies
             </h3>
             <ul className="space-y-2">
-              {['Mandatory Disclosure', 'IQAC', 'NIRF', 'NAAC', 'Tender', 'Anti-Ragging'].map((link) => (
-                <li key={link}>
-                  <a href="#" className="text-[#F0F0F0]/80 hover:text-[#00BFFF] transition-colors duration-300 text-sm">
-                    {link}
-                  </a>
+              {[
+                { title: 'Mandatory Disclosure', path: '/resources/mandatory-disclosure' },
+                { title: 'IQAC', path: '/resources/iqac' },
+                { title: 'NIRF', path: '/resources/nirf' },
+                { title: 'NAAC', path: '/resources/naac' },
+                { title: 'Tender', path: '/resources/tender' },
+                { title: 'Anti-Ragging', path: '/resources/anti-ragging' },
+                { title: 'RTI', path: '/resources/rti' },
+                { title: 'Grievance Redressal', path: '/resources/grievance' }
+              ].map((link) => (
+                <li key={link.title}>
+                  <Link
+                    to={link.path}
+                    className="text-[#F0F0F0]/80 hover:text-[#00BFFF] transition-colors duration-300 text-sm"
+                  >
+                    {link.title}
+                  </Link>
                 </li>
               ))}
             </ul>

@@ -21,6 +21,14 @@ import { Library } from './pages/Library';
 import { Placements } from './pages/Placements';
 import { Admissions } from './pages/Admissions';
 import { Contact } from './pages/Contact';
+import { MandatoryDisclosure } from './pages/resources/MandatoryDisclosure';
+import { IQAC } from './pages/resources/IQAC';
+import { NIRF } from './pages/resources/NIRF';
+import { NAAC } from './pages/resources/NAAC';
+import { Tender } from './pages/resources/Tender';
+import { AntiRagging } from './pages/resources/AntiRagging';
+import { RTI } from './pages/resources/RTI';
+import { Grievance } from './pages/resources/Grievance';
 
 const PageTransition = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
@@ -208,6 +216,16 @@ function App() {
             <Route path="/placements/*" element={<Placements />} />
             <Route path="/admissions/*" element={<Admissions />} />
             <Route path="/contact/*" element={<Contact />} />
+            
+            {/* Resource & Policy Routes */}
+            <Route path="/resources/mandatory-disclosure" element={<MandatoryDisclosure />} />
+            <Route path="/resources/iqac" element={<IQAC />} />
+            <Route path="/resources/nirf" element={<NIRF />} />
+            <Route path="/resources/naac" element={<NAAC />} />
+            <Route path="/resources/tender" element={<Tender />} />
+            <Route path="/resources/anti-ragging" element={<AntiRagging />} />
+            <Route path="/resources/rti" element={<RTI />} />
+            <Route path="/resources/grievance" element={<Grievance />} />
           </Routes>
         </PageTransition>
 
