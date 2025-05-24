@@ -219,13 +219,13 @@ function App() {
             
             {/* Resource & Policy Routes */}
             <Route path="/resources/mandatory-disclosure" element={<MandatoryDisclosure />} />
-            <Route path="/resources/mandatory-disclosure" element={<IQAC />} />
-            <Route path="/resources/mandatory-disclosure" element={<NIRF />} />
-            <Route path="/resources/mandatory-disclosure" element={<NAAC />} />
-            <Route path="/resources/mandatory-disclosurer" element={<Tender />} />
-            <Route path="/resources/mandatory-disclosure" element={<AntiRagging />} />
-            <Route path="/resources/mandatory-disclosure" element={<RTI />} />
-            <Route path="/resources/mandatory-disclosure" element={<Grievance />} />
+            <Route path="/resources/iqac" element={<IQAC />} />
+            <Route path="/resources/nirfe" element={<NIRF />} />
+            <Route path="/resources/naac" element={<NAAC />} />
+            <Route path="/resources/tender" element={<Tender />} />
+            <Route path="/resources/antiragging" element={<AntiRagging />} />
+            <Route path="/resources/rti" element={<RTI />} />
+            <Route path="/resources/grievance" element={<Grievance />} />
           </Routes>
         </PageTransition>
 
