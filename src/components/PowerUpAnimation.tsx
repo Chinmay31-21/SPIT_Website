@@ -105,7 +105,7 @@ const handlePowerButtonClick = () => {
   // Delay rocket launch start after 3 seconds
   setTimeout(() => {
     setStage('journey');
-  }, 3000);
+  }, 6000);
 };
 
 
