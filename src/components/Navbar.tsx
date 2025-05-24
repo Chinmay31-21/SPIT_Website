@@ -1,390 +1,180 @@
-import React, { useState, useEffect } from 'react';
-import { Menu } from '@headlessui/react';
-import { ChevronDown, Menu as MenuIcon, Search, X, Home } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import { Menu } from '@headlessui/react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Sparkles, Search, X } from 'lucide-react';
 
-// First row menu items
 const firstRowItems = [
   {
-    title: 'ABOUT',
+    title: 'Academics',
     items: [
-      { title: 'About SPIT', href: '/about' },
-      { title: 'Vision & Mission', href: '/about/vision-mission' },
-      { title: "Principal's Message", href: '/about/principal-message' },
-      { title: 'Governing Body', href: '/about/governing-body' },
-      { title: 'Infrastructure', href: '/about/infrastructure' },
-      { title: 'Achievements', href: '/about/achievements' },
-      { title: 'Campus Life', href: '/about/campus-life' },
-      { title: 'Contact Us', href: '/about/contact' },
-    ]
-  },
-  {
-    title: 'ACADEMICS',
-    items: [
-      { title: 'Undergraduate Programs', href: '/academics/ug' },
-      { title: 'Postgraduate Programs', href: '/academics/pg' },
-      { title: 'Doctoral Programs', href: '/academics/phd' },
-      { title: 'Academic Calendar', href: '/academics/calendar' },
+      { title: 'Programs', href: '/academics/programs' },
       { title: 'Departments', href: '/academics/departments' },
       { title: 'Faculty', href: '/academics/faculty' },
-      { title: 'Research Centers', href: '/academics/research-centers' },
-      { title: 'Academic Regulations', href: '/academics/regulations' },
-    ]
+    ],
   },
   {
-    title: 'ADMISSIONS',
+    title: 'Admissions',
     items: [
-      { title: 'Admission Process', href: '/admissions/process' },
-      { title: 'Eligibility Criteria', href: '/admissions/eligibility' },
-      { title: 'Fee Structure', href: '/admissions/fees' },
-      { title: 'Scholarships', href: '/admissions/scholarships' },
-      { title: 'Important Dates', href: '/admissions/dates' },
-      { title: 'FAQs', href: '/admissions/faqs' },
-      { title: 'Contact Admission Cell', href: '/admissions/contact' },
-      { title: 'Apply Now', href: '/admissions/apply' },
-    ]
+      { title: 'Undergraduate', href: '/admissions/undergraduate' },
+      { title: 'Postgraduate', href: '/admissions/postgraduate' },
+      { title: 'International', href: '/admissions/international' },
+    ],
   },
-  {
-    title: 'RESEARCH',
-    items: [
-      { title: 'Research Areas', href: '/research/areas' },
-      { title: 'Publications', href: '/research/publications' },
-      { title: 'Projects', href: '/research/projects' },
-      { title: 'Collaborations', href: '/research/collaborations' },
-      { title: 'Research Facilities', href: '/research/facilities' },
-      { title: 'Patents', href: '/research/patents' },
-      { title: 'Research Groups', href: '/research/groups' },
-      { title: 'Research Opportunities', href: '/research/opportunities' },
-    ]
-  },
-  {
-    title: 'PLACEMENTS',
-    items: [
-      { title: 'Overview', href: '/placements' },
-      { title: 'Statistics', href: '/placements/statistics' },
-      { title: 'Our Recruiters', href: '/placements/recruiters' },
-      { title: 'Internships', href: '/placements/internships' },
-      { title: 'Placement Process', href: '/placements/process' },
-      { title: 'Training Programs', href: '/placements/training' },
-      { title: 'Success Stories', href: '/placements/success-stories' },
-      { title: 'Contact TPO', href: '/placements/contact' },
-    ]
-  },
-  {
-    title: 'STUDENTS',
-    items: [
-      { title: 'Student Life', href: '/students' },
-      { title: 'Clubs & Societies', href: '/students/clubs' },
-      { title: 'Sports & Culture', href: '/students/sports' },
-      { title: 'Hostel', href: '/students/hostel' },
-      { title: 'Student Council', href: '/students/council' },
-      { title: 'Alumni Network', href: '/students/alumni' },
-      { title: 'Student Services', href: '/students/services' },
-      { title: 'Grievance Redressal', href: '/students/grievance' },
-    ]
-  },
-  {
-    title: 'FACILITIES',
-    items: [
-      { title: 'Library', href: '/facilities/library' },
-      { title: 'Laboratories', href: '/facilities/labs' },
-      { title: 'Computing Facilities', href: '/facilities/computing' },
-      { title: 'Sports Complex', href: '/facilities/sports' },
-      { title: 'Cafeteria', href: '/facilities/cafeteria' },
-      { title: 'Healthcare', href: '/facilities/healthcare' },
-      { title: 'Transportation', href: '/facilities/transport' },
-      { title: 'Wi-Fi Campus', href: '/facilities/wifi' },
-    ]
-  },
-  {
-    title: 'CAMPUS LIFE',
-    items: [
-      { title: 'Events & Activities', href: '/campus/events' },
-      { title: 'Technical Festivals', href: '/campus/tech-fests' },
-      { title: 'Cultural Festivals', href: '/campus/cultural-fests' },
-      { title: 'Student Chapters', href: '/campus/chapters' },
-      { title: 'Innovation Cell', href: '/campus/innovation' },
-      { title: 'Entrepreneurship', href: '/campus/entrepreneurship' },
-      { title: 'Campus News', href: '/campus/news' },
-      { title: 'Photo Gallery', href: '/campus/gallery' },
-    ]
-  }
 ];
 
-// Second row menu items
 const secondRowItems = [
   {
-    title: 'IQAC',
+    title: 'Campus Life',
     items: [
-      { title: 'About IQAC', href: '/iqac' },
-      { title: 'Quality Policy', href: '/iqac/policy' },
-      { title: 'Committees', href: '/iqac/committees' },
-      { title: 'Reports', href: '/iqac/reports' },
-      { title: 'Best Practices', href: '/iqac/practices' },
-      { title: 'Feedback', href: '/iqac/feedback' },
-      { title: 'Activities', href: '/iqac/activities' },
-      { title: 'Documentation', href: '/iqac/docs' },
-    ]
+      { title: 'Hostels', href: '/campus/hostels' },
+      { title: 'Clubs', href: '/campus/clubs' },
+      { title: 'Events', href: '/campus/events' },
+    ],
   },
   {
-    title: 'NIRF',
+    title: 'Research',
     items: [
-      { title: 'NIRF Ranking', href: '/nirf' },
-      { title: 'Reports', href: '/nirf/reports' },
-      { title: 'Data Submission', href: '/nirf/data' },
-      { title: 'Parameters', href: '/nirf/parameters' },
-      { title: 'Analysis', href: '/nirf/analysis' },
-      { title: 'Improvements', href: '/nirf/improvements' },
-      { title: 'Downloads', href: '/nirf/downloads' },
-      { title: 'Contact', href: '/nirf/contact' },
-    ]
+      { title: 'Projects', href: '/research/projects' },
+      { title: 'Publications', href: '/research/publications' },
+    ],
   },
-  {
-    title: 'NBA',
-    items: [
-      { title: 'NBA Accreditation', href: '/nba' },
-      { title: 'Status', href: '/nba/status' },
-      { title: 'Reports', href: '/nba/reports' },
-      { title: 'Compliance', href: '/nba/compliance' },
-      { title: 'Quality Metrics', href: '/nba/metrics' },
-      { title: 'Documentation', href: '/nba/docs' },
-      { title: 'Updates', href: '/nba/updates' },
-      { title: 'Contact', href: '/nba/contact' },
-    ]
-  },
-  {
-    title: 'NAAC',
-    items: [
-      { title: 'NAAC Status', href: '/naac' },
-      { title: 'SSR', href: '/naac/ssr' },
-      { title: 'Criteria', href: '/naac/criteria' },
-      { title: 'Reports', href: '/naac/reports' },
-      { title: 'Quality Initiatives', href: '/naac/initiatives' },
-      { title: 'Documentation', href: '/naac/docs' },
-      { title: 'Updates', href: '/naac/updates' },
-      { title: 'Contact', href: '/naac/contact' },
-    ]
-  },
-  {
-    title: 'AICTE',
-    items: [
-      { title: 'AICTE Approval', href: '/aicte' },
-      { title: 'Compliance', href: '/aicte/compliance' },
-      { title: 'Mandatory Disclosure', href: '/aicte/disclosure' },
-      { title: 'Reports', href: '/aicte/reports' },
-      { title: 'Guidelines', href: '/aicte/guidelines' },
-      { title: 'Documentation', href: '/aicte/docs' },
-      { title: 'Updates', href: '/aicte/updates' },
-      { title: 'Contact', href: '/aicte/contact' },
-    ]
-  },
-  {
-    title: 'RTI',
-    items: [
-      { title: 'RTI Information', href: '/rti' },
-      { title: 'Filing Process', href: '/rti/process' },
-      { title: 'Officers', href: '/rti/officers' },
-      { title: 'Guidelines', href: '/rti/guidelines' },
-      { title: 'FAQs', href: '/rti/faqs' },
-      { title: 'Downloads', href: '/rti/downloads' },
-      { title: 'Status', href: '/rti/status' },
-      { title: 'Contact', href: '/rti/contact' },
-    ]
-  },
-  {
-    title: 'CAREERS',
-    items: [
-      { title: 'Current Openings', href: '/careers' },
-      { title: 'Faculty Positions', href: '/careers/faculty' },
-      { title: 'Staff Positions', href: '/careers/staff' },
-      { title: 'Benefits', href: '/careers/benefits' },
-      { title: 'How to Apply', href: '/careers/apply' },
-      { title: 'Selection Process', href: '/careers/process' },
-      { title: 'FAQs', href: '/careers/faqs' },
-      { title: 'Contact HR', href: '/careers/contact' },
-    ]
-  },
-  {
-    title: 'TENDER',
-    items: [
-      { title: 'Active Tenders', href: '/tender' },
-      { title: 'Archived Tenders', href: '/tender/archive' },
-      { title: 'Process', href: '/tender/process' },
-      { title: 'Guidelines', href: '/tender/guidelines' },
-      { title: 'Downloads', href: '/tender/downloads' },
-      { title: 'Vendor Registration', href: '/tender/register' },
-      { title: 'Status', href: '/tender/status' },
-      { title: 'Contact', href: '/tender/contact' },
-    ]
-  }
 ];
 
-const DropdownMenu = ({ item }: { item: NavItem }) => {
-  const [sparkles, setSparkles] = useState<{ id: number; x: number; y: number }[]>([]);
+const sparkleEffect = () => {
+  return Array.from({ length: 3 }).map((_, index) => ({
+    id: index,
+    x: Math.random() * 100,
+    y: Math.random() * 30,
+  }));
+};
 
-  const addSparkle = (e: React.MouseEvent) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const newSparkle = { id: Date.now(), x, y };
-    setSparkles((prev) => [...prev, newSparkle]);
-    setTimeout(() => {
-      setSparkles((prev) => prev.filter((s) => s.id !== newSparkle.id));
-    }, 800);
-  };
+const DropdownMenu = () => {
+  const [sparkles, setSparkles] = useState([]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSparkles(sparkleEffect());
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <Menu as="div" className="relative group">
-      {({ open }) => (
-        <>
-          <Menu.Button 
-            className="nav-item flex items-center gap-2 font-medium min-h-[44px] min-w-[44px] justify-center md:justify-start px-4"
-            onMouseMove={addSparkle}
-          >
-            {item.title}
-            <ChevronDown
-              size={16}
-              className={`transition-transform duration-300 ${open ? 'rotate-180' : ''}`}
-            />
-            {sparkles.map((sparkle) => (
-              <span
-                key={sparkle.id}
-                className="sparkle"
-                style={{ left: `${sparkle.x}px`, top: `${sparkle.y}px` }}
-              />
-            ))}
-          </Menu.Button>
+    <Menu as="div" className="relative inline-block text-left">
+      <Menu.Button
+        className="inline-flex items-center px-4 py-2 text-white bg-transparent border border-white rounded-md hover:bg-white hover:text-black transition-colors"
+        aria-haspopup="true"
+      >
+        Explore
+        <span className="ml-2"><Sparkles size={16} /></span>
+      </Menu.Button>
 
-          <Menu.Items className="absolute z-50 mt-2 w-80 rounded-lg bg-black/95 backdrop-blur-lg border border-[#00BFFF]/30 shadow-lg focus:outline-none">
-            <div className="p-2 max-h-[70vh] overflow-y-auto custom-scrollbar">
-              {item.items?.map((subItem) => (
-                <Menu.Item key={subItem.title}>
-                  {({ active }) => (
+      <AnimatePresence>
+        <Menu.Items
+          as={motion.div}
+          static
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          className="absolute z-50 mt-2 w-screen max-w-4xl left-1/2 -translate-x-1/2 bg-black/90 backdrop-blur-md rounded-xl shadow-xl p-8 grid grid-cols-2 gap-8 text-white"
+        >
+          {[...firstRowItems, ...secondRowItems].map((section) => (
+            <div key={section.title}>
+              <h3 className="text-lg font-bold text-yellow-400 mb-4">{section.title}</h3>
+              <ul className="space-y-2">
+                {section.items.map((item) => (
+                  <li key={item.title}>
                     <Link
-                      to={subItem.href}
-                      className={`dropdown-item group flex items-center px-4 py-2 text-sm rounded-md min-h-[44px] ${
-                        active ? 'text-[#FFD700] bg-[#00BFFF]/10' : 'text-white'
-                      }`}
+                      to={item.href}
+                      className="hover:text-yellow-300 transition-colors"
                     >
-                      {subItem.title}
+                      {item.title}
                     </Link>
-                  )}
-                </Menu.Item>
-              ))}
+                  </li>
+                ))}
+              </ul>
             </div>
-          </Menu.Items>
-        </>
-      )}
+          ))}
+          {sparkles.map((sparkle) => (
+            <motion.span
+              key={sparkle.id}
+              initial={{ opacity: 1, scale: 1 }}
+              animate={{ opacity: 0, scale: 1.5 }}
+              transition={{ duration: 0.8, ease: 'easeOut' }}
+              className="absolute w-2 h-2 bg-white rounded-full"
+              style={{ left: `${sparkle.x}%`, top: `${sparkle.y}%` }}
+            />
+          ))}
+        </Menu.Items>
+      </AnimatePresence>
     </Menu>
   );
 };
 
-const MobileMenu = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
+const MobileMenu = ({ isOpen, setIsOpen }) => {
   const allItems = [...firstRowItems, ...secondRowItems];
+  const [searchQuery, setSearchQuery] = useState('');
 
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isOpen]);
-
-  const filteredItems = allItems.filter(item => 
-    item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    item.items?.some(subItem => 
-      subItem.title.toLowerCase().includes(searchQuery.toLowerCase())
-    )
-  );
+  const filteredItems = useMemo(() => {
+    return allItems.map(section => ({
+      ...section,
+      items: section.items.filter(sub =>
+        sub.title.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    })).filter(section => section.items.length > 0);
+  }, [searchQuery]);
 
   return (
     <div className="lg:hidden">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="text-white hover:text-[#FFD700] transition-colors p-2 min-h-[44px] min-w-[44px]"
-        aria-label="Toggle menu"
-      >
-        {isOpen ? <X size={24} /> : <MenuIcon size={24} />}
-      </button>
-
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ clipPath: 'circle(0% at top right)' }}
-            animate={{ clipPath: 'circle(150% at top right)' }}
-            exit={{ clipPath: 'circle(0% at top right)' }}
-            transition={{ type: 'tween', duration: 0.5, ease: 'easeInOut' }}
-            className="fixed inset-0 bg-black/95 backdrop-blur-lg z-50 overflow-y-auto"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/90 text-white p-6 overflow-y-auto"
           >
-            <div className="container mx-auto px-4 py-6">
-              <div className="flex items-center justify-between mb-8">
-                <Link 
-                  to="/" 
-                  className="flex items-center gap-2 text-white hover:text-[#FFD700] transition-colors"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <Home size={24} />
-                  <span>Home</span>
-                </Link>
-                <button
-                  onClick={() => setIsOpen(false)}
-                  className="text-white hover:text-[#FFD700] transition-colors p-2"
-                >
-                  <X size={24} />
-                </button>
-              </div>
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-xl font-bold">Menu</h2>
+              <button
+                onClick={() => setIsOpen(false)}
+                aria-label="Close Menu"
+                className="p-2 rounded-full hover:bg-white/10"
+              >
+                <X size={24} />
+              </button>
+            </div>
 
-              <div className="relative mb-8">
-                <input
-                  type="text"
-                  placeholder="Search menu..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full px-4 py-3 rounded-lg bg-white/5 border border-[#00BFFF]/30 text-white placeholder-white/50 focus:outline-none focus:border-[#00BFFF]"
-                />
-                <Search className="absolute right-3 top-1/2 -translate-y-1/2 text-white/50" size={20} />
-              </div>
+            <div className="relative mb-6">
+              <input
+                type="text"
+                placeholder="Search..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full p-3 pl-10 pr-10 bg-white/10 text-white placeholder-white/60 rounded-md"
+              />
+              <Search className="absolute right-3 top-3 text-white/50" size={20} />
+            </div>
 
-              <div className="space-y-6">
-                {filteredItems.map((item) => (
-                  <motion.div
-                    key={item.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <details className="group">
-                      <summary className="flex items-center justify-between cursor-pointer text-white text-lg font-semibold mb-2">
-                        {item.title}
-                        <ChevronDown className="transform transition-transform group-open:rotate-180" />
-                      </summary>
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="pl-4 space-y-2"
-                      >
-                        {item.items?.map((subItem) => (
-                          <Link
-                            key={subItem.title}
-                            to={subItem.href}
-                            onClick={() => setIsOpen(false)}
-                            className="block py-2 px-4 text-white/80 hover:text-[#FFD700] hover:bg-white/5 rounded transition-colors"
-                          >
-                            {subItem.title}
-                          </Link>
-                        ))}
-                      </motion.div>
-                    </details>
-                  </motion.div>
-                ))}
-              </div>
+            <div className="space-y-6">
+              {filteredItems.map((section) => (
+                <div key={section.title}>
+                  <h3 className="text-lg font-semibold text-[#FFD700] mb-2">{section.title}</h3>
+                  <ul className="space-y-1">
+                    {section.items.map((subItem) => (
+                      <li key={subItem.title}>
+                        <Link
+                          to={subItem.href}
+                          onClick={() => setIsOpen(false)}
+                          className="block px-4 py-2 rounded-md text-white hover:bg-[#00BFFF]/10 transition-colors"
+                        >
+                          {subItem.title}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           </motion.div>
         )}
@@ -393,68 +183,4 @@ const MobileMenu = () => {
   );
 };
 
-export const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  return (
-    <nav 
-      className={`sticky top-0 z-50 bg-black/95 backdrop-blur-md border-b border-[#00BFFF]/30 transition-all duration-300 ${
-        isScrolled ? 'shadow-lg shadow-[#00BFFF]/10' : ''
-      }`}
-    >
-      <div className="container mx-auto px-4">
-        {/* First Row */}
-        <div className="hidden lg:flex items-center justify-between h-16 border-b border-[#00BFFF]/10">
-          <div className="flex items-center justify-between w-full">
-            {firstRowItems.map((item) =>
-              item.items ? (
-                <DropdownMenu key={item.title} item={item} />
-              ) : (
-                <Link
-                  key={item.title}
-                  to={item.href || '#'}
-                  className="nav-item font-medium min-h-[44px] flex items-center px-4"
-                >
-                  {item.title}
-                </Link>
-              )
-            )}
-          </div>
-        </div>
-
-        {/* Second Row */}
-        <div className="hidden lg:flex items-center justify-between h-16">
-          <div className="flex items-center justify-between w-full">
-            {secondRowItems.map((item) =>
-              item.items ? (
-                <DropdownMenu key={item.title} item={item} />
-              ) : (
-                <Link
-                  key={item.title}
-                  to={item.href || '#'}
-                  className="nav-item font-medium min-h-[44px] flex items-center px-4"
-                >
-                  {item.title}
-                </Link>
-              )
-            )}
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        <div className="lg:hidden flex items-center justify-between h-16">
-          <div className="flex-1" />
-          <MobileMenu />
-        </div>
-      </div>
-    </nav>
-  );
-};
+export { DropdownMenu, MobileMenu };
