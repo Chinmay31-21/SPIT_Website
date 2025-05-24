@@ -11,13 +11,32 @@ import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { MainContent } from './components/MainContent';
 import { PowerUpAnimation } from './components/PowerUpAnimation';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
 import { About } from './pages/About';
 import { Academics } from './pages/Academics';
 import { Students } from './pages/Students';
 import { Research } from './pages/Research';
 import { Library } from './pages/Library';
 import { Placements } from './pages/Placements';
+
+const PageTransition = ({ children }: { children: React.ReactNode }) => {
+  const location = useLocation();
+  
+  return (
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={location.pathname}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        transition={{ duration: 0.3 }}
+      >
+        {children}
+      </motion.div>
+    </AnimatePresence>
+  );
+};
 
 function App() {
   const [showPowerUp, setShowPowerUp] = useState(true);
@@ -68,22 +87,24 @@ function App() {
           <div className="container mx-auto px-4 py-4">
             <div className="flex flex-col md:flex-row items-start gap-8">
               <div className="flex items-start gap-4 w-full md:w-auto">
-                <img
-                  src="https://www.spit.ac.in/wp-content/themes/spit-main/images/SPIT_logo.png"
-                  alt="SPIT Logo"
-                  className="w-16 h-16 object-contain animate-float"
-                />
-                <div>
-                  <p className="text-[#F0F0F0]/80 text-sm">
-                    Bhartiya Vidya Bhavan's
-                  </p>
-                  <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-[#FFD700] to-[#DAA520] bg-clip-text text-transparent animate-glow">
-                    <a href="">Sardar Patel Institute of Technology</a>
-                  </h1>
-                  <p className="text-[#CCCCCC] text-xs mt-1">
-                    Autonomous Institute Affiliated to Mumbai University
-                  </p>
-                </div>
+                <a href="/" className="flex items-center gap-4">
+                  <img
+                    src="https://www.spit.ac.in/wp-content/themes/spit-main/images/SPIT_logo.png"
+                    alt="SPIT Logo"
+                    className="w-16 h-16 object-contain animate-float"
+                  />
+                  <div>
+                    <p className="text-[#F0F0F0]/80 text-sm">
+                      Bhartiya Vidya Bhavan's
+                    </p>
+                    <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-[#FFD700] to-[#DAA520] bg-clip-text text-transparent animate-glow">
+                      Sardar Patel Institute of Technology
+                    </h1>
+                    <p className="text-[#CCCCCC] text-xs mt-1">
+                      Autonomous Institute Affiliated to Mumbai University
+                    </p>
+                  </div>
+                </a>
               </div>
 
               <div className="flex-1 w-full md:w-auto">
@@ -174,15 +195,17 @@ function App() {
 
         <Navbar />
 
-        <Routes>
-          <Route path="/" element={<MainContent />} />
-          <Route path="/about/*" element={<About />} />
-          <Route path="/academics/*" element={<Academics />} />
-          <Route path="/students/*" element={<Students />} />
-          <Route path="/research/*" element={<Research />} />
-          <Route path="/library/*" element={<Library />} />
-          <Route path="/placements/*" element={<Placements />} />
-        </Routes>
+        <PageTransition>
+          <Routes>
+            <Route path="/" element={<MainContent />} />
+            <Route path="/about/*" element={<About />} />
+            <Route path="/academics/*" element={<Academics />} />
+            <Route path="/students/*" element={<Students />} />
+            <Route path="/research/*" element={<Research />} />
+            <Route path="/library/*" element={<Library />} />
+            <Route path="/placements/*" element={<Placements />} />
+          </Routes>
+        </PageTransition>
 
         <Footer />
       </div>
