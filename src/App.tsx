@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Search,
   Instagram,
@@ -11,7 +11,7 @@ import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { MainContent } from './components/MainContent';
 import { PowerUpAnimation } from './components/PowerUpAnimation';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { About } from './pages/About';
 import { Academics } from './pages/Academics';
@@ -19,6 +19,8 @@ import { Students } from './pages/Students';
 import { Research } from './pages/Research';
 import { Library } from './pages/Library';
 import { Placements } from './pages/Placements';
+import { Admissions } from './pages/Admissions';
+import { Contact } from './pages/Contact';
 
 const PageTransition = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
@@ -87,7 +89,7 @@ function App() {
           <div className="container mx-auto px-4 py-4">
             <div className="flex flex-col md:flex-row items-start gap-8">
               <div className="flex items-start gap-4 w-full md:w-auto">
-                <a href="/" className="flex items-center gap-4">
+                <Link to="/" className="flex items-center gap-4">
                   <img
                     src="https://www.spit.ac.in/wp-content/themes/spit-main/images/SPIT_logo.png"
                     alt="SPIT Logo"
@@ -104,7 +106,7 @@ function App() {
                       Autonomous Institute Affiliated to Mumbai University
                     </p>
                   </div>
-                </a>
+                </Link>
               </div>
 
               <div className="flex-1 w-full md:w-auto">
@@ -204,6 +206,8 @@ function App() {
             <Route path="/research/*" element={<Research />} />
             <Route path="/library/*" element={<Library />} />
             <Route path="/placements/*" element={<Placements />} />
+            <Route path="/admissions/*" element={<Admissions />} />
+            <Route path="/contact/*" element={<Contact />} />
           </Routes>
         </PageTransition>
 
