@@ -154,7 +154,7 @@ export const Contact = () => {
             <h2 className="text-2xl font-bold text-[#FFD700] mb-6">Location</h2>
             <div className="aspect-video rounded-lg overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.9382754316814!2d72.83492731469864!3d19.12349498705686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c9c676018b43%3A0x75f29a4205098f99!2sBharatiya%20Vidya%20Bhavan&#39;s%20Sardar%20Patel%20Institute%20of%20Technology!5e0!3m2!1sen!2sin!4v1645548922735!5m2!1sen!2sin"
+                src="https://maps.app.goo.gl/QrHwMdqEEaqfd6am7"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
