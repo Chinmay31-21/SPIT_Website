@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Zap } from 'lucide-react';
 
@@ -10,6 +10,37 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
   const [isButtonClicked, setIsButtonClicked] = useState(false);
   const [showSpark, setShowSpark] = useState(false);
 
+  // Ref for audio element
+  const launchAudioRef = useRef<HTMLAudioElement | null>(null);
+
+  // Initialize audio once
+  useEffect(() => {
+    launchAudioRef.current = new Audio('/assets/space_ambience.mp3');
+    if (launchAudioRef.current) {
+      launchAudioRef.current.loop = true;
+      launchAudioRef.current.volume = 0.5;
+    }
+    return () => {
+      if (launchAudioRef.current) {
+        launchAudioRef.current.pause();
+        launchAudioRef.current = null;
+      }
+    };
+  }, []);
+
+  // Play/pause audio depending on stage
+  useEffect(() => {
+    if (stage === 'journey') {
+      launchAudioRef.current?.play().catch(() => {});
+    } else {
+      if (launchAudioRef.current) {
+        launchAudioRef.current.pause();
+        launchAudioRef.current.currentTime = 0;
+      }
+    }
+  }, [stage]);
+
+  // Stage progression timings
   useEffect(() => {
     const stageTimings: { [key in AnimationStage]?: number } = {
       journey: 3000,
@@ -36,6 +67,7 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
     }
   }, [stage, isButtonClicked]);
 
+  // Loading progress increment
   useEffect(() => {
     if (stage === 'loading') {
       const interval = setInterval(() => {
@@ -51,6 +83,7 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
     }
   }, [stage]);
 
+  // On loading complete, trigger onComplete after delay
   useEffect(() => {
     if (loading === 100) {
       setTimeout(() => {
@@ -142,6 +175,27 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
                   />
                 ))}
               </div>
+            ))}
+
+            {/* Comets flying across */}
+            {Array.from({ length: 5 }).map((_, i) => (
+              <motion.div
+                key={`comet-${i}`}
+                className="absolute w-24 h-1 bg-gradient-to-r from-white via-blue-400 to-transparent blur-md opacity-80 pointer-events-none"
+                style={{
+                  top: `${Math.random() * 80 + 10}%`,
+                  left: `${Math.random() * 100}%`,
+                  transform: 'rotate(-45deg)',
+                }}
+                initial={{ x: 0, y: 0, opacity: 1 }}
+                animate={{ x: '-150vw', y: '-150vh', opacity: 0 }}
+                transition={{
+                  duration: 6 + Math.random() * 4,
+                  delay: Math.random() * 3,
+                  repeat: Infinity,
+                  ease: 'easeOut',
+                }}
+              />
             ))}
 
             {/* Earth with city lights */}
