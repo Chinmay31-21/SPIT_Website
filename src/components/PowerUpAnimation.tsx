@@ -200,24 +200,14 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
 
             {/* Earth with city lights */}
             <motion.img
-              src="/assets/nightsky.jpeg"
+              src="/assets/india.jpg"
               alt="Earth from Space"
               className="absolute bottom-0 left-0 w-full object-cover z-5"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1.2 }}
             />
-
-            {/* Launch tower silhouette */}
-            <motion.img
-              src="/assets/launchpad.jpeg"
-              alt="Launch Tower"
-              className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[150px] object-contain opacity-90 z-10"
-              initial={{ y: 50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1.2 }}
-            />
-
+            
             {/* Rocket Fire */}
             <motion.div
               className="absolute left-1/2 bottom-[180px] w-3 h-40 bg-gradient-to-t from-yellow-400 to-transparent rounded-full blur-xl z-20"
