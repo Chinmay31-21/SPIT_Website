@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Zap } from 'lucide-react';
 
-type AnimationStage = 'initial' | 'spark' | 'launch' | 'journey' | 'logo' | 'loading' | 'complete';
+type AnimationStage = 'initial' | 'journey' | 'logo' | 'loading' | 'complete';
 
 export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => {
   const [stage, setStage] = useState<AnimationStage>('initial');
@@ -12,17 +12,14 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
 
   useEffect(() => {
     const stageTimings: { [key in AnimationStage]?: number } = {
-      launch: 3000,
-      journey: 3000,
+      journey: 3500,
       logo: 1500,
       loading: 3000,
     };
 
-    if (isButtonClicked && stage !== 'complete' && stage !== 'spark') {
+    if (isButtonClicked && stage !== 'complete') {
       const nextStage: { [key in AnimationStage]: AnimationStage } = {
-        initial: 'spark',
-        spark: 'launch',
-        launch: 'journey',
+        initial: 'journey',
         journey: 'logo',
         logo: 'loading',
         loading: 'complete',
@@ -40,7 +37,7 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
   useEffect(() => {
     if (stage === 'loading') {
       const interval = setInterval(() => {
-        setLoading(prev => {
+        setLoading((prev) => {
           if (prev >= 100) {
             clearInterval(interval);
             return 100;
@@ -48,7 +45,6 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
           return prev + 1;
         });
       }, 30);
-
       return () => clearInterval(interval);
     }
   }, [stage]);
@@ -62,14 +58,19 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
     }
   }, [loading, onComplete]);
 
+  useEffect(() => {
+    if (stage === 'journey') {
+      const audio = new Audio('/assets/launch-sound.mp3');
+      audio.volume = 0.5;
+      audio.play();
+    }
+  }, [stage]);
+
   const handlePowerButtonClick = () => {
     setIsButtonClicked(true);
     setShowSpark(true);
-    setStage('spark');
-    setTimeout(() => {
-      setShowSpark(false);
-      setStage('launch');
-    }, 2000);
+    setStage('journey');
+    setTimeout(() => setShowSpark(false), 2000);
   };
 
   return (
@@ -81,28 +82,34 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
         exit={{ opacity: 0 }}
         transition={{ duration: 1 }}
       >
-        {/* Spark Effect */}
+        {/* ⚡ Spark Effect */}
         <AnimatePresence>
           {showSpark && (
             <motion.div
-              className="fixed inset-0 z-[999] pointer-events-none"
+              className="fixed inset-0 z-[9999] pointer-events-none"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.6 }}
             >
-              <img src="/assets/spark.gif" alt="Spark Effect" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 w-full h-full bg-black bg-opacity-60 flex items-center justify-center">
+                <img
+                  src="/assets/spark.gif"
+                  alt="Spark"
+                  className="w-full h-full object-cover mix-blend-screen opacity-90"
+                />
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
 
-        {/* Power Button */}
+        {/* Initial Stage: Power Button */}
         {stage === 'initial' && (
-          <div className="relative z-10">
+          <div className="z-10 flex flex-col items-center">
             <motion.button
-              className="w-40 h-40 bg-black/80 rounded-2xl border-4 border-[#00BFFF] relative overflow-hidden group"
+              className="w-40 h-40 rounded-full backdrop-blur-md bg-white/5 border border-[#00BFFF] shadow-[0_0_20px_rgba(0,191,255,0.3)] relative overflow-hidden group animate-pulse"
               onClick={handlePowerButtonClick}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
               <Zap className="w-16 h-16 text-[#00BFFF] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 group-hover:text-[#FFD700] transition-colors duration-300" />
@@ -112,78 +119,84 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
                 transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
               />
             </motion.button>
-            <p className="text-[#00BFFF] mt-4 text-center text-lg font-semibold">
-              Press to Power Up the SPIT Network ⚡
+            <p className="text-center mt-6 text-lg font-medium text-white/80 tracking-wide">
+              Power Up the <span className="text-[#00BFFF] font-semibold">SPIT Network ⚡</span>
             </p>
           </div>
         )}
 
-        {/* Launch from Earth */}
-        {stage === 'launch' && (
-          <motion.div
-            className="relative w-full h-full flex items-center justify-center bg-black overflow-hidden"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1 }}
-          >
-            <motion.img
-              src="/assets/Earth.jpg"
-              alt="Earth"
-              className="w-80 h-80 absolute bottom-0 left-1/2 -translate-x-1/2 z-10 rounded-full"
-              animate={{ scale: [1, 1.05, 1], rotate: 360 }}
-              transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
-              style={{ filter: 'drop-shadow(0 0 10px rgba(0, 191, 255, 0.2))' }}
-            />
-            <motion.img
-              src="/assets/spitship.png"
-              alt="Rocket"
-              className="w-16 h-16 absolute bottom-20 left-1/2 -translate-x-1/2 z-20"
-              initial={{ y: 0, scale: 1 }}
-              animate={{ y: '-150vh', scale: 1.5, rotate: -20 }}
-              transition={{ duration: 3, ease: 'easeInOut' }}
-            />
-          </motion.div>
-        )}
-
-        {/* Journey through space */}
+        {/* Journey: Rocket Launching */}
         {stage === 'journey' && (
-          <motion.div className="relative w-full h-full bg-black overflow-hidden" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
-            {Array.from({ length: 80 }).map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute bg-white rounded-full"
-                style={{ width: Math.random() * 2 + 1 + 'px', height: Math.random() * 2 + 1 + 'px', left: Math.random() * 100 + '%', top: Math.random() * 100 + '%' }}
-                animate={{ y: ['0%', '200%'], opacity: [1, 0.2, 1] }}
-                transition={{ duration: Math.random() * 8 + 2, repeat: Infinity, delay: Math.random() * 2, ease: 'linear' }}
-              />
+          <div className="relative w-full h-full overflow-hidden bg-black">
+            {/* Stars - parallax */}
+            {['slow', 'mid', 'fast'].map((speed, i) => (
+              <div key={i} className="absolute inset-0 z-0">
+                {Array.from({ length: 25 }).map((_, j) => (
+                  <motion.div
+                    key={j}
+                    className="absolute bg-white rounded-full"
+                    style={{
+                      width: Math.random() * 2 + 1 + 'px',
+                      height: Math.random() * 2 + 1 + 'px',
+                      left: Math.random() * 100 + '%',
+                      top: Math.random() * 100 + '%',
+                      opacity: 0.8,
+                    }}
+                    animate={{ y: '-200%' }}
+                    transition={{
+                      duration: speed === 'fast' ? 6 : speed === 'mid' ? 12 : 20,
+                      repeat: Infinity,
+                      delay: Math.random() * 4,
+                    }}
+                  />
+                ))}
+              </div>
             ))}
+
+            {/* Rocket trail */}
+            <motion.div
+              className="absolute left-1/2 bottom-0 w-2 h-32 bg-gradient-to-t from-yellow-400 to-transparent rounded-full blur-xl"
+              initial={{ opacity: 1, height: '32px' }}
+              animate={{ opacity: 0, height: '80px' }}
+              transition={{ duration: 2 }}
+              style={{ transform: 'translateX(-50%)' }}
+            />
+
+            {/* Rocket */}
             <motion.img
               src="/assets/spitship.png"
               alt="Rocket"
-              className="w-24 h-24 absolute"
-              initial={{ x: '-20%', y: '100%' }}
-              animate={{ x: '140%', y: '-40%', rotate: -30 }}
-              transition={{ duration: 4, ease: 'easeInOut' }}
+              className="w-32 h-32 absolute left-1/2 transform -translate-x-1/2"
+              initial={{ y: '100%', scale: 1.5, rotate: 0 }}
+              animate={{ y: '-120%', scale: 0.6, rotate: -15 }}
+              transition={{ duration: 3.5, ease: 'easeInOut' }}
             />
-          </motion.div>
+          </div>
         )}
 
-        {/* Logo */}
+        {/* Logo Reveal */}
         {stage === 'logo' && (
-          <motion.div className="text-center" initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }}>
-            <motion.img
-              src="https://www.spit.ac.in/wp-content/themes/spit-main/images/SPIT_logo.png"
-              alt="SPIT Logo"
-              className="w-40 h-40 mx-auto mb-4"
-              animate={{ rotate: [0, 360] }}
-              transition={{ duration: 3 }}
-            />
+          <motion.div
+            className="text-center font-sans"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="relative inline-block p-4 rounded-full border-4 border-[#00BFFF] shadow-[0_0_40px_#00BFFF] bg-black/20 backdrop-blur-lg">
+              <motion.img
+                src="https://www.spit.ac.in/wp-content/themes/spit-main/images/SPIT_logo.png"
+                alt="SPIT Logo"
+                className="w-40 h-40 rounded-full object-cover"
+                animate={{ rotate: [0, 360] }}
+                transition={{ duration: 3, ease: 'easeInOut' }}
+              />
+            </div>
+
             <motion.h1
-              className="text-2xl font-bold bg-gradient-to-r from-[#FFD700] to-[#00BFFF] bg-clip-text text-transparent"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
+              className="text-3xl md:text-4xl font-semibold mt-6 bg-gradient-to-r from-[#FFD700] to-[#00BFFF] bg-clip-text text-transparent tracking-wide"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.6 }}
             >
               Welcome to SPIT
             </motion.h1>
