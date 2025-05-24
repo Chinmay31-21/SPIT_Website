@@ -11,16 +11,17 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
-    "@react-three/drei": "^9.92.7",
-    "@react-three/fiber": "^8.15.12",
+    "@react-three/drei": "^9.122.0",
+    "@react-three/fiber": "^8.18.0",
     "@splinetool/react-spline": "^2.2.6",
     "@splinetool/runtime": "^1.0.17",
     "framer-motion": "^10.16.4",
+    "gsap": "^3.13.0",
     "lucide-react": "^0.284.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.1",
-    "three": "^0.160.0"
+    "three": "^0.160.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
@@ -37,6 +38,6 @@
     "postcss": "^8.4.31",
     "tailwindcss": "^3.3.3",
     "typescript": "^5.0.2",
-    "vite": "^5.0.12"
+    "vite": "^6.3.5"
   }
 }
