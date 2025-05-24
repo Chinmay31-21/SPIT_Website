@@ -161,8 +161,7 @@ export const Contact = () => {
   allowFullScreen=""
   loading="lazy"
   referrerPolicy="no-referrer-when-downgrade"
-/>
-</iframe>
+/></iframe>
             </div>
           </div>
         </motion.div>
