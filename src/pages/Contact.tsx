@@ -153,7 +153,7 @@ export const Contact = () => {
           <div className="bg-black/30 backdrop-blur-md border border-[#00BFFF]/30 rounded-lg p-6">
             <h2 className="text-2xl font-bold text-[#FFD700] mb-6">Location</h2>
             <div className="aspect-video rounded-lg overflow-hidden">
-             <iframe
+              <iframe
   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d792.4709154135721!2d72.835634613488!3d19.12308312390606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c9d90e067ba9%3A0x16268e5d6bca2e6a!2sBharatiya%20Vidya%20Bhavan's%20Sardar%20Patel%20Institute%20of%20Technology%20(SPIT)!5e0!3m2!1sen!2sin!4v1748075101979!5m2!1sen!2sin"
   width="100%"
   height="100%"
@@ -161,11 +161,12 @@ export const Contact = () => {
   allowFullScreen=""
   loading="lazy"
   referrerPolicy="no-referrer-when-downgrade"
-/></iframe>
+/>
+
             </div>
           </div>
         </motion.div>
       </div>
-   
+    </div>
   );
 };
