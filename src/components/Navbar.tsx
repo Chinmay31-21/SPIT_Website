@@ -76,35 +76,37 @@ const DropdownMenu = () => {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
-          className="absolute z-50 mt-2 w-screen max-w-4xl left-1/2 -translate-x-1/2 bg-black/90 backdrop-blur-md rounded-xl shadow-xl p-8 grid grid-cols-2 gap-8 text-white"
+          className="absolute z-50 mt-2 w-screen max-w-4xl left-1/2 -translate-x-1/2 bg-black/90 backdrop-blur-md rounded-xl shadow-xl p-8 text-white"
         >
-          {[...firstRowItems, ...secondRowItems].map((section) => (
-            <div key={section.title}>
-              <h3 className="text-lg font-bold text-yellow-400 mb-4">{section.title}</h3>
-              <ul className="space-y-2">
-                {section.items.map((item) => (
-                  <li key={item.title}>
-                    <Link
-                      to={item.href}
-                      className="hover:text-yellow-300 transition-colors"
-                    >
-                      {item.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-          {sparkles.map((sparkle) => (
-            <motion.span
-              key={sparkle.id}
-              initial={{ opacity: 1, scale: 1 }}
-              animate={{ opacity: 0, scale: 1.5 }}
-              transition={{ duration: 0.8, ease: 'easeOut' }}
-              className="absolute w-2 h-2 bg-white rounded-full"
-              style={{ left: `${sparkle.x}%`, top: `${sparkle.y}%` }}
-            />
-          ))}
+          <div className="relative grid grid-cols-2 gap-8">
+            {[...firstRowItems, ...secondRowItems].map((section) => (
+              <div key={section.title}>
+                <h3 className="text-lg font-bold text-yellow-400 mb-4">{section.title}</h3>
+                <ul className="space-y-2">
+                  {section.items.map((item) => (
+                    <li key={item.title}>
+                      <Link
+                        to={item.href}
+                        className="hover:text-yellow-300 transition-colors"
+                      >
+                        {item.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+            {sparkles.map((sparkle) => (
+              <motion.span
+                key={sparkle.id}
+                initial={{ opacity: 1, scale: 1 }}
+                animate={{ opacity: 0, scale: 1.5 }}
+                transition={{ duration: 0.8, ease: 'easeOut' }}
+                className="absolute w-2 h-2 bg-white rounded-full pointer-events-none"
+                style={{ left: `${sparkle.x}%`, top: `${sparkle.y}%` }}
+              />
+            ))}
+          </div>
         </Menu.Items>
       </AnimatePresence>
     </Menu>
