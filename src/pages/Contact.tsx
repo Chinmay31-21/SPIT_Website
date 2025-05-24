@@ -154,7 +154,7 @@ export const Contact = () => {
             <h2 className="text-2xl font-bold text-[#FFD700] mb-6">Location</h2>
             <div className="aspect-video rounded-lg overflow-hidden">
               <iframe
-                src="https://maps.app.goo.gl/QrHwMdqEEaqfd6am7"
+                src="https://maps.app.goo.gl/2MKn2uDeUK5Cjmst6"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
