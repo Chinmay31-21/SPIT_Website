@@ -93,12 +93,21 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
     }
   }, [loading, onComplete]);
 
-  const handlePowerButtonClick = () => {
-    setIsButtonClicked(true);
-    setShowSpark(true);
+const handlePowerButtonClick = () => {
+  setIsButtonClicked(true);
+  setShowSpark(true);
+
+  // Keep spark for 2 seconds
+  setTimeout(() => {
+    setShowSpark(false);
+  }, 2000);
+
+  // Delay rocket launch start after 3 seconds
+  setTimeout(() => {
     setStage('journey');
-    setTimeout(() => setShowSpark(false), 2000);
-  };
+  }, 3000);
+};
+
 
   return (
     <AnimatePresence>
