@@ -151,7 +151,9 @@ export const Contact = () => {
           className="mt-8"
         >
           <div className="bg-black/30 backdrop-blur-md border border-[#00BFFF]/30 rounded-lg p-6">
-            <h2 className="text-2xl font-bold text-[#FFD700] mb-6">Location</h2>
+            <h2 className="text-2xl font-bold text-[#FFD700] mb-6">
+              Location
+            </h2>
             <div className="aspect-video rounded-lg overflow-hidden">
              <iframe 
                src="https://www.google.com/maps/place/Bharatiya+Vidya+Bhavan's+Sardar+Patel+Institute+of+Technology+(SPIT)/@19.1231561,72.8357599,20z/data=!4m15!1m8!3m7!1s0x3be7c9d90fe60aab:0xc0d8694a1ec70b62!2s4RFP%2B9C9+Bhavan's+Campus,+Old+D+N+Nagar,+Munshi+Nagar,+Andheri+West,+Mumbai,+Maharashtra+400058!3b1!8m2!3d19.1234672!4d72.8360737!16s%2Fg%2F11thxskcwn!3m5!1s0x3be7c9d90e067ba9:0x16268e5d6bca2e6a!8m2!3d19.1231776!4d72.8361154!16s%2Fg%2F122qyrv_?entry=ttu&g_ep=EgoyMDI1MDUyMS4wIKXMDSoASAFQAw%3D%3D"
