@@ -144,13 +144,13 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
             ))}
 
             <img
-              src="/assets/earth_night_city.png"
+              src="/assets/nightsky.jpeg"
               alt="Earth from Space with City Lights"
               className="absolute bottom-0 w-full h-[220px] object-cover z-5"
             />
 
             <img
-              src="/assets/launch_tower_silhouette.png"
+              src="/assets/launchpad.jpeg"
               alt="Launch Tower Silhouette"
               className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[120px] h-[200px] object-contain opacity-80 z-10"
             />
