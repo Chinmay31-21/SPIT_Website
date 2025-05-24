@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Zap } from 'lucide-react';
 
-type AnimationStage = 'initial' | 'journey' | 'logo' | 'loading' | 'complete';
+type AnimationStage = 'initial' | 'journey' | 'landing' | 'logo' | 'loading' | 'complete';
 
 export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => {
   const [stage, setStage] = useState<AnimationStage>('initial');
@@ -12,18 +12,20 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
 
   useEffect(() => {
     const stageTimings: { [key in AnimationStage]?: number } = {
-      journey: 3500,
+      journey: 3000,
+      landing: 2000,
       logo: 1500,
-      loading: 3000,
+      loading: 3000
     };
 
     if (isButtonClicked && stage !== 'complete') {
       const nextStage: { [key in AnimationStage]: AnimationStage } = {
         initial: 'journey',
-        journey: 'logo',
+        journey: 'landing',
+        landing: 'logo',
         logo: 'loading',
         loading: 'complete',
-        complete: 'complete',
+        complete: 'complete'
       };
 
       const timer = setTimeout(() => {
@@ -37,7 +39,7 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
   useEffect(() => {
     if (stage === 'loading') {
       const interval = setInterval(() => {
-        setLoading((prev) => {
+        setLoading(prev => {
           if (prev >= 100) {
             clearInterval(interval);
             return 100;
@@ -58,14 +60,6 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
     }
   }, [loading, onComplete]);
 
-  useEffect(() => {
-    if (stage === 'journey') {
-      const audio = new Audio('/assets/launch-sound.mp3');
-      audio.volume = 0.5;
-      audio.play();
-    }
-  }, [stage]);
-
   const handlePowerButtonClick = () => {
     setIsButtonClicked(true);
     setShowSpark(true);
@@ -82,7 +76,6 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
         exit={{ opacity: 0 }}
         transition={{ duration: 1 }}
       >
-        {/* ⚡ Spark Effect */}
         <AnimatePresence>
           {showSpark && (
             <motion.div
@@ -92,20 +85,19 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
               exit={{ opacity: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="absolute inset-0 w-full h-full bg-black bg-opacity-60 flex items-center justify-center">
+              <div className="absolute inset-0 w-full h-full bg-black bg-opacity-60 z-[9999] flex items-center justify-center">
                 <img
                   src="/assets/spark.gif"
-                  alt="Spark"
-                  className="w-full h-full object-cover mix-blend-screen opacity-90"
+                  alt="Spark Effect"
+                  className="w-full h-full object-cover mix-blend-screen opacity-90 animate-fade"
                 />
               </div>
             </motion.div>
           )}
         </AnimatePresence>
 
-        {/* Initial Stage: Power Button */}
         {stage === 'initial' && (
-          <div className="z-10 flex flex-col items-center">
+          <div className="relative z-10 flex flex-col items-center">
             <motion.button
               className="w-40 h-40 rounded-full backdrop-blur-md bg-white/5 border border-[#00BFFF] shadow-[0_0_20px_rgba(0,191,255,0.3)] relative overflow-hidden group animate-pulse"
               onClick={handlePowerButtonClick}
@@ -125,10 +117,8 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
           </div>
         )}
 
-        {/* Journey: Rocket Launching */}
         {stage === 'journey' && (
           <div className="relative w-full h-full overflow-hidden bg-black">
-            {/* Stars - parallax */}
             {['slow', 'mid', 'fast'].map((speed, i) => (
               <div key={i} className="absolute inset-0 z-0">
                 {Array.from({ length: 25 }).map((_, j) => (
@@ -153,26 +143,37 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
               </div>
             ))}
 
-            {/* Rocket trail */}
+            <img
+              src="/assets/earth_night_city.png"
+              alt="Earth from Space with City Lights"
+              className="absolute bottom-0 w-full h-[220px] object-cover z-5"
+            />
+
+            <img
+              src="/assets/launch_tower_silhouette.png"
+              alt="Launch Tower Silhouette"
+              className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[120px] h-[200px] object-contain opacity-80 z-10"
+            />
+
             <motion.div
-              className="absolute left-1/2 bottom-0 w-2 h-32 bg-gradient-to-t from-yellow-400 to-transparent rounded-full blur-xl"
-              initial={{ opacity: 1, height: '32px' }}
+              className="absolute left-1/2 bottom-[180px] w-3 h-40 bg-gradient-to-t from-yellow-400 to-transparent rounded-full blur-xl z-20"
+              initial={{ opacity: 1, height: '40px' }}
               animate={{ opacity: 0, height: '80px' }}
               transition={{ duration: 2 }}
               style={{ transform: 'translateX(-50%)' }}
             />
 
-            {/* Rocket */}
             <motion.img
               src="/assets/spitship.png"
               alt="Rocket"
-              className="w-32 h-32 absolute left-1/2 transform -translate-x-1/2"
-              initial={{ y: '100%', scale: 1.5, rotate: 0 }}
-              animate={{ y: '-120%', scale: 0.6, rotate: -15 }}
+              className="w-32 h-32 absolute left-1/2 bottom-[180px] transform -translate-x-1/2 z-30"
+              initial={{ y: 0, scale: 1.5, rotate: 0 }}
+              animate={{ y: '-180vh', scale: 0.6, rotate: -15 }}
               transition={{ duration: 3.5, ease: 'easeInOut' }}
             />
           </div>
         )}
+
 
         {/* Logo Reveal */}
         {stage === 'logo' && (
