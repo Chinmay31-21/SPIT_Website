@@ -29,11 +29,11 @@ import { Tender } from './pages/resources/MandatoryDisclosure';
 import { AntiRagging } from './pages/resources/MandatoryDisclosure';
 import { RTI } from './pages/resources/MandatoryDisclosure';
 import { Grievance } from './pages/resources/MandatoryDisclosure';
-import { NAAC } from './pages/accreditation/NAAC';
-import { NIRF } from './pages/accreditation/NIRF';
-import { IIC } from './pages/accreditation/IIC';
-import { ARIIA } from './pages/accreditation/ARIIA';
-import { NBA } from './pages/accreditation/NBA';
+import { NAAC } from './pages/NAAC';
+import { NIRF } from './pages/NIRF';
+import { IIC } from './pages/IIC';
+import { ARIIA } from './pages/ARIIA';
+import { NBA } from './pages/NBA';
 
 const PageTransition = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
