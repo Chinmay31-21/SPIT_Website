@@ -1,25 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { Menu } from '@headlessui/react';
-import { ChevronDown, Menu as MenuIcon, Search, X, Home } from 'lucide-react';
+import { Menu as HeadlessMenu } from '@headlessui/react';
+import { ChevronDown, Menu as MenuIcon, Search, X, Home, Moon, Sun } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useTheme } from '../theme/ThemeProvider';
-import { Moon, Sun } from 'lucide-react'; // optional icons
-// First row menu items
+interface NavSubItem {
+  title: string;
+  href: string;
+}
 
-const ThemeToggle = () => {
-  const { theme, toggleTheme } = useTheme();
+interface NavItem {
+  title: string;
+  items: NavSubItem[];
+}
 
-  return (
-    <button
-      onClick={toggleTheme}
-      className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
-      aria-label="Toggle Dark Mode"
-    >
-      {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-    </button>
-  );
-};
 const firstRowItems = [
   {
     title: 'ABOUT',
@@ -402,69 +396,71 @@ const MobileMenu = () => {
   );
 };
 
-export const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+const ThemeToggle = () => {
+  const { theme, toggleTheme } = useTheme();
 
   return (
-    <nav 
-      className={`sticky top-0 z-50 bg-black/95 backdrop-blur-md border-b border-[#00BFFF]/30 transition-all duration-300 ${
-        isScrolled ? 'shadow-lg shadow-[#00BFFF]/10' : ''
-      }`}
+    <button
+      onClick={toggleTheme}
+      className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+      aria-label="Toggle Dark Mode"
     >
-      <div className="container mx-auto px-4">
-        {/* First Row */}
-        <div className="hidden lg:flex items-center justify-between h-16 border-b border-[#00BFFF]/10">
-          <div className="flex items-center justify-between w-full">
-            {firstRowItems.map((item) =>
-              item.items ? (
-                <DropdownMenu key={item.title} item={item} />
-              ) : (
-                <Link
-                  key={item.title}
-                  to={item.href || '#'}
-                  className="nav-item font-medium min-h-[44px] flex items-center px-4"
-                >
-                  {item.title}
-                </Link>
-              )
-            )}
-          </div>
-        </div>
+      {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+    </button>
+  );
+};
 
-        {/* Second Row */}
-        <div className="hidden lg:flex items-center justify-between h-16">
-          <div className="flex items-center justify-between w-full">
-            {secondRowItems.map((item) =>
-              item.items ? (
-                <DropdownMenu key={item.title} item={item} />
-              ) : (
-                <Link
-                  key={item.title}
-                  to={item.href || '#'}
-                  className="nav-item font-medium min-h-[44px] flex items-center px-4"
-                >
-                  {item.title}
-                </Link>
-              )
-            )}
-          </div>
-        </div>
+const Navbar = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-        {/* Mobile Menu */}
-        <div className="lg:hidden flex items-center justify-between h-16">
-          <div className="flex-1" />
-          <MobileMenu />
-        </div>
+  return (
+    <nav className="w-full flex justify-between items-center px-6 py-4 bg-white dark:bg-black shadow-md fixed top-0 left-0 z-50">
+      {/* Logo */}
+      <div className="text-2xl font-bold text-black dark:text-white">
+        <Link to="/">SPIT</Link>
       </div>
+
+      {/* Desktop Menu */}
+      <div className="hidden md:flex items-center gap-6 text-black dark:text-white">
+        {firstRowItems.map((item) => (
+          <DropdownMenu key={item.title} item={item} />
+        ))}
+        {/* You can add secondRowItems similarly or in a second nav row */}
+      </div>
+
+      {/* Desktop Theme Toggle */}
+      <div className="hidden md:flex ml-4">
+        <ThemeToggle />
+      </div>
+
+      {/* Mobile Menu Toggle & ThemeToggle */}
+      <div className="flex md:hidden items-center gap-2">
+        <ThemeToggle />
+        <button
+          onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+          className="text-white hover:text-[#FFD700] transition-colors p-2 min-h-[44px] min-w-[44px]"
+          aria-label="Toggle menu"
+        >
+          {isMobileMenuOpen ? <X size={24} /> : <MenuIcon size={24} />}
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ clipPath: 'circle(0% at top right)' }}
+            animate={{ clipPath: 'circle(150% at top right)' }}
+            exit={{ clipPath: 'circle(0% at top right)' }}
+            transition={{ type: 'tween', duration: 0.5, ease: 'easeInOut' }}
+            className="fixed inset-0 bg-black/95 backdrop-blur-lg z-50 overflow-y-auto"
+          >
+            <MobileMenu />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
-export default ThemeToggle;
+
+export default Navbar;
