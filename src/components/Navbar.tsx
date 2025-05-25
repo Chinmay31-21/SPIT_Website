@@ -3,8 +3,23 @@ import { Menu } from '@headlessui/react';
 import { ChevronDown, Menu as MenuIcon, Search, X, Home } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-
+import { useTheme } from '../theme/ThemeProvider';
+import { Moon, Sun } from 'lucide-react'; // optional icons
 // First row menu items
+
+const ThemeToggle = () => {
+  const { theme, toggleTheme } = useTheme();
+
+  return (
+    <button
+      onClick={toggleTheme}
+      className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+      aria-label="Toggle Dark Mode"
+    >
+      {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+    </button>
+  );
+};
 const firstRowItems = [
   {
     title: 'ABOUT',
@@ -458,3 +473,4 @@ export const Navbar = () => {
     </nav>
   );
 };
+export default ThemeToggle;
