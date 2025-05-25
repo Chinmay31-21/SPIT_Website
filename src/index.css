@@ -2,6 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
+/* === Theme Variables === */
+:root {
+  --background: 0 0% 100%;
+  --foreground: 240 10% 3.9%;
+  --primary: 240 5.9% 10%;
+  --card: 0 0% 100%;
+}
+
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 100%;
+  --primary: 0 0% 98%;
+  --card: 240 10% 10%;
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* === Your Custom Animations === */
 @keyframes coin-flip {
   0% { transform: rotateY(0) translateY(0); }
   25% { transform: rotateY(180deg) translateY(-50px); }
@@ -86,6 +108,7 @@
   pointer-events: none;
 }
 
+/* === Navigation Effects === */
 .nav-item {
   @apply relative text-white transition-all duration-300 text-sm whitespace-nowrap;
 }
@@ -161,7 +184,7 @@
   background-color: rgba(0, 191, 255, 0.5);
 }
 
-/* Mobile Menu Animations */
+/* === Mobile Menu Animations === */
 .mobile-menu-enter {
   clip-path: circle(0% at top right);
 }
@@ -180,7 +203,7 @@
   transition: clip-path 0.5s ease-in-out;
 }
 
-/* Responsive Breakpoints */
+/* === Responsive Breakpoints === */
 @media (max-width: 1200px) {
   .container {
     @apply px-6;
