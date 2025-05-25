@@ -34,7 +34,11 @@ import { Tender } from './pages/resources/MandatoryDisclosure';
 import { AntiRagging } from './pages/resources/MandatoryDisclosure';
 import { RTI } from './pages/resources/MandatoryDisclosure';
 import { Grievance } from './pages/resources/MandatoryDisclosure';
-
+import { NAAC } from './pages/accreditation/NAAC';
+import { NIRF } from './pages/accreditation/NIRF';
+import { IIC } from './pages/accreditation/IIC';
+import { ARIIA } from './pages/accreditation/ARIIA';
+import { NBA } from './pages/accreditation/NBA';
 
 
 
@@ -174,35 +178,35 @@ function App() {
 
             <div className="mt-4 flex flex-wrap items-center justify-center md:justify-end gap-4 text-sm">
               <a
-                href="/naac"
+                href="/accreditation/NAAC"
                 className="text-white hover:text-[#FFD700] transition-colors"
               >
                 NAAC
               </a>
               <span className="text-[#8B3A3A]">|</span>
               <a
-                href="/nirf"
+                href="/accreditation/NIRF"
                 className="text-white hover:text-[#FFD700] transition-colors"
               >
                 NIRF
               </a>
               <span className="text-[#8B3A3A]">|</span>
               <a
-                href="/iic"
+                href="/accreditation/IIC"
                 className="text-white hover:text-[#FFD700] transition-colors"
               >
                 IIC
               </a>
               <span className="text-[#8B3A3A]">|</span>
               <a
-                href="/ariia"
+                href="/accreditation/ARIIA"
                 className="text-white hover:text-[#FFD700] transition-colors"
               >
                 ARIIA
               </a>
               <span className="text-[#8B3A3A]">|</span>
               <a
-                href="/nba"
+                href="/accreditation/NBA"
                 className="text-white hover:text-[#FFD700] transition-colors"
               >
                 NBA
@@ -238,6 +242,11 @@ function App() {
             <Route path="/resources/antiragging" element={<AntiRagging />} />
             <Route path="/resources/rti" element={<RTI />} />
             <Route path="/resources/grievance" element={<Grievance />} />
+<Route path="/accreditation/NIRF" element={<NIRF />} />
+<Route path="/accreditation/NAAC" element={<NAAC />} />
+<Route path="/accreditation/NBA" element={<NBA />} />
+<Route path="/accreditation/ARIIA" element={<ARIIA />} />
+<Route path="/accreditation/IIC" element={<IIC />} />
           </Routes>
         </PageTransition>
 
