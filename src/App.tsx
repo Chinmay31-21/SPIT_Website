@@ -29,6 +29,11 @@ import { Tender } from './pages/resources/MandatoryDisclosure';
 import { AntiRagging } from './pages/resources/MandatoryDisclosure';
 import { RTI } from './pages/resources/MandatoryDisclosure';
 import { Grievance } from './pages/resources/MandatoryDisclosure';
+import { NAAC } from './pages/accreditation/NAAC';
+import { NIRF } from './pages/accreditation/NIRF';
+import { IIC } from './pages/accreditation/IIC';
+import { ARIIA } from './pages/accreditation/ARIIA';
+import { NBA } from './pages/accreditation/NBA';
 
 const PageTransition = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
@@ -216,7 +221,11 @@ function App() {
             <Route path="/placements/*" element={<Placements />} />
             <Route path="/admissions/*" element={<Admissions />} />
             <Route path="/contact/*" element={<Contact />} />
-            
+          <Route path="/naac" element={<NAAC />} />
+          <Route path="/nirf" element={<NIRF />} />
+          <Route path="/iic" element={<IIC />} />
+          <Route path="/ariia" element={<ARIIA />} />
+          <Route path="/nba" element={<NBA />} />
             {/* Resource & Policy Routes */}
             <Route path="/resources/mandatory-disclosure" element={<MandatoryDisclosure />} />
             <Route path="/resources/iqac" element={<IQAC />} />
