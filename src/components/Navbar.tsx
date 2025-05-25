@@ -436,16 +436,17 @@ const Navbar = () => {
       {/* Mobile Menu Toggle & ThemeToggle */}
       <div className="flex md:hidden items-center gap-2">
         <ThemeToggle />
-        <button
-          onClick={() => setIsMobileMenuOpen((prev) => !prev)}
-          className="text-white hover:text-[#FFD700] transition-colors p-2 min-h-[44px] min-w-[44px]"
-          aria-label="Toggle menu"
-        >
-          {isMobileMenuOpen ? <X size={24} /> : <MenuIcon size={24} />}
-        </button>
-      </div>
+         <button
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        className="text-white hover:text-[#FFD700] transition-colors p-2 min-h-[44px] min-w-[44px]"
+        aria-label="Toggle menu"
+      >
+        {isMobileMenuOpen ? <X size={24} /> : <MenuIcon size={24} />}
+      </button>
 
-      {/* Mobile Menu */}
+      <MobileMenu isOpen={isMobileMenuOpen} setIsOpen={setIsMobileMenuOpen} />
+      {/* Desktop theme toggle and menu etc */}
+        {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -460,6 +461,7 @@ const Navbar = () => {
         )}
       </AnimatePresence>
     </nav>
+      </div>
   );
 };
 
