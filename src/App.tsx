@@ -131,16 +131,16 @@ function App() {
                 <a href="#" className="text-white/80 hover:text-[#00BFFF] transition-colors">
                   <Instagram size={20} />
                 </a>
-                <a href="#" className="text-white/80 hover:text-[#00BFFF] transition-colors">
+                <a href="https://www.linkedin.com/school/bhartiya-vidya-bhavans-sardar-patel-institute-of-technology-munshi-nagar-andheri-mumbai/" className="text-white/80 hover:text-[#00BFFF] transition-colors">
                   <Linkedin size={20} />
                 </a>
-                <a href="#" className="text-white/80 hover:text-[#00BFFF] transition-colors">
+                <a href="https://x.com/bvbspit" className="text-white/80 hover:text-[#00BFFF] transition-colors">
                   <Twitter size={20} />
                 </a>
-                <a href="#" className="text-white/80 hover:text-[#00BFFF] transition-colors">
+                <a href="https://www.youtube.com/@SPITMedia-tu5rk" className="text-white/80 hover:text-[#00BFFF] transition-colors">
                   <Youtube size={20} />
                 </a>
-                <a href="#" className="text-white/80 hover:text-[#00BFFF] transition-colors">
+                <a href="https://www.facebook.com/SPITCOLLEGE/" className="text-white/80 hover:text-[#00BFFF] transition-colors">
                   <Facebook size={20} />
                 </a>
               </div>
