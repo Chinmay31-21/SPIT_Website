@@ -34,11 +34,9 @@ import { Tender } from './pages/resources/MandatoryDisclosure';
 import { AntiRagging } from './pages/resources/MandatoryDisclosure';
 import { RTI } from './pages/resources/MandatoryDisclosure';
 import { Grievance } from './pages/resources/MandatoryDisclosure';
-import { NAAC } from './pages/accreditation/NAAC';
-import { NIRF } from './pages/accreditation/NIRF';
-import { IIC } from './pages/accreditation/IIC';
-import { ARIIA } from './pages/accreditation/ARIIA';
-import { NBA } from './pages/accreditation/NBA';
+
+
+
 
 const PageTransition = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
@@ -82,9 +80,9 @@ function App() {
     return (
       <div className="min-h-screen bg-[#0D0D0D] flex items-center justify-center">
         <div
-          className={`relative w-40 h-40 ${
+          className={relative w-40 h-40 ${
             isAnimating ? 'animate-coin-flip' : ''
-          }`}
+          }}
         >
           <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#FFD700] to-[#DAA520] shadow-lg transform-gpu backface-hidden">
             <div className="w-full h-full flex items-center justify-center">
@@ -175,25 +173,40 @@ function App() {
             </div>
 
             <div className="mt-4 flex flex-wrap items-center justify-center md:justify-end gap-4 text-sm">
-             <Link to="/accreditation/NAAC" className="text-white hover:text-[#FFD700] transition-colors">
+              <a
+                href="/naac"
+                className="text-white hover:text-[#FFD700] transition-colors"
+              >
                 NAAC
-              </Link>
+              </a>
               <span className="text-[#8B3A3A]">|</span>
-              <Link to="/accreditation/NIRF" className="text-white hover:text-[#FFD700] transition-colors">
+              <a
+                href="/nirf"
+                className="text-white hover:text-[#FFD700] transition-colors"
+              >
                 NIRF
-              </Link>
+              </a>
               <span className="text-[#8B3A3A]">|</span>
-              <Link to="/accreditation/IIC" className="text-white hover:text-[#FFD700] transition-colors">
+              <a
+                href="/iic"
+                className="text-white hover:text-[#FFD700] transition-colors"
+              >
                 IIC
-              </Link>
+              </a>
               <span className="text-[#8B3A3A]">|</span>
-              <Link to="/accreditation/ARIIA" className="text-white hover:text-[#FFD700] transition-colors">
+              <a
+                href="/ariia"
+                className="text-white hover:text-[#FFD700] transition-colors"
+              >
                 ARIIA
-              </Link>
+              </a>
               <span className="text-[#8B3A3A]">|</span>
-              <Link to="/accreditation/NBA" className="text-white hover:text-[#FFD700] transition-colors">
+              <a
+                href="/nba"
+                className="text-white hover:text-[#FFD700] transition-colors"
+              >
                 NBA
-              </Link>
+              </a>
             </div>
           </div>
         </header>
@@ -225,12 +238,7 @@ function App() {
             <Route path="/resources/antiragging" element={<AntiRagging />} />
             <Route path="/resources/rti" element={<RTI />} />
             <Route path="/resources/grievance" element={<Grievance />} />
- {/* Accreditation */}
-            <Route path="/accreditation/NAAC" element={<NAAC />} />
-            <Route path="/accreditation/NIRF" element={<NIRF />} />
-            <Route path="/accreditation/IIC" element={<IIC />} />
-            <Route path="/accreditation/ARIIA" element={<ARIIA />} />
-            <Route path="/accreditation/NBA" element={<NBA />} />
+
           </Routes>
         </PageTransition>
 
