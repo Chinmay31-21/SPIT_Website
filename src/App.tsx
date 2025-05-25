@@ -40,8 +40,6 @@ import { IIC } from './pages/accreditation/IIC';
 import { ARIIA } from './pages/accreditation/ARIIA';
 import { NBA } from './pages/accreditation/NBA';
 
-
-
 const PageTransition = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
   
@@ -177,40 +175,25 @@ function App() {
             </div>
 
             <div className="mt-4 flex flex-wrap items-center justify-center md:justify-end gap-4 text-sm">
-              <a
-                href="/accreditation/NAAC"
-                className="text-white hover:text-[#FFD700] transition-colors"
-              >
+             <Link to="/accreditation/NAAC" className="text-white hover:text-[#FFD700] transition-colors">
                 NAAC
-              </a>
+              </Link>
               <span className="text-[#8B3A3A]">|</span>
-              <a
-                href="/accreditation/NIRF"
-                className="text-white hover:text-[#FFD700] transition-colors"
-              >
+              <Link to="/accreditation/NIRF" className="text-white hover:text-[#FFD700] transition-colors">
                 NIRF
-              </a>
+              </Link>
               <span className="text-[#8B3A3A]">|</span>
-              <a
-                href="/accreditation/IIC"
-                className="text-white hover:text-[#FFD700] transition-colors"
-              >
+              <Link to="/accreditation/IIC" className="text-white hover:text-[#FFD700] transition-colors">
                 IIC
-              </a>
+              </Link>
               <span className="text-[#8B3A3A]">|</span>
-              <a
-                href="/accreditation/ARIIA"
-                className="text-white hover:text-[#FFD700] transition-colors"
-              >
+              <Link to="/accreditation/ARIIA" className="text-white hover:text-[#FFD700] transition-colors">
                 ARIIA
-              </a>
+              </Link>
               <span className="text-[#8B3A3A]">|</span>
-              <a
-                href="/accreditation/NBA"
-                className="text-white hover:text-[#FFD700] transition-colors"
-              >
+              <Link to="/accreditation/NBA" className="text-white hover:text-[#FFD700] transition-colors">
                 NBA
-              </a>
+              </Link>
             </div>
           </div>
         </header>
@@ -242,12 +225,12 @@ function App() {
             <Route path="/resources/antiragging" element={<AntiRagging />} />
             <Route path="/resources/rti" element={<RTI />} />
             <Route path="/resources/grievance" element={<Grievance />} />
-<Route path="/accreditation/*" element={<accreditation />} />
-<Route path="/accreditation/NIRF" element={<NIRF />} />
-<Route path="/accreditation/NAAC" element={<NAAC />} />
-<Route path="/accreditation/NBA" element={<NBA />} />
-<Route path="/accreditation/ARIIA" element={<ARIIA />} />
-<Route path="/accreditation/IIC" element={<IIC />} />
+ {/* Accreditation */}
+            <Route path="/accreditation/NAAC" element={<NAAC />} />
+            <Route path="/accreditation/NIRF" element={<NIRF />} />
+            <Route path="/accreditation/IIC" element={<IIC />} />
+            <Route path="/accreditation/ARIIA" element={<ARIIA />} />
+            <Route path="/accreditation/NBA" element={<NBA />} />
           </Routes>
         </PageTransition>
 
