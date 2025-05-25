@@ -356,49 +356,43 @@ const MobileMenu = () => {
               </div>
 
               <div className="relative mb-8">
-                <input
+                                <input
                   type="text"
                   placeholder="Search menu..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full px-4 py-3 rounded-lg bg-white/5 border border-[#00BFFF]/30 text-white placeholder-white/50 focus:outline-none focus:border-[#00BFFF]"
+                  className="w-full px-4 py-2 rounded-lg bg-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#FFD700]"
                 />
-                <Search className="absolute right-3 top-1/2 -translate-y-1/2 text-white/50" size={20} />
+                <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
               </div>
 
               <div className="space-y-6">
-                {filteredItems.map((item) => (
-                  <motion.div
-                    key={item.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <details className="group">
-                      <summary className="flex items-center justify-between cursor-pointer text-white text-lg font-semibold mb-2">
-                        {item.title}
-                        <ChevronDown className="transform transition-transform group-open:rotate-180" />
-                      </summary>
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="pl-4 space-y-2"
-                      >
-                        {item.items?.map((subItem) => (
-                          <Link
-                            key={subItem.title}
-                            to={subItem.href}
-                            onClick={() => setIsOpen(false)}
-                            className="block py-2 px-4 text-white/80 hover:text-[#FFD700] hover:bg-white/5 rounded transition-colors"
-                          >
-                            {subItem.title}
-                          </Link>
-                        ))}
-                      </motion.div>
-                    </details>
-                  </motion.div>
-                ))}
+                {filteredItems.length > 0 ? (
+                  filteredItems.map((item) => (
+                    <div key={item.title}>
+                      <h3 className="text-white text-lg font-semibold mb-2">{item.title}</h3>
+                      <div className="grid grid-cols-1 gap-2">
+                        {item.items
+                          .filter((subItem) =>
+                            subItem.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                            item.title.toLowerCase().includes(searchQuery.toLowerCase())
+                          )
+                          .map((subItem) => (
+                            <Link
+                              key={subItem.title}
+                              to={subItem.href}
+                              onClick={() => setIsOpen(false)}
+                              className="block text-white hover:text-[#FFD700] transition-colors px-4 py-2 rounded-md bg-white/5 hover:bg-[#FFD700]/10"
+                            >
+                              {subItem.title}
+                            </Link>
+                          ))}
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <p className="text-gray-400">No results found.</p>
+                )}
               </div>
             </div>
           </motion.div>
