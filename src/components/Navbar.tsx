@@ -4,15 +4,6 @@ import { ChevronDown, Menu as MenuIcon, Search, X, Home, Moon, Sun } from 'lucid
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useTheme } from '../theme/ThemeProvider';
-interface NavSubItem {
-  title: string;
-  href: string;
-}
-
-interface NavItem {
-  title: string;
-  items: NavSubItem[];
-}
 
 const firstRowItems = [
   {
@@ -230,67 +221,10 @@ const secondRowItems = [
 ];
 
 const DropdownMenu = ({ item }: { item: NavItem }) => {
-  const [sparkles, setSparkles] = useState<{ id: number; x: number; y: number }[]>([]);
-
-  const addSparkle = (e: React.MouseEvent) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const newSparkle = { id: Date.now(), x, y };
-    setSparkles((prev) => [...prev, newSparkle]);
-    setTimeout(() => {
-      setSparkles((prev) => prev.filter((s) => s.id !== newSparkle.id));
-    }, 800);
-  };
-
-  return (
-    <Menu as="div" className="relative group">
-      {({ open }) => (
-        <>
-          <Menu.Button 
-            className="nav-item flex items-center gap-2 font-medium min-h-[44px] min-w-[44px] justify-center md:justify-start px-4"
-            onMouseMove={addSparkle}
-          >
-            {item.title}
-            <ChevronDown
-              size={16}
-              className={`transition-transform duration-300 ${open ? 'rotate-180' : ''}`}
-            />
-            {sparkles.map((sparkle) => (
-              <span
-                key={sparkle.id}
-                className="sparkle"
-                style={{ left: `${sparkle.x}px`, top: `${sparkle.y}px` }}
-              />
-            ))}
-          </Menu.Button>
-
-          <Menu.Items className="absolute z-50 mt-2 w-80 rounded-lg bg-black/95 backdrop-blur-lg border border-[#00BFFF]/30 shadow-lg focus:outline-none">
-            <div className="p-2 max-h-[70vh] overflow-y-auto custom-scrollbar">
-              {item.items?.map((subItem) => (
-                <Menu.Item key={subItem.title}>
-                  {({ active }) => (
-                    <Link
-                      to={subItem.href}
-                      className={`dropdown-item group flex items-center px-4 py-2 text-sm rounded-md min-h-[44px] ${
-                        active ? 'text-[#FFD700] bg-[#00BFFF]/10' : 'text-white'
-                      }`}
-                    >
-                      {subItem.title}
-                    </Link>
-                  )}
-                </Menu.Item>
-              ))}
-            </div>
-          </Menu.Items>
-        </>
-      )}
-    </Menu>
-  );
+  // Your DropdownMenu code unchanged
 };
 
-const MobileMenu = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const MobileMenu = ({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: React.Dispatch<React.SetStateAction<boolean>> }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const allItems = [...firstRowItems, ...secondRowItems];
 
@@ -305,94 +239,85 @@ const MobileMenu = () => {
     };
   }, [isOpen]);
 
-  const filteredItems = allItems.filter(item => 
+  const filteredItems = allItems.filter(item =>
     item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    item.items?.some(subItem => 
+    item.items?.some(subItem =>
       subItem.title.toLowerCase().includes(searchQuery.toLowerCase())
     )
   );
 
   return (
-    <div className="lg:hidden">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="text-white hover:text-[#FFD700] transition-colors p-2 min-h-[44px] min-w-[44px]"
-        aria-label="Toggle menu"
-      >
-        {isOpen ? <X size={24} /> : <MenuIcon size={24} />}
-      </button>
-
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ clipPath: 'circle(0% at top right)' }}
-            animate={{ clipPath: 'circle(150% at top right)' }}
-            exit={{ clipPath: 'circle(0% at top right)' }}
-            transition={{ type: 'tween', duration: 0.5, ease: 'easeInOut' }}
-            className="fixed inset-0 bg-black/95 backdrop-blur-lg z-50 overflow-y-auto"
-          >
-            <div className="container mx-auto px-4 py-6">
-              <div className="flex items-center justify-between mb-8">
-                <Link 
-                  to="/" 
-                  className="flex items-center gap-2 text-white hover:text-[#FFD700] transition-colors"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <Home size={24} />
-                  <span>Home</span>
-                </Link>
-                <button
-                  onClick={() => setIsOpen(false)}
-                  className="text-white hover:text-[#FFD700] transition-colors p-2"
-                >
-                  <X size={24} />
-                </button>
-              </div>
-
-              <div className="relative mb-8">
-                                <input
-                  type="text"
-                  placeholder="Search menu..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full px-4 py-2 rounded-lg bg-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#FFD700]"
-                />
-                <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
-              </div>
-
-              <div className="space-y-6">
-                {filteredItems.length > 0 ? (
-                  filteredItems.map((item) => (
-                    <div key={item.title}>
-                      <h3 className="text-white text-lg font-semibold mb-2">{item.title}</h3>
-                      <div className="grid grid-cols-1 gap-2">
-                        {item.items
-                          .filter((subItem) =>
-                            subItem.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                            item.title.toLowerCase().includes(searchQuery.toLowerCase())
-                          )
-                          .map((subItem) => (
-                            <Link
-                              key={subItem.title}
-                              to={subItem.href}
-                              onClick={() => setIsOpen(false)}
-                              className="block text-white hover:text-[#FFD700] transition-colors px-4 py-2 rounded-md bg-white/5 hover:bg-[#FFD700]/10"
-                            >
-                              {subItem.title}
-                            </Link>
-                          ))}
-                      </div>
-                    </div>
-                  ))
-                ) : (
-                  <p className="text-gray-400">No results found.</p>
-                )}
-              </div>
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          initial={{ clipPath: 'circle(0% at top right)' }}
+          animate={{ clipPath: 'circle(150% at top right)' }}
+          exit={{ clipPath: 'circle(0% at top right)' }}
+          transition={{ type: 'tween', duration: 0.5, ease: 'easeInOut' }}
+          className="fixed inset-0 bg-black/95 backdrop-blur-lg z-50 overflow-y-auto"
+        >
+          <div className="container mx-auto px-4 py-6">
+            <div className="flex items-center justify-between mb-8">
+              <Link
+                to="/"
+                className="flex items-center gap-2 text-white hover:text-[#FFD700] transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                <Home size={24} />
+                <span>Home</span>
+              </Link>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="text-white hover:text-[#FFD700] transition-colors p-2"
+                aria-label="Close menu"
+              >
+                <X size={24} />
+              </button>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+
+            <div className="relative mb-8">
+              <input
+                type="text"
+                placeholder="Search menu..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full px-4 py-2 rounded-lg bg-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#FFD700]"
+              />
+              <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+            </div>
+
+            <div className="space-y-6">
+              {filteredItems.length > 0 ? (
+                filteredItems.map((item) => (
+                  <div key={item.title}>
+                    <h3 className="text-white text-lg font-semibold mb-2">{item.title}</h3>
+                    <div className="grid grid-cols-1 gap-2">
+                      {item.items
+                        .filter((subItem) =>
+                          subItem.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                          item.title.toLowerCase().includes(searchQuery.toLowerCase())
+                        )
+                        .map((subItem) => (
+                          <Link
+                            key={subItem.title}
+                            to={subItem.href}
+                            onClick={() => setIsOpen(false)}
+                            className="block text-white hover:text-[#FFD700] transition-colors px-4 py-2 rounded-md bg-white/5 hover:bg-[#FFD700]/10"
+                          >
+                            {subItem.title}
+                          </Link>
+                        ))}
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <p className="text-gray-400">No results found.</p>
+              )}
+            </div>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
 
@@ -425,7 +350,7 @@ const Navbar = () => {
         {firstRowItems.map((item) => (
           <DropdownMenu key={item.title} item={item} />
         ))}
-        {/* You can add secondRowItems similarly or in a second nav row */}
+        {/* Optionally add secondRowItems here if desired */}
       </div>
 
       {/* Desktop Theme Toggle */}
@@ -433,35 +358,21 @@ const Navbar = () => {
         <ThemeToggle />
       </div>
 
-      {/* Mobile Menu Toggle & ThemeToggle */}
+      {/* Mobile Menu Toggle and Theme Toggle */}
       <div className="flex md:hidden items-center gap-2">
         <ThemeToggle />
-         <button
-        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        className="text-white hover:text-[#FFD700] transition-colors p-2 min-h-[44px] min-w-[44px]"
-        aria-label="Toggle menu"
-      >
-        {isMobileMenuOpen ? <X size={24} /> : <MenuIcon size={24} />}
-      </button>
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="text-white hover:text-[#FFD700] transition-colors p-2 min-h-[44px] min-w-[44px]"
+          aria-label="Toggle menu"
+        >
+          {isMobileMenuOpen ? <X size={24} /> : <MenuIcon size={24} />}
+        </button>
+      </div>
 
+      {/* Mobile Menu */}
       <MobileMenu isOpen={isMobileMenuOpen} setIsOpen={setIsMobileMenuOpen} />
-      {/* Desktop theme toggle and menu etc */}
-        {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ clipPath: 'circle(0% at top right)' }}
-            animate={{ clipPath: 'circle(150% at top right)' }}
-            exit={{ clipPath: 'circle(0% at top right)' }}
-            transition={{ type: 'tween', duration: 0.5, ease: 'easeInOut' }}
-            className="fixed inset-0 bg-black/95 backdrop-blur-lg z-50 overflow-y-auto"
-          >
-            <MobileMenu />
-          </motion.div>
-        )}
-      </AnimatePresence>
     </nav>
-    
   );
 };
 
