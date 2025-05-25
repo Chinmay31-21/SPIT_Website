@@ -5,6 +5,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useTheme } from '../theme/ThemeProvider';
 
+// Define the type for nav items
+interface NavSubItem {
+  title: string;
+  href: string;
+}
+
+interface NavItem {
+  title: string;
+  items: NavSubItem[];
+}
 const firstRowItems = [
   {
     title: 'ABOUT',
@@ -220,11 +230,54 @@ const secondRowItems = [
   }
 ];
 
+// DropdownMenu component to render desktop dropdowns
 const DropdownMenu = ({ item }: { item: NavItem }) => {
-  // Your DropdownMenu code unchanged
+  return (
+    <HeadlessMenu as="div" className="relative inline-block text-left">
+      <HeadlessMenu.Button className="inline-flex items-center gap-1 text-black dark:text-white hover:text-[#FFD700] focus:outline-none">
+        {item.title}
+        <ChevronDown size={16} />
+      </HeadlessMenu.Button>
+
+      <AnimatePresence>
+        <HeadlessMenu.Items
+          static
+          as={motion.div}
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.2 }}
+          className="absolute left-0 mt-2 w-56 origin-top-left rounded-md bg-white dark:bg-gray-900 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50"
+        >
+          <div className="py-1">
+            {item.items.map((subItem) => (
+              <HeadlessMenu.Item key={subItem.title}>
+                {({ active }) => (
+                  <Link
+                    to={subItem.href}
+                    className={`block px-4 py-2 text-sm ${
+                      active ? 'bg-[#FFD700] text-black' : 'text-gray-700 dark:text-gray-200'
+                    }`}
+                  >
+                    {subItem.title}
+                  </Link>
+                )}
+              </HeadlessMenu.Item>
+            ))}
+          </div>
+        </HeadlessMenu.Items>
+      </AnimatePresence>
+    </HeadlessMenu>
+  );
 };
 
-const MobileMenu = ({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: React.Dispatch<React.SetStateAction<boolean>> }) => {
+const MobileMenu = ({
+  isOpen,
+  setIsOpen,
+}: {
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const [searchQuery, setSearchQuery] = useState('');
   const allItems = [...firstRowItems, ...secondRowItems];
 
@@ -239,11 +292,10 @@ const MobileMenu = ({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: React.D
     };
   }, [isOpen]);
 
-  const filteredItems = allItems.filter(item =>
-    item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    item.items?.some(subItem =>
-      subItem.title.toLowerCase().includes(searchQuery.toLowerCase())
-    )
+  const filteredItems = allItems.filter(
+    (item) =>
+      item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      item.items.some((subItem) => subItem.title.toLowerCase().includes(searchQuery.toLowerCase()))
   );
 
   return (
@@ -293,9 +345,10 @@ const MobileMenu = ({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: React.D
                     <h3 className="text-white text-lg font-semibold mb-2">{item.title}</h3>
                     <div className="grid grid-cols-1 gap-2">
                       {item.items
-                        .filter((subItem) =>
-                          subItem.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          item.title.toLowerCase().includes(searchQuery.toLowerCase())
+                        .filter(
+                          (subItem) =>
+                            subItem.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                            item.title.toLowerCase().includes(searchQuery.toLowerCase())
                         )
                         .map((subItem) => (
                           <Link
@@ -350,7 +403,7 @@ const Navbar = () => {
         {firstRowItems.map((item) => (
           <DropdownMenu key={item.title} item={item} />
         ))}
-        {/* Optionally add secondRowItems here if desired */}
+        {/* Optionally add secondRowItems here if needed */}
       </div>
 
       {/* Desktop Theme Toggle */}
