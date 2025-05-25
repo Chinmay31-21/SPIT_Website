@@ -242,6 +242,7 @@ function App() {
             <Route path="/resources/antiragging" element={<AntiRagging />} />
             <Route path="/resources/rti" element={<RTI />} />
             <Route path="/resources/grievance" element={<Grievance />} />
+<Route path="/accreditation/*" element={<accreditation />} />
 <Route path="/accreditation/NIRF" element={<NIRF />} />
 <Route path="/accreditation/NAAC" element={<NAAC />} />
 <Route path="/accreditation/NBA" element={<NBA />} />
