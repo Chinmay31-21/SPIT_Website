@@ -21,6 +21,11 @@ import { Library } from './pages/Library';
 import { Placements } from './pages/Placements';
 import { Admissions } from './pages/Admissions';
 import { Contact } from './pages/Contact';
+import { NAAC } from './pages/NAAC';
+import { NIRF } from './pages/NIRF';
+import { IIC } from './pages/IIC';
+import { ARIIA } from './pages/ARIIA';
+import { NBA } from './pages/NBA';
 import { MandatoryDisclosure } from './pages/resources/MandatoryDisclosure';
 import { IQAC } from './pages/resources/MandatoryDisclosure';
 import { NIRF } from './pages/resources/MandatoryDisclosure';
@@ -29,11 +34,9 @@ import { Tender } from './pages/resources/MandatoryDisclosure';
 import { AntiRagging } from './pages/resources/MandatoryDisclosure';
 import { RTI } from './pages/resources/MandatoryDisclosure';
 import { Grievance } from './pages/resources/MandatoryDisclosure';
-import { NAAC } from './pages/NAAC';
-import { NIRF } from './pages/NIRF';
-import { IIC } from './pages/IIC';
-import { ARIIA } from './pages/ARIIA';
-import { NBA } from './pages/NBA';
+
+
+
 
 const PageTransition = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
@@ -171,35 +174,35 @@ function App() {
 
             <div className="mt-4 flex flex-wrap items-center justify-center md:justify-end gap-4 text-sm">
               <a
-                href="#"
+                href="/naac"
                 className="text-white hover:text-[#FFD700] transition-colors"
               >
                 NAAC
               </a>
               <span className="text-[#8B3A3A]">|</span>
               <a
-                href="#"
+                href="/nirf"
                 className="text-white hover:text-[#FFD700] transition-colors"
               >
                 NIRF
               </a>
               <span className="text-[#8B3A3A]">|</span>
               <a
-                href="#"
+                href="/iic"
                 className="text-white hover:text-[#FFD700] transition-colors"
               >
                 IIC
               </a>
               <span className="text-[#8B3A3A]">|</span>
               <a
-                href="#"
+                href="/ariia"
                 className="text-white hover:text-[#FFD700] transition-colors"
               >
                 ARIIA
               </a>
               <span className="text-[#8B3A3A]">|</span>
               <a
-                href="#"
+                href="/nba"
                 className="text-white hover:text-[#FFD700] transition-colors"
               >
                 NBA
