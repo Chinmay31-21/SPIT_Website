@@ -11,7 +11,7 @@ import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { MainContent } from './components/MainContent';
 import { PowerUpAnimation } from './components/PowerUpAnimation';
-import { BrowserRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, NavLink, Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { About } from './pages/About';
 import { Academics } from './pages/Academics';
@@ -21,26 +21,21 @@ import { Library } from './pages/Library';
 import { Placements } from './pages/Placements';
 import { Admissions } from './pages/Admissions';
 import { Contact } from './pages/Contact';
-import { NAAC } from './pages/NAAC';
-import { NIRF } from './pages/NIRF';
-import { IIC } from './pages/IIC';
-import { ARIIA } from './pages/ARIIA';
-import { NBA } from './pages/NBA';
+import { NAAC } from './pages/accreditation/NAAC';
+import { NIRF } from './pages/accreditation/NIRF';
+import { IIC } from './pages/accreditation/IIC';
+import { ARIIA } from './pages/accreditation/ARIIA';
+import { NBA } from './pages/accreditation/NBA';
 import { MandatoryDisclosure } from './pages/resources/MandatoryDisclosure';
 import { IQAC } from './pages/resources/MandatoryDisclosure';
-import { NIRF } from './pages/resources/MandatoryDisclosure';
-import { NAAC } from './pages/resources/MandatoryDisclosure';
 import { Tender } from './pages/resources/MandatoryDisclosure';
 import { AntiRagging } from './pages/resources/MandatoryDisclosure';
 import { RTI } from './pages/resources/MandatoryDisclosure';
 import { Grievance } from './pages/resources/MandatoryDisclosure';
 
-
-
-
 const PageTransition = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
-  
+
   return (
     <AnimatePresence mode="wait">
       <motion.div
@@ -79,11 +74,7 @@ function App() {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-[#0D0D0D] flex items-center justify-center">
-        <div
-          className={relative w-40 h-40 ${
-            isAnimating ? 'animate-coin-flip' : ''
-          }}
-        >
+        <div className={`relative w-40 h-40 ${isAnimating ? 'animate-coin-flip' : ''}`}>
           <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#FFD700] to-[#DAA520] shadow-lg transform-gpu backface-hidden">
             <div className="w-full h-full flex items-center justify-center">
               <img
@@ -112,9 +103,7 @@ function App() {
                     className="w-16 h-16 object-contain animate-float"
                   />
                   <div>
-                    <p className="text-[#F0F0F0]/80 text-sm">
-                      Bhartiya Vidya Bhavan's
-                    </p>
+                    <p className="text-[#F0F0F0]/80 text-sm">Bhartiya Vidya Bhavan's</p>
                     <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-[#FFD700] to-[#DAA520] bg-clip-text text-transparent animate-glow">
                       Sardar Patel Institute of Technology
                     </h1>
@@ -139,74 +128,34 @@ function App() {
               </div>
 
               <div className="flex items-center gap-4 mt-4 md:mt-0 w-full md:w-auto justify-center md:justify-end">
-                <a
-                  href="#"
-                  className="text-white/80 hover:text-[#00BFFF] transition-colors"
-                >
+                <a href="#" className="text-white/80 hover:text-[#00BFFF] transition-colors">
                   <Instagram size={20} />
                 </a>
-                <a
-                  href="#"
-                  className="text-white/80 hover:text-[#00BFFF] transition-colors"
-                >
+                <a href="#" className="text-white/80 hover:text-[#00BFFF] transition-colors">
                   <Linkedin size={20} />
                 </a>
-                <a
-                  href="#"
-                  className="text-white/80 hover:text-[#00BFFF] transition-colors"
-                >
+                <a href="#" className="text-white/80 hover:text-[#00BFFF] transition-colors">
                   <Twitter size={20} />
                 </a>
-                <a
-                  href="#"
-                  className="text-white/80 hover:text-[#00BFFF] transition-colors"
-                >
+                <a href="#" className="text-white/80 hover:text-[#00BFFF] transition-colors">
                   <Youtube size={20} />
                 </a>
-                <a
-                  href="#"
-                  className="text-white/80 hover:text-[#00BFFF] transition-colors"
-                >
+                <a href="#" className="text-white/80 hover:text-[#00BFFF] transition-colors">
                   <Facebook size={20} />
                 </a>
               </div>
             </div>
 
             <div className="mt-4 flex flex-wrap items-center justify-center md:justify-end gap-4 text-sm">
-              <a
-                href="/naac"
-                className="text-white hover:text-[#FFD700] transition-colors"
-              >
-                NAAC
-              </a>
+              <NavLink to="/accreditation/NAAC" className={({ isActive }) => isActive ? "text-[#FFD700] font-semibold transition-colors" : "text-white hover:text-[#FFD700] transition-colors"}>NAAC</NavLink>
               <span className="text-[#8B3A3A]">|</span>
-              <a
-                href="/nirf"
-                className="text-white hover:text-[#FFD700] transition-colors"
-              >
-                NIRF
-              </a>
+              <NavLink to="/accreditation/NIRF" className={({ isActive }) => isActive ? "text-[#FFD700] font-semibold transition-colors" : "text-white hover:text-[#FFD700] transition-colors"}>NIRF</NavLink>
               <span className="text-[#8B3A3A]">|</span>
-              <a
-                href="/iic"
-                className="text-white hover:text-[#FFD700] transition-colors"
-              >
-                IIC
-              </a>
+              <NavLink to="/accreditation/IIC" className={({ isActive }) => isActive ? "text-[#FFD700] font-semibold transition-colors" : "text-white hover:text-[#FFD700] transition-colors"}>IIC</NavLink>
               <span className="text-[#8B3A3A]">|</span>
-              <a
-                href="/ariia"
-                className="text-white hover:text-[#FFD700] transition-colors"
-              >
-                ARIIA
-              </a>
+              <NavLink to="/accreditation/ARIIA" className={({ isActive }) => isActive ? "text-[#FFD700] font-semibold transition-colors" : "text-white hover:text-[#FFD700] transition-colors"}>ARIIA</NavLink>
               <span className="text-[#8B3A3A]">|</span>
-              <a
-                href="/nba"
-                className="text-white hover:text-[#FFD700] transition-colors"
-              >
-                NBA
-              </a>
+              <NavLink to="/accreditation/NBA" className={({ isActive }) => isActive ? "text-[#FFD700] font-semibold transition-colors" : "text-white hover:text-[#FFD700] transition-colors"}>NBA</NavLink>
             </div>
           </div>
         </header>
@@ -224,21 +173,17 @@ function App() {
             <Route path="/placements/*" element={<Placements />} />
             <Route path="/admissions/*" element={<Admissions />} />
             <Route path="/contact/*" element={<Contact />} />
-          <Route path="/naac" element={<NAAC />} />
-          <Route path="/nirf" element={<NIRF />} />
-          <Route path="/iic" element={<IIC />} />
-          <Route path="/ariia" element={<ARIIA />} />
-          <Route path="/nba" element={<NBA />} />
-            {/* Resource & Policy Routes */}
+            <Route path="/accreditation/NAAC" element={<NAAC />} />
+            <Route path="/accreditation/NIRF" element={<NIRF />} />
+            <Route path="/accreditation/IIC" element={<IIC />} />
+            <Route path="/accreditation/ARIIA" element={<ARIIA />} />
+            <Route path="/accreditation/NBA" element={<NBA />} />
             <Route path="/resources/mandatory-disclosure" element={<MandatoryDisclosure />} />
             <Route path="/resources/iqac" element={<IQAC />} />
-            <Route path="/resources/nirfe" element={<NIRF />} />
-            <Route path="/resources/naac" element={<NAAC />} />
             <Route path="/resources/tender" element={<Tender />} />
             <Route path="/resources/antiragging" element={<AntiRagging />} />
             <Route path="/resources/rti" element={<RTI />} />
             <Route path="/resources/grievance" element={<Grievance />} />
-
           </Routes>
         </PageTransition>
 
