@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Menu } from '@headlessui/react';
-import { ChevronDown, Menu as MenuIcon, Search, X, Home } from 'lucide-react';
+import { ChevronDown, Menu as MenuIcon, Search, X, Home, Sun, Moon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useTheme } from '../theme/ThemeProvider';
 
 // First row menu items
 const firstRowItems = [
@@ -395,6 +396,7 @@ const MobileMenu = () => {
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -446,12 +448,34 @@ export const Navbar = () => {
                 </Link>
               )
             )}
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full hover:bg-surface transition-colors"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? (
+                <Sun className="w-5 h-5 text-primary" />
+              ) : (
+                <Moon className="w-5 h-5 text-primary" />
+              )}
+            </button>
           </div>
         </div>
 
         {/* Mobile Menu */}
         <div className="lg:hidden flex items-center justify-between h-16">
           <div className="flex-1" />
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full hover:bg-surface transition-colors mr-2"
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? (
+              <Sun className="w-5 h-5 text-primary" />
+            ) : (
+              <Moon className="w-5 h-5 text-primary" />
+            )}
+          </button>
           <MobileMenu />
         </div>
       </div>
