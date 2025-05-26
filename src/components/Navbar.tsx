@@ -414,70 +414,10 @@ export const Navbar = () => {
     >
       <div className="container mx-auto px-4">
         {/* First Row */}
-        <div className="hidden lg:flex items-center justify-between h-16 border-b border-[#00BFFF]/10">
-          <div className="flex items-center justify-between w-full">
-            {firstRowItems.map((item) =>
-              item.items ? (
-                <DropdownMenu key={item.title} item={item} />
-              ) : (
-                <Link
-                  key={item.title}
-                  to={item.href || '#'}
-                  className="nav-item font-medium min-h-[44px] flex items-center px-4"
-                >
-                  {item.title}
-                </Link>
-              )
-            )}
-          </div>
+        <div className="hidden lg:flex items-center">
+          {/* Dynamic Dropdowns would go here */}
         </div>
-
-        {/* Second Row */}
-        <div className="hidden lg:flex items-center justify-between h-16">
-          <div className="flex items-center justify-between w-full">
-            {secondRowItems.map((item) =>
-              item.items ? (
-                <DropdownMenu key={item.title} item={item} />
-              ) : (
-                <Link
-                  key={item.title}
-                  to={item.href || '#'}
-                  className="nav-item font-medium min-h-[44px] flex items-center px-4"
-                >
-                  {item.title}
-                </Link>
-              )
-            )}
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-full hover:bg-surface transition-colors"
-              aria-label="Toggle theme"
-            >
-              {theme === 'dark' ? (
-                <Sun className="w-5 h-5 text-primary" />
-              ) : (
-                <Moon className="w-5 h-5 text-primary" />
-              )}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        <div className="lg:hidden flex items-center justify-between h-16">
-          <div className="flex-1" />
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-full hover:bg-surface transition-colors mr-2"
-            aria-label="Toggle theme"
-          >
-            {theme === 'dark' ? (
-              <Sun className="w-5 h-5 text-primary" />
-            ) : (
-              <Moon className="w-5 h-5 text-primary" />
-            )}
-          </button>
-          <MobileMenu />
-        </div>
+        <MobileMenu />
       </div>
     </nav>
   );
