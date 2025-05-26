@@ -1,20 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Menu as HeadlessMenu } from '@headlessui/react';
-import { ChevronDown, Menu as MenuIcon, Search, X, Home, Moon, Sun } from 'lucide-react';
+import { Menu } from '@headlessui/react';
+import { ChevronDown, Menu as MenuIcon, Search, X, Home } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { useTheme } from '../theme/ThemeProvider';
 
-// Define the type for nav items
-interface NavSubItem {
-  title: string;
-  href: string;
-}
-
-interface NavItem {
-  title: string;
-  items: NavSubItem[];
-}
+// First row menu items
 const firstRowItems = [
   {
     title: 'ABOUT',
@@ -230,54 +220,68 @@ const secondRowItems = [
   }
 ];
 
-// DropdownMenu component to render desktop dropdowns
 const DropdownMenu = ({ item }: { item: NavItem }) => {
-  return (
-    <HeadlessMenu as="div" className="relative inline-block text-left">
-      <HeadlessMenu.Button className="inline-flex items-center gap-1 text-black dark:text-white hover:text-[#FFD700] focus:outline-none">
-        {item.title}
-        <ChevronDown size={16} />
-      </HeadlessMenu.Button>
+  const [sparkles, setSparkles] = useState<{ id: number; x: number; y: number }[]>([]);
 
-      <AnimatePresence>
-        <HeadlessMenu.Items
-          static
-          as={motion.div}
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.2 }}
-          className="absolute left-0 mt-2 w-56 origin-top-left rounded-md bg-white dark:bg-gray-900 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50"
-        >
-          <div className="py-1">
-            {item.items.map((subItem) => (
-              <HeadlessMenu.Item key={subItem.title}>
-                {({ active }) => (
-                  <Link
-                    to={subItem.href}
-                    className={`block px-4 py-2 text-sm ${
-                      active ? 'bg-[#FFD700] text-black' : 'text-gray-700 dark:text-gray-200'
-                    }`}
-                  >
-                    {subItem.title}
-                  </Link>
-                )}
-              </HeadlessMenu.Item>
+  const addSparkle = (e: React.MouseEvent) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const newSparkle = { id: Date.now(), x, y };
+    setSparkles((prev) => [...prev, newSparkle]);
+    setTimeout(() => {
+      setSparkles((prev) => prev.filter((s) => s.id !== newSparkle.id));
+    }, 800);
+  };
+
+  return (
+    <Menu as="div" className="relative group">
+      {({ open }) => (
+        <>
+          <Menu.Button 
+            className="nav-item flex items-center gap-2 font-medium min-h-[44px] min-w-[44px] justify-center md:justify-start px-4"
+            onMouseMove={addSparkle}
+          >
+            {item.title}
+            <ChevronDown
+              size={16}
+              className={`transition-transform duration-300 ${open ? 'rotate-180' : ''}`}
+            />
+            {sparkles.map((sparkle) => (
+              <span
+                key={sparkle.id}
+                className="sparkle"
+                style={{ left: `${sparkle.x}px`, top: `${sparkle.y}px` }}
+              />
             ))}
-          </div>
-        </HeadlessMenu.Items>
-      </AnimatePresence>
-    </HeadlessMenu>
+          </Menu.Button>
+
+          <Menu.Items className="absolute z-50 mt-2 w-80 rounded-lg bg-black/95 backdrop-blur-lg border border-[#00BFFF]/30 shadow-lg focus:outline-none">
+            <div className="p-2 max-h-[70vh] overflow-y-auto custom-scrollbar">
+              {item.items?.map((subItem) => (
+                <Menu.Item key={subItem.title}>
+                  {({ active }) => (
+                    <Link
+                      to={subItem.href}
+                      className={`dropdown-item group flex items-center px-4 py-2 text-sm rounded-md min-h-[44px] ${
+                        active ? 'text-[#FFD700] bg-[#00BFFF]/10' : 'text-white'
+                      }`}
+                    >
+                      {subItem.title}
+                    </Link>
+                  )}
+                </Menu.Item>
+              ))}
+            </div>
+          </Menu.Items>
+        </>
+      )}
+    </Menu>
   );
 };
 
-const MobileMenu = ({
-  isOpen,
-  setIsOpen,
-}: {
-  isOpen: boolean;
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}) => {
+const MobileMenu = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const allItems = [...firstRowItems, ...secondRowItems];
 
@@ -292,141 +296,165 @@ const MobileMenu = ({
     };
   }, [isOpen]);
 
-  const filteredItems = allItems.filter(
-    (item) =>
-      item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.items.some((subItem) => subItem.title.toLowerCase().includes(searchQuery.toLowerCase()))
+  const filteredItems = allItems.filter(item => 
+    item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    item.items?.some(subItem => 
+      subItem.title.toLowerCase().includes(searchQuery.toLowerCase())
+    )
   );
 
   return (
-    <AnimatePresence>
-      {isOpen && (
-        <motion.div
-          initial={{ clipPath: 'circle(0% at top right)' }}
-          animate={{ clipPath: 'circle(150% at top right)' }}
-          exit={{ clipPath: 'circle(0% at top right)' }}
-          transition={{ type: 'tween', duration: 0.5, ease: 'easeInOut' }}
-          className="fixed inset-0 bg-black/95 backdrop-blur-lg z-50 overflow-y-auto"
-        >
-          <div className="container mx-auto px-4 py-6">
-            <div className="flex items-center justify-between mb-8">
-              <Link
-                to="/"
-                className="flex items-center gap-2 text-white hover:text-[#FFD700] transition-colors"
-                onClick={() => setIsOpen(false)}
-              >
-                <Home size={24} />
-                <span>Home</span>
-              </Link>
-              <button
-                onClick={() => setIsOpen(false)}
-                className="text-white hover:text-[#FFD700] transition-colors p-2"
-                aria-label="Close menu"
-              >
-                <X size={24} />
-              </button>
-            </div>
+    <div className="lg:hidden">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="text-white hover:text-[#FFD700] transition-colors p-2 min-h-[44px] min-w-[44px]"
+        aria-label="Toggle menu"
+      >
+        {isOpen ? <X size={24} /> : <MenuIcon size={24} />}
+      </button>
 
-            <div className="relative mb-8">
-              <input
-                type="text"
-                placeholder="Search menu..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-4 py-2 rounded-lg bg-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#FFD700]"
-              />
-              <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
-            </div>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ clipPath: 'circle(0% at top right)' }}
+            animate={{ clipPath: 'circle(150% at top right)' }}
+            exit={{ clipPath: 'circle(0% at top right)' }}
+            transition={{ type: 'tween', duration: 0.5, ease: 'easeInOut' }}
+            className="fixed inset-0 bg-black/95 backdrop-blur-lg z-50 overflow-y-auto"
+          >
+            <div className="container mx-auto px-4 py-6">
+              <div className="flex items-center justify-between mb-8">
+                <Link 
+                  to="/" 
+                  className="flex items-center gap-2 text-white hover:text-[#FFD700] transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <Home size={24} />
+                  <span>Home</span>
+                </Link>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="text-white hover:text-[#FFD700] transition-colors p-2"
+                >
+                  <X size={24} />
+                </button>
+              </div>
 
-            <div className="space-y-6">
-              {filteredItems.length > 0 ? (
-                filteredItems.map((item) => (
-                  <div key={item.title}>
-                    <h3 className="text-white text-lg font-semibold mb-2">{item.title}</h3>
-                    <div className="grid grid-cols-1 gap-2">
-                      {item.items
-                        .filter(
-                          (subItem) =>
-                            subItem.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                            item.title.toLowerCase().includes(searchQuery.toLowerCase())
-                        )
-                        .map((subItem) => (
+              <div className="relative mb-8">
+                <input
+                  type="text"
+                  placeholder="Search menu..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full px-4 py-3 rounded-lg bg-white/5 border border-[#00BFFF]/30 text-white placeholder-white/50 focus:outline-none focus:border-[#00BFFF]"
+                />
+                <Search className="absolute right-3 top-1/2 -translate-y-1/2 text-white/50" size={20} />
+              </div>
+
+              <div className="space-y-6">
+                {filteredItems.map((item) => (
+                  <motion.div
+                    key={item.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <details className="group">
+                      <summary className="flex items-center justify-between cursor-pointer text-white text-lg font-semibold mb-2">
+                        {item.title}
+                        <ChevronDown className="transform transition-transform group-open:rotate-180" />
+                      </summary>
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="pl-4 space-y-2"
+                      >
+                        {item.items?.map((subItem) => (
                           <Link
                             key={subItem.title}
                             to={subItem.href}
                             onClick={() => setIsOpen(false)}
-                            className="block text-white hover:text-[#FFD700] transition-colors px-4 py-2 rounded-md bg-white/5 hover:bg-[#FFD700]/10"
+                            className="block py-2 px-4 text-white/80 hover:text-[#FFD700] hover:bg-white/5 rounded transition-colors"
                           >
                             {subItem.title}
                           </Link>
                         ))}
-                    </div>
-                  </div>
-                ))
-              ) : (
-                <p className="text-gray-400">No results found.</p>
-              )}
+                      </motion.div>
+                    </details>
+                  </motion.div>
+                ))}
+              </div>
             </div>
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 };
 
-const ThemeToggle = () => {
-  const { theme, toggleTheme } = useTheme();
+export const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <button
-      onClick={toggleTheme}
-      className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
-      aria-label="Toggle Dark Mode"
+    <nav 
+      className={`sticky top-0 z-50 bg-black/95 backdrop-blur-md border-b border-[#00BFFF]/30 transition-all duration-300 ${
+        isScrolled ? 'shadow-lg shadow-[#00BFFF]/10' : ''
+      }`}
     >
-      {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-    </button>
-  );
-};
+      <div className="container mx-auto px-4">
+        {/* First Row */}
+        <div className="hidden lg:flex items-center justify-between h-16 border-b border-[#00BFFF]/10">
+          <div className="flex items-center justify-between w-full">
+            {firstRowItems.map((item) =>
+              item.items ? (
+                <DropdownMenu key={item.title} item={item} />
+              ) : (
+                <Link
+                  key={item.title}
+                  to={item.href || '#'}
+                  className="nav-item font-medium min-h-[44px] flex items-center px-4"
+                >
+                  {item.title}
+                </Link>
+              )
+            )}
+          </div>
+        </div>
 
-const Navbar = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+        {/* Second Row */}
+        <div className="hidden lg:flex items-center justify-between h-16">
+          <div className="flex items-center justify-between w-full">
+            {secondRowItems.map((item) =>
+              item.items ? (
+                <DropdownMenu key={item.title} item={item} />
+              ) : (
+                <Link
+                  key={item.title}
+                  to={item.href || '#'}
+                  className="nav-item font-medium min-h-[44px] flex items-center px-4"
+                >
+                  {item.title}
+                </Link>
+              )
+            )}
+          </div>
+        </div>
 
-  return (
-    <nav className="w-full flex justify-between items-center px-6 py-4 bg-white dark:bg-black shadow-md fixed top-0 left-0 z-50">
-      {/* Logo */}
-      <div className="text-2xl font-bold text-black dark:text-white">
-        <Link to="/">SPIT</Link>
+        {/* Mobile Menu */}
+        <div className="lg:hidden flex items-center justify-between h-16">
+          <div className="flex-1" />
+          <MobileMenu />
+        </div>
       </div>
-
-      {/* Desktop Menu */}
-      <div className="hidden md:flex items-center gap-6 text-black dark:text-white">
-        {firstRowItems.map((item) => (
-          <DropdownMenu key={item.title} item={item} />
-        ))}
-        {/* Optionally add secondRowItems here if needed */}
-      </div>
-
-      {/* Desktop Theme Toggle */}
-      <div className="hidden md:flex ml-4">
-        <ThemeToggle />
-      </div>
-
-      {/* Mobile Menu Toggle and Theme Toggle */}
-      <div className="flex md:hidden items-center gap-2">
-        <ThemeToggle />
-        <button
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="text-white hover:text-[#FFD700] transition-colors p-2 min-h-[44px] min-w-[44px]"
-          aria-label="Toggle menu"
-        >
-          {isMobileMenuOpen ? <X size={24} /> : <MenuIcon size={24} />}
-        </button>
-      </div>
-
-      {/* Mobile Menu */}
-      <MobileMenu isOpen={isMobileMenuOpen} setIsOpen={setIsMobileMenuOpen} />
     </nav>
   );
 };
-
-export default Navbar;
