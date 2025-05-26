@@ -37,8 +37,9 @@ body {
 
 .nav-item::before {
   content: '';
-  @apply absolute inset-0 bg-gradient-to-r from-secondary/0% via-secondary/20 to-secondary/0% opacity-0 transition-opacity duration-300;
+  @apply absolute inset-0 bg-gradient-to-r from-secondary via-secondary to-secondary opacity-0 transition-opacity duration-300;
 }
+
 
 .nav-item:hover::before {
   @apply opacity-100;
