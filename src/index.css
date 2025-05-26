@@ -88,7 +88,7 @@ body {
 
 
 .dropdown-item:hover::before {
-  @apply translate-x-[100%];
+  transform: translateX(100%);
 }
 
 /* Add more custom styles as needed */
