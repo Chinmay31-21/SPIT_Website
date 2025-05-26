@@ -37,7 +37,7 @@ body {
 
 .nav-item::before {
   content: '';
-  @apply absolute inset-0 bg-gradient-to-r from-secondary/0 via-secondary/20 to-secondary/0 opacity-0 transition-opacity duration-300;
+  @apply absolute inset-0 bg-gradient-to-r from-secondary/0% via-secondary/20 to-secondary/0% opacity-0 transition-opacity duration-300;
 }
 
 .nav-item:hover::before {
@@ -59,7 +59,7 @@ body {
 
 .dropdown-item::before {
   content: '';
-  @apply absolute inset-0 bg-gradient-to-r from-secondary/0 via-secondary/10 to-secondary/0 translate-x-[-100%] transition-transform duration-500;
+  @apply absolute inset-0 bg-gradient-to-r from-secondary/0% via-secondary/10 to-secondary/0% translate-x-[-100%] transition-transform duration-500;
 }
 
 .dropdown-item:hover::before {
