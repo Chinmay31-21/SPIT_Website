@@ -2,94 +2,205 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --primary: #FFD700;
-  --secondary-rgb: 0, 191, 255;
-
-  --background: #ffffff;
-  --text: #000000;
-  --surface: #f5f5f5;
-  --surface-2: #e5e5e5;
-  --border: rgba(0, 0, 0, 0.1);
+@keyframes coin-flip {
+  0% { transform: rotateY(0) translateY(0); }
+  25% { transform: rotateY(180deg) translateY(-50px); }
+  50% { transform: rotateY(360deg) translateY(0); }
+  75% { transform: rotateY(540deg) translateY(-25px); }
+  100% { transform: rotateY(720deg) translateY(0) translateX(-200px); }
 }
 
-:root.dark {
-  --primary: #FFD700;
-  --secondary-rgb: 0, 191, 255;
-  --background: #0D0D0D;
-  --text: #ffffff;
-  --surface: rgba(0, 0, 0, 0.3);
-  --surface-2: rgba(0, 0, 0, 0.5);
-  --border: rgba(0, 191, 255, 0.3);
+@keyframes cosmic {
+  0% { transform: translate(100vw, -100%) rotate(-45deg); }
+  100% { transform: translate(-100vw, 100%) rotate(-45deg); }
 }
 
-.theme-transition,
-.theme-transition * {
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0px); }
 }
 
-body {
-  @apply bg-background text-text;
+@keyframes glow {
+  0% { text-shadow: 0 0 5px rgba(255, 215, 0, 0.5); }
+  50% { text-shadow: 0 0 20px rgba(255, 215, 0, 0.8); }
+  100% { text-shadow: 0 0 5px rgba(255, 215, 0, 0.5); }
 }
 
-/* Nav Items */
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes liquid-flow {
+  0% { transform: translateY(-100%) rotate(0deg); opacity: 0; }
+  50% { transform: translateY(0) rotate(180deg); opacity: 0.5; }
+  100% { transform: translateY(100%) rotate(360deg); opacity: 0; }
+}
+
+@keyframes slide-in {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-coin-flip {
+  animation: coin-flip 3s ease-in-out forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.animate-sparkle {
+  animation: sparkle 1.5s ease-in-out infinite;
+}
+
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.2s ease-out forwards;
+}
+
+.animate-liquid {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-liquid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent, rgba(0, 191, 255, 0.2), transparent);
+  animation: liquid-flow 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
 .nav-item {
-  @apply relative text-text text-sm whitespace-nowrap px-3 py-2 transition-all duration-300;
-  z-index: 1;
+  @apply relative text-white transition-all duration-300 text-sm whitespace-nowrap;
 }
 
 .nav-item::before {
   content: '';
-  position: absolute;
-  inset: 0;
-  background-image: linear-gradient(
-    to right,
-    rgba(var(--secondary-rgb), 0) 0%,
-    rgba(var(--secondary-rgb), 0.2) 50%,
-    rgba(var(--secondary-rgb), 0) 100%
-  );
-  opacity: 0;
-  transition: opacity 300ms ease;
-  z-index: 0;
+  @apply absolute inset-0 bg-gradient-to-r from-[#00BFFF]/0 via-[#00BFFF]/20 to-[#00BFFF]/0 opacity-0 transition-opacity duration-300;
 }
 
 .nav-item:hover::before {
-  opacity: 1;
+  @apply opacity-100;
 }
 
 .nav-item::after {
   content: '';
-  @apply absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-primary to-[rgba(var(--secondary-rgb),1)];
-  width: 0%;
-  transition: width 300ms ease;
-  z-index: 1;
+  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#FFD700] to-[#00BFFF] transition-all duration-300;
 }
 
 .nav-item:hover::after {
-  width: 100%;
+  @apply w-full;
 }
 
-/* Dropdown Items */
 .dropdown-item {
-  @apply relative px-3 py-2 z-10;
-  overflow: hidden;
+  @apply relative overflow-hidden;
 }
 
 .dropdown-item::before {
   content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to right,
-    rgba(var(--secondary-rgb), 0) 0%,
-    rgba(var(--secondary-rgb), 0.1) 50%,
-    rgba(var(--secondary-rgb), 0) 100%
-  );
-  transform: translateX(-100%);
-  transition: transform 0.5s ease-in-out;
-  z-index: 0;
+  @apply absolute inset-0 bg-gradient-to-r from-[#00BFFF]/0 via-[#00BFFF]/10 to-[#00BFFF]/0 translate-x-[-100%] transition-transform duration-500;
 }
 
 .dropdown-item:hover::before {
-  transform: translateX(100%);
+  @apply translate-x-[100%];
+}
+
+.sparkle {
+  @apply absolute w-1 h-1 bg-white rounded-full pointer-events-none;
+  animation: sparkle 0.8s linear infinite;
+}
+
+.mega-menu {
+  @apply absolute left-0 w-full bg-black/95 backdrop-blur-md border-t border-[#00BFFF]/30 shadow-lg transform transition-all duration-300 opacity-0 -translate-y-2 invisible;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.mega-menu.active {
+  @apply opacity-100 translate-y-0 visible;
+}
+
+.mobile-nav-item {
+  @apply block w-full px-4 py-2 text-white hover:bg-[#00BFFF]/10 transition-colors duration-200;
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 191, 255, 0.3) transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 191, 255, 0.3);
+  border-radius: 20px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 191, 255, 0.5);
+}
+
+/* Mobile Menu Animations */
+.mobile-menu-enter {
+  clip-path: circle(0% at top right);
+}
+
+.mobile-menu-enter-active {
+  clip-path: circle(150% at top right);
+  transition: clip-path 0.5s ease-in-out;
+}
+
+.mobile-menu-exit {
+  clip-path: circle(150% at top right);
+}
+
+.mobile-menu-exit-active {
+  clip-path: circle(0% at top right);
+  transition: clip-path 0.5s ease-in-out;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1200px) {
+  .container {
+    @apply px-6;
+  }
+}
+
+@media (max-width: 992px) {
+  .nav-item {
+    @apply px-2;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    @apply px-4;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    @apply px-3;
+  }
 }
