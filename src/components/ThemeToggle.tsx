@@ -1,5 +1,5 @@
 import { useTheme } from '../ThemeProvider';
-import { Sun, Moon } from 'lucide-react';
+import { SunIcon, MoonIcon } from '@heroicons/react/24/solid';
 import { motion } from 'framer-motion';
 
 export const ThemeToggle = () => {
