@@ -12,10 +12,25 @@
               border-color var(--transition-duration) ease,
               box-shadow var(--transition-duration) ease;
 }
-
+html {
+  scroll-behavior: smooth;
+  transition: background-color 0.5s, color 0.5s;
+}
 body {
   @apply bg-background-light text-text-light dark:bg-background-dark dark:text-text-dark;
 }
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 4px;
+}
+
 
 .theme-transition {
   transition: all var(--transition-duration) ease;
@@ -24,11 +39,19 @@ body {
 /* Dark mode styles */
 .dark {
   color-scheme: dark;
+  --scrollbar-track: #1a1a1a;
+  --scrollbar-thumb: #666;
+  background-color: #0d0d0d;
+  color: #f5f5f5;
 }
 
 /* Light mode styles */
 .light {
   color-scheme: light;
+   --scrollbar-track: #f1f1f1;
+  --scrollbar-thumb: #888;
+  background-color: #ffffff;
+  color: #111111;
 }
 
 @keyframes coin-flip {
