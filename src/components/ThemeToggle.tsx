@@ -7,7 +7,7 @@ export const ThemeToggle = () => {
 
   return (
     <motion.button
-      whileHover={{ scale: 1.1 }};
+      whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
       onClick={toggleTheme}
       className="relative p-2 rounded-lg transition-colors duration-300 focus:outline-none"
