@@ -4,6 +4,20 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      colors: {
+        primary: {
+          light: '#00BFFF',
+          dark: '#FFD700',
+        },
+        background: {
+          light: '#ffffff',
+          dark: '#0D0D0D',
+        },
+        text: {
+          light: '#1a1a1a',
+          dark: '#ffffff',
+        }
+      },
       screens: {
         'xs': '480px',
         'sm': '640px',
