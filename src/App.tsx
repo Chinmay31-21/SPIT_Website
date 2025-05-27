@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { ThemeToggle } from './components/ThemeToggle';
+
 import {
   Search,
   Instagram,
@@ -128,6 +130,7 @@ function App() {
               </div>
 
               <div className="flex items-center gap-4 mt-4 md:mt-0 w-full md:w-auto justify-center md:justify-end">
+                <ThemeToggle />
                 <a href="#" className="text-white/80 hover:text-[#00BFFF] transition-colors">
                   <Instagram size={20} />
                 </a>
