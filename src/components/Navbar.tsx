@@ -405,6 +405,7 @@ export const Navbar = () => {
   }, []);
 
   return (
+    <div className="transition-colors duration-500 ease-in-out">
     <nav 
       className={`sticky top-0 z-50 bg-black/95 backdrop-blur-md border-b border-[#00BFFF]/30 transition-all duration-300 ${
         isScrolled ? 'shadow-lg shadow-[#00BFFF]/10' : ''
@@ -456,5 +457,6 @@ export const Navbar = () => {
         </div>
       </div>
     </nav>
+      </div>
   );
 };
