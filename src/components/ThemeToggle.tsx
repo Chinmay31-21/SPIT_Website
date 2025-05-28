@@ -10,7 +10,7 @@ export const ThemeToggle = () => {
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
       onClick={toggleTheme}
-      className="relative p-2 rounded-lg transition-colors duration-300 focus:outline-none"
+      className="relative p-2 rounded-lg bg-card border border-border transition-colors duration-300 focus:outline-none"
       aria-label="Toggle theme"
     >
       <div className="relative w-8 h-8">
@@ -21,7 +21,7 @@ export const ThemeToggle = () => {
             opacity: theme === 'dark' ? 1 : 0,
           }}
           transition={{ duration: 0.2 }}
-          className="absolute inset-0 flex items-center justify-center text-[#FFD700]"
+          className="absolute inset-0 flex items-center justify-center text-accent"
         >
           <Moon className="w-6 h-6" />
         </motion.div>
@@ -32,7 +32,7 @@ export const ThemeToggle = () => {
             opacity: theme === 'light' ? 1 : 0,
           }}
           transition={{ duration: 0.2 }}
-          className="absolute inset-0 flex items-center justify-center text-[#FFD700]"
+          className="absolute inset-0 flex items-center justify-center text-accent"
         >
           <Sun className="w-6 h-6" />
         </motion.div>
