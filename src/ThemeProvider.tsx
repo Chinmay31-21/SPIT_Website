@@ -25,18 +25,20 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 
   // Add smooth transition on theme change
   useEffect(() => {
-    const root = document.documentElement;
-    root.classList.remove('light', 'dark');
-    root.classList.add('theme-transition', theme);
-    localStorage.setItem('theme', theme);
+  const root = document.documentElement;
+  root.classList.remove('dark');
+  if (theme === 'dark') {
+    root.classList.add('dark');
+  }
+  root.classList.add('theme-transition');
+  localStorage.setItem('theme', theme);
 
-    // Remove the transition class after animation
-    const timeout = setTimeout(() => {
-      root.classList.remove('theme-transition');
-    }, 400); // Match your CSS transition duration
+  const timeout = setTimeout(() => {
+    root.classList.remove('theme-transition');
+  }, 300);
 
-    return () => clearTimeout(timeout);
-  }, [theme]);
+  return () => clearTimeout(timeout);
+}, [theme]);
 
   const toggleTheme = () => {
     setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
