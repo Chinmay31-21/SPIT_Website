@@ -3,7 +3,7 @@ import { Menu } from '@headlessui/react';
 import { ChevronDown, Menu as MenuIcon, Search, X, Home } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-
+import { ThemeToggle } from './ThemeToggle'; // Adjust path as needed
 // First row menu items
 const firstRowItems = [
   {
@@ -256,24 +256,26 @@ const DropdownMenu = ({ item }: { item: NavItem }) => {
             ))}
           </Menu.Button>
 
-          <Menu.Items className="absolute z-50 mt-2 w-80 rounded-lg bg-black/95 backdrop-blur-lg border border-[#00BFFF]/30 shadow-lg focus:outline-none">
-            <div className="p-2 max-h-[70vh] overflow-y-auto custom-scrollbar">
-              {item.items?.map((subItem) => (
-                <Menu.Item key={subItem.title}>
-                  {({ active }) => (
-                    <Link
-                      to={subItem.href}
-                      className={`dropdown-item group flex items-center px-4 py-2 text-sm rounded-md min-h-[44px] ${
-                        active ? 'text-[#FFD700] bg-[#00BFFF]/10' : 'text-white'
-                      }`}
-                    >
-                      {subItem.title}
-                    </Link>
-                  )}
-                </Menu.Item>
-              ))}
-            </div>
-          </Menu.Items>
+          <Menu.Items className="absolute z-50 mt-2 w-80 rounded-lg bg-white/95 dark:bg-black/95 backdrop-blur-lg border border-[#00BFFF]/30 shadow-lg focus:outline-none">
+  <div className="p-2 max-h-[70vh] overflow-y-auto custom-scrollbar">
+    {item.items?.map((subItem) => (
+      <Menu.Item key={subItem.title}>
+        {({ active }) => (
+          <Link
+            to={subItem.href}
+            className={`dropdown-item group flex items-center px-4 py-2 text-sm rounded-md min-h-[44px] ${
+              active
+                ? 'text-[#FFD700] bg-[#00BFFF]/10'
+                : 'text-black dark:text-white'
+            }`}
+          >
+            {subItem.title}
+          </Link>
+        )}
+      </Menu.Item>
+    ))}
+  </div>
+</Menu.Items>
         </>
       )}
     </Menu>
@@ -393,6 +395,7 @@ const MobileMenu = () => {
   );
 };
 
+
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -405,9 +408,8 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <div className="transition-colors duration-500 ease-in-out">
     <nav 
-      className={`sticky top-0 z-50 bg-black/95 backdrop-blur-md border-b border-[#00BFFF]/30 transition-all duration-300 ${
+      className={`sticky top-0 z-50 bg-white/95 dark:bg-black/95 backdrop-blur-md border-b border-[#00BFFF]/30 transition-all duration-300 ${
         isScrolled ? 'shadow-lg shadow-[#00BFFF]/10' : ''
       }`}
     >
@@ -428,6 +430,8 @@ export const Navbar = () => {
                 </Link>
               )
             )}
+            {/* Theme Toggle Button */}
+            <ThemeToggle />
           </div>
         </div>
 
@@ -447,16 +451,17 @@ export const Navbar = () => {
                 </Link>
               )
             )}
+            
           </div>
         </div>
 
         {/* Mobile Menu */}
         <div className="lg:hidden flex items-center justify-between h-16">
-          <div className="flex-1" />
+          <ThemeToggle />
           <MobileMenu />
         </div>
       </div>
     </nav>
-  </div>
   );
 };
+
