@@ -6,47 +6,41 @@
   --transition-duration: 0.3s;
 }
 
+html.dark { color-scheme: dark; }
+html.light { color-scheme: light; }
+
 * {
   transition: background-color var(--transition-duration) ease,
               color var(--transition-duration) ease,
               border-color var(--transition-duration) ease,
               box-shadow var(--transition-duration) ease;
 }
-
-html {
-  scroll-behavior: smooth;
-  transition: background-color 0.5s, color 0.5s;
+.theme-transition, .theme-transition * {
+  transition: background-color var(--transition-duration) cubic-bezier(.4,0,.2,1),
+              color var(--transition-duration) cubic-bezier(.4,0,.2,1),
+              border-color var(--transition-duration) cubic-bezier(.4,0,.2,1),
+              box-shadow var(--transition-duration) cubic-bezier(.4,0,.2,1);
 }
-
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
 body {
-  @apply bg-[#0D0D0D] text-white;
+  @apply bg-background-light text-text-light dark:bg-background-dark dark:text-text-dark;
 }
 
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--scrollbar-track);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--scrollbar-thumb);
-  border-radius: 4px;
-}
 
 /* Dark mode styles */
 .dark {
   color-scheme: dark;
-  --scrollbar-track: #1a1a1a;
-  --scrollbar-thumb: #666;
 }
 
 /* Light mode styles */
 .light {
   color-scheme: light;
-  --scrollbar-track: #f1f1f1;
-  --scrollbar-thumb: #888;
 }
 
 @keyframes coin-flip {
@@ -134,7 +128,7 @@ body {
 }
 
 .nav-item {
-  @apply relative text-white transition-all duration-300 text-sm whitespace-nowrap;
+  @apply relative text-black dark:text-white transition-all duration-300 text-sm whitespace-nowrap;
 }
 
 .nav-item::before {
@@ -183,7 +177,7 @@ body {
 }
 
 .mobile-nav-item {
-  @apply block w-full px-4 py-2 text-white hover:bg-[#00BFFF]/10 transition-colors duration-200;
+  @apply block w-full px-4 py-2 text-black dark:text-white hover:bg-[#00BFFF]/10 transition-colors duration-200;
 }
 
 .custom-scrollbar {
@@ -199,9 +193,8 @@ body {
   background: transparent;
 }
 
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 191, 255, 0.3);
-  border-radius: 20px;
+html.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 191, 255, 0.5);
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
