@@ -8,6 +8,7 @@
 
 html.dark { color-scheme: dark; }
 html.light { color-scheme: light; }
+.light { color-scheme: light; }
 
 * {
   transition: background-color var(--transition-duration) ease,
