@@ -4,39 +4,25 @@ module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
-      colors: {
-        primary: {
-          DEFAULT: '#00BFFF',
-          dark: '#00BFFF',
-          light: '#0088cc'
+      screens: {
+        'xs': '480px',
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1200px',
+        '2xl': '1536px',
+      },
+      container: {
+        center: true,
+        padding: {
+          DEFAULT: '1rem',
+          sm: '2rem',
+          lg: '4rem',
+          xl: '5rem',
+          '2xl': '6rem',
         },
-        accent: {
-          DEFAULT: '#FFD700',
-          dark: '#FFD700',
-          light: '#FFC000'
-        },
-        background: {
-          DEFAULT: '#ffffff',
-          dark: '#0D0D0D',
-          light: '#ffffff'
-        },
-        card: {
-          DEFAULT: 'rgba(255, 255, 255, 0.1)',
-          dark: 'rgba(0, 0, 0, 0.3)',
-          light: 'rgba(255, 255, 255, 0.9)'
-        },
-        text: {
-          DEFAULT: '#1a1a1a',
-          dark: '#ffffff',
-          light: '#1a1a1a'
-        },
-        border: {
-          DEFAULT: 'rgba(0, 191, 255, 0.3)',
-          dark: 'rgba(0, 191, 255, 0.3)',
-          light: 'rgba(0, 136, 204, 0.3)'
-        }
-      }
-    }
+      },
+    },
   },
-  plugins: []
+  plugins: [],
 };
