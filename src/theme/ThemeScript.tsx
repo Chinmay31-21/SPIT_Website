@@ -1,12 +1,12 @@
 export function ThemeScript() {
   const script = `
     (function() {
-      const theme = localStorage.getItem('theme');
-      if (theme === 'dark') {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
+      var theme = localStorage.getItem('theme');
+      if (!theme) {
+        theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
       }
+      document.documentElement.classList.remove('light', 'dark');
+      document.documentElement.classList.add(theme);
     })();
   `;
   return <script dangerouslySetInnerHTML={{ __html: script }} />;
