@@ -28,6 +28,13 @@ html.light { color-scheme: light; }
     animation-iteration-count: 1 !important;
   }
 }
+@layer utilities {
+  .bg-background-light { background-color: #fff; }
+  .text-text-light { color: #222; }
+  .bg-background-dark { background-color: #0D0D0D; }
+  .text-text-dark { color: #fff; }
+}
+
 body {
   @apply bg-background-light text-text-light dark:bg-background-dark dark:text-text-dark;
 }
