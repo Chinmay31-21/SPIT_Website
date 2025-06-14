@@ -8,20 +8,19 @@
 
 html.dark { color-scheme: dark; }
 html.light { color-scheme: light; }
-.light { color-scheme: light; }
 
-* {
-  transition: background-color var(--transition-duration) ease,
-              color var(--transition-duration) ease,
-              border-color var(--transition-duration) ease,
-              box-shadow var(--transition-duration) ease;
-}
-.theme-transition, .theme-transition * {
+/* Theme transition */
+.theme-transition,
+.theme-transition *,
+.theme-transition *:before,
+.theme-transition *:after {
   transition: background-color var(--transition-duration) cubic-bezier(.4,0,.2,1),
               color var(--transition-duration) cubic-bezier(.4,0,.2,1),
               border-color var(--transition-duration) cubic-bezier(.4,0,.2,1),
-              box-shadow var(--transition-duration) cubic-bezier(.4,0,.2,1);
+              box-shadow var(--transition-duration) cubic-bezier(.4,0,.2,1) !important;
 }
+
+/* Reduce motion for accessibility */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     transition: none !important;
@@ -29,28 +28,61 @@ html.light { color-scheme: light; }
     animation-iteration-count: 1 !important;
   }
 }
-@layer utilities {
-  .bg-background-light { background-color: #fff; }
-  .text-text-light { color: #222; }
-  .bg-background-dark { background-color: #0D0D0D; }
-  .text-text-dark { color: #fff; }
-}
 
+/* Base styles */
 body {
-  @apply bg-background-light text-text-light dark:bg-background-dark dark:text-text-dark;
+  @apply bg-white text-gray-900 dark:bg-[#0D0D0D] dark:text-white;
 }
 
-
-/* Dark mode styles */
-.dark {
-  color-scheme: dark;
+/* Custom scrollbar for both themes */
+.custom-scrollbar {
+  scrollbar-width: thin;
 }
 
-/* Light mode styles */
-.light {
-  color-scheme: light;
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
 }
 
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-500;
+}
+
+/* Global scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(156 163 175) rgb(243 244 246);
+}
+
+html.dark {
+  scrollbar-color: rgb(75 85 99) rgb(31 41 55);
+}
+
+html::-webkit-scrollbar {
+  width: 8px;
+}
+
+html::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+html::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-500;
+}
+
+/* Existing animations */
 @keyframes coin-flip {
   0% { transform: rotateY(0) translateY(0); }
   25% { transform: rotateY(180deg) translateY(-50px); }
@@ -135,8 +167,9 @@ body {
   pointer-events: none;
 }
 
+/* Navigation styles */
 .nav-item {
-  @apply relative text-black dark:text-white transition-all duration-300 text-sm whitespace-nowrap;
+  @apply relative text-gray-900 dark:text-white transition-all duration-300 text-sm whitespace-nowrap;
 }
 
 .nav-item::before {
@@ -175,41 +208,7 @@ body {
   animation: sparkle 0.8s linear infinite;
 }
 
-.mega-menu {
-  @apply absolute left-0 w-full bg-black/95 backdrop-blur-md border-t border-[#00BFFF]/30 shadow-lg transform transition-all duration-300 opacity-0 -translate-y-2 invisible;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-}
-
-.mega-menu.active {
-  @apply opacity-100 translate-y-0 visible;
-}
-
-.mobile-nav-item {
-  @apply block w-full px-4 py-2 text-black dark:text-white hover:bg-[#00BFFF]/10 transition-colors duration-200;
-}
-
-.custom-scrollbar {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0, 191, 255, 0.3) transparent;
-}
-
-.custom-scrollbar::-webkit-scrollbar {
-  width: 4px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-html.dark .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 191, 255, 0.5);
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(0, 191, 255, 0.5);
-}
-
-/* Mobile Menu Animations */
+/* Mobile menu animations */
 .mobile-menu-enter {
   clip-path: circle(0% at top right);
 }
@@ -228,7 +227,7 @@ html.dark .custom-scrollbar::-webkit-scrollbar-thumb {
   transition: clip-path 0.5s ease-in-out;
 }
 
-/* Responsive Breakpoints */
+/* Responsive breakpoints */
 @media (max-width: 1200px) {
   .container {
     @apply px-6;

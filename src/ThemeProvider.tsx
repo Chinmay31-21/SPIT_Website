@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
 type Theme = 'light' | 'dark';
 
@@ -7,7 +7,7 @@ interface ThemeContextType {
   toggleTheme: () => void;
 }
 
-const ThemeContext = createContext<ThemeContextType>({
+export const ThemeContext = createContext<ThemeContextType>({
   theme: 'dark',
   toggleTheme: () => {},
 });
@@ -17,28 +17,24 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     if (typeof window !== 'undefined') {
       const savedTheme = localStorage.getItem('theme');
       if (savedTheme === 'light' || savedTheme === 'dark') return savedTheme;
-      // Optionally, use prefers-color-scheme as fallback
       if (window.matchMedia('(prefers-color-scheme: dark)').matches) return 'dark';
     }
     return 'dark';
   });
 
-  // Add smooth transition on theme change
   useEffect(() => {
-  const root = document.documentElement;
-  root.classList.remove('dark');
-  if (theme === 'dark') {
-    root.classList.add('dark');
-  }
-  root.classList.add('theme-transition');
-  localStorage.setItem('theme', theme);
+    const root = document.documentElement;
+    root.classList.remove('light', 'dark');
+    root.classList.add(theme);
+    root.classList.add('theme-transition');
+    localStorage.setItem('theme', theme);
 
-  const timeout = setTimeout(() => {
-    root.classList.remove('theme-transition');
-  }, 300);
+    const timeout = setTimeout(() => {
+      root.classList.remove('theme-transition');
+    }, 300);
 
-  return () => clearTimeout(timeout);
-}, [theme]);
+    return () => clearTimeout(timeout);
+  }, [theme]);
 
   const toggleTheme = () => {
     setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
