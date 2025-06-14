@@ -1,42 +1,28 @@
-import { useTheme } from '../theme/ThemeProvider';
+import React from 'react';
 import { Sun, Moon } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { useTheme } from '../hooks/useTheme';
 
-export const ThemeToggle = () => {
+export const ThemeToggle: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <motion.button
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.9 }}
+    <button
       onClick={toggleTheme}
-      className="relative p-2 rounded-lg transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD700]"
-      aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+      className="relative p-2 rounded-full bg-white/10 dark:bg-dark-800/50 backdrop-blur-sm border border-white/20 dark:border-dark-700 hover:bg-white/20 dark:hover:bg-dark-700/50 transition-all duration-300 group"
+      aria-label="Toggle theme"
     >
-      <div className="relative w-8 h-8">
-        <motion.div
-          initial={false}
-          animate={{
-            scale: theme === 'dark' ? 1 : 0,
-            opacity: theme === 'dark' ? 1 : 0,
-          }}
-          transition={{ duration: 0.2 }}
-          className="absolute inset-0 flex items-center justify-center text-[#FFD700]"
-        >
-          <Moon className="w-6 h-6" />
-        </motion.div>
-        <motion.div
-          initial={false}
-          animate={{
-            scale: theme === 'light' ? 1 : 0,
-            opacity: theme === 'light' ? 1 : 0,
-          }}
-          transition={{ duration: 0.2 }}
-          className="absolute inset-0 flex items-center justify-center text-[#FFD700]"
-        >
-          <Sun className="w-6 h-6" />
-        </motion.div>
+      <div className="relative w-5 h-5">
+        <Sun 
+          className={`absolute inset-0 w-5 h-5 text-accent-gold transition-all duration-300 ${
+            theme === 'light' ? 'opacity-100 rotate-0' : 'opacity-0 rotate-90'
+          }`}
+        />
+        <Moon 
+          className={`absolute inset-0 w-5 h-5 text-accent-teal transition-all duration-300 ${
+            theme === 'dark' ? 'opacity-100 rotate-0' : 'opacity-0 -rotate-90'
+          }`}
+        />
       </div>
-    </motion.button>
+    </button>
   );
 };
