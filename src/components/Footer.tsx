@@ -42,7 +42,7 @@ export const Footer = () => {
                 { title: 'Placements', path: '/placements' },
                 { title: 'Library', path: '/library' },
                 { title: 'Students', path: '/students' },
-                { title: 'Contact Us', path: '/about/contact' }
+                { title: 'Contact Us', path: '/contact' }
               ].map((link) => (
                 <li key={link.title}>
                   <Link
