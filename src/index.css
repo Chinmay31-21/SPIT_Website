@@ -34,7 +34,7 @@ body {
   @apply bg-white text-gray-900 dark:bg-[#0D0D0D] dark:text-white;
 }
 
-//Remove if not wanted
+/*Remove if not wanted*/
 light.body {
    @apply bg-white text-gray-900 dark:bg-[#6a50d2] dark:text-black;
 }
