@@ -235,7 +235,7 @@ html.light .nav-item::before {
 }
 
 html.light .nav-item::after {
-  background: linear-gradient(to right, #8b5cf6, #a855f7);
+  background: linear-gradient(to right, #5c8af6, #5558f7);
 }
 
 .nav-item:hover::after {
@@ -291,7 +291,7 @@ html.light .sparkle {
 
 /* Header and Navigation */
 html.light header {
-  background: rgba(255, 255, 255, 0.95) !important;
+  background: rgba(117, 96, 224, 0.95) !important;
   backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(139, 92, 246, 0.1) !important;
   box-shadow: 0 4px 6px -1px rgba(139, 92, 246, 0.1);
