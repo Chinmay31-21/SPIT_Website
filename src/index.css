@@ -299,11 +299,11 @@ html.light header {
 
 /* Main content backgrounds */
 html.light .min-h-screen.bg-\[#091752\] {
-  background: linear-gradient(135deg, #faf7ff 0%, #f3f0ff 50%, #ede9fe 100%) !important;
+  background: linear-gradient(135deg, #d7d6f6 0%, #8baee0 50%, #5061d2 100%) !important;
 }
 
 html.light .bg-\[#091752\] {
-  background: linear-gradient(135deg, #faf7ff 0%, #f3f0ff 50%, #ede9fe 100%) !important;
+  background: linear-gradient(135deg, #d7d6f6 0%, #8baee0 50%, #5061d2 100%) !important;
 }
 
 html.light .bg-\[#1A1A1A\] {
