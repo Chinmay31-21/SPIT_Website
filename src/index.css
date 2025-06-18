@@ -138,9 +138,9 @@ html.light html::-webkit-scrollbar-thumb:hover {
 }
 
 @keyframes glow {
-  0% { text-shadow: 0 0 5px rgb(27, 30, 81); }
-  50% { text-shadow: 0 0 20px rgba(139, 122, 233, 0.992); }
-  100% { text-shadow: 0 0 5px rgb(6, 32, 109); }
+    0% { text-shadow: 0 0 5px rgb(164, 143, 239); }
+  50% { text-shadow: 0 0 20px rgba(156, 140, 242, 0.992); }
+  100% { text-shadow: 0 0 5px rgb(131, 78, 245); }
 }
 
 @keyframes sparkle {
