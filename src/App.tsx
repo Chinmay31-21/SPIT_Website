@@ -105,11 +105,11 @@ function App() {
                     className="w-16 h-16 object-contain animate-float"
                   />
                   <div>
-                    <p className="text-[#F0F0F0]/80 text-sm">Bhartiya Vidya Bhavan's</p>
-                    <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-[#FFD700] to-[#DAA520] bg-clip-text text-transparent animate-glow">
+                    <p className="text-[#000000]/80 text-sm">Bhartiya Vidya Bhavan's</p>
+                    <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-[#ABC4FF] to-[#0D0670] bg-clip-text text-transparent animate-glow">
                       Sardar Patel Institute of Technology
                     </h1>
-                    <p className="text-[#CCCCCC] text-xs mt-1">
+                    <p className="text-[#000000] text-xs mt-1">
                       Autonomous Institute Affiliated to Mumbai University
                     </p>
                   </div>
