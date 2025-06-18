@@ -32,13 +32,12 @@ html.light { color-scheme: light; }
 /* Base styles */
 body {
   @apply bg-white text-gray-900 dark:bg-[#0D0D0D] dark:text-white;
-  @apply bg-white text-white-900 light:bg-[#FF9696] light:text-black-900;
 }
 
 /* Light mode specific body styling */
 html.light body {
   background: linear-gradient(135deg, #e2d6f6 0%, #b5a7e8 50%, #9b8ae1 100%);
-  color: #1e293b;
+  color: #1a417f;
   min-height: 100vh;
 }
 
