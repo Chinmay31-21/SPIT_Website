@@ -122,7 +122,7 @@ const secondRowItems: NavItem[] = [
   {
     title: 'IQAC',
     items: [
-      { title: 'About IQAC', href: '/iqac' },
+      { title: 'About IQAC', href: '/accreditation/IQAC' },
       { title: 'Quality Policy', href: '/iqac/policy' },
       { title: 'Committees', href: '/iqac/committees' },
       { title: 'Reports', href: '/iqac/reports' },
@@ -174,7 +174,7 @@ const secondRowItems: NavItem[] = [
   {
     title: 'AICTE',
     items: [
-      { title: 'AICTE Approval', href: '/aicte' },
+      { title: 'AICTE Approval', href: '/accreditation/AICTE' },
       { title: 'Compliance', href: '/aicte/compliance' },
       { title: 'Mandatory Disclosure', href: '/resources/mandatory-disclosure' },
       { title: 'Reports', href: '/aicte/reports' },
@@ -261,7 +261,7 @@ const DropdownMenu = ({ item }: { item: NavItem }) => {
             ))}
           </Menu.Button>
 
-          <Menu.Items className="absolute z-50 mt-2 w-80 rounded-lg bg-white/95 dark:bg-black/95 backdrop-blur-lg border border-[#00BFFF]/30 shadow-lg focus:outline-none">
+          <Menu.Items className="absolute z-50 mt-2 w-80 rounded-lg bg-white/95 dark:bg-black/95 backdrop-blur-lg border border-[#4169E1]/30 shadow-lg focus:outline-none">
             <div className="p-2 max-h-[70vh] overflow-y-auto custom-scrollbar">
               {item.items?.map((subItem) => (
                 <Menu.Item key={subItem.title}>
@@ -270,8 +270,8 @@ const DropdownMenu = ({ item }: { item: NavItem }) => {
                       to={subItem.href}
                       className={`dropdown-item group flex items-center px-4 py-2 text-sm rounded-md min-h-[44px] ${
                         active
-                          ? 'text-[#FFD700] bg-[#00BFFF]/10'
-                          : 'text-black dark:text-white'
+                          ? 'text-[#FFD700] bg-[#4169E1]/10'
+                          : 'text-[#0A0A0A] dark:text-white'
                       }`}
                     >
                       {subItem.title}
@@ -353,7 +353,7 @@ const MobileMenu = () => {
                   placeholder="Search menu..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full px-4 py-3 rounded-lg bg-white/5 border border-[#00BFFF]/30 text-white placeholder-white/50 focus:outline-none focus:border-[#00BFFF]"
+                  className="w-full px-4 py-3 rounded-lg bg-white/5 border border-[#4169E1]/30 text-white placeholder-white/50 focus:outline-none focus:border-[#4169E1]"
                 />
                 <Search className="absolute right-3 top-1/2 -translate-y-1/2 text-white/50" size={20} />
               </div>
@@ -413,13 +413,13 @@ export const Navbar = () => {
 
   return (
     <nav 
-      className={`sticky top-0 z-50 bg-white/95 dark:bg-black/95 backdrop-blur-md border-b border-[#00BFFF]/30 transition-all duration-300 ${
-        isScrolled ? 'shadow-lg shadow-[#00BFFF]/10' : ''
+      className={`sticky top-0 z-50 bg-white/95 dark:bg-black/95 backdrop-blur-md border-b border-[#4169E1]/30 transition-all duration-300 ${
+        isScrolled ? 'shadow-lg shadow-[#4169E1]/10' : ''
       }`}
     >
       <div className="container mx-auto px-4">
         {/* First Row */}
-        <div className="hidden lg:flex items-center justify-between h-16 border-b border-[#00BFFF]/10">
+        <div className="hidden lg:flex items-center justify-between h-16 border-b border-[#4169E1]/10">
           <div className="flex items-center justify-between w-full">
             {firstRowItems.map((item) =>
               item.items ? (
