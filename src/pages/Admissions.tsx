@@ -1,15 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, FileText, GraduationCap, Calculator } from 'lucide-react';
+import { Calendar, FileText, GraduationCap, Calculator, CreditCard } from 'lucide-react';
+import { PaymentGateway } from '../components/PaymentGateway';
 
 export const Admissions = () => {
+  const [showPayment, setShowPayment] = useState(false);
+  const [selectedFee, setSelectedFee] = useState<{amount: number; description: string} | null>(null);
+
+  const handlePayment = (amount: number, description: string) => {
+    setSelectedFee({ amount, description });
+    setShowPayment(true);
+  };
+
   return (
-    <div className="min-h-screen bg-[#0D0D0D] py-8">
+    <div className="min-h-screen bg-[#0A0A0A] py-8">
       <div className="container mx-auto px-4">
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-4xl font-bold bg-gradient-to-r from-[#FFD700] to-[#DAA520] bg-clip-text text-transparent mb-8"
+          className="text-4xl font-bold bg-gradient-to-r from-[#FFD700] to-[#4169E1] bg-clip-text text-transparent mb-8"
         >
           Admissions
         </motion.h1>
@@ -45,11 +54,11 @@ export const Admissions = () => {
           ].map((item, index) => (
             <div 
               key={index}
-              className="bg-black/30 backdrop-blur-md border border-[#00BFFF]/30 rounded-lg p-6"
+              className="bg-black/30 backdrop-blur-md border border-[#4169E1]/30 rounded-lg p-6"
             >
               <div className="text-[#FFD700] mb-4">{item.icon}</div>
               <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-              <p className="text-[#00BFFF]">{item.date}</p>
+              <p className="text-[#4169E1]">{item.date}</p>
             </div>
           ))}
         </motion.div>
@@ -82,7 +91,7 @@ export const Admissions = () => {
             ].map((program, index) => (
               <div 
                 key={index}
-                className="bg-black/30 backdrop-blur-md border border-[#00BFFF]/30 rounded-lg p-6"
+                className="bg-black/30 backdrop-blur-md border border-[#4169E1]/30 rounded-lg p-6"
               >
                 <h3 className="text-xl font-bold text-white mb-4">{program.name}</h3>
                 <div className="space-y-2 text-white/80">
@@ -100,7 +109,7 @@ export const Admissions = () => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.6 }}
-            className="bg-black/30 backdrop-blur-md border border-[#00BFFF]/30 rounded-lg p-6"
+            className="bg-black/30 backdrop-blur-md border border-[#4169E1]/30 rounded-lg p-6"
           >
             <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Eligibility Criteria</h2>
             <ul className="space-y-3 text-white/80">
@@ -115,7 +124,7 @@ export const Admissions = () => {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.8 }}
-            className="bg-black/30 backdrop-blur-md border border-[#00BFFF]/30 rounded-lg p-6"
+            className="bg-black/30 backdrop-blur-md border border-[#4169E1]/30 rounded-lg p-6"
           >
             <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Required Documents</h2>
             <ul className="space-y-3 text-white/80">
@@ -128,32 +137,42 @@ export const Admissions = () => {
           </motion.div>
         </div>
 
-        {/* Fee Structure */}
+        {/* Fee Structure with Payment */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1 }}
-          className="bg-black/30 backdrop-blur-md border border-[#00BFFF]/30 rounded-lg p-6"
+          className="bg-black/30 backdrop-blur-md border border-[#4169E1]/30 rounded-lg p-6 mb-8"
         >
-          <h2 className="text-2xl font-bold text-[#FFD700] mb-6">Fee Structure</h2>
+          <h2 className="text-2xl font-bold text-[#FFD700] mb-6">Fee Structure & Payment</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-white">
               <thead>
-                <tr className="border-b border-[#00BFFF]/30">
+                <tr className="border-b border-[#4169E1]/30">
                   <th className="py-4 px-6 text-left">Category</th>
                   <th className="py-4 px-6 text-right">First Year</th>
                   <th className="py-4 px-6 text-right">Second Year</th>
                   <th className="py-4 px-6 text-right">Third Year</th>
                   <th className="py-4 px-6 text-right">Fourth Year</th>
+                  <th className="py-4 px-6 text-center">Action</th>
                 </tr>
               </thead>
               <tbody>
-                <tr className="border-b border-[#00BFFF]/30">
+                <tr className="border-b border-[#4169E1]/30">
                   <td className="py-4 px-6">Open</td>
                   <td className="py-4 px-6 text-right">₹1,45,000</td>
                   <td className="py-4 px-6 text-right">₹1,45,000</td>
                   <td className="py-4 px-6 text-right">₹1,45,000</td>
                   <td className="py-4 px-6 text-right">₹1,45,000</td>
+                  <td className="py-4 px-6 text-center">
+                    <button
+                      onClick={() => handlePayment(145000, "First Year Fee - Open Category")}
+                      className="bg-[#4169E1] hover:bg-[#2c5aa0] text-white px-4 py-2 rounded-md flex items-center gap-2 mx-auto"
+                    >
+                      <CreditCard className="w-4 h-4" />
+                      Pay Now
+                    </button>
+                  </td>
                 </tr>
                 <tr>
                   <td className="py-4 px-6">Reserved</td>
@@ -161,11 +180,75 @@ export const Admissions = () => {
                   <td className="py-4 px-6 text-right">₹15,000</td>
                   <td className="py-4 px-6 text-right">₹15,000</td>
                   <td className="py-4 px-6 text-right">₹15,000</td>
+                  <td className="py-4 px-6 text-center">
+                    <button
+                      onClick={() => handlePayment(15000, "First Year Fee - Reserved Category")}
+                      className="bg-[#4169E1] hover:bg-[#2c5aa0] text-white px-4 py-2 rounded-md flex items-center gap-2 mx-auto"
+                    >
+                      <CreditCard className="w-4 h-4" />
+                      Pay Now
+                    </button>
+                  </td>
                 </tr>
               </tbody>
             </table>
           </div>
+          
+          <div className="mt-6 p-4 bg-black/50 rounded-lg">
+            <h3 className="text-lg font-semibold text-[#FFD700] mb-2">Payment Information</h3>
+            <ul className="text-white/80 space-y-1 text-sm">
+              <li>• Secure payment gateway powered by Razorpay</li>
+              <li>• Accept all major credit/debit cards, UPI, and net banking</li>
+              <li>• Instant payment confirmation and receipt generation</li>
+              <li>• 24/7 customer support for payment issues</li>
+            </ul>
+          </div>
         </motion.div>
+
+        {/* Quick Payment Options */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.2 }}
+          className="bg-black/30 backdrop-blur-md border border-[#4169E1]/30 rounded-lg p-6"
+        >
+          <h2 className="text-2xl font-bold text-[#FFD700] mb-6">Quick Payment Options</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {[
+              { title: "Application Fee", amount: 1000, description: "Non-refundable application processing fee" },
+              { title: "Admission Fee", amount: 25000, description: "One-time admission confirmation fee" },
+              { title: "Caution Deposit", amount: 10000, description: "Refundable security deposit" }
+            ].map((fee, index) => (
+              <div key={index} className="bg-black/50 rounded-lg p-4">
+                <h3 className="text-lg font-semibold text-white mb-2">{fee.title}</h3>
+                <p className="text-white/70 text-sm mb-3">{fee.description}</p>
+                <div className="flex items-center justify-between">
+                  <span className="text-xl font-bold text-[#4169E1]">₹{fee.amount.toLocaleString()}</span>
+                  <button
+                    onClick={() => handlePayment(fee.amount, fee.title)}
+                    className="bg-[#4169E1] hover:bg-[#2c5aa0] text-white px-3 py-1 rounded text-sm flex items-center gap-1"
+                  >
+                    <CreditCard className="w-3 h-3" />
+                    Pay
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Payment Gateway Modal */}
+        {showPayment && selectedFee && (
+          <PaymentGateway
+            isOpen={showPayment}
+            onClose={() => setShowPayment(false)}
+            paymentDetails={{
+              amount: selectedFee.amount,
+              description: selectedFee.description,
+              orderId: `ORD${Date.now()}`
+            }}
+          />
+        )}
       </div>
     </div>
   );
