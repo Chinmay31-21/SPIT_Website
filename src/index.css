@@ -41,7 +41,7 @@ light.body {
 
 /* Light mode specific body styling */
 html.light body {
-  background: linear-gradient(135deg, #b7bfe8 0%, #8baee0 50%, #5061d2 100%);
+  background: linear-gradient(135deg, #d7d6f6 0%, #8baee0 50%, #5061d2 100%);
   color: #1a417f;
   min-height: 100vh;
 }
@@ -143,9 +143,9 @@ html.light html::-webkit-scrollbar-thumb:hover {
 }
 
 @keyframes glow {
-  0% { text-shadow: 0 0 5px rgba(81, 0, 255, 0.5); }
-  50% { text-shadow: 0 0 20px rgba(128, 0, 255, 0.8); }
-  100% { text-shadow: 0 0 5px rgba(76, 0, 255, 0.5); }
+  0% { text-shadow: 0 0 5px rgba(255, 215, 0, 0.5); }
+  50% { text-shadow: 0 0 20px rgba(255, 215, 0, 0.8); }
+  100% { text-shadow: 0 0 5px rgba(255, 215, 0, 0.5); }
 }
 
 @keyframes sparkle {
