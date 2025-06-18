@@ -31,7 +31,7 @@ html.light { color-scheme: light; }
 
 /* Base styles */
 body {
-  @apply bg-white text-gray-900 dark:bg-[#0D0D0D] dark:text-white;
+  @apply bg-white text-gray-900 dark:bg-[#0D0D0D] dark:text-white light:bg-[#FF9696] light:text--900;
 }
 
 /* Light mode specific body styling */
@@ -86,7 +86,7 @@ html.dark {
 }
 
 html.light {
-  scrollbar-color: #8b5cf6 #f1f5f9;
+  scrollbar-color: #8b5cf6 #bda4ef;
 }
 
 html::-webkit-scrollbar {
@@ -98,7 +98,7 @@ html::-webkit-scrollbar-track {
 }
 
 html.light html::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: #91a8dd;
 }
 
 html::-webkit-scrollbar-thumb {
@@ -208,7 +208,7 @@ html.light html::-webkit-scrollbar-thumb:hover {
 }
 
 html.light .nav-item {
-  color: #1e293b;
+  color: #152d54;
 }
 
 .nav-item::before {
