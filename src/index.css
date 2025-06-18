@@ -329,7 +329,7 @@ html.light .py-16.bg-gradient-to-b.from-\[#0D0D0D\].to-black {
 
 /* Card backgrounds - PURPLE THEME */
 html.light .bg-black\/30 {
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, rgba(168, 85, 247, 0.12) 100%) !important;
+  background: linear-gradient(135deg,  #9b3af71f 0%,  #5c1bf414 100%) !important;
   backdrop-filter: blur(20px);
   border: 1px solid rgba(139, 92, 246, 0.2) !important;
   box-shadow: 0 8px 32px rgba(139, 92, 246, 0.1);
