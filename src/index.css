@@ -37,7 +37,7 @@ body {
 /* Light mode specific body styling */
 html.light body {
   background: linear-gradient(135deg, #e2d6f6 0%, #b5a7e8 50%, #9b8ae1 100%);
-  color: #1e293b;
+  color: #1a417f;
   min-height: 100vh;
 }
 
