@@ -42,7 +42,7 @@ export const Footer = () => {
                 { title: 'Placements', path: '/placements' },
                 { title: 'Library', path: '/library' },
                 { title: 'Students', path: '/students' },
-                { title: 'Contact Us', path: '/contact' }
+                { title: 'Contact Us', path: '/about/contact' }
               ].map((link) => (
                 <li key={link.title}>
                   <Link
@@ -56,21 +56,21 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Resources & Policies */}
+          {/* Accreditation & Resources */}
           <div className="space-y-4">
             <h3 className="text-xl font-bold bg-gradient-to-r from-[#FFD700] to-[#DAA520] bg-clip-text text-transparent">
-              Resources & Policies
+              Accreditation & Resources
             </h3>
             <ul className="space-y-2">
               {[
-                { title: 'Mandatory Disclosure', path: '/resources/mandatory-disclosure' },
+                { title: 'NAAC', path: '/accreditation/naac' },
+                { title: 'NBA', path: '/accreditation/nba' },
+                { title: 'NIRF', path: '/accreditation/nirf' },
+                { title: 'ARIIA', path: '/accreditation/ariia' },
+                { title: 'IIC', path: '/accreditation/iic' },
                 { title: 'IQAC', path: '/resources/iqac' },
-                { title: 'NIRF', path: '/resources/nirf' },
-                { title: 'NAAC', path: '/resources/naac' },
-                { title: 'Tender', path: '/resources/tender' },
-                { title: 'Anti-Ragging', path: '/resources/anti-ragging' },
                 { title: 'RTI', path: '/resources/rti' },
-                { title: 'Grievance Redressal', path: '/resources/grievance' }
+                { title: 'Mandatory Disclosure', path: '/resources/mandatory-disclosure' }
               ].map((link) => (
                 <li key={link.title}>
                   <Link

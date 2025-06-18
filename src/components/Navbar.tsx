@@ -3,17 +3,22 @@ import { Menu } from '@headlessui/react';
 import { ChevronDown, Menu as MenuIcon, Search, X, Home } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ThemeToggle } from './ThemeToggle'; // Adjust path as needed
+import { ThemeToggle } from './ThemeToggle';
+
+interface NavItem {
+  title: string;
+  href?: string;
+  items?: { title: string; href: string }[];
+}
+
 // First row menu items
-const firstRowItems = [
+const firstRowItems: NavItem[] = [
   {
     title: 'ABOUT',
     items: [
       { title: 'About SPIT', href: '/about' },
-      { title: 'Vision & Mission', href: '/about/vision-mission' },
-      { title: "Principal's Message", href: '/about/principal-message' },
-      { title: 'Governing Body', href: '/about/governing-body' },
       { title: 'Infrastructure', href: '/about/infrastructure' },
+      { title: 'Governing Body', href: '/about/governing-body' },
       { title: 'Achievements', href: '/about/achievements' },
       { title: 'Campus Life', href: '/about/campus-life' },
       { title: 'Contact Us', href: '/about/contact' },
@@ -112,8 +117,8 @@ const firstRowItems = [
   }
 ];
 
-// Second row menu items
-const secondRowItems = [
+// Second row menu items with cross-linking
+const secondRowItems: NavItem[] = [
   {
     title: 'IQAC',
     items: [
@@ -130,7 +135,7 @@ const secondRowItems = [
   {
     title: 'NIRF',
     items: [
-      { title: 'NIRF Ranking', href: '/nirf' },
+      { title: 'NIRF Ranking', href: '/accreditation/nirf' },
       { title: 'Reports', href: '/nirf/reports' },
       { title: 'Data Submission', href: '/nirf/data' },
       { title: 'Parameters', href: '/nirf/parameters' },
@@ -143,7 +148,7 @@ const secondRowItems = [
   {
     title: 'NBA',
     items: [
-      { title: 'NBA Accreditation', href: '/nba' },
+      { title: 'NBA Accreditation', href: '/accreditation/nba' },
       { title: 'Status', href: '/nba/status' },
       { title: 'Reports', href: '/nba/reports' },
       { title: 'Compliance', href: '/nba/compliance' },
@@ -156,7 +161,7 @@ const secondRowItems = [
   {
     title: 'NAAC',
     items: [
-      { title: 'NAAC Status', href: '/naac' },
+      { title: 'NAAC Status', href: '/accreditation/naac' },
       { title: 'SSR', href: '/naac/ssr' },
       { title: 'Criteria', href: '/naac/criteria' },
       { title: 'Reports', href: '/naac/reports' },
@@ -171,7 +176,7 @@ const secondRowItems = [
     items: [
       { title: 'AICTE Approval', href: '/aicte' },
       { title: 'Compliance', href: '/aicte/compliance' },
-      { title: 'Mandatory Disclosure', href: '/aicte/disclosure' },
+      { title: 'Mandatory Disclosure', href: '/resources/mandatory-disclosure' },
       { title: 'Reports', href: '/aicte/reports' },
       { title: 'Guidelines', href: '/aicte/guidelines' },
       { title: 'Documentation', href: '/aicte/docs' },
@@ -182,7 +187,7 @@ const secondRowItems = [
   {
     title: 'RTI',
     items: [
-      { title: 'RTI Information', href: '/rti' },
+      { title: 'RTI Information', href: '/resources/rti' },
       { title: 'Filing Process', href: '/rti/process' },
       { title: 'Officers', href: '/rti/officers' },
       { title: 'Guidelines', href: '/rti/guidelines' },
@@ -208,7 +213,7 @@ const secondRowItems = [
   {
     title: 'TENDER',
     items: [
-      { title: 'Active Tenders', href: '/tender' },
+      { title: 'Active Tenders', href: '/resources/tender' },
       { title: 'Archived Tenders', href: '/tender/archive' },
       { title: 'Process', href: '/tender/process' },
       { title: 'Guidelines', href: '/tender/guidelines' },
@@ -257,25 +262,25 @@ const DropdownMenu = ({ item }: { item: NavItem }) => {
           </Menu.Button>
 
           <Menu.Items className="absolute z-50 mt-2 w-80 rounded-lg bg-white/95 dark:bg-black/95 backdrop-blur-lg border border-[#00BFFF]/30 shadow-lg focus:outline-none">
-  <div className="p-2 max-h-[70vh] overflow-y-auto custom-scrollbar">
-    {item.items?.map((subItem) => (
-      <Menu.Item key={subItem.title}>
-        {({ active }) => (
-          <Link
-            to={subItem.href}
-            className={`dropdown-item group flex items-center px-4 py-2 text-sm rounded-md min-h-[44px] ${
-              active
-                ? 'text-[#FFD700] bg-[#00BFFF]/10'
-                : 'text-black dark:text-white'
-            }`}
-          >
-            {subItem.title}
-          </Link>
-        )}
-      </Menu.Item>
-    ))}
-  </div>
-</Menu.Items>
+            <div className="p-2 max-h-[70vh] overflow-y-auto custom-scrollbar">
+              {item.items?.map((subItem) => (
+                <Menu.Item key={subItem.title}>
+                  {({ active }) => (
+                    <Link
+                      to={subItem.href}
+                      className={`dropdown-item group flex items-center px-4 py-2 text-sm rounded-md min-h-[44px] ${
+                        active
+                          ? 'text-[#FFD700] bg-[#00BFFF]/10'
+                          : 'text-black dark:text-white'
+                      }`}
+                    >
+                      {subItem.title}
+                    </Link>
+                  )}
+                </Menu.Item>
+              ))}
+            </div>
+          </Menu.Items>
         </>
       )}
     </Menu>
@@ -395,7 +400,6 @@ const MobileMenu = () => {
   );
 };
 
-
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -430,7 +434,6 @@ export const Navbar = () => {
                 </Link>
               )
             )}
-            {/* Theme Toggle Button */}
             <ThemeToggle />
           </div>
         </div>
@@ -451,7 +454,6 @@ export const Navbar = () => {
                 </Link>
               )
             )}
-            
           </div>
         </div>
 
@@ -464,4 +466,3 @@ export const Navbar = () => {
     </nav>
   );
 };
-
