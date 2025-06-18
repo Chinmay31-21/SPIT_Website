@@ -106,7 +106,7 @@ function App() {
                   />
                   <div>
                     <p className="text-[#000000]/80 text-sm">Bhartiya Vidya Bhavan's</p>
-                    <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-[#ABC4FF] to-[#0D0670] bg-clip-text text-transparent animate-glow">
+                    <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-[#1544B2] to-[#0D0670] bg-clip-text text-transparent animate-glow">
                       Sardar Patel Institute of Technology
                     </h1>
                     <p className="text-[#000000] text-xs mt-1">
