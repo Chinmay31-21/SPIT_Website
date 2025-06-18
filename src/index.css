@@ -56,7 +56,7 @@ html.light body {
 }
 
 html.light .custom-scrollbar::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: #91a8dd;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
