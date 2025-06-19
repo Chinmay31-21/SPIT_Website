@@ -256,7 +256,7 @@ html.light .nav-item::before {
 }
 
 html.light .nav-item::after {
-  background: linear-gradient(to right, #6d86d7, ##dc291f);
+  background: linear-gradient(to right, #6d86d7, #dc291f);
 }
 
 .nav-item:hover::after {
