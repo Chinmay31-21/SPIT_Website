@@ -230,7 +230,7 @@ html.light html::-webkit-scrollbar-thumb:hover {
 
 /* Navigation styles */
 .nav-item {
-  @apply relative text-[#FFFFFF] dark:text-white transition-all duration-300 text-sm whitespace-nowrap;
+  @apply relative text-[#0A0A0A] dark:text-white transition-all duration-300 text-sm whitespace-nowrap;
 }
 
 html.light .nav-item {
@@ -312,7 +312,7 @@ html.light .sparkle {
 
 /* Header and Navigation */
 html.light header {
-  background: rgba(248, 249, 250, 0.95) !important;
+  background: rgba(125, 104, 228, 0.95) !important;
   backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(30, 64, 175, 0.2) !important;
   box-shadow: 0 4px 6px -1px rgba(30, 64, 175, 0.1);
