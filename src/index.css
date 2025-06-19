@@ -234,7 +234,7 @@ html.light html::-webkit-scrollbar-thumb:hover {
 }
 
 html.light .nav-item {
-  color: #0A0A0A;
+  color: #ffffff;
 }
 
 .nav-item::before {
