@@ -335,9 +335,8 @@ html.light .bg-gradient-to-b.from-\[#9587db\].to-\[#422bd9\] {
   background: linear-gradient(to bottom, #9587db, #422bd9) !important;
 }
 
-
-html.light .bg-gradient-to-b.from-\[#1A1A1A\].to-\[#0A0A0A\] {
-  background: linear-gradient(to bottom, #f8f9fa, #ffffff) !important;
+html.light .bg-gradient-to-b.from-\[#422bd9\].to-\[#9587db\] {
+  background: linear-gradient(to bottom, #422bd9, #9587db) !important;
 }
 
 html.light .bg-gradient-to-b.from-black.to-\[#0A0A0A\] {
