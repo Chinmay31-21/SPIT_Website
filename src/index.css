@@ -256,7 +256,7 @@ html.light .nav-item::before {
 }
 
 html.light .nav-item::after {
-  background: linear-gradient(to right, #1e40af, #a16207);
+  background: linear-gradient(to right, #6d86d7, #a16207);
 }
 
 .nav-item:hover::after {
@@ -319,24 +319,25 @@ html.light header {
 }
 
 /* Main content backgrounds */
-html.light .min-h-screen.bg-\[#6f54A \] {
-  background: linear-gradient(135deg, #c8bcfa 0%, #956fe3 50%, #6f54da 100%) !important;
+html.light .min-h-screen.bg-\[#0A0A0A\] {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%) !important;
 }
 
-html.light .bg-\[#6F54DA\] {
-  background: linear-gradient(135deg, #c8bcfa 0%, #956fe3 50%, #6f54da 100%) !important;
+html.light .bg-\[#0A0A0A\] {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%) !important;
 }
 
 html.light .bg-\[#1A1A1A\] {
-  background: linear-gradient(135deg, #220810 0%, #f9b5b5 100%) !important;
-}
-/* Gradient backgrounds */
-html.light .bg-gradient-to-b.from-\[#9587db\].to-\[#422bd9\] {
-  background: linear-gradient(to bottom, #9587db, #422bd9) !important;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%) !important;
 }
 
-html.light .bg-gradient-to-b.from-\[#422bd9\].to-\[#9587db\] {
-  background: linear-gradient(to bottom, #422bd9, #9587db) !important;
+/* Gradient backgrounds */
+html.light .bg-gradient-to-b.from-\[#0A0A0A\].to-\[#1A1A1A\] {
+  background: linear-gradient(to bottom, #ffffff, #f8f9fa) !important;
+}
+
+html.light .bg-gradient-to-b.from-\[#1A1A1A\].to-\[#0A0A0A\] {
+  background: linear-gradient(to bottom, #f8f9fa, #ffffff) !important;
 }
 
 html.light .bg-gradient-to-b.from-black.to-\[#0A0A0A\] {
