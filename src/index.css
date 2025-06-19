@@ -230,11 +230,11 @@ html.light html::-webkit-scrollbar-thumb:hover {
 
 /* Navigation styles */
 .nav-item {
-  @apply relative text-[#0A0A0A] dark:text-white transition-all duration-300 text-sm whitespace-nowrap;
+  @apply relative text-[#ffffff] dark:text-white transition-all duration-300 text-sm whitespace-nowrap;
 }
 
 html.light .nav-item {
-  color:  #a16207;
+  color: #0A0A0A;
 }
 
 .nav-item::before {
