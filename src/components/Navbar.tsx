@@ -104,13 +104,12 @@ const firstRowItems: NavItem[] = [
   {
     title: 'Exam',
     items: [
-      { title: 'All Notifications', href: '/Exam/notifications' },
-      { title: 'Results', href: '/Exam/Results' },
-      { title: 'Fees', href: '/Exam/Fees' },
-      { title: 'Timetable', href: '/Exam/timetable' },
-      { title: 'Examination Manual', href: '/Exam/ex-manual' },
-      { title: 'Exam Staff', href: '/Exam/Staff' },
-      { title: 'Contact Us', href: '/Exam/Contact' },
+      { title: 'All Notifications', href: '/Exam/about' },
+      { title: 'Infrastructure', href: '/about/infrastructure' },
+      { title: 'Governing Body', href: '/about/governing-body' },
+      { title: 'Achievements', href: '/about/achievements' },
+      { title: 'Campus Life', href: '/about/campus-life' },
+      { title: 'Contact Us', href: '/about/contact' },
     ]
   },
 
@@ -147,7 +146,19 @@ const firstRowItems: NavItem[] = [
       { title: 'Wi-Fi Campus', href: '/facilities/wifi' },
     ]
   },
-  
+  {
+    title: 'CAMPUS LIFE',
+    items: [
+      { title: 'Events & Activities', href: '/campus/events' },
+      { title: 'Technical Festivals', href: '/campus/tech-fests' },
+      { title: 'Cultural Festivals', href: '/campus/cultural-fests' },
+      { title: 'Student Chapters', href: '/campus/chapters' },
+      { title: 'Innovation Cell', href: '/campus/innovation' },
+      { title: 'Entrepreneurship', href: '/campus/entrepreneurship' },
+      { title: 'Campus News', href: '/campus/news' },
+      { title: 'Photo Gallery', href: '/campus/gallery' },
+    ]
+  }
 ];
 
 // Second row menu items with cross-linking
@@ -156,36 +167,13 @@ const secondRowItems: NavItem[] = [
     title: 'IQAC',
     items: [
       { title: 'About IQAC', href: '/accreditation/IQAC' },
-      { title: 'Composition', href: '/iqac/composition' },
-      { title: 'Constitution', href: '/iqac/constitution' },
-      { title: 'MoM', href: '/iqac/mom' },
-      { title: 'Perspective Plan', href: '/iqac/perspective-plan' },
-      { title: 'Roles & Responsibilities', href: '/iqac/roles-responsibilities' },
-      { title: 'FDP', href: '/iqac/FDP' },
+      { title: 'Quality Policy', href: '/iqac/policy' },
+      { title: 'Committees', href: '/iqac/committees' },
+      { title: 'Reports', href: '/iqac/reports' },
+      { title: 'Best Practices', href: '/iqac/practices' },
       { title: 'Feedback', href: '/iqac/feedback' },
-      { title: 'Institutional Distinctiveness', href: '/iqac/institutional-distinctiveness' },
-      { title: 'Code of Conduct', href: '/iqac/CoC' },
-    ]
-  },
-  {
-    title: 'Mandatory Disc.',
-    items: [
-    {title: 'Mandatory Disc.', href: '/mandatory-disc'},
-    ]
-  },
-
-  {
-    title: 'Entrepreneurship',
-    items: [
-      { title: 'SP-TBI', href: '/e/sptbi' },
-      { title: 'IEDC', href: '/e/iedc' },
-      { title: 'IR-Cell', href: '/e/ircell' },
-      { title: 'E-cell', href: '/e/e-cell' },
-      { title: 'IPR-Cell', href: '/e/iprcell' },
-      { title: 'IEEE', href: '/e/ieee' },
-      { title: 'WIE', href: '/e/wie' },
-      { title: 'Enactus', href: '/e/enactus' },
-      
+      { title: 'Activities', href: '/iqac/activities' },
+      { title: 'Documentation', href: '/iqac/docs' },
     ]
   },
   {
@@ -201,48 +189,60 @@ const secondRowItems: NavItem[] = [
       { title: 'Contact', href: '/nirf/contact' },
     ]
   },
-  
-  // {
-  //   title: 'NAAC',
-  //   items: [
-  //     { title: 'NAAC Status', href: '/accreditation/naac' },
-  //     { title: 'SSR', href: '/naac/ssr' },
-  //     { title: 'Criteria', href: '/naac/criteria' },
-  //     { title: 'Reports', href: '/naac/reports' },
-  //     { title: 'Quality Initiatives', href: '/naac/initiatives' },
-  //     { title: 'Documentation', href: '/naac/docs' },
-  //     { title: 'Updates', href: '/naac/updates' },
-  //     { title: 'Contact', href: '/naac/contact' },
-  //   ]
-  // },
-  // {
-  //   title: 'AICTE',
-  //   items: [
-  //     { title: 'AICTE Approval', href: '/accreditation/AICTE' },
-  //     { title: 'Compliance', href: '/aicte/compliance' },
-  //     { title: 'Mandatory Disclosure', href: '/resources/mandatory-disclosure' },
-  //     { title: 'Reports', href: '/aicte/reports' },
-  //     { title: 'Guidelines', href: '/aicte/guidelines' },
-  //     { title: 'Documentation', href: '/aicte/docs' },
-  //     { title: 'Updates', href: '/aicte/updates' },
-  //     { title: 'Contact', href: '/aicte/contact' },
-  //   ]
-  // },
-  // {
-  //   title: 'RTI',
-  //   items: [
-  //     { title: 'RTI Information', href: '/resources/rti' },
-  //     { title: 'Filing Process', href: '/rti/process' },
-  //     { title: 'Officers', href: '/rti/officers' },
-  //     { title: 'Guidelines', href: '/rti/guidelines' },
-  //     { title: 'FAQs', href: '/rti/faqs' },
-  //     { title: 'Downloads', href: '/rti/downloads' },
-  //     { title: 'Status', href: '/rti/status' },
-  //     { title: 'Contact', href: '/rti/contact' },
-  //   ]
-  // },
   {
-    title: 'CAREERS@SPIT',
+    title: 'NBA',
+    items: [
+      { title: 'NBA Accreditation', href: '/accreditation/nba' },
+      { title: 'Status', href: '/nba/status' },
+      { title: 'Reports', href: '/nba/reports' },
+      { title: 'Compliance', href: '/nba/compliance' },
+      { title: 'Quality Metrics', href: '/nba/metrics' },
+      { title: 'Documentation', href: '/nba/docs' },
+      { title: 'Updates', href: '/nba/updates' },
+      { title: 'Contact', href: '/nba/contact' },
+    ]
+  },
+  {
+    title: 'NAAC',
+    items: [
+      { title: 'NAAC Status', href: '/accreditation/naac' },
+      { title: 'SSR', href: '/naac/ssr' },
+      { title: 'Criteria', href: '/naac/criteria' },
+      { title: 'Reports', href: '/naac/reports' },
+      { title: 'Quality Initiatives', href: '/naac/initiatives' },
+      { title: 'Documentation', href: '/naac/docs' },
+      { title: 'Updates', href: '/naac/updates' },
+      { title: 'Contact', href: '/naac/contact' },
+    ]
+  },
+  {
+    title: 'AICTE',
+    items: [
+      { title: 'AICTE Approval', href: '/accreditation/AICTE' },
+      { title: 'Compliance', href: '/aicte/compliance' },
+      { title: 'Mandatory Disclosure', href: '/resources/mandatory-disclosure' },
+      { title: 'Reports', href: '/aicte/reports' },
+      { title: 'Guidelines', href: '/aicte/guidelines' },
+      { title: 'Documentation', href: '/aicte/docs' },
+      { title: 'Updates', href: '/aicte/updates' },
+      { title: 'Contact', href: '/aicte/contact' },
+    ]
+  },
+  {
+    title: 'RTI',
+    items: [
+      { title: 'RTI Information', href: '/resources/rti' },
+      { title: 'Filing Process', href: '/rti/process' },
+      { title: 'Officers', href: '/rti/officers' },
+      { title: 'Guidelines', href: '/rti/guidelines' },
+      { title: 'FAQs', href: '/rti/faqs' },
+      { title: 'Downloads', href: '/rti/downloads' },
+      { title: 'Status', href: '/rti/status' },
+      { title: 'Contact', href: '/rti/contact' },
+    ]
+  },
+  {
+    title: 'CAREERS',
     items: [
       { title: 'Current Openings', href: '/careers' },
       { title: 'Faculty Positions', href: '/careers/faculty' },
@@ -266,43 +266,7 @@ const secondRowItems: NavItem[] = [
       { title: 'Status', href: '/tender/status' },
       { title: 'Contact', href: '/tender/contact' },
     ]
-  },
-  {
-    title: 'IBM',
-    items: [
-      { title: 'About IBM', href: '/accreditation/IBM' },
-      
-    ]
-  },
-  {
-    title: 'Procurement',
-    items: [
-      { title: 'About Procurement', href: '/accreditation/procurement' },
-      
-    ]
-  },
-  {
-    title: 'Micro Specializations Prog',
-    items: [
-      { title: 'Micro Specializations Prog', href: '/accreditation/MsP' },
-      
-    ]
-  },
-  {
-    title: 'Annual Report',
-    items: [
-      { title: 'About report', href: '/report' },
-      
-    ]
-  },
-  {
-    title: 'Shrestha Club',
-    items: [
-      { title: 'about club', href: '/SC' },
-      
-    ]
-  },
-
+  }
 ];
 
 const DropdownMenu = ({ item }: { item: NavItem }) => {
