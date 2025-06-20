@@ -24,17 +24,38 @@ const firstRowItems: NavItem[] = [
       { title: 'Contact Us', href: '/about/contact' },
     ]
   },
+
+  {
+    title: 'Library',
+    items: [
+      { title: 'Dspace', href: '/Library/Dspace' },
+      { title: 'Question paper', href: '/Library/question-paper' },
+      { title: 'Syllabus', href: '/Library/Syllabus' },
+      
+    ]
+  },
+
   {
     title: 'ACADEMICS',
     items: [
-      { title: 'Undergraduate Programs', href: '/academics/ug' },
-      { title: 'Postgraduate Programs', href: '/academics/pg' },
-      { title: 'Doctoral Programs', href: '/academics/phd' },
-      { title: 'Academic Calendar', href: '/academics/calendar' },
-      { title: 'Departments', href: '/academics/departments' },
-      { title: 'Faculty', href: '/academics/faculty' },
-      { title: 'Research Centers', href: '/academics/research-centers' },
-      { title: 'Academic Regulations', href: '/academics/regulations' },
+      { title: 'UG Programme', href: '/academics/ug' },
+    { title: 'PG Programme', href: '/academics/pg' },
+    { title: 'Ph.D. Programme', href: '/academics/phd' },
+    { title: 'Departments', href: '/academics/departments' },
+    { title: 'Faculty', href: '/academics/faculty' },
+    { title: 'Curriculum', href: '/academics/curriculum' },
+    { title: 'Moodle', href: '/academics/moodle' },
+    { title: 'SCOPE', href: '/academics/scope' },
+    { title: 'Professional Education', href: '/academics/professional-education' },
+    { title: 'Customized Courses', href: '/academics/customized-courses' },
+    { title: 'Centers & Initiatives', href: '/academics/centers-initiatives' },
+    { title: 'CDEEP Courses', href: '/academics/cdeep' },
+    { title: 'Resources', href: '/academics/resources' },
+    { title: 'Academic Calendar', href: '/academics/calendar' },
+    { title: 'Academic Council Minutes', href: '/academics/council-minutes' },
+    { title: '(TLE) Model', href: '/academics/tle-model' },
+    { title: 'Rules & Regulations', href: '/academics/rules' },
+
     ]
   },
   {
@@ -53,14 +74,17 @@ const firstRowItems: NavItem[] = [
   {
     title: 'RESEARCH',
     items: [
-      { title: 'Research Areas', href: '/research/areas' },
-      { title: 'Publications', href: '/research/publications' },
-      { title: 'Projects', href: '/research/projects' },
-      { title: 'Collaborations', href: '/research/collaborations' },
-      { title: 'Research Facilities', href: '/research/facilities' },
-      { title: 'Patents', href: '/research/patents' },
-      { title: 'Research Groups', href: '/research/groups' },
-      { title: 'Research Opportunities', href: '/research/opportunities' },
+      { title: 'Preamble', href: '/research/preamble' },
+      { title: 'IdeaLab', href: '/research/idealab' },
+      { title: 'R&D Committee', href: '/research/rd-committee' },
+      { title: 'Policy & Research Areas', href: '/research/policy-areas' },
+      { title: 'Funded Projects', href: '/research/funded-projects' },
+      { title: 'International Conferences', href: '/research/conferences' },
+      { title: 'Students Technical Activities', href: '/research/technical-activities' },
+      { title: 'Current Events & Activities', href: '/research/events' },
+      { title: 'Useful links', href: '/research/links' },
+      { title: 'Publications Portal', href: '/research/publications' },
+      { title: 'IIRS-ISRO Outreach Programme', href: '/research/iirs-isro' },
     ]
   },
   {
@@ -76,17 +100,37 @@ const firstRowItems: NavItem[] = [
       { title: 'Contact TPO', href: '/placements/contact' },
     ]
   },
+
+  {
+    title: 'Exam',
+    items: [
+      { title: 'All Notifications', href: '/Exam/about' },
+      { title: 'Infrastructure', href: '/about/infrastructure' },
+      { title: 'Governing Body', href: '/about/governing-body' },
+      { title: 'Achievements', href: '/about/achievements' },
+      { title: 'Campus Life', href: '/about/campus-life' },
+      { title: 'Contact Us', href: '/about/contact' },
+    ]
+  },
+
   {
     title: 'STUDENTS',
     items: [
-      { title: 'Student Life', href: '/students' },
-      { title: 'Clubs & Societies', href: '/students/clubs' },
-      { title: 'Sports & Culture', href: '/students/sports' },
-      { title: 'Hostel', href: '/students/hostel' },
-      { title: 'Student Council', href: '/students/council' },
-      { title: 'Alumni Network', href: '/students/alumni' },
-      { title: 'Student Services', href: '/students/services' },
-      { title: 'Grievance Redressal', href: '/students/grievance' },
+      { title: 'Scholarships', href: '/students/scholarships' },
+      { title: 'Documents Collection', href: '/students/documents' },
+      { title: 'Online Transcripts', href: '/students/transcripts' },
+      { title: 'LOR System', href: '/students/lor' },
+      { title: "Student's Council", href: '/students/council' },
+      { title: 'Rules & Regulations', href: '/students/rules' },
+      { title: "Students' Activities", href: '/students/activities' },
+      { title: 'Anti Ragging Notification', href: '/students/anti-ragging' },
+      { title: 'Links', href: '/students/links' },
+      { title: 'SEVA', href: '/students/seva' },
+      { title: 'Sports', href: '/students/sports' },
+      { title: 'Oculus', href: '/students/oculus' },
+      { title: 'Rotaract Club', href: '/students/rotaract' },
+      { title: 'Alumni', href: '/students/alumni' },
+      { title: 'Capacity Development Programme', href: '/students/capacity-development' },
     ]
   },
   {
