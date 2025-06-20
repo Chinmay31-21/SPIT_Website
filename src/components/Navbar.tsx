@@ -88,11 +88,7 @@ const firstRowItems: NavItem[] = [
       { title: 'Contact TPO', href: '/placements/contact' },
     ]
   },
-];
-
-// Second row menu items - Student services and support
-const secondRowItems: NavItem[] = [
-  {
+   {
     title: 'STUDENTS',
     items: [
       { title: 'Scholarships', href: '/students/scholarships' },
@@ -112,6 +108,11 @@ const secondRowItems: NavItem[] = [
       { title: 'Capacity Development Programme', href: '/students/capacity-development' },
     ]
   },
+];
+
+// Second row menu items - Student services and support
+const secondRowItems: NavItem[] = [
+ 
   {
     title: 'LIBRARY',
     items: [
@@ -158,10 +159,6 @@ const secondRowItems: NavItem[] = [
       { title: 'Enactus', href: '/e/enactus' },
     ]
   },
-];
-
-// Third row menu items - Administrative and compliance
-const thirdRowItems: NavItem[] = [
   {
     title: 'IQAC',
     items: [
@@ -203,6 +200,11 @@ const thirdRowItems: NavItem[] = [
       { title: 'Contact HR', href: '/careers/contact' },
     ]
   },
+];
+
+// Third row menu items - Administrative and compliance
+const thirdRowItems: NavItem[] = [
+  
   {
     title: 'TENDER',
     items: [
