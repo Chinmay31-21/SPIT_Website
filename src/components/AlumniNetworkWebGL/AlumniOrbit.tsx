@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { AlumniAvatar } from './AlumniAvatar';
@@ -27,16 +27,26 @@ export const AlumniOrbit: React.FC<AlumniOrbitProps> = ({
 }) => {
   const groupRef = useRef<THREE.Group>(null);
   const config = orbitConfigs[orbitIndex];
-  
+
+  const positions = useMemo(() => {
+    return alumni.map((_, index) => {
+      const angle = (index / alumni.length) * Math.PI * 2;
+      return [
+        Math.cos(angle) * config.radius,
+        Math.sin(angle) * config.radius,
+        0
+      ] as [number, number, number];
+    });
+  }, [alumni, config.radius]);
+
   useFrame((state) => {
     if (groupRef.current) {
       groupRef.current.rotation.z = state.clock.elapsedTime * config.speed * config.direction;
     }
   });
-  
+
   return (
     <group ref={groupRef}>
-      {/* Orbit Ring Visualization */}
       <mesh>
         <ringGeometry args={[config.radius - 0.1, config.radius + 0.1, 64]} />
         <meshBasicMaterial
@@ -46,25 +56,19 @@ export const AlumniOrbit: React.FC<AlumniOrbitProps> = ({
           side={THREE.DoubleSide}
         />
       </mesh>
-      
-      {/* Alumni Avatars */}
-      {alumni.map((member, index) => {
-        const angle = (index / alumni.length) * Math.PI * 2;
-        const x = Math.cos(angle) * config.radius;
-        const y = Math.sin(angle) * config.radius;
-        
-        return (
-          <AlumniAvatar
-            key={member.id}
-            alumni={member}
-            position={[x, y, 0]}
-            onClick={() => onAlumniClick(member)}
-            isHovered={hoveredAlumni === member.id}
-            onHover={() => setHoveredAlumni(member.id)}
-            onUnhover={() => setHoveredAlumni(null)}
-          />
-        );
-      })}
+
+      {alumni.map((member, index) => (
+        <AlumniAvatar
+          key={member.id}
+          alumni={member}
+          position={positions[index]}
+          index={index}
+          onClick={() => onAlumniClick(member)}
+          isHovered={hoveredAlumni === member.id}
+          onHover={() => setHoveredAlumni(member.id)}
+          onUnhover={() => setHoveredAlumni(null)}
+        />
+      ))}
     </group>
   );
 };

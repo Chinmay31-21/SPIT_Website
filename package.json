@@ -15,12 +15,13 @@
     "@react-three/fiber": "^8.18.0",
     "@splinetool/react-spline": "^2.2.6",
     "@splinetool/runtime": "^1.0.17",
-    "framer-motion": "^10.16.4",
+    "framer-motion": "^10.18.0",
     "gsap": "^3.13.0",
     "lucide-react": "^0.284.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.1",
+    "react-tooltip": "^5.29.1",
     "three": "^0.160.1"
   },
   "devDependencies": {
