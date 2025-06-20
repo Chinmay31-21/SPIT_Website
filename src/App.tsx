@@ -35,6 +35,7 @@ import { Tender } from './pages/resources/MandatoryDisclosure';
 import { AntiRagging } from './pages/resources/MandatoryDisclosure';
 import { RTI } from './pages/resources/MandatoryDisclosure';
 import { Grievance } from './pages/resources/MandatoryDisclosure';
+import { AlumniNetworkDemo } from './pages/AlumniNetworkDemo';
 
 const PageTransition = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
@@ -170,6 +171,8 @@ function App() {
               <NavLink to="/accreditation/IQAC" className={({ isActive }) => isActive ? "text-[#FFD700] font-semibold transition-colors" : "text-white hover:text-[#FFD700] transition-colors"}>IQAC</NavLink>
               <span className="text-[#663399]">|</span>
               <NavLink to="/accreditation/AICTE" className={({ isActive }) => isActive ? "text-[#FFD700] font-semibold transition-colors" : "text-white hover:text-[#FFD700] transition-colors"}>AICTE</NavLink>
+              <span className="text-[#663399]">|</span>
+              <NavLink to="/alumni-network" className={({ isActive }) => isActive ? "text-[#FFD700] font-semibold transition-colors" : "text-white hover:text-[#FFD700] transition-colors"}>Alumni Network</NavLink>
             </div>
           </div>
         </header>
@@ -199,6 +202,7 @@ function App() {
             <Route path="/resources/antiragging" element={<AntiRagging />} />
             <Route path="/resources/rti" element={<RTI />} />
             <Route path="/resources/grievance" element={<Grievance />} />
+            <Route path="/alumni-network" element={<AlumniNetworkDemo />} />
           </Routes>
         </PageTransition>
 
