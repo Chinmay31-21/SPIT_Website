@@ -11,7 +11,7 @@ interface NavItem {
   items?: { title: string; href: string }[];
 }
 
-// First row menu items
+// First row menu items - Core academic sections
 const firstRowItems: NavItem[] = [
   {
     title: 'ABOUT',
@@ -24,38 +24,26 @@ const firstRowItems: NavItem[] = [
       { title: 'Contact Us', href: '/about/contact' },
     ]
   },
-
-  {
-    title: 'Library',
-    items: [
-      { title: 'Dspace', href: '/Library/Dspace' },
-      { title: 'Question paper', href: '/Library/question-paper' },
-      { title: 'Syllabus', href: '/Library/Syllabus' },
-      
-    ]
-  },
-
   {
     title: 'ACADEMICS',
     items: [
       { title: 'UG Programme', href: '/academics/ug' },
-    { title: 'PG Programme', href: '/academics/pg' },
-    { title: 'Ph.D. Programme', href: '/academics/phd' },
-    { title: 'Departments', href: '/academics/departments' },
-    { title: 'Faculty', href: '/academics/faculty' },
-    { title: 'Curriculum', href: '/academics/curriculum' },
-    { title: 'Moodle', href: '/academics/moodle' },
-    { title: 'SCOPE', href: '/academics/scope' },
-    { title: 'Professional Education', href: '/academics/professional-education' },
-    { title: 'Customized Courses', href: '/academics/customized-courses' },
-    { title: 'Centers & Initiatives', href: '/academics/centers-initiatives' },
-    { title: 'CDEEP Courses', href: '/academics/cdeep' },
-    { title: 'Resources', href: '/academics/resources' },
-    { title: 'Academic Calendar', href: '/academics/calendar' },
-    { title: 'Academic Council Minutes', href: '/academics/council-minutes' },
-    { title: '(TLE) Model', href: '/academics/tle-model' },
-    { title: 'Rules & Regulations', href: '/academics/rules' },
-
+      { title: 'PG Programme', href: '/academics/pg' },
+      { title: 'Ph.D. Programme', href: '/academics/phd' },
+      { title: 'Departments', href: '/academics/departments' },
+      { title: 'Faculty', href: '/academics/faculty' },
+      { title: 'Curriculum', href: '/academics/curriculum' },
+      { title: 'Moodle', href: '/academics/moodle' },
+      { title: 'SCOPE', href: '/academics/scope' },
+      { title: 'Professional Education', href: '/academics/professional-education' },
+      { title: 'Customized Courses', href: '/academics/customized-courses' },
+      { title: 'Centers & Initiatives', href: '/academics/centers-initiatives' },
+      { title: 'CDEEP Courses', href: '/academics/cdeep' },
+      { title: 'Resources', href: '/academics/resources' },
+      { title: 'Academic Calendar', href: '/academics/calendar' },
+      { title: 'Academic Council Minutes', href: '/academics/council-minutes' },
+      { title: '(TLE) Model', href: '/academics/tle-model' },
+      { title: 'Rules & Regulations', href: '/academics/rules' },
     ]
   },
   {
@@ -100,20 +88,10 @@ const firstRowItems: NavItem[] = [
       { title: 'Contact TPO', href: '/placements/contact' },
     ]
   },
+];
 
-  {
-    title: 'Exam',
-    items: [
-      { title: 'All Notifications', href: '/Exam/notifications' },
-      { title: 'Results', href: '/Exam/Results' },
-      { title: 'Fees', href: '/Exam/Fees' },
-      { title: 'Timetable', href: '/Exam/timetable' },
-      { title: 'Examination Manual', href: '/Exam/ex-manual' },
-      { title: 'Exam Staff', href: '/Exam/Staff' },
-      { title: 'Contact Us', href: '/Exam/Contact' },
-    ]
-  },
-
+// Second row menu items - Student services and support
+const secondRowItems: NavItem[] = [
   {
     title: 'STUDENTS',
     items: [
@@ -135,6 +113,26 @@ const firstRowItems: NavItem[] = [
     ]
   },
   {
+    title: 'LIBRARY',
+    items: [
+      { title: 'Dspace', href: '/Library/Dspace' },
+      { title: 'Question paper', href: '/Library/question-paper' },
+      { title: 'Syllabus', href: '/Library/Syllabus' },
+    ]
+  },
+  {
+    title: 'EXAM',
+    items: [
+      { title: 'All Notifications', href: '/Exam/notifications' },
+      { title: 'Results', href: '/Exam/Results' },
+      { title: 'Fees', href: '/Exam/Fees' },
+      { title: 'Timetable', href: '/Exam/timetable' },
+      { title: 'Examination Manual', href: '/Exam/ex-manual' },
+      { title: 'Exam Staff', href: '/Exam/Staff' },
+      { title: 'Contact Us', href: '/Exam/Contact' },
+    ]
+  },
+  {
     title: 'FACILITIES',
     items: [
       { title: 'Library', href: '/facilities/library' },
@@ -147,11 +145,23 @@ const firstRowItems: NavItem[] = [
       { title: 'Wi-Fi Campus', href: '/facilities/wifi' },
     ]
   },
-  
+  {
+    title: 'ENTREPRENEURSHIP',
+    items: [
+      { title: 'SP-TBI', href: '/e/sptbi' },
+      { title: 'IEDC', href: '/e/iedc' },
+      { title: 'IR-Cell', href: '/e/ircell' },
+      { title: 'E-cell', href: '/e/e-cell' },
+      { title: 'IPR-Cell', href: '/e/iprcell' },
+      { title: 'IEEE', href: '/e/ieee' },
+      { title: 'WIE', href: '/e/wie' },
+      { title: 'Enactus', href: '/e/enactus' },
+    ]
+  },
 ];
 
-// Second row menu items with cross-linking
-const secondRowItems: NavItem[] = [
+// Third row menu items - Administrative and compliance
+const thirdRowItems: NavItem[] = [
   {
     title: 'IQAC',
     items: [
@@ -168,27 +178,6 @@ const secondRowItems: NavItem[] = [
     ]
   },
   {
-    title: 'Mandatory Disc.',
-    items: [
-    {title: 'Mandatory Disc.', href: '/mandatory-disc'},
-    ]
-  },
-
-  {
-    title: 'Entrepreneurship',
-    items: [
-      { title: 'SP-TBI', href: '/e/sptbi' },
-      { title: 'IEDC', href: '/e/iedc' },
-      { title: 'IR-Cell', href: '/e/ircell' },
-      { title: 'E-cell', href: '/e/e-cell' },
-      { title: 'IPR-Cell', href: '/e/iprcell' },
-      { title: 'IEEE', href: '/e/ieee' },
-      { title: 'WIE', href: '/e/wie' },
-      { title: 'Enactus', href: '/e/enactus' },
-      
-    ]
-  },
-  {
     title: 'NIRF',
     items: [
       { title: 'NIRF Ranking', href: '/accreditation/nirf' },
@@ -201,46 +190,6 @@ const secondRowItems: NavItem[] = [
       { title: 'Contact', href: '/nirf/contact' },
     ]
   },
-  
-  // {
-  //   title: 'NAAC',
-  //   items: [
-  //     { title: 'NAAC Status', href: '/accreditation/naac' },
-  //     { title: 'SSR', href: '/naac/ssr' },
-  //     { title: 'Criteria', href: '/naac/criteria' },
-  //     { title: 'Reports', href: '/naac/reports' },
-  //     { title: 'Quality Initiatives', href: '/naac/initiatives' },
-  //     { title: 'Documentation', href: '/naac/docs' },
-  //     { title: 'Updates', href: '/naac/updates' },
-  //     { title: 'Contact', href: '/naac/contact' },
-  //   ]
-  // },
-  // {
-  //   title: 'AICTE',
-  //   items: [
-  //     { title: 'AICTE Approval', href: '/accreditation/AICTE' },
-  //     { title: 'Compliance', href: '/aicte/compliance' },
-  //     { title: 'Mandatory Disclosure', href: '/resources/mandatory-disclosure' },
-  //     { title: 'Reports', href: '/aicte/reports' },
-  //     { title: 'Guidelines', href: '/aicte/guidelines' },
-  //     { title: 'Documentation', href: '/aicte/docs' },
-  //     { title: 'Updates', href: '/aicte/updates' },
-  //     { title: 'Contact', href: '/aicte/contact' },
-  //   ]
-  // },
-  // {
-  //   title: 'RTI',
-  //   items: [
-  //     { title: 'RTI Information', href: '/resources/rti' },
-  //     { title: 'Filing Process', href: '/rti/process' },
-  //     { title: 'Officers', href: '/rti/officers' },
-  //     { title: 'Guidelines', href: '/rti/guidelines' },
-  //     { title: 'FAQs', href: '/rti/faqs' },
-  //     { title: 'Downloads', href: '/rti/downloads' },
-  //     { title: 'Status', href: '/rti/status' },
-  //     { title: 'Contact', href: '/rti/contact' },
-  //   ]
-  // },
   {
     title: 'CAREERS@SPIT',
     items: [
@@ -268,41 +217,41 @@ const secondRowItems: NavItem[] = [
     ]
   },
   {
+    title: 'MANDATORY DISC.',
+    items: [
+      { title: 'Mandatory Disclosure', href: '/resources/mandatory-disclosure' },
+    ]
+  },
+  {
     title: 'IBM',
     items: [
       { title: 'About IBM', href: '/accreditation/IBM' },
-      
     ]
   },
   {
-    title: 'Procurement',
+    title: 'PROCUREMENT',
     items: [
       { title: 'About Procurement', href: '/accreditation/procurement' },
-      
     ]
   },
   {
-    title: 'Micro Specializations Prog',
+    title: 'MICRO SPEC. PROG',
     items: [
       { title: 'Micro Specializations Prog', href: '/accreditation/MsP' },
-      
     ]
   },
   {
-    title: 'Annual Report',
+    title: 'ANNUAL REPORT',
     items: [
       { title: 'About report', href: '/report' },
-      
     ]
   },
   {
-    title: 'Shrestha Club',
+    title: 'SHRESTHA CLUB',
     items: [
-      { title: 'about club', href: '/SC' },
-      
+      { title: 'About club', href: '/SC' },
     ]
   },
-
 ];
 
 const DropdownMenu = ({ item }: { item: NavItem }) => {
@@ -324,13 +273,13 @@ const DropdownMenu = ({ item }: { item: NavItem }) => {
       {({ open }) => (
         <>
           <Menu.Button 
-            className="nav-item flex items-center gap-2 font-medium min-h-[44px] min-w-[44px] justify-center md:justify-start px-4"
+            className="nav-item flex items-center gap-1 font-medium min-h-[44px] min-w-[44px] justify-center md:justify-start px-2 text-xs lg:text-sm"
             onMouseMove={addSparkle}
           >
-            {item.title}
+            <span className="truncate">{item.title}</span>
             <ChevronDown
-              size={16}
-              className={`transition-transform duration-300 ${open ? 'rotate-180' : ''}`}
+              size={12}
+              className={`transition-transform duration-300 flex-shrink-0 ${open ? 'rotate-180' : ''}`}
             />
             {sparkles.map((sparkle) => (
               <span
@@ -370,7 +319,7 @@ const DropdownMenu = ({ item }: { item: NavItem }) => {
 const MobileMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const allItems = [...firstRowItems, ...secondRowItems];
+  const allItems = [...firstRowItems, ...secondRowItems, ...thirdRowItems];
 
   useEffect(() => {
     if (isOpen) {
@@ -498,8 +447,8 @@ export const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-4">
-        {/* First Row */}
-        <div className="hidden lg:flex items-center justify-between h-16 border-b border-[#4169E1]/10">
+        {/* First Row - Core Academic Sections */}
+        <div className="hidden lg:flex items-center justify-between h-14 border-b border-[#4169E1]/10">
           <div className="flex items-center justify-between w-full">
             {firstRowItems.map((item) =>
               item.items ? (
@@ -508,7 +457,7 @@ export const Navbar = () => {
                 <Link
                   key={item.title}
                   to={item.href || '#'}
-                  className="nav-item font-medium min-h-[44px] flex items-center px-4"
+                  className="nav-item font-medium min-h-[44px] flex items-center px-2 text-xs lg:text-sm"
                 >
                   {item.title}
                 </Link>
@@ -518,8 +467,8 @@ export const Navbar = () => {
           </div>
         </div>
 
-        {/* Second Row */}
-        <div className="hidden lg:flex items-center justify-between h-16">
+        {/* Second Row - Student Services */}
+        <div className="hidden lg:flex items-center justify-between h-14 border-b border-[#4169E1]/10">
           <div className="flex items-center justify-between w-full">
             {secondRowItems.map((item) =>
               item.items ? (
@@ -528,7 +477,26 @@ export const Navbar = () => {
                 <Link
                   key={item.title}
                   to={item.href || '#'}
-                  className="nav-item font-medium min-h-[44px] flex items-center px-4"
+                  className="nav-item font-medium min-h-[44px] flex items-center px-2 text-xs lg:text-sm"
+                >
+                  {item.title}
+                </Link>
+              )
+            )}
+          </div>
+        </div>
+
+        {/* Third Row - Administrative & Compliance */}
+        <div className="hidden lg:flex items-center justify-between h-14">
+          <div className="flex items-center justify-between w-full">
+            {thirdRowItems.map((item) =>
+              item.items ? (
+                <DropdownMenu key={item.title} item={item} />
+              ) : (
+                <Link
+                  key={item.title}
+                  to={item.href || '#'}
+                  className="nav-item font-medium min-h-[44px] flex items-center px-2 text-xs lg:text-sm"
                 >
                   {item.title}
                 </Link>
