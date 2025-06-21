@@ -15,7 +15,7 @@ export const AboutSection = () => {
   return (
     <section 
       ref={sectionRef}
-      className="min-h-screen bg-gradient-to-b from-[#0D0D0D] to-[#1A1A1A] relative overflow-hidden"
+      className="min-h-screen bg-gradient-to-b (from-[#02365E] to-[#30036B]) relative overflow-hidden"
     >
       {/* Background Animation */}
       <div className="absolute inset-0 opacity-20">
@@ -25,7 +25,7 @@ export const AboutSection = () => {
 
       <motion.div 
         style={{ opacity, scale }}
-        className="container mx-auto px-4 py-24 flex flex-col lg:flex-row items-center gap-12"
+        className="container mx-auto px-4 py-8 flex flex-col lg:flex-row items-center gap-12"
       >
         {/* Left Content */}
         <div className="flex-1 space-y-8">
@@ -33,7 +33,7 @@ export const AboutSection = () => {
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className="text-4xl font-bold bg-gradient-to-r from-[#FFD700] to-[#DAA520] bg-clip-text text-transparent"
+            className="text-4xl font-bold bg-gradient-to-r from-[#5E035E] to-[#30036B] dark:from-[#FFD700] dark:to-[#DAA520] bg-clip-text text-transparent mb-10"
           >
             About Sardar Patel Institute of Technology
           </motion.h2>

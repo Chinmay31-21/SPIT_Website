@@ -129,7 +129,7 @@ export const Footer = () => {
 
             {/* Interactive Map Button */}
             <button 
-              className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#00BFFF]/10 text-[#00BFFF] hover:bg-[#00BFFF]/20 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#90E0EF]/50 text-[#FFFFFF] hover:bg-[#00BFFF]/90 transition-colors"
               onClick={() => window.open('https://maps.app.goo.gl/GYiaYR1bUh8vYNyE8', '_blank')}
             >
               <Map className="w-5 h-5" />

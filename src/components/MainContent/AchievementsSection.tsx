@@ -27,12 +27,12 @@ export const AchievementsSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-gradient-to-b from-[#1A1A1A] to-[#0D0D0D]">
+    <section className="py-16 bg-gradient-to-b (from-[#02365E] to-[#30036B])">
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="text-4xl font-bold text-[#FFD700] mb-12 text-center"
+          className="text-4xl font-bold bg-gradient-to-r from-[#5E035E] to-[#30036B] dark:from-[#FFD700] dark:to-[#DAA520] bg-clip-text text-transparent mb-12 text-center"
         >
           Our Achievements
         </motion.h2>

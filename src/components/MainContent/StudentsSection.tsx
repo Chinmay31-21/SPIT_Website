@@ -4,12 +4,12 @@ import { GraduationCap, Users, Award, Rocket } from 'lucide-react';
 
 export const StudentsSection = () => {
   return (
-    <section className="py-16 bg-gradient-to-b from-[#0D0D0D] to-[#1A1A1A]">
+    <section className="py-16 bg-gradient-to-b (from-[#02365E] to-[#30036B])">
       <div className="container mx-auto px-4">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="text-4xl font-bold text-[#FFD700] mb-12 text-center"
+          className="text-4xl font-bold bg-gradient-to-r from-[#5E035E] to-[#30036B] dark:from-[#FFD700] dark:to-[#DAA520] bg-clip-text text-transparent mb-12 text-center"
         >
           Student Life at SPIT
         </motion.h2>
@@ -68,8 +68,8 @@ export const StudentsSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             className="flex flex-col justify-center"
           >
-            <h3 className="text-2xl font-bold text-[#FFD700] mb-4">Experience Campus Life</h3>
-            <p className="text-white/80 mb-6">
+            <h3 className="text-2xl font-bold bg-gradient-to-r from-[#5E035E] to-[#30036B] dark:from-[#FFD700] dark:to-[#DAA520] bg-clip-text text-transparent mb-4">Experience Campus Life</h3>
+            <p className="dark:text-white/100 mb-6 light:text-black/90">
               At SPIT, we believe in holistic development. Our campus buzzes with activities, 
               from technical workshops to cultural festivals, providing students with countless 
               opportunities to learn, grow, and create lasting memories.

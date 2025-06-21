@@ -27,7 +27,7 @@ export const StatsSection = () => {
   ];
 
   return (
-    <div className="py-16 bg-gradient-to-b from-black to-[#0D0D0D]">
+    <div className="py-16 bg-gradient-to-b (from-[#02365E] to-[#30036B])">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, index) => (

@@ -65,8 +65,8 @@ export const HeroSection = () => {
 
   return (
     <div className="relative h-[80vh] overflow-hidden bg-black">
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent z-10" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10" />
+      <div className="absolute inset-0 bg-gradient-to-b (from-[#02365E] to-[#30036B])" />
+      <div className="absolute inset-0 bg-gradient-to-t (from-[#02365E] to-[#30036B])" />
       
       <AnimatePresence initial={false} custom={direction}>
         <motion.div

@@ -234,7 +234,7 @@ html.light html::-webkit-scrollbar-thumb:hover {
 }
 
 html.light .nav-item {
-  color: #0A0A0A;
+  color: #fbfbfb;
 }
 
 .nav-item::before {
@@ -381,7 +381,7 @@ html.light .bg-white\/95 {
 
 html.light .bg-black\/20 {
     background: linear-gradient(135deg, #02365e 0%, #30036b 100%) !important;/*Alumini Section Colour*/
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(30, 64, 175, 0.2) !important;
 }
 
@@ -403,7 +403,7 @@ html.light .text-white\/60 {
 }
 
 html.light .text-white\/50 {
-  color: #ededed !important; /*Batch text colour*/
+  color: #fafafa !important; /*Batch text colour*/
 }
 
 html.light .text-\[#F0F0F0\]\/80 {
@@ -462,7 +462,7 @@ html.light .bg-\[#00BFFF\]\/30 {
 
 /* Accent colors - Professional theme */
 html.light .text-\[#FFD700\] {
-  color: #3bb811 !important;
+  color: #1138b8 !important;
   font-weight: 600;
 }
 
@@ -501,31 +501,31 @@ html.light .bg-gradient-to-r.from-\[#FFD700\].to-\[#4169E1\].bg-clip-text {
 
 /* Footer - Professional styling */
 html.light footer {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 249, 250, 0.95) 100%) !important;
-  backdrop-filter: blur(20px);
+  background: linear-gradient(135deg, #02365e 0%, #30036b 100%) !important;
+  backdrop-filter: blur(6px);
   border-top: 1px solid rgba(30, 64, 175, 0.15) !important;
-  box-shadow: 0 -4px 6px -1px rgba(30, 64, 175, 0.05);
+  box-shadow: 0 -4px 6px -1px rgba(30, 64, 175, 0.018);
 }
 
 /* Footer text visibility */
 html.light footer h3,
 html.light footer h4 {
-  color: #0A0A0A !important;
+  color: #ffd500 !important;
   font-weight: 600;
 }
 
 html.light footer p,
 html.light footer li {
-  color: #4b5563 !important;
+  color: #ffffff !important;
 }
 
 html.light footer a {
-  color: #6b7280 !important;
+  color: #ffffff !important;
   transition: color 0.3s ease;
 }
 
 html.light footer a:hover {
-  color: #1e40af !important;
+  color: #00ff59 !important;
 }
 
 /* Search input styles */
@@ -534,7 +534,7 @@ html.light input[type="email"],
 html.light textarea {
   background: linear-gradient(135deg, #d0d0d0 0%, #fbfbfb 100%) !important;
   border: 1px solid rgba(30, 64, 175, 0.2) !important;
-  color: #0A0A0A !important;
+  color: #fcffff !important;
   backdrop-filter: blur(10px);
 }
 
@@ -547,13 +547,13 @@ html.light textarea::placeholder {
 html.light input[type="text"]:focus,
 html.light input[type="email"]:focus,
 html.light textarea:focus {
-  border-color: #1e40af !important;
+  border-color: #00f2ff !important;
   box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1) !important;
 }
 
 /* Button styles */
 html.light button {
-  color: #0A0A0A !important;
+  color: #0A0A0A !important; /*Menu text colour*/
 }
 
 html.light .hover\:text-\[#4169E1\]:hover {
@@ -561,7 +561,7 @@ html.light .hover\:text-\[#4169E1\]:hover {
 }
 
 html.light .hover\:text-\[#FFD700\]:hover {
-  color: #a16207 !important;
+  color: crimson !important;
 }
 
 html.light .hover\:text-\[#00BFFF\]:hover {

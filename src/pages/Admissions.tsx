@@ -13,7 +13,7 @@ export const Admissions = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0A0A0A] py-8">
+    <div className="min-h-screen bg-gradient-to-b (from-[#02365E] to-[#30036B]) py-8">
       <div className="container mx-auto px-4">
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}

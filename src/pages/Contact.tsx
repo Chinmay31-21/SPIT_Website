@@ -4,7 +4,7 @@ import { MapPin, Phone, Mail, Clock, Globe } from 'lucide-react';
 
 export const Contact = () => {
   return (
-    <div className="min-h-screen bg-[#0D0D0D] py-8">
+    <div className="min-h-screen bg-gradient-to-b (from-[#02365E] to-[#30036B]) py-8">
       <div className="container mx-auto px-4">
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}

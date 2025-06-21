@@ -235,7 +235,7 @@ export const AlumniNetworkSection = () => {
   return (
     <section 
       ref={sectionRef}
-      className="min-h-screen bg-gradient-to-b from-[#0D0D0D] to-[#1A1A1A] dark:from-[#0D0D0D] dark:to-[#1A1A1A] light:from-[#f8fafc] light:to-[#e2e8f0] relative overflow-hidden py-20"
+      className="min-h-screen bg-gradient-to-b (from-[#02365E] to-[#30036B]) dark:from-[#0D0D0D] dark:to-[#1A1A1A] light:from-[#f8fafc] light:to-[#e2e8f0] relative overflow-hidden py-20"
     >
       {/* Background Effects */}
       <div className="absolute inset-0 opacity-30">
@@ -256,7 +256,7 @@ export const AlumniNetworkSection = () => {
           className="text-center mb-16"
         >
           <motion.h2 
-            className="text-5xl font-bold bg-gradient-to-r from-[#FFD700] to-[#DAA520] dark:from-[#FFD700] dark:to-[#DAA520] light:from-[#1e40af] light:to-[#a16207] bg-clip-text text-transparent mb-6"
+            className="text-5xl font-bold bg-gradient-to-r from-[#5E035E] to-[#30036B] dark:from-[#FFD700] dark:to-[#DAA520] light:from-[#1e40af] light:to-[#a16207] bg-clip-text text-transparent mb-6"
           >
             Our Global Alumni Network
           </motion.h2>
@@ -405,7 +405,7 @@ export const AlumniNetworkSection = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-center"
         >
-          <h3 className="text-2xl font-bold text-white dark:text-white light:text-slate-900 mb-8">
+          <h3 className="text-2xl font-bold text-gold dark:text-white light:text-slate-900 mb-8">
             Our Alumni Work At
           </h3>
           <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
@@ -437,10 +437,10 @@ export const AlumniNetworkSection = () => {
               Connect with fellow SPIT graduates, share opportunities, and contribute to the growth of our community.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-6 py-3 bg-gradient-to-r from-[#FFD700] to-[#DAA520] dark:from-[#FFD700] dark:to-[#DAA520] light:from-[#1e40af] light:to-[#a16207] text-black dark:text-black light:text-white rounded-lg font-semibold hover:scale-105 transition-transform">
+              <button className="px-6 py-3 bg-gradient-to-r from-[#FFD700] to-[#DAA520] dark:from-[#FFD700] dark:to-[#DAA520] light:from-[#1e40af] light:to-[#a16207] text-white dark:text-black light:text-white rounded-lg font-semibold hover:scale-105 transition-transform">
                 Register as Alumni
               </button>
-              <button className="px-6 py-3 bg-[#00BFFF]/20 dark:bg-[#00BFFF]/20 light:bg-[#1e40af]/20 text-[#00BFFF] dark:text-[#00BFFF] light:text-[#1e40af] rounded-lg border border-[#00BFFF]/30 dark:border-[#00BFFF]/30 light:border-[#1e40af]/30 font-semibold hover:bg-[#00BFFF]/30 dark:hover:bg-[#00BFFF]/30 light:hover:bg-[#1e40af]/30 transition-colors">
+              <button className="px-6 py-3 bg-[#48CAE4]/90 dark:bg-[#00BFFF]/20 light:bg-[#1e40af]/20 text-[#FFFFFF] dark:text-[#00BFFF] light:text-[#1e40af] rounded-lg border border-[#00BFFF]/30 dark:border-[#00BFFF]/30 light:border-[#1e40af]/30 font-semibold hover:bg-[#ADE8F4]/90 dark:hover:bg-[#00BFFF]/30 light:hover:bg-[#1e40af]/30 transition-colors">
                 Explore Network
               </button>
             </div>
