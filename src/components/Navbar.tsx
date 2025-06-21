@@ -358,13 +358,13 @@ const MobileMenu = () => {
             animate={{ clipPath: 'circle(150% at top right)' }}
             exit={{ clipPath: 'circle(0% at top right)' }}
             transition={{ type: 'tween', duration: 0.5, ease: 'easeInOut' }}
-            className="fixed inset-0 bg-black/95 backdrop-blur-lg z-50 overflow-y-auto"
+            className="fixed inset-0 light:bg-white/95 dark:bg-black/95 backdrop-blur-lg z-50 overflow-y-auto"
           >
             <div className="container mx-auto px-4 py-6">
               <div className="flex items-center justify-between mb-8">
                 <Link 
                   to="/" 
-                  className="flex items-center gap-2 text-white hover:text-[#FFD700] transition-colors"
+                  className="flex items-center gap-2 light:text-black dark:text-white hover:text-[#5E035E] transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   <Home size={24} />
@@ -372,7 +372,7 @@ const MobileMenu = () => {
                 </Link>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="text-white hover:text-[#FFD700] transition-colors p-2"
+                  className="light:text-black dark:text-white hover:text-[#5E035E] transition-colors p-2"
                 >
                   <X size={24} />
                 </button>
@@ -398,7 +398,7 @@ const MobileMenu = () => {
                     transition={{ duration: 0.3 }}
                   >
                     <details className="group">
-                      <summary className="flex items-center justify-between cursor-pointer text-white text-lg font-semibold mb-2">
+                      <summary className="flex items-center justify-between cursor-pointer light:text-black dark:text-white hover:text-[#5E035E] transition-colors text-lg font-semibold mb-2">
                         {item.title}
                         <ChevronDown className="transform transition-transform group-open:rotate-180" />
                       </summary>
@@ -413,7 +413,7 @@ const MobileMenu = () => {
                             key={subItem.title}
                             to={subItem.href}
                             onClick={() => setIsOpen(false)}
-                            className="block py-2 px-4 text-white/80 hover:text-[#FFD700] hover:bg-white/5 rounded transition-colors"
+                            className="block py-2 px-4 light:text-black dark:text-white hover:text-[#5E035E] transition-colors rounded hover:bg-gradient-to-r from-[#4169E1]/10 to-[#5E035E]/10 text-sm"
                           >
                             {subItem.title}
                           </Link>
