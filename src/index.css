@@ -243,7 +243,7 @@ html.light .nav-item {
 }
 
 html.light .nav-item::before {
-  background: linear-gradient(to right, rgba(30, 64, 175, 0) 0%, rgba(30, 64, 175, 0.1) 50%, rgba(30, 64, 175, 0) 100%);
+  background: linear-gradient(to right, rgba(73, 30, 175, 0) 0%, rgba(64, 30, 175, 0.086) 50%, rgba(53, 17, 196, 0.005) 100%);
 }
 
 .nav-item:hover::before {
@@ -256,7 +256,7 @@ html.light .nav-item::before {
 }
 
 html.light .nav-item::after {
-  background: linear-gradient(to right, #183aaa, #dc291f);
+  background: linear-gradient(to right, #171acd, #370be6);
 }
 
 .nav-item:hover::after {
@@ -286,7 +286,7 @@ html.light .dropdown-item::before {
 }
 
 html.light .sparkle {
-  background: #1e40af;
+  background: #2147c3;
 }
 
 /* Mobile menu animations */
@@ -320,7 +320,7 @@ html.light header {
 
 /* Main content backgrounds */
 html.light .min-h-screen.bg-\[#0A0A0A\] {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%) !important;
+  background: linear-gradient(135deg, #9fc4e9 0%, #e9ecef 50%, #dee2e6 100%) !important;
 }
 
 html.light .bg-\[#0A0A0A\] {
@@ -354,55 +354,60 @@ html.light .bg-gradient-to-b.from-\[#0D0D0D\].to-\[#1A1A1A\] {
 
 /* Card backgrounds - Professional theme */
 html.light .bg-black\/30 {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 249, 250, 0.95) 100%) !important;
+  background-color: #03045E !important;/*background: linear-gradient(135deg,#0c307a 0%, #20036a 100%) !important;*//*Header Colour*/
   backdrop-filter: blur(20px);
   border: 1px solid rgba(30, 64, 175, 0.15) !important;
   box-shadow: 0 8px 32px rgba(30, 64, 175, 0.08);
 }
 
 html.light .bg-black\/50 {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.98) 100%) !important;
+  background: linear-gradient(135deg, #ffffff35 0%, #ffffff35 100%) !important;/*Footer colour*/
   backdrop-filter: blur(16px);
   border: 1px solid rgba(30, 64, 175, 0.2) !important;
 }
 
 html.light .bg-white\/5 {
-  background: rgba(255, 255, 255, 0.8) !important;
+    background: linear-gradient(135deg, #0077B6 0%, #03045E 100%) !important; /*About Colour*/
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(30, 64, 175, 0.2) !important;
 }
 
 html.light .bg-white\/95 {
-  background: rgba(255, 255, 255, 0.98) !important;
+  /*background-color: #dee2e6;*/ background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%) !important; /*Menu Colour */
   backdrop-filter: blur(20px);
+  border: 1px solid rgba(30, 64, 175, 0.15) !important;
+  box-shadow: 0 8px 32px rgba(30, 64, 175, 0.08);
 }
 
 html.light .bg-black\/20 {
-  background: rgba(255, 255, 255, 0.85) !important;
+    background: linear-gradient(135deg, #02365e 0%, #30036b 100%) !important;/*Alumini Section Colour*/
   backdrop-filter: blur(16px);
+  border: 1px solid rgba(30, 64, 175, 0.2) !important;
 }
 
 /* Text colors */
 html.light .text-white {
-  color: #0A0A0A !important;
+  color: #ffffff ; /*NAAC / NBA etc at header colours*/
 }
 
 html.light .text-white\/80 {
-  color: #374151 !important;
+  color: #fafffa !important;/*Social Media Colour*/
 }
 
 html.light .text-white\/70 {
-  color: #4b5563 !important;
+  color: #fefefe !important; /*Description and Comments Colour*/
 }
 
 html.light .text-white\/60 {
-  color: #6b7280 !important;
+  color: #ffffff !important; /*Alumini Network Description colour*/
 }
 
 html.light .text-white\/50 {
-  color: #9ca3af !important;
+  color: #ededed !important; /*Batch text colour*/
 }
 
 html.light .text-\[#F0F0F0\]\/80 {
-  color: #374151 !important;
+  color: #0062ff !important;
 }
 
 html.light .text-\[#CCCCCC\] {
@@ -411,7 +416,7 @@ html.light .text-\[#CCCCCC\] {
 
 /* Border colors - Professional theme */
 html.light .border-\[#4169E1\]\/30 {
-  border-color: rgba(30, 64, 175, 0.3) !important;
+  border-color: rgba(30, 32, 30, 0.038) !important;
 }
 
 html.light .border-\[#4169E1\]\/20 {
@@ -457,7 +462,7 @@ html.light .bg-\[#00BFFF\]\/30 {
 
 /* Accent colors - Professional theme */
 html.light .text-\[#FFD700\] {
-  color: #1e40af !important;
+  color: #3bb811 !important;
   font-weight: 600;
 }
 
@@ -527,7 +532,7 @@ html.light footer a:hover {
 html.light input[type="text"],
 html.light input[type="email"],
 html.light textarea {
-  background: rgba(255, 255, 255, 0.9) !important;
+  background: linear-gradient(135deg, #d0d0d0 0%, #fbfbfb 100%) !important;
   border: 1px solid rgba(30, 64, 175, 0.2) !important;
   color: #0A0A0A !important;
   backdrop-filter: blur(10px);
@@ -582,7 +587,7 @@ html.light .hover\:bg-\[#00BFFF\]\/30:hover {
 
 /* Stats section cards */
 html.light .bg-black\/30.backdrop-blur-lg {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 249, 250, 0.95) 100%) !important;
+  background: linear-gradient(135deg, #02365e 0%, #30036b 100%) !important; /*All section Cards effect colour*/
   backdrop-filter: blur(20px);
   border: 1px solid rgba(30, 64, 175, 0.2) !important;
   box-shadow: 0 10px 40px rgba(30, 64, 175, 0.08);
@@ -590,7 +595,7 @@ html.light .bg-black\/30.backdrop-blur-lg {
 
 /* Enhanced card hover effects for light mode */
 html.light .bg-black\/30:hover {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.98) 100%) !important;
+  background: linear-gradient(135deg, #30036b 0%,  #02365e 100%) !important; /*Hovering effect colour of the card*/
   transform: translateY(-2px);
   box-shadow: 0 15px 50px rgba(30, 64, 175, 0.12);
 }

@@ -113,11 +113,11 @@ function App() {
                     className="w-16 h-16 object-contain animate-float"
                   />
                   <div>
-                    <p className="text-[#0A0A0A]/80 dark:text-white/80 text-sm">Bhartiya Vidya Bhavan's</p>
-                    <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-[#301934] to-[#483D8B] dark:from-[#FFFFFF] dark:to-[#FFFFFF] bg-clip-text text-transparent animate-glow">
+                    <p className="text-[#FFFFFF]/80 dark:text-white/80 text-sm">Bhartiya Vidya Bhavan's</p>
+                    <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-[#FFFFFF] to-[#FFFFFF] dark:from-[#FFFFFF] dark:to-[#FFFFFF] bg-clip-text text-transparent animate-glow">
                       Sardar Patel Institute of Technology
                     </h1>
-                    <p className="text-[#0A0A0A] dark:text-white text-xs mt-1">
+                    <p className="text-[#FFFFFF] dark:text-white text-xs mt-1">
                       Autonomous Institute Affiliated to Mumbai University
                     </p>
                   </div>
@@ -158,21 +158,21 @@ function App() {
             </div>
 
             <div className="mt-4 flex flex-wrap items-center justify-center md:justify-end gap-4 text-sm">
-              <NavLink to="/accreditation/NAAC" className={({ isActive }) => isActive ? "text-[#FFD700] font-semibold transition-colors" : "text-white hover:text-[#FFD700] transition-colors"}>NAAC</NavLink>
+              <NavLink to="/accreditation/NAAC" className={({ isActive }) => isActive ? "text-[#FFFFFF] font-semibold transition-colors" : "text-white hover:text-[#FFD700] transition-colors"}>NAAC</NavLink>
               <span className="text-[#663399]">|</span>
-              <NavLink to="/accreditation/NIRF" className={({ isActive }) => isActive ? "text-[#FFD700] font-semibold transition-colors" : "text-white hover:text-[#FFD700] transition-colors"}>NIRF</NavLink>
+              <NavLink to="/accreditation/NIRF" className={({ isActive }) => isActive ? "text-[#FFFFFF] font-semibold transition-colors" : "text-white hover:text-[#FFD700] transition-colors"}>NIRF</NavLink>
               <span className="text-[#663399]">|</span>
-              <NavLink to="/accreditation/IIC" className={({ isActive }) => isActive ? "text-[#FFD700] font-semibold transition-colors" : "text-white hover:text-[#FFD700] transition-colors"}>IIC</NavLink>
+              <NavLink to="/accreditation/IIC" className={({ isActive }) => isActive ? "text-[#FFFFFF] font-semibold transition-colors" : "text-white hover:text-[#FFD700] transition-colors"}>IIC</NavLink>
               <span className="text-[#663399]">|</span>
-              <NavLink to="/accreditation/ARIIA" className={({ isActive }) => isActive ? "text-[#FFD700] font-semibold transition-colors" : "text-white hover:text-[#FFD700] transition-colors"}>ARIIA</NavLink>
+              <NavLink to="/accreditation/ARIIA" className={({ isActive }) => isActive ? "text-[#FFFFFF] font-semibold transition-colors" : "text-white hover:text-[#FFD700] transition-colors"}>ARIIA</NavLink>
               <span className="text-[#663399]">|</span>
-              <NavLink to="/accreditation/NBA" className={({ isActive }) => isActive ? "text-[#FFD700] font-semibold transition-colors" : "text-white hover:text-[#FFD700] transition-colors"}>NBA</NavLink>
+              <NavLink to="/accreditation/NBA" className={({ isActive }) => isActive ? "text-[#FFFFFF] font-semibold transition-colors" : "text-white hover:text-[#FFD700] transition-colors"}>NBA</NavLink>
               <span className="text-[#663399]">|</span>
-              <NavLink to="/accreditation/IQAC" className={({ isActive }) => isActive ? "text-[#FFD700] font-semibold transition-colors" : "text-white hover:text-[#FFD700] transition-colors"}>IQAC</NavLink>
+              <NavLink to="/accreditation/IQAC" className={({ isActive }) => isActive ? "text-[#FFFFFF] font-semibold transition-colors" : "text-white hover:text-[#FFD700] transition-colors"}>IQAC</NavLink>
               <span className="text-[#663399]">|</span>
-              <NavLink to="/accreditation/AICTE" className={({ isActive }) => isActive ? "text-[#FFD700] font-semibold transition-colors" : "text-white hover:text-[#FFD700] transition-colors"}>AICTE</NavLink>
+              <NavLink to="/accreditation/AICTE" className={({ isActive }) => isActive ? "text-[#FFFFFF] font-semibold transition-colors" : "text-white hover:text-[#FFD700] transition-colors"}>AICTE</NavLink>
               <span className="text-[#663399]">|</span>
-              <NavLink to="/alumni-network" className={({ isActive }) => isActive ? "text-[#FFD700] font-semibold transition-colors" : "text-white hover:text-[#FFD700] transition-colors"}>Alumni Network</NavLink>
+              <NavLink to="/alumni-network" className={({ isActive }) => isActive ? "text-[#FFFFFF] font-semibold transition-colors" : "text-white hover:text-[#FFD700] transition-colors"}>Alumni Network</NavLink>
             </div>
           </div>
         </header>
