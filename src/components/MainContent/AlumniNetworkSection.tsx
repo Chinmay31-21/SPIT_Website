@@ -1,23 +1,33 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Building2, Users, Award, TrendingUp, MapPin } from 'lucide-react';
+import { Building2, Users, Award, TrendingUp, MapPin, Search } from 'lucide-react';
+import { CircularVisualization } from '../AlumniNetwork/CircularVisualization';
+import { AlumniModal } from '../AlumniNetwork/AlumniModal';
+import { AnimatePresence } from 'framer-motion';
 
-interface AlumniNode {
+interface AlumniMember {
   id: string;
   name: string;
   company: string;
   position: string;
-  image: string;
-  angle: number;
-  radius: number;
-  companyLogo?: string;
+  graduationYear: number;
+  department: string;
+  location: string;
+  avatar: string;
+  email?: string;
+  linkedin?: string;
+  bio: string;
+  achievements: string[];
+  skills: string[];
+  industry: string;
+  isActive: boolean;
 }
 
 export const AlumniNetworkSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [hoveredNode, setHoveredNode] = useState<string | null>(null);
+  const [selectedAlumni, setSelectedAlumni] = useState<AlumniMember | null>(null);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [hoveredAlumni, setHoveredAlumni] = useState<string | null>(null);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -27,93 +37,145 @@ export const AlumniNetworkSection = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.3], [0.8, 1]);
 
-  // Alumni data with major tech companies
-  const alumniNodes: AlumniNode[] = [
+  // Enhanced alumni data with more realistic information
+  const alumniData: AlumniMember[] = [
     {
-      id: '1',
+      id: 'a1',
       name: 'Priya Sharma',
-      company: 'Google',
+      avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=150&h=150&fit=crop&crop=face',
+      isActive: true,
       position: 'Senior Software Engineer',
-      image: 'https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=150&h=150&fit=crop&crop=face',
-      angle: 0,
-      radius: 180,
+      company: 'Google',
+      department: 'Computer Engineering',
+      graduationYear: 2020,
+      location: 'Mountain View, CA',
+      email: 'priya.sharma@gmail.com',
+      linkedin: 'https://linkedin.com/in/priyasharma',
+      bio: 'Passionate about scalable systems and machine learning. Leading the development of next-generation search algorithms at Google.',
+      achievements: ['Published 3 IEEE papers on ML algorithms', 'Google Excellence Award 2023', 'Speaker at Google I/O 2023'],
+      skills: ['Python', 'TensorFlow', 'Kubernetes', 'React', 'Go'],
+      industry: 'Technology'
     },
     {
-      id: '2',
+      id: 'a2',
       name: 'Rahul Mehta',
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
+      isActive: false,
+      position: 'VP of Engineering',
       company: 'Microsoft',
-      position: 'Principal Engineer',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
-      angle: 45,
-      radius: 220,
+      department: 'Information Technology',
+      graduationYear: 2018,
+      location: 'Seattle, WA',
+      email: 'rahul.mehta@microsoft.com',
+      linkedin: 'https://linkedin.com/in/rahulmehta',
+      bio: 'Leading cloud infrastructure teams at Microsoft Azure. Expert in distributed systems and DevOps practices.',
+      achievements: ['Microsoft Technical Fellow', 'Led Azure Kubernetes Service team', 'Patent holder for container orchestration'],
+      skills: ['Azure', 'Kubernetes', 'C#', 'Docker', 'Terraform'],
+      industry: 'Technology'
     },
     {
-      id: '3',
+      id: 'a3',
       name: 'Anita Desai',
-      company: 'Apple',
-      position: 'iOS Lead Developer',
-      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
-      angle: 90,
-      radius: 200,
+      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
+      isActive: true,
+      position: 'Investment Director',
+      company: 'Goldman Sachs',
+      department: 'Electronics & Telecom',
+      graduationYear: 2019,
+      location: 'New York, NY',
+      email: 'anita.desai@gs.com',
+      linkedin: 'https://linkedin.com/in/anitadesai',
+      bio: 'Specializing in fintech investments and quantitative trading strategies. Bridging technology and finance.',
+      achievements: ['Top performer 2022-2023', 'Led $50M+ investment rounds', 'CFA Charter holder'],
+      skills: ['Python', 'R', 'Financial Modeling', 'Machine Learning', 'Blockchain'],
+      industry: 'Finance'
     },
     {
-      id: '4',
+      id: 'a4',
       name: 'Vikram Singh',
-      company: 'Amazon',
-      position: 'Solutions Architect',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
-      angle: 135,
-      radius: 240,
+      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
+      isActive: false,
+      position: 'Principal Consultant',
+      company: 'McKinsey & Company',
+      department: 'Computer Engineering',
+      graduationYear: 2017,
+      location: 'Mumbai, India',
+      email: 'vikram.singh@mckinsey.com',
+      linkedin: 'https://linkedin.com/in/vikramsingh',
+      bio: 'Digital transformation consultant helping Fortune 500 companies modernize their technology stack.',
+      achievements: ['McKinsey Digital Expert', 'Led 20+ transformation projects', 'Published in Harvard Business Review'],
+      skills: ['Strategy', 'Digital Transformation', 'Agile', 'Cloud Architecture', 'Data Analytics'],
+      industry: 'Consulting'
     },
     {
-      id: '5',
+      id: 'a5',
       name: 'Kavya Patel',
-      company: 'NVIDIA',
-      position: 'AI Research Scientist',
-      image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face',
-      angle: 180,
-      radius: 190,
+      avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face',
+      isActive: true,
+      position: 'Founder & CEO',
+      company: 'HealthTech Innovations',
+      department: 'Information Technology',
+      graduationYear: 2021,
+      location: 'Bangalore, India',
+      email: 'kavya@healthtech.in',
+      linkedin: 'https://linkedin.com/in/kavyapatel',
+      bio: 'Building AI-powered healthcare solutions to make quality healthcare accessible to everyone.',
+      achievements: ['Forbes 30 Under 30', 'Raised $5M Series A', 'Winner of TechCrunch Disrupt'],
+      skills: ['AI/ML', 'Healthcare', 'Product Management', 'Fundraising', 'Team Building'],
+      industry: 'Startup'
     },
     {
-      id: '6',
+      id: 'a6',
       name: 'Arjun Kumar',
-      company: 'Meta',
-      position: 'Product Manager',
-      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face',
-      angle: 225,
-      radius: 210,
+      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face',
+      isActive: true,
+      position: 'Research Scientist',
+      company: 'Meta AI',
+      department: 'Computer Engineering',
+      graduationYear: 2019,
+      location: 'Menlo Park, CA',
+      email: 'arjun.kumar@meta.com',
+      linkedin: 'https://linkedin.com/in/arjunkumar',
+      bio: 'Researching computer vision and natural language processing at Meta AI. PhD from Stanford.',
+      achievements: ['10+ publications in top-tier conferences', 'CVPR Best Paper Award', 'Meta AI Excellence Award'],
+      skills: ['PyTorch', 'Computer Vision', 'NLP', 'Research', 'Deep Learning'],
+      industry: 'Technology'
     },
     {
-      id: '7',
+      id: 'a7',
       name: 'Sneha Reddy',
+      avatar: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=150&h=150&fit=crop&crop=face',
+      isActive: false,
+      position: 'Product Manager',
       company: 'Tesla',
-      position: 'Autopilot Engineer',
-      image: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=150&h=150&fit=crop&crop=face',
-      angle: 270,
-      radius: 230,
+      department: 'Electronics & Telecom',
+      graduationYear: 2018,
+      location: 'Austin, TX',
+      email: 'sneha.reddy@tesla.com',
+      linkedin: 'https://linkedin.com/in/snehareddy',
+      bio: 'Leading product development for Tesla\'s autonomous driving features. Passionate about sustainable transportation.',
+      achievements: ['Led Autopilot v11 launch', 'Tesla Innovation Award', 'Patent for sensor fusion algorithms'],
+      skills: ['Product Management', 'Autonomous Systems', 'Hardware', 'Software Integration', 'Agile'],
+      industry: 'Technology'
     },
     {
-      id: '8',
+      id: 'a8',
       name: 'Rohan Gupta',
+      avatar: 'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?w=150&h=150&fit=crop&crop=face',
+      isActive: true,
+      position: 'Data Science Manager',
       company: 'Netflix',
-      position: 'Data Scientist',
-      image: 'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?w=150&h=150&fit=crop&crop=face',
-      angle: 315,
-      radius: 200,
-    },
+      department: 'Information Technology',
+      graduationYear: 2020,
+      location: 'Los Gatos, CA',
+      email: 'rohan.gupta@netflix.com',
+      linkedin: 'https://linkedin.com/in/rohangupta',
+      bio: 'Building recommendation systems that help millions discover content they love. Expert in large-scale ML systems.',
+      achievements: ['Improved recommendation CTR by 15%', 'Netflix Tech Talk speaker', 'Mentored 10+ data scientists'],
+      skills: ['Machine Learning', 'Big Data', 'Spark', 'Python', 'A/B Testing'],
+      industry: 'Technology'
+    }
   ];
-
-  // Company colors for network lines
-  const companyColors = {
-    'Google': '#4285F4',
-    'Microsoft': '#00BCF2',
-    'Apple': '#007AFF',
-    'Amazon': '#FF9900',
-    'NVIDIA': '#76B900',
-    'Meta': '#1877F2',
-    'Tesla': '#CC0000',
-    'Netflix': '#E50914',
-  };
 
   // Statistics data
   const stats = [
@@ -143,105 +205,20 @@ export const AlumniNetworkSection = () => {
     }
   ];
 
-  // Draw network connections
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    const rect = canvas.getBoundingClientRect();
-    canvas.width = rect.width * window.devicePixelRatio;
-    canvas.height = rect.height * window.devicePixelRatio;
-    ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-
-    // Clear canvas
-    ctx.clearRect(0, 0, rect.width, rect.height);
-
-    // Draw connections
-    alumniNodes.forEach((node, index) => {
-      const x1 = centerX + Math.cos((node.angle * Math.PI) / 180) * node.radius;
-      const y1 = centerY + Math.sin((node.angle * Math.PI) / 180) * node.radius;
-
-      // Draw connection to center
-      ctx.beginPath();
-      ctx.moveTo(centerX, centerY);
-      ctx.lineTo(x1, y1);
-      ctx.strokeStyle = hoveredNode === node.id 
-        ? companyColors[node.company as keyof typeof companyColors] || '#00BFFF'
-        : 'rgba(0, 191, 255, 0.2)';
-      ctx.lineWidth = hoveredNode === node.id ? 3 : 1;
-      ctx.stroke();
-
-      // Draw connections to nearby nodes
-      alumniNodes.forEach((otherNode, otherIndex) => {
-        if (index !== otherIndex && Math.abs(index - otherIndex) <= 2) {
-          const x2 = centerX + Math.cos((otherNode.angle * Math.PI) / 180) * otherNode.radius;
-          const y2 = centerY + Math.sin((otherNode.angle * Math.PI) / 180) * otherNode.radius;
-
-          ctx.beginPath();
-          ctx.moveTo(x1, y1);
-          ctx.lineTo(x2, y2);
-          ctx.strokeStyle = 'rgba(255, 215, 0, 0.1)';
-          ctx.lineWidth = 1;
-          ctx.stroke();
-        }
-      });
-
-      // Draw pulsing effect for hovered node
-      if (hoveredNode === node.id) {
-        const gradient = ctx.createRadialGradient(x1, y1, 0, x1, y1, 30);
-        gradient.addColorStop(0, companyColors[node.company as keyof typeof companyColors] + '40');
-        gradient.addColorStop(1, 'transparent');
-        
-        ctx.fillStyle = gradient;
-        ctx.beginPath();
-        ctx.arc(x1, y1, 30, 0, 2 * Math.PI);
-        ctx.fill();
-      }
-    });
-
-    // Draw center hub
-    const gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, 40);
-    gradient.addColorStop(0, '#FFD700');
-    gradient.addColorStop(1, '#DAA520');
-    
-    ctx.fillStyle = gradient;
-    ctx.beginPath();
-    ctx.arc(centerX, centerY, 25, 0, 2 * Math.PI);
-    ctx.fill();
-
-    // Add SPIT logo text in center
-    ctx.fillStyle = '#000';
-    ctx.font = 'bold 12px Inter';
-    ctx.textAlign = 'center';
-    ctx.fillText('SPIT', centerX, centerY + 4);
-
-  }, [hoveredNode, mousePosition]);
-
-  // Handle mouse movement for interactive effects
-  const handleMouseMove = (e: React.MouseEvent) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    setMousePosition({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
+  const handleAlumniSelect = (alumni: AlumniMember) => {
+    setSelectedAlumni(alumni);
   };
 
   return (
     <section 
       ref={sectionRef}
-      className="min-h-screen bg-gradient-to-b (from-[#02365E] to-[#30036B]) dark:from-[#0D0D0D] dark:to-[#1A1A1A] light:from-[#f8fafc] light:to-[#e2e8f0] relative overflow-hidden py-20"
+      className="min-h-screen bg-gradient-to-b from-[#0D0D0D] to-[#1A1A1A] relative overflow-hidden py-20"
     >
       {/* Background Effects */}
       <div className="absolute inset-0 opacity-30">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#00BFFF]/10 to-[#FFD700]/10 dark:from-[#00BFFF]/10 dark:to-[#FFD700]/10 light:from-[#1e40af]/10 light:to-[#a16207]/10 animate-pulse"></div>
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#00BFFF]/5 dark:bg-[#00BFFF]/5 light:bg-[#1e40af]/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#FFD700]/5 dark:bg-[#FFD700]/5 light:bg-[#a16207]/5 rounded-full blur-3xl"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#4169E1]/10 to-[#FFD700]/10 animate-pulse"></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#4169E1]/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#FFD700]/5 rounded-full blur-3xl"></div>
       </div>
 
       <motion.div 
@@ -256,13 +233,32 @@ export const AlumniNetworkSection = () => {
           className="text-center mb-16"
         >
           <motion.h2 
-            className="text-5xl font-bold bg-gradient-to-r from-[#5E035E] to-[#30036B] dark:from-[#FFD700] dark:to-[#DAA520] light:from-[#1e40af] light:to-[#a16207] bg-clip-text text-transparent mb-6"
+            className="text-5xl font-bold bg-gradient-to-r from-[#FFD700] to-[#4169E1] bg-clip-text text-transparent mb-6"
           >
             Our Global Alumni Network
           </motion.h2>
-          <p className="text-xl text-white/80 dark:text-white/80 light:text-slate-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
             SPIT graduates are making their mark across the globe, leading innovation at the world's most prestigious companies and driving technological advancement.
           </p>
+        </motion.div>
+
+        {/* Search Bar */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="max-w-2xl mx-auto mb-12"
+        >
+          <div className="relative">
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white/60" size={20} />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search alumni by name, company, or industry..."
+              className="w-full pl-12 pr-4 py-4 bg-black/30 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-[#4169E1] backdrop-blur-lg"
+            />
+          </div>
         </motion.div>
 
         {/* Statistics Grid */}
@@ -278,123 +274,37 @@ export const AlumniNetworkSection = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="bg-black/30 dark:bg-black/30 light:bg-white/90 backdrop-blur-lg border border-[#00BFFF]/30 dark:border-[#00BFFF]/30 light:border-[#1e40af]/30 rounded-xl p-6 text-center hover:border-[#00BFFF]/50 dark:hover:border-[#00BFFF]/50 light:hover:border-[#1e40af]/50 transition-all group"
+              className="bg-black/30 backdrop-blur-lg border border-[#4169E1]/30 rounded-xl p-6 text-center hover:border-[#4169E1]/50 transition-all group"
             >
-              <div className="text-[#FFD700] dark:text-[#FFD700] light:text-[#1e40af] mb-4 flex justify-center group-hover:scale-110 transition-transform">
+              <div className="text-[#FFD700] mb-4 flex justify-center group-hover:scale-110 transition-transform">
                 {stat.icon}
               </div>
-              <div className="text-3xl font-bold text-white dark:text-white light:text-slate-900 mb-2">
+              <div className="text-3xl font-bold text-white mb-2">
                 {stat.value}
               </div>
-              <div className="text-[#00BFFF] dark:text-[#00BFFF] light:text-[#1e40af] font-semibold mb-1">
+              <div className="text-[#4169E1] font-semibold mb-1">
                 {stat.label}
               </div>
-              <div className="text-white/60 dark:text-white/60 light:text-slate-500 text-sm">
+              <div className="text-white/60 text-sm">
                 {stat.description}
               </div>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* Network Visualization */}
+        {/* Circular Network Visualization */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.4 }}
-          className="relative"
+          className="relative mb-16"
         >
-          <div className="bg-black/20 dark:bg-black/20 light:bg-white/80 backdrop-blur-lg border border-[#00BFFF]/30 dark:border-[#00BFFF]/30 light:border-[#1e40af]/30 rounded-2xl p-8 mb-16">
-            <div 
-              className="relative w-full h-[600px] overflow-hidden rounded-xl"
-              onMouseMove={handleMouseMove}
-            >
-              {/* Canvas for network lines */}
-              <canvas
-                ref={canvasRef}
-                className="absolute inset-0 w-full h-full"
-                style={{ width: '100%', height: '100%' }}
-              />
-
-              {/* Alumni nodes */}
-              {alumniNodes.map((node, index) => {
-                const centerX = 50; // 50% of container width
-                const centerY = 50; // 50% of container height
-                const x = centerX + (Math.cos((node.angle * Math.PI) / 180) * node.radius) / 6; // Adjust for percentage
-                const y = centerY + (Math.sin((node.angle * Math.PI) / 180) * node.radius) / 6;
-
-                return (
-                  <motion.div
-                    key={node.id}
-                    initial={{ opacity: 0, scale: 0 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: index * 0.1, duration: 0.5 }}
-                    className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group"
-                    style={{ left: `${x}%`, top: `${y}%` }}
-                    onMouseEnter={() => setHoveredNode(node.id)}
-                    onMouseLeave={() => setHoveredNode(null)}
-                  >
-                    {/* Profile Image */}
-                    <div className="relative">
-                      <div className={`w-16 h-16 rounded-full overflow-hidden border-3 transition-all duration-300 ${
-                        hoveredNode === node.id 
-                          ? 'border-[#FFD700] dark:border-[#FFD700] light:border-[#1e40af] scale-110 shadow-lg' 
-                          : 'border-[#00BFFF]/50 dark:border-[#00BFFF]/50 light:border-[#1e40af]/50'
-                      }`}>
-                        <img
-                          src={node.image}
-                          alt={node.name}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      
-                      {/* Company indicator */}
-                      <div className={`absolute -bottom-1 -right-1 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-white transition-all duration-300 ${
-                        hoveredNode === node.id ? 'scale-110' : ''
-                      }`}
-                      style={{ backgroundColor: companyColors[node.company as keyof typeof companyColors] || '#00BFFF' }}>
-                        {node.company.charAt(0)}
-                      </div>
-                    </div>
-
-                    {/* Tooltip */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ 
-                        opacity: hoveredNode === node.id ? 1 : 0,
-                        y: hoveredNode === node.id ? 0 : 10
-                      }}
-                      className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 bg-black/90 dark:bg-black/90 light:bg-white/95 backdrop-blur-lg border border-[#00BFFF]/30 dark:border-[#00BFFF]/30 light:border-[#1e40af]/30 rounded-lg p-3 min-w-[200px] z-10"
-                    >
-                      <div className="text-white dark:text-white light:text-slate-900 font-semibold text-sm">
-                        {node.name}
-                      </div>
-                      <div className="text-[#00BFFF] dark:text-[#00BFFF] light:text-[#1e40af] text-xs">
-                        {node.position}
-                      </div>
-                      <div className="text-white/70 dark:text-white/70 light:text-slate-600 text-xs">
-                        {node.company}
-                      </div>
-                    </motion.div>
-                  </motion.div>
-                );
-              })}
-
-              {/* Center Hub */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                <motion.div
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  transition={{ delay: 0.5, duration: 0.8 }}
-                  className="w-20 h-20 rounded-full bg-gradient-to-r from-[#FFD700] to-[#DAA520] dark:from-[#FFD700] dark:to-[#DAA520] light:from-[#1e40af] light:to-[#a16207] flex items-center justify-center shadow-xl border-4 border-white/20"
-                >
-                  <img
-                    src="https://www.spit.ac.in/wp-content/themes/spit-main/images/SPIT_logo.png"
-                    alt="SPIT Logo"
-                    className="w-12 h-12 object-contain"
-                  />
-                </motion.div>
-              </div>
-            </div>
+          <div className="bg-black/20 backdrop-blur-lg border border-[#4169E1]/30 rounded-2xl p-8">
+            <CircularVisualization
+              alumni={alumniData}
+              onAlumniSelect={handleAlumniSelect}
+              searchQuery={searchQuery}
+            />
           </div>
         </motion.div>
 
@@ -405,16 +315,15 @@ export const AlumniNetworkSection = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-center"
         >
-          <h3 className="text-2xl font-bold text-gold dark:text-white light:text-slate-900 mb-8">
+          <h3 className="text-2xl font-bold text-white mb-8">
             Our Alumni Work At
           </h3>
           <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-            {Object.entries(companyColors).map(([company, color]) => (
+            {['Google', 'Microsoft', 'Meta', 'Tesla', 'Netflix', 'Goldman Sachs', 'McKinsey', 'Amazon'].map((company) => (
               <motion.div
                 key={company}
                 whileHover={{ scale: 1.1, opacity: 1 }}
-                className="text-white dark:text-white light:text-slate-700 font-semibold text-lg transition-all cursor-pointer"
-                style={{ color }}
+                className="text-white font-semibold text-lg transition-all cursor-pointer hover:text-[#4169E1]"
               >
                 {company}
               </motion.div>
@@ -429,24 +338,34 @@ export const AlumniNetworkSection = () => {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="text-center mt-16"
         >
-          <div className="bg-black/30 dark:bg-black/30 light:bg-white/90 backdrop-blur-lg border border-[#00BFFF]/30 dark:border-[#00BFFF]/30 light:border-[#1e40af]/30 rounded-xl p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-white dark:text-white light:text-slate-900 mb-4">
+          <div className="bg-black/30 backdrop-blur-lg border border-[#4169E1]/30 rounded-xl p-8 max-w-2xl mx-auto">
+            <h3 className="text-2xl font-bold text-white mb-4">
               Join Our Alumni Network
             </h3>
-            <p className="text-white/80 dark:text-white/80 light:text-slate-600 mb-6">
+            <p className="text-white/80 mb-6">
               Connect with fellow SPIT graduates, share opportunities, and contribute to the growth of our community.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-6 py-3 bg-gradient-to-r from-[#FFD700] to-[#DAA520] dark:from-[#FFD700] dark:to-[#DAA520] light:from-[#1e40af] light:to-[#a16207] text-white dark:text-black light:text-white rounded-lg font-semibold hover:scale-105 transition-transform">
+              <button className="px-6 py-3 bg-gradient-to-r from-[#FFD700] to-[#4169E1] text-white rounded-lg font-semibold hover:scale-105 transition-transform">
                 Register as Alumni
               </button>
-              <button className="px-6 py-3 bg-[#48CAE4]/90 dark:bg-[#00BFFF]/20 light:bg-[#1e40af]/20 text-[#FFFFFF] dark:text-[#00BFFF] light:text-[#1e40af] rounded-lg border border-[#00BFFF]/30 dark:border-[#00BFFF]/30 light:border-[#1e40af]/30 font-semibold hover:bg-[#ADE8F4]/90 dark:hover:bg-[#00BFFF]/30 light:hover:bg-[#1e40af]/30 transition-colors">
+              <button className="px-6 py-3 bg-[#4169E1]/20 text-[#4169E1] rounded-lg border border-[#4169E1]/30 font-semibold hover:bg-[#4169E1]/30 transition-colors">
                 Explore Network
               </button>
             </div>
           </div>
         </motion.div>
       </motion.div>
+
+      {/* Alumni Modal */}
+      <AnimatePresence>
+        {selectedAlumni && (
+          <AlumniModal
+            alumni={selectedAlumni}
+            onClose={() => setSelectedAlumni(null)}
+          />
+        )}
+      </AnimatePresence>
     </section>
   );
 };

@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://www.spit.ac.in/</loc>
+    <lastmod>2024-01-15T10:00:00+05:30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.spit.ac.in/wp-content/themes/spit-main/images/SPIT_logo.png</image:loc>
+      <image:title>SPIT Mumbai Logo</image:title>
+    </image:image>
+  </url>
+
+  <!-- About Pages -->
+  <url>
+    <loc>https://www.spit.ac.in/about</loc>
+    <lastmod>2024-01-10T10:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.spit.ac.in/about/infrastructure</loc>
+    <lastmod>2024-01-10T10:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.spit.ac.in/about/governing-body</loc>
+    <lastmod>2024-01-10T10:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.spit.ac.in/about/achievements</loc>
+    <lastmod>2024-01-10T10:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.spit.ac.in/about/campus-life</loc>
+    <lastmod>2024-01-10T10:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.spit.ac.in/about/contact</loc>
+    <lastmod>2024-01-10T10:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Academic Pages -->
+  <url>
+    <loc>https://www.spit.ac.in/academics</loc>
+    <lastmod>2024-01-12T10:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.spit.ac.in/academics/ug</loc>
+    <lastmod>2024-01-12T10:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.spit.ac.in/academics/pg</loc>
+    <lastmod>2024-01-12T10:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.spit.ac.in/academics/phd</loc>
+    <lastmod>2024-01-12T10:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.spit.ac.in/academics/departments</loc>
+    <lastmod>2024-01-12T10:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Admissions -->
+  <url>
+    <loc>https://www.spit.ac.in/admissions</loc>
+    <lastmod>2024-01-15T10:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.spit.ac.in/admissions/process</loc>
+    <lastmod>2024-01-15T10:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.spit.ac.in/admissions/eligibility</loc>
+    <lastmod>2024-01-15T10:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Placements -->
+  <url>
+    <loc>https://www.spit.ac.in/placements</loc>
+    <lastmod>2024-01-14T10:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.spit.ac.in/placements/statistics</loc>
+    <lastmod>2024-01-14T10:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.spit.ac.in/placements/recruiters</loc>
+    <lastmod>2024-01-14T10:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Research -->
+  <url>
+    <loc>https://www.spit.ac.in/research</loc>
+    <lastmod>2024-01-13T10:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Students -->
+  <url>
+    <loc>https://www.spit.ac.in/students</loc>
+    <lastmod>2024-01-11T10:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Library -->
+  <url>
+    <loc>https://www.spit.ac.in/library</loc>
+    <lastmod>2024-01-11T10:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://www.spit.ac.in/contact</loc>
+    <lastmod>2024-01-10T10:00:00+05:30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Accreditation Pages -->
+  <url>
+    <loc>https://www.spit.ac.in/accreditation/naac</loc>
+    <lastmod>2024-01-10T10:00:00+05:30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.spit.ac.in/accreditation/nba</loc>
+    <lastmod>2024-01-10T10:00:00+05:30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.spit.ac.in/accreditation/nirf</loc>
+    <lastmod>2024-01-10T10:00:00+05:30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.spit.ac.in/accreditation/ariia</loc>
+    <lastmod>2024-01-10T10:00:00+05:30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.spit.ac.in/accreditation/iic</loc>
+    <lastmod>2024-01-10T10:00:00+05:30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.spit.ac.in/accreditation/iqac</loc>
+    <lastmod>2024-01-10T10:00:00+05:30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.spit.ac.in/accreditation/aicte</loc>
+    <lastmod>2024-01-10T10:00:00+05:30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Alumni Network -->
+  <url>
+    <loc>https://www.spit.ac.in/alumni-network</loc>
+    <lastmod>2024-01-15T10:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Resources -->
+  <url>
+    <loc>https://www.spit.ac.in/resources/mandatory-disclosure</loc>
+    <lastmod>2024-01-10T10:00:00+05:30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.spit.ac.in/resources/tender</loc>
+    <lastmod>2024-01-15T10:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.spit.ac.in/resources/antiragging</loc>
+    <lastmod>2024-01-10T10:00:00+05:30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.spit.ac.in/resources/rti</loc>
+    <lastmod>2024-01-10T10:00:00+05:30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.spit.ac.in/resources/grievance</loc>
+    <lastmod>2024-01-10T10:00:00+05:30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>
