@@ -33,7 +33,7 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
 }) => {
   const [hoveredAlumni, setHoveredAlumni] = useState<string | null>(null);
   const [selectedAlumni, setSelectedAlumni] = useState<AlumniMember | null>(null);
-  const [dimensions, setDimensions] = useState({ width: 1000, height: 600 });
+  const [dimensions, setDimensions] = useState({ width: 600, height: 600 });
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Filter alumni based on search query
@@ -51,7 +51,7 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
     const updateDimensions = () => {
       if (containerRef.current) {
         const { width, height } = containerRef.current.getBoundingClientRect();
-        setDimensions({ width: Math.max(width, 400), height: Math.max(height, 400) });
+        setDimensions({ width: Math.max(width, 200), height: Math.max(height, 200) });
       }
     };
 
@@ -64,7 +64,7 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
   const getAlumniPositions = () => {
     const centerX = dimensions.width / 2;
     const centerY = dimensions.height / 2;
-    const radius = Math.min(dimensions.width, dimensions.height) * 0.30;
+    const radius = Math.min(dimensions.width, dimensions.height) * 0.35;
     
     return filteredAlumni.map((member, index) => {
       const angle = (index / filteredAlumni.length) * 2 * Math.PI - Math.PI / 2;
@@ -130,12 +130,8 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
           <img
             src="https://www.spit.ac.in/wp-content/themes/spit-main/images/SPIT_logo.png"
             alt="SPIT Logo"
-            className="w-16 h-16 object-contain"
+            className="w-30 h-30 object-contain rounded-full"
           />
-        </div>
-        <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-center">
-          <p className="text-white font-semibold text-sm">SPIT Alumni</p>
-          <p className="text-white/60 text-xs">{filteredAlumni.length} Members</p>
         </div>
       </motion.div>
 
@@ -175,7 +171,7 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
         >
           {/* Alumni Avatar */}
           <div 
-            className={`w-16 h-16 rounded-full overflow-hidden border-4 transition-all duration-300 ${
+            className={`w-20 h-20 rounded-full overflow-hidden border-4 transition-all duration-300 ${
               hoveredAlumni === alumni.id 
                 ? 'border-[#FFD700] shadow-lg shadow-[#FFD700]/50' 
                 : 'border-[#4169E1]/50'
