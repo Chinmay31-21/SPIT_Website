@@ -33,7 +33,7 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
 }) => {
   const [hoveredAlumni, setHoveredAlumni] = useState<string | null>(null);
   const [selectedAlumni, setSelectedAlumni] = useState<AlumniMember | null>(null);
-  const [dimensions, setDimensions] = useState({ width: 800, height: 600 });
+  const [dimensions, setDimensions] = useState({ width: 1000, height: 600 });
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Filter alumni based on search query
@@ -64,7 +64,7 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
   const getAlumniPositions = () => {
     const centerX = dimensions.width / 2;
     const centerY = dimensions.height / 2;
-    const radius = Math.min(dimensions.width, dimensions.height) * 0.35;
+    const radius = Math.min(dimensions.width, dimensions.height) * 0.30;
     
     return filteredAlumni.map((member, index) => {
       const angle = (index / filteredAlumni.length) * 2 * Math.PI - Math.PI / 2;
@@ -119,8 +119,8 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
       <motion.div
         className="absolute transform -translate-x-1/2 -translate-y-1/2"
         style={{
-          left: dimensions.width / 2,
-          top: dimensions.height / 2
+          left: dimensions.width / 2.15,
+          top: dimensions.height / 2.42
         }}
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}

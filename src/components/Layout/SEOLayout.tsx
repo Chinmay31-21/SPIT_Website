@@ -1,5 +1,5 @@
 import React from 'react';
-import { HelmetProvider } from 'react-helmet-async';
+import { HelmetProvider } from "react-helmet-async";
 import { SEOHead } from '../SEO/SEOHead';
 
 interface SEOLayoutProps {

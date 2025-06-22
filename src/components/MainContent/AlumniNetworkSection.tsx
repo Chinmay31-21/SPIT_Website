@@ -41,138 +41,138 @@ export const AlumniNetworkSection = () => {
   const alumniData: AlumniMember[] = [
     {
       id: 'a1',
-      name: 'Priya Sharma',
-      avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=150&h=150&fit=crop&crop=face',
+      name: 'Samkit Shah',
+      avatar: '/assets/Samkit.jpeg',
       isActive: true,
-      position: 'Senior Software Engineer',
-      company: 'Google',
-      department: 'Computer Engineering',
-      graduationYear: 2020,
-      location: 'Mountain View, CA',
-      email: 'priya.sharma@gmail.com',
-      linkedin: 'https://linkedin.com/in/priyasharma',
-      bio: 'Passionate about scalable systems and machine learning. Leading the development of next-generation search algorithms at Google.',
-      achievements: ['Published 3 IEEE papers on ML algorithms', 'Google Excellence Award 2023', 'Speaker at Google I/O 2023'],
-      skills: ['Python', 'TensorFlow', 'Kubernetes', 'React', 'Go'],
+      position: 'Software Engineer',
+      company: 'Amazon (USA)',
+      department: 'Computer Engineering (2023)',
+      graduationYear: 2023,
+      location: 'Jersey City, New Jersey, United States ',
+      email: '',
+      linkedin: 'https://www.linkedin.com/in/samkitshah18/',
+      bio: 'Passionate software engineer with a focus on machine learning and cloud computing. Currently working at Amazon, building scalable AI solutions for e-commerce platforms. Experienced in developing and deploying machine learning models in production environments.',
+      achievements: ['Meta Intern', 'Amazon SDE', 'Google Summer of Code', 'AWS Certified Solutions Architect - Associate'],
+      skills: ['Python', 'C++', 'Web Development', 'Flutter', 'C (Programming Language)'],
       industry: 'Technology'
     },
     {
       id: 'a2',
-      name: 'Rahul Mehta',
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
-      isActive: false,
-      position: 'VP of Engineering',
-      company: 'Microsoft',
-      department: 'Information Technology',
-      graduationYear: 2018,
-      location: 'Seattle, WA',
-      email: 'rahul.mehta@microsoft.com',
-      linkedin: 'https://linkedin.com/in/rahulmehta',
-      bio: 'Leading cloud infrastructure teams at Microsoft Azure. Expert in distributed systems and DevOps practices.',
-      achievements: ['Microsoft Technical Fellow', 'Led Azure Kubernetes Service team', 'Patent holder for container orchestration'],
-      skills: ['Azure', 'Kubernetes', 'C#', 'Docker', 'Terraform'],
+      name: 'Sarah Gawde',
+      avatar: '/assets/Sarah.jpeg',
+      isActive: true,
+      position: 'Senior Software Engineer',
+      company: 'Amazon (USA)',
+      department: 'Computer Engineering (2021)',
+      graduationYear: 2021,
+      location: 'Urbana, Illinois, United States',
+      email: '',
+      linkedin: 'https://www.linkedin.com/in/sarah-gawde-7aa155176/',
+      bio: 'A seasoned software engineer with a strong background in cloud computing and container orchestration. Currently working at Amazon, leading the development of scalable cloud solutions. Previously worked at Microsoft, where I contributed to the Azure Kubernetes Service team.',
+      achievements: ['Ex-Microsoft SDE', 'AI/ML + Robotics Enthusiast ', 'AWS Certified Solutions Architect', 'Winning team at Microsoft E+D India Summer FHL 2021', 'Psychological Distress Detection, Classification and Assistance using AI'],
+      skills: ['Python', 'C++', 'Web Development', 'Bootstrap', 'JavaScript', 'C (Programming Language)' , 'ReactJS', 'Node.js' ,'AngularJS' , 'Machine Learning', 'AI/ML', 'Cloud Computing', 'Microsoft Power BI'],
       industry: 'Technology'
     },
     {
       id: 'a3',
-      name: 'Anita Desai',
-      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
+      name: 'Rahul Chari',
+      avatar: '/assets/Rahul.jpg',
       isActive: true,
-      position: 'Investment Director',
-      company: 'Goldman Sachs',
-      department: 'Electronics & Telecom',
-      graduationYear: 2019,
-      location: 'New York, NY',
-      email: 'anita.desai@gs.com',
-      linkedin: 'https://linkedin.com/in/anitadesai',
-      bio: 'Specializing in fintech investments and quantitative trading strategies. Bridging technology and finance.',
-      achievements: ['Top performer 2022-2023', 'Led $50M+ investment rounds', 'CFA Charter holder'],
-      skills: ['Python', 'R', 'Financial Modeling', 'Machine Learning', 'Blockchain'],
+      position: 'CoFounder & CTO',
+      company: 'PhonePe',
+      department: 'Computer Engineering (1999)',
+      graduationYear: 1999,
+      location: 'Bengaluru, Karnataka, India ',
+      email: 'rahul.chari@phonepe.com',
+      linkedin: 'https://linkedin.com/in/rahulchari',
+      bio: 'A visionary leader in the fintech space, co-founding PhonePe and driving its technological innovations. Previously led the technology team at Flipkart, building one of India\'s largest e-commerce platforms. Passionate about leveraging technology to transform financial services.',
+      achievements: ['PhonePe : Highest No. of UPI Transactions in India', 'NPCI Merhant Award', 'IAMAI Award for Best Fintech App' , 'Launched PhonePe across in India, UAE, Singapore, and Indonesia', 'Flipkart : Led the technology team that built the largest e-commerce platform in India' , 'Outstanding Alumini Award from SPIT'],
+      skills: ['Distributed Systems', 'Cloud Computing', 'Financial Modeling', 'Machine Learning', 'Blockchain', 'Scalability', 'Hadoop', 'C++', 'Java', 'Python' , 'JavaScript','Unix/Linux','Product Management','E-Commerce'],
       industry: 'Finance'
     },
     {
       id: 'a4',
-      name: 'Vikram Singh',
-      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
-      isActive: false,
-      position: 'Principal Consultant',
-      company: 'McKinsey & Company',
-      department: 'Computer Engineering',
-      graduationYear: 2017,
-      location: 'Mumbai, India',
-      email: 'vikram.singh@mckinsey.com',
-      linkedin: 'https://linkedin.com/in/vikramsingh',
-      bio: 'Digital transformation consultant helping Fortune 500 companies modernize their technology stack.',
-      achievements: ['McKinsey Digital Expert', 'Led 20+ transformation projects', 'Published in Harvard Business Review'],
-      skills: ['Strategy', 'Digital Transformation', 'Agile', 'Cloud Architecture', 'Data Analytics'],
-      industry: 'Consulting'
+      name: 'Sameer Nigam',
+      avatar: '/assets/Sameer.jpg',
+      isActive: true,
+      position: 'CoFounder & CEO',
+      company: 'PhonePe',
+      department: 'Computer Engineering (1999)',
+      graduationYear: 1999,
+      location: 'Bengaluru, Karnataka, India ',
+      email: 'sameer.nigam@phonepe.com',
+      linkedin: 'https://linkedin.com/in/sanigam',
+      bio: 'An experienced entrepreneur with a passion for building products that solve real-world problems. Currently leading PhonePe, one of India\'s largest digital payment platforms. Previously co-founded and led the technology team at Flipkart.',
+      achievements: ['PhonePe : Highest No. of UPI Transactions in India', 'NPCI Merhant Award', 'IAMAI Award for Best Fintech App' , 'Launched PhonePe across in India, UAE, Singapore, and Indonesia'],
+      skills: ['Distributed Systems', 'Cloud Computing', 'Financial Modeling', 'Machine Learning', 'Blockchain', 'Scalability', 'Hadoop', 'C++', 'Java', 'Python' , 'JavaScript','Unix/Linux','Product Management','E-Commerce'],
+      industry: 'Finance'
     },
     {
       id: 'a5',
-      name: 'Kavya Patel',
-      avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face',
+      name: 'Abhishek Mane',
+      avatar: '/assets/Abhishek.jpeg',
       isActive: true,
-      position: 'Founder & CEO',
-      company: 'HealthTech Innovations',
+      position: 'Software Engineer',
+      company: 'Meta, London',
       department: 'Information Technology',
       graduationYear: 2021,
-      location: 'Bangalore, India',
-      email: 'kavya@healthtech.in',
-      linkedin: 'https://linkedin.com/in/kavyapatel',
-      bio: 'Building AI-powered healthcare solutions to make quality healthcare accessible to everyone.',
-      achievements: ['Forbes 30 Under 30', 'Raised $5M Series A', 'Winner of TechCrunch Disrupt'],
-      skills: ['AI/ML', 'Healthcare', 'Product Management', 'Fundraising', 'Team Building'],
-      industry: 'Startup'
+      location: 'London, UK',
+      email: 'abhishek.mane@meta.com',
+      linkedin: 'https://www.linkedin.com/in/abhishek-mane747/',
+      bio: ' B.Tech in IT from SPIT. Currently working as a Software Engineer at Meta in London, focusing on building scalable backend systems for social media applications. Passionate about AI and its applications in enhancing user experience.',
+      achievements: ['Building Meta Next Generation Facebook Feature Framework (F3)', 'Working on Next-Gen architecture of Scribe', 'Winner of TechCrunch Disrupt'],
+      skills: ['AI/ML', 'Python', 'Production Engineer', 'C++', 'Full Stack Development'],
+      industry: 'Technology'
     },
     {
       id: 'a6',
-      name: 'Arjun Kumar',
-      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face',
+      name: 'Shashi Seshadri',
+      avatar: '/assets/Shashi.jpg',
       isActive: true,
-      position: 'Research Scientist',
-      company: 'Meta AI',
-      department: 'Computer Engineering',
-      graduationYear: 2019,
-      location: 'Menlo Park, CA',
-      email: 'arjun.kumar@meta.com',
-      linkedin: 'https://linkedin.com/in/arjunkumar',
-      bio: 'Researching computer vision and natural language processing at Meta AI. PhD from Stanford.',
-      achievements: ['10+ publications in top-tier conferences', 'CVPR Best Paper Award', 'Meta AI Excellence Award'],
-      skills: ['PyTorch', 'Computer Vision', 'NLP', 'Research', 'Deep Learning'],
-      industry: 'Technology'
+      position: 'CoFounder, Director and CEO',
+      company: 'Skewb Ltd.',
+      department: 'Computer Engineering (1999)',
+      graduationYear: 1999,
+      location: 'Royal Leamington Spa, England, United Kingdom',
+      email: 'shashi.seshadri@skewb.com',
+      linkedin: 'https://linkedin.com/in/shashiseshadri',
+      bio: 'Enabled via process & change transformation and digital solutions embedded within core operations. UK Energy and Water market covering the span of transmission, distribution and wholesale operations. Passionate about leveraging technology to drive efficiency and innovation in the energy sector.',
+      achievements: ['ex-CEO Enzen(UK)', '200th Edition of Weekly Digital Skewber Newsletter', 'Skewb Ltd. - Leading Digital Transformation in Energy Sector'],
+      skills: ['Business Analyst', 'Process Transformation', 'Digital Solutions', 'Research', 'Project Management'],
+      industry: 'Consulting'
     },
     {
       id: 'a7',
-      name: 'Sneha Reddy',
-      avatar: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=150&h=150&fit=crop&crop=face',
-      isActive: false,
-      position: 'Product Manager',
-      company: 'Tesla',
-      department: 'Electronics & Telecom',
-      graduationYear: 2018,
-      location: 'Austin, TX',
-      email: 'sneha.reddy@tesla.com',
-      linkedin: 'https://linkedin.com/in/snehareddy',
-      bio: 'Leading product development for Tesla\'s autonomous driving features. Passionate about sustainable transportation.',
-      achievements: ['Led Autopilot v11 launch', 'Tesla Innovation Award', 'Patent for sensor fusion algorithms'],
-      skills: ['Product Management', 'Autonomous Systems', 'Hardware', 'Software Integration', 'Agile'],
-      industry: 'Technology'
+      name: 'Urshita Koshti',
+      avatar: '/assets/Urshita.jpeg',
+      isActive: true,
+      position: 'Technology Analyst',
+      company: 'Barclays, UK',
+      department: 'Information Technology (2024)',
+      graduationYear: 2024,
+      location: 'Glasgow, Scotland, UK',
+      email: 'urshita.koshti@barclays.com',
+      linkedin: 'https://www.linkedin.com/in/urshita-koshti-818353218/',
+      bio: 'Technology Analyst at Barclays, UK, specializing in data-driven solutions and financial technology. Passionate about leveraging technology to enhance banking experiences and drive innovation in the financial sector.',
+      achievements: ['Technology Analyst'],
+      skills: ['Product Management', 'Java', 'MySQL', 'C(Programming Language)', 'Python(Programming Language)'],
+      industry: 'Finance'
     },
     {
       id: 'a8',
-      name: 'Rohan Gupta',
-      avatar: 'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?w=150&h=150&fit=crop&crop=face',
+      name: 'Jash Jain',
+      avatar: '/assets/Jash.jpeg',
       isActive: true,
-      position: 'Data Science Manager',
-      company: 'Netflix',
-      department: 'Information Technology',
-      graduationYear: 2020,
-      location: 'Los Gatos, CA',
-      email: 'rohan.gupta@netflix.com',
-      linkedin: 'https://linkedin.com/in/rohangupta',
-      bio: 'Building recommendation systems that help millions discover content they love. Expert in large-scale ML systems.',
-      achievements: ['Improved recommendation CTR by 15%', 'Netflix Tech Talk speaker', 'Mentored 10+ data scientists'],
-      skills: ['Machine Learning', 'Big Data', 'Spark', 'Python', 'A/B Testing'],
+      position: 'Software Engineer (SDE)',
+      company: 'Amazon, Berlin',
+      department: 'Computer Science (2023)',
+      graduationYear: 2023,
+      location: 'Berlin, Germany',
+      email: 'jash.jain@amazon.com',
+      linkedin: 'https://linkedin.com/in/jj211',
+      bio: 'Software Engineer at Amazon, Berlin, focusing on building scalable and efficient systems for e-commerce platforms. Experienced in full-stack development and cloud technologies.',
+      achievements: ['Enhanced SEO, integrated messaging, and analyzed user data for remarketing for WorkIndia', 'Built real-time gift recommendations, generating $36M in sales and boosting CTR by 135%. as SDE in Amazon'],
+      skills: ['Machine Learning', 'Big Data', 'AWS', 'Python', 'Java', 'Full Stack Development'],
       industry: 'Technology'
     }
   ];
@@ -181,13 +181,13 @@ export const AlumniNetworkSection = () => {
   const stats = [
     {
       icon: <Users className="w-8 h-8" />,
-      value: "10,000+",
+      value: "3000+",
       label: "Global Alumni",
       description: "Spread across 50+ countries"
     },
     {
       icon: <Building2 className="w-8 h-8" />,
-      value: "500+",
+      value: "100+",
       label: "Top Companies",
       description: "Fortune 500 & Unicorn Startups"
     },
@@ -199,7 +199,7 @@ export const AlumniNetworkSection = () => {
     },
     {
       icon: <TrendingUp className="w-8 h-8" />,
-      value: "₹25L+",
+      value: "₹50L+",
       label: "Average Package",
       description: "First job after graduation"
     }
@@ -233,7 +233,7 @@ export const AlumniNetworkSection = () => {
           className="text-center mb-16"
         >
           <motion.h2 
-            className="text-5xl font-bold bg-gradient-to-r from-[#FFD700] to-[#4169E1] bg-clip-text text-transparent mb-6"
+            className="text-5xl font-bold bg-gradient-to-r from-[#ACBED8] to-[#FFFFFF] bg-clip-text text-transparent mb-6"
           >
             Our Global Alumni Network
           </motion.h2>
@@ -297,7 +297,7 @@ export const AlumniNetworkSection = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.4 }}
-          className="relative mb-16"
+          className="relative mb-20"
         >
           <div className="bg-black/20 backdrop-blur-lg border border-[#4169E1]/30 rounded-2xl p-8">
             <CircularVisualization
@@ -319,7 +319,7 @@ export const AlumniNetworkSection = () => {
             Our Alumni Work At
           </h3>
           <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-            {['Google', 'Microsoft', 'Meta', 'Tesla', 'Netflix', 'Goldman Sachs', 'McKinsey', 'Amazon'].map((company) => (
+            {['Google', 'Microsoft', 'Meta', 'Barclays', 'Skewb', 'Goldman Sachs', 'PhonePe', 'Amazon'].map((company) => (
               <motion.div
                 key={company}
                 whileHover={{ scale: 1.1, opacity: 1 }}
