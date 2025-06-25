@@ -20,7 +20,8 @@ export const Infrastructure = () => {
       icon: <Wifi className="w-8 h-8" />,
       title: "IT Infrastructure",
       description: "High-speed internet and modern computing facilities",
-      features: ["1 Gbps Internet", "Campus-wide Wi-Fi", "Cloud Services", "Digital Library"]
+      features: ["1 Gbps Internet", "Campus-wide Wi-Fi", "Cloud Services", "Digital(DSpace)Library"]
+      
     },
     {
       icon: <Car className="w-8 h-8" />,

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ThemeToggle } from './ThemeToggle';
 
+
 interface NavItem {
   title: string;
   href?: string;
@@ -21,7 +22,7 @@ const firstRowItems: NavItem[] = [
       { title: 'Governing Body', href: '/about/governing-body' },
       { title: 'Achievements', href: '/about/achievements' },
       { title: 'Campus Life', href: 'https://tour.spit.ac.in/' },
-      { title: 'Contact Us', href: '/about/contact' },
+      { title: 'Contact Us', href: '/contact' },
     ]
   },
   {

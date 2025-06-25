@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Infrastructure } from './About/Infrastructure'; // Adjust path if needed
 
 // Smooth scrolling globally (ensure this is in index.css or global CSS):
 // html { scroll-behavior: smooth; }
@@ -65,6 +66,14 @@ const AboutLayout = () => {
               </li>
               <li>
                 <Link
+                  to="/about/smcommittees"
+                  className="block text-white px-3 py-2 rounded-md transition-all duration-300 hover:bg-[#00BFFF]/20 hover:text-[#00BFFF] focus:outline-none focus:ring-2 focus:ring-[#00BFFF]"
+                >
+                  Some More Committees
+                </Link>
+              </li>
+              <li>
+                <Link
                   to="/about/institutional-ethics-committee"
                   className="block text-white px-3 py-2 rounded-md transition-all duration-300 hover:bg-[#00BFFF]/20 hover:text-[#00BFFF] focus:outline-none focus:ring-2 focus:ring-[#00BFFF]"
                 >
@@ -113,6 +122,14 @@ const AboutLayout = () => {
               </li>
               <li>
                 <Link
+                    to="/about/infrastructure"
+                         className="block text-white px-3 py-2 rounded-md transition-all duration-300 hover:bg-[#00BFFF]/20 hover:text-[#00BFFF] focus:outline-none focus:ring-2 focus:ring-[#00BFFF]"
+                         >
+                         Infrastructure
+                            </Link>
+              </li>
+              <li>
+                <Link
                   to="/about/contact-us"
                   className="block text-white px-3 py-2 rounded-md transition-all duration-300 hover:bg-[#00BFFF]/20 hover:text-[#00BFFF] focus:outline-none focus:ring-2 focus:ring-[#00BFFF]"
                 >
@@ -136,7 +153,9 @@ const AboutLayout = () => {
             <Route path="employment" element={<Employment />} />
             <Route path="bhartiya-vidya-bhavans-trustee" element={<BhartiyaVidyaBhavansTrustee />} />
             <Route path="campus" element={<Campus />} />
+            <Route path="infrastructure" element={<Infrastructure />} />
             <Route path="contact-us" element={<ContactUs />} />
+            <Route path="smcommittees" element={<SomeMoreCommittees />} />
             <Route path="*" element={<div className="text-white">Page Not Found</div>} />
           </Routes>
         </div>
@@ -273,7 +292,7 @@ const Founders = () => (
 const Committees = () => (
   <PageSection>
     <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Committees</h2>
-    <div className="space-y-6">
+    <div className="space-y-3">
       {[
         {
           title: "Governing Body Committee",
@@ -310,6 +329,26 @@ const Committees = () => (
           description: "",
           pdfLink: <a href="/assets/ICCMembersprev.pdf" style={{ fontWeight: 'bold' }}>Internal Complaints Committee (Previous).pdf</a>
         },
+        {
+          title: "ICC/WDC Portal",
+          description: "",
+          pdfLink: <a href="http://wdc.spit.ac.in/" style={{ fontWeight: 'bold' }}>ICC/WDC Portal</a>
+        },
+        {
+          title: "SC/ST Committee",
+          description: "Supports the welfare and development of Scheduled Castes and Scheduled Tribes students, ensuring their rights and opportunities are upheld.",
+          pdfLink: <a href="/assets/SCSTMembers.pdf" style={{ fontWeight: 'bold' }}>SC/ST Committee.pdf</a>
+        },
+        {
+          title: "SC/ST Committee (Previous)",
+          description: "",
+          pdfLink: <a href="/assets/SCSTMembersprev.pdf" style={{ fontWeight: 'bold' }}>SC/ST Committee (Previous).pdf</a>
+        },
+        {
+          title: "SC/ST Committee Portal",
+          description: "",
+          pdfLink: <a href="http://scst.spit.ac.in/" style={{ fontWeight: 'bold' }}>SC/ST Committee Portal</a>
+        }
       ].map(({ title, description, pdfLink }) => (
         <div className="p-4 bg-black/50 rounded-lg" key={title}>
           <h3 className="text-xl font-semibold text-[#00BFFF] mb-2">{title}</h3>
@@ -321,31 +360,107 @@ const Committees = () => (
   </PageSection>
 );
 
+
+
+const SomeMoreCommittees = () => (
+  <PageSection>
+    <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Some More Committees and Offices</h2>
+    <ul className="list-disc list-inside text-white/80 space-y-2">
+      {[
+        { name: "Academic Calendar", link: "#" },
+        { name: "ACE", link: "#" },
+        { name: "Admission Committee", link: "#" },
+        { name: "Alumni Committee", link: "#" },
+        { name: "CSI", link: "https://csi.spit.ac.in/" },
+        { name: "E-Cell Committee", link: "https://ecell.spit.ac.in/" },
+        { name: "ERP", link: "#" },
+        { name: "ESA", link: "#" },
+        { name: "Examination Committee", link: "/assets/ExaminationCommittee.pdf" },
+        { name: "Extended Principal's Office", link: "#" },
+        { name: "FACE", link: "https://face.spit.ac.in/" },
+        { name: "FETS", link: "https://fets.spit.ac.in/" },
+        { name: "IQAC", link: "https://iqac.spit.ac.in/" },
+        { name: "Grievance Redressal Committee", link: "/assets/GrievanceCommittee.pdf" },
+        { name: "IEDC", link: "#" },
+        { name: "IEEE", link: "https://ieee.spit.ac.in/" },
+        { name: "IETE", link: "https://iete.spit.ac.in/" },
+        { name: "IIC", link: "/assets/IICCommitee.pdf" },
+        { name: "IIC Committee 2023", link: "/assets/IICCommittee2023.pdf" },
+        { name: "Institutional Ethics Committee", link: "/about/institutional-ethics-committee" },
+        { name: "Placement Cell", link: "https://placement.spit.ac.in/" },
+        { name: "IR Cell", link: "#" },
+        { name: "ISTE", link: "#" },
+        { name: "ITSA", link: "#" },
+        { name: "Library Committee", link: "#" },
+        { name: "Magazine Committee", link: "#" },
+        { name: "NAAC", link: "./pages/accreditation/NAAC" },
+        { name: "NIRF", link: "./pages/accreditation/NIRF" },
+        { name: "Purchase Committee", link: "#" },
+        { name: "R&D Committee", link: "https://www.spit.ac.in/faculty-research/rd-committee/" },
+        { name: "Student Welfare Committee", link: "#" },
+        { name: "Student Council", link: "/assets/StudentCouncil2425.pdf" },
+        { name: "Timetable Committee", link: "#" },
+        { name: "Training & Placement", link: "https://placements.spit.ac.in/" },
+        { name: "Unfair Means", link: "#" },
+        { name: "Vigilance Squad", link: "#" },
+        { name: "Website", link: "#" },
+        { name: "WIE", link: "http://wie.spit.ac.in/" },
+      ].map(({ name, link }) => (
+        <li key={name}>
+          {link.startsWith('http') || link.endsWith('.pdf') || link === "#" ? (
+            <a
+              href={link}
+              className="text-[#00BFFF] hover:underline font-semibold"
+              target={link.startsWith('http') ? "_blank" : undefined}
+              rel={link.startsWith('http') ? "noopener noreferrer" : undefined}
+            >
+              {name}
+            </a>
+          ) : (
+            <Link
+              to={link}
+              className="text-[#00BFFF] hover:underline font-semibold"
+            >
+              {name}
+            </Link>
+          )}
+        </li>
+      ))}
+    </ul>
+  </PageSection>
+);
+
 const InstitutionalEthicsCommittee = () => (
   <PageSection>
-    <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Committees</h2>
+    <h2 className="text-2xl font-bold text-[#FFD700] mb-4">IEC Committees</h2>
     <div className="space-y-6">
       {[
         {
-          title: "Academic Council",
-          description: "The apex academic body responsible for defining academic policies, approving curricula, and ensuring the quality and standards of education at the institute.",
+          title: "IEC Appointment_Letter 2020-21",
+          description: "The Institutional Ethics Committee (IEC) is responsible for overseeing ethical standards in research and academic activities, ensuring compliance with regulations and guidelines.",
+          pdfLink: "/assets/IEC-Appointment_Letter-2020-21.pdf"
         },
         {
-          title: "Board of Studies",
-          description: "Responsible for curriculum formulation and review, recommending new courses, and ensuring that academic programs remain relevant and up-to-date.",
+          title: "IIC-SPIT Committee Details",
+          description: "The IIC-SPIT Committee is dedicated to promoting innovation and entrepreneurship within the institute, fostering a culture of creativity and technological advancement.",
+          pdfLink: "/assets/IIC-SPIT.pdf"
         },
         {
-          title: "Anti-Ragging Committee",
-          description: "Creates a ragging-free environment with proactive measures, awareness campaigns, and strict enforcement of anti-ragging policies to ensure student safety.",
+          title: "Annexure-1 Application Form",
+          description: "The Annexure-1 Application Form is used for submitting research proposals to the IEC, ensuring that all necessary information is provided for ethical review.",
+          pdfLink: "/assets/Annexure-1-Application-Form.pdf"
         },
-        {
-          title: "Women Development Cell",
-          description: "Empowers women on campus through workshops, awareness programs, and support initiatives, fostering a safe and inclusive environment for all.",
-        },
-      ].map(({ title, description }) => (
+      ].map(({ title, description, pdfLink }) => (
         <div className="p-4 bg-black/50 rounded-lg" key={title}>
           <h3 className="text-xl font-semibold text-[#00BFFF] mb-2">{title}</h3>
           <p className="text-white/80">{description}</p>
+          {pdfLink && (
+            <p className="text-white/80">
+              <a href={pdfLink} className="font-semibold" style={{ fontWeight: 'bold' }}>
+                {title}.pdf
+              </a>
+            </p>
+          )}
         </div>
       ))}
     </div>
@@ -412,11 +527,12 @@ const Employment = () => (
     <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Employment</h2>
     <div className="text-white/80 leading-relaxed space-y-4">
       <p>
-        SPIT is committed to providing its students with the best employment opportunities. The institute has a dedicated placement cell that works tirelessly to connect students with top companies and organizations. Regular workshops, mock interviews, and resume-building sessions are conducted to prepare students for the competitive job market.
+       Advertisement for faculty & staff positions are published in newspapers and posted on the website periodically.
       </p>
       <p>
-        The placement cell also collaborates with industry partners to ensure that the curriculum remains relevant and aligned with current industry standards, enhancing the employability of graduates.
+        For Adhoc faculty application please submit your details on our job portal: <a href="http://jobs.spit.ac.in/" style={{ fontWeight: 'bold' }}>http://jobs.spit.ac.in/</a>
       </p>
+      <p><a href="/assets/General-Service-Policy.pdf" style={{ fontWeight: 'bold' }}>General Service Policy (Recent)</a></p>
     </div>
   </PageSection>
 );
@@ -431,6 +547,7 @@ const BhartiyaVidyaBhavansTrustee = () => (
       <p>
         The trustee also facilitates collaborations with other educational institutions and industry partners, enhancing the overall academic and research environment at SPIT.
       </p>
+      <p><a href="https://www.bhavans.info/" style={{ fontWeight: 'bold' }}>Bhartiya Vidya Bhavan's</a></p>
     </div>
   </PageSection>
 );
@@ -440,11 +557,12 @@ const Campus = () => (
     <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Campus</h2>
     <div className="text-white/80 leading-relaxed space-y-4">
       <p>
-        SPIT is situated in a sprawling green campus in Andheri, Mumbai, providing a serene and conducive environment for learning. The campus is equipped with state-of-the-art facilities, including modern classrooms, laboratories, libraries, and recreational areas.
+        SPIT is situated in a sprawling 47-acre green campus in Andheri (W), Mumbai. The campus is designed to provide a conducive environment for learning, with state-of-the-art facilities, modern classrooms, well-equipped laboratories, and extensive libraries.
       </p>
       <p>
-        The institute also emphasizes sustainability and has implemented various eco-friendly initiatives to reduce its carbon footprint and promote environmental awareness among students.
+        The campus also houses several other prestigious institutions under the Bhartiya Vidya Bhavan umbrella, including Bhavan's College, Sardar Patel College of Engineering, S.P. Jain Institute of Management and Research, and A.H. Wadia Higher Secondary School.
       </p>
+      <p>For Virtual Tour Campus follow this link : <a href="https://tour.spit.ac.in" style={{ fontWeight: 'bold' }}>SPIT's Virtual Campus Tour</a></p>
     </div>
   </PageSection>
 );
@@ -459,8 +577,9 @@ const ContactUs = () => (
       <ul className="list-disc list-inside space-y-2">
         <li>Email: <a href="mailto:info@spit.ac.in">info@spit.ac.in</a></li>
         <li>Phone: <a href="tel:+912234567890">+91 22 3456 7890</a></li>
-        <li>Address: <a href="https://www.google.com/maps?q=SPIT,+Andheri,+Mumbai" target="_blank">SPIT, Andheri, Mumbai</a></li>
-        <li>Website: <a href="https://www.spit.ac.in" target="_blank">www.spit.ac.in</a></li>
+        <li>Address: <a href="https://www.google.com/maps?q=SPIT,+Andheri,+Mumbai" target="_blank" style={{ fontWeight: 'bold' }}>SPIT, Andheri, Mumbai</a></li>
+        <li>Website: <a href="https://www.spit.ac.in" target="_blank" style={{ fontWeight: 'bold' }}>www.spit.ac.in</a></li>
+        <li>For any Query: <a href="/contact"  style={{ fontWeight: 'bold' }}>Contact Us</a></li>
       </ul>
     </div>
   </PageSection>
