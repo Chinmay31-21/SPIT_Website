@@ -70,7 +70,8 @@ export const Footer = () => {
                 { title: 'IIC', path: '/accreditation/iic' },
                 { title: 'IQAC', path: '/resources/iqac' },
                 { title: 'RTI', path: '/resources/rti' },
-                { title: 'Mandatory Disclosure', path: '/resources/mandatory-disclosure' }
+                { title: 'Mandatory Disclosure', path: '/resources/mandatory-disclosure' },
+                { title: 'Grievance Cell', path: '/resources/grievance' }
               ].map((link) => (
                 <li key={link.title}>
                   <Link

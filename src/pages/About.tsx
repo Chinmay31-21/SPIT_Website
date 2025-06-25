@@ -278,27 +278,37 @@ const Committees = () => (
         {
           title: "Governing Body Committee",
           description: "Provides overall governance and strategic direction for the institution, ensuring alignment with its mission and vision.",
-          pdfLink: <a href="/assets/GoverningBody.pdf">Governing Body.pdf</a>
+          pdfLink: <a href="/assets/GoverningBody.pdf" style={{ fontWeight: 'bold' }}>Governing Body.pdf</a>
           },
         {
           title: "Anti-Ragging Committee (Recent)",
           description: "Creates a ragging-free environment with proactive measures, awareness campaigns, and strict enforcement of anti-ragging policies to ensure student safety.",
-          pdfLink: <a href="/assets/AntiRagging.pdf">Anti-Ragging Committee(Recent).pdf</a> 
+          pdfLink: <a href="/assets/AntiRagging.pdf" style={{ fontWeight: 'bold' }}>Anti-Ragging Committee(Recent).pdf</a> 
         },
         {
           title: "Anti-Ragging Committee (Previous))",
           description: "",
-          pdfLink: <a href="/assets/AntiRaggingprev.pdf">Anti-Ragging Committee(Previous).pdf</a> 
+          pdfLink: <a href="/assets/AntiRaggingprev.pdf" style={{ fontWeight: 'bold' }}>Anti-Ragging Committee(Previous).pdf</a> 
         },
         {
           title: "Grievance Redressal Committee",
           description: "Addresses student grievances and ensures a fair and transparent process for resolving issues.",
-          pdfLink: <a href="/assets/GrievanceCommittee.pdf">Grievance Redressal Committee.pdf</a>
+          pdfLink: <a href="/assets/GrievanceCommittee.pdf" style={{ fontWeight: 'bold' }}>Grievance Redressal Committee.pdf</a>
         },
         {
-          title: "Women Development Cell",
-          description: "Empowers women on campus through workshops, awareness programs, and support initiatives, fostering a safe and inclusive environment for all.",
-          pdfLink: <a href="/assets/WomenDevelopmentCell.pdf">Women Development Cell</a>
+          title: "Grievance Redressal Committee (Previous)",
+          description: "",
+          pdfLink: <a href="/assets/GrievanceCommitteeprev.pdf" style={{ fontWeight: 'bold' }}>Grievance Redressal Committee (Previous).pdf</a>
+        },
+        {
+          title: "Internal Complaints Committee (Recent)",
+          description: "The Internal Complaints Committee (ICC) is responsible for addressing complaints related to sexual harassment and ensuring a safe and inclusive environment for all members of the institute.",
+          pdfLink: <a href="/assets/ICCMembers.pdf" style={{ fontWeight: 'bold' }}>Internal Complaints Committee (Recent).pdf</a>
+        },
+        {
+          title: "Internal Complaints Committee (Previous)",
+          description: "",
+          pdfLink: <a href="/assets/ICCMembersprev.pdf" style={{ fontWeight: 'bold' }}>Internal Complaints Committee (Previous).pdf</a>
         },
       ].map(({ title, description, pdfLink }) => (
         <div className="p-4 bg-black/50 rounded-lg" key={title}>

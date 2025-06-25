@@ -2,7 +2,7 @@ import React from 'react';
 
 // Mandatory Disclosure Page
 export const MandatoryDisclosure = () => (
-  <section className="px-6 py-16 md:px-20 max-w-6xl mx-auto text-white">
+  <section className="container mx-auto px-4 py-16 md:px-20 max-w-6xl text-black">
     <h1 className="text-4xl font-bold text-[#FFD700] mb-6">Mandatory Disclosure</h1>
     <p className="mb-4">Sardar Patel Institute of Technology is committed to transparency and compliance with the regulations set by AICTE and other statutory bodies. The mandatory disclosure document contains detailed information about our governance, programs, faculty, infrastructure, financial status, and other institutional data required to ensure quality and accountability in higher education.</p>
     <ul className="list-disc pl-6 space-y-2">
@@ -163,7 +163,7 @@ export const Grievance = () => (
       <li>Feedback mechanism for students and faculty.</li>
     </ul>
     <a
-      href="/assets/grievance-policy.pdf"
+      href="http://grievances.spit.ac.in/"
       target="_blank"
       rel="noopener noreferrer"
       className="inline-block mt-4 px-6 py-2 bg-[#FFD700] text-black rounded-lg font-semibold hover:bg-yellow-400 transition"
