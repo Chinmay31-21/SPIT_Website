@@ -25,6 +25,14 @@ const AboutLayout = () => {
               </li>
               <li>
                 <Link
+                  to="/about/institutional-values"
+                  className="block text-white px-3 py-2 rounded-md transition-all duration-300 hover:bg-[#00BFFF]/20 hover:text-[#00BFFF] focus:outline-none focus:ring-2 focus:ring-[#00BFFF]"
+                >
+                  Institutional Values
+                </Link>
+              </li>
+              <li>
+                <Link
                   to="/about/vision-mission"
                   className="block text-white px-3 py-2 rounded-md transition-all duration-300 hover:bg-[#00BFFF]/20 hover:text-[#00BFFF] focus:outline-none focus:ring-2 focus:ring-[#00BFFF]"
                 >
@@ -61,6 +69,7 @@ const AboutLayout = () => {
         <div className="md:col-span-3">
           <Routes>
             <Route index element={<AboutOverview />} />
+            <Route path="institutional-values" element={<InstitutionalValues />} />
             <Route path="vision-mission" element={<VisionMission />} />
             <Route path="principal-message" element={<PrincipalMessage />} />
             <Route path="founders" element={<Founders />} />
@@ -89,16 +98,36 @@ const AboutOverview = () => (
     <h2 className="text-2xl font-bold text-[#FFD700] mb-4">About SPIT</h2>
     <div className="text-white/80 leading-relaxed space-y-4">
       <p>
-        Bharatiya Vidya Bhavan's Sardar Patel Institute of Technology (SPIT) is an autonomous, unaided engineering institute affiliated with the University of Mumbai. Originally established in 1995 as part of Sardar Patel College of Engineering, it gained independence as SPIT in 2005.
+        The institute is located in 47 acres of green campus at Andheri (W), the fastest growing suburb of Mumbai. The campus also houses four Bhavan’s Institutions of great repute namely Bhavan’s College (the arts, commerce and science college), Sardar Patel College of Engineering – Government aided Engineering college, S.P. Jain Institute of Management and Research, a management institute and A.H. Wadia, higher secondary school.
       </p>
       <p>
-        The institute is located in the heart of Mumbai on a lush 47-acre campus in Andheri (West). This educational complex is also home to prestigious institutions such as Bhavan's College, Sardar Patel College of Engineering, S.P. Jain Institute of Management and Research, and A.H. Wadia High School.
+       In 1957, the Bharatiya Vidya Bhavan conceived the idea of establishing an engineering college in Mumbai. Sardar Patel College of Engineering was inaugurated on 19th August 1962.
       </p>
       <p>
-        SPIT offers undergraduate, postgraduate, and doctoral programs in engineering and computer applications. The institute is widely recognized for its academic excellence, experienced faculty, research-driven environment, and vibrant student life.
+       In 1995 self-financed engineering courses were added to it and it functioned as Sardar Patel College of Engineering (Unaided-wing) conducting Electronics Engineering, Computer Engineering and Information Technology Courses and Masters course in Electronics since 2005 till 2008. These courses have earned a great reputation in the field of engineering education,
       </p>
       <p>
         With a strong emphasis on innovation, sustainability, and ethical values, SPIT prepares students to become industry-ready professionals and responsible global citizens. Its close ties with industry and a culture of continuous learning contribute to its reputation as one of the premier engineering institutes in Maharashtra.
+      </p>
+    </div>
+  </PageSection>
+);
+
+const InstitutionalValues = () => (
+  <PageSection>
+    <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Institutional Values</h2>
+    <div className="text-white/80 leading-relaxed space-y-4">
+      <p>
+        1. Integrity – Integrity is defined as the quality of being honest and having strong moral principles. In an educational institution, where the sole aim of the organisation is to life the mindset of the students to soar new heights, integrity is of paramount importance. Bharatiya Vidya Bhavan’s Sardar Patel Institute of Technology takes pride in working with integrity and a sense of righteousness to hold itself to consistent moral and ethical standards.
+      </p>
+      <p>
+       2. Excellence – Excellence is the hallmark of consistency. Bharatiya Vidya Bhavan’s Sardar Patel Institute of Technology has consistently ranked among the top educational institutions in the city and state. It currently occupies a position in the 101 to 150 bracket of the National Institute Ranking Framework (NIRF). All this has been possible with dedicated input from the management and faculty members, who consistently try to mould the institution towards constant improvement and progress.
+      </p>
+      <p>
+       3. Social Sensitivity – The prime goal of an educational institution like Sardar Patel Institute of Technology, under the aegis of management like Bharatiya Vidya Bhavan, strives to make the society better in all respects by providing quality education. One of the highlights of the new curriculum under autonomy has been to provide relevant education that would make a difference to the society. The institution also tries to instill the values of social service among its students and faculty members by being a part of various social welfare schemes, and tie-ups with NGOs from time to time.
+      </p>
+      <p>
+        4. Globalization: Vasudev Kutumbakam – The whole universe is our family. With a strong belief in Vasudev Kutumbakam, Bharatiya Vidya Bhavan’s Sardar Patel Institute of Technology extends its services in education to one and all without any discrimination on any grounds whatsoever. It strives to consistently uplift the standard of education provided, with relevance to the current global trends and standards.
       </p>
     </div>
   </PageSection>
@@ -133,14 +162,15 @@ const PrincipalMessage = () => (
     <div className="flex flex-col md:flex-row gap-6">
       <div className="md:w-1/3">
         <div className="aspect-square bg-black/50 rounded-lg flex items-center justify-center text-white/50">
-          Principal Photo
+          <img src="/assets/Principalbg.png" alt="B.N.Chaudhari" />
         </div>
       </div>
       <div className="md:w-2/3 space-y-4 text-white/80 leading-relaxed">
-        <p>It is my privilege to welcome you to Bharatiya Vidya Bhavan's SPIT...</p>
-        <p>At SPIT, we are committed to fostering a culture of academic excellence, innovation...</p>
-        <p>We aim to equip our students with the knowledge, skills, and social sensitivity...</p>
-        <p className="font-semibold">— Dr. [Principal's Name], Principal, SPIT</p>
+        <p>I have great pleasure in expressing my thoughts as the Principal of Sardar Patel Institute of Technology (SPIT), the Numero Uno, self-financed, autonomous Institution of Maharashtra. We are a constituent of Bharatiya Vidya Bhavan, not just a conglomeration of more than 300 institutions, but a culture, a saga, a holy journey, started by Dr. K.M. Munshi with the support of Mahatma Gandhi in 1938. Imparting value-based education with Indian cultural ethos has always been the motto of Bhavan.</p>
+        <p>Engineers & technologists form the backbone of any nation’s economic development. The world is presently undergoing very unprecedented, extraordinary, challenging time. A new normal is anticipated in many walks of life, including education. Such disruptions will come again and again in one or the other form. Engineers will work for 40-50 years of their life, they will have 3 to 4 diversified careers in technologies we are even unaware of. To make aspiring minds confident and future-proof, education must prepare them for a “marathon” rather than a “sprint”. SPIT makes continuous, sincere efforts towards this.</p>
+        <p>We focus on “How to learn?” rather than “What to learn?”. We believe in multidisciplinary exposure to the learners, yet ensuring growth in one vertical, cherishing human sensitivity and empathy. We have thoughtfully articulated a unique academic model towards this. Our splendid academic performance, sparkling placements (quantitative and qualitative), enrollment for higher studies at the best places of the world, prizes won by our students in national/international level technical competitions, in past many years are the true testimonials for this.</p>
+        <p>With the support of a dedicated and hardworking faculty and staff, the institute has achieved enviable visibility and ranking in a short span. On behalf of all stakeholders of SPIT, I welcome you to this family and look forward to your valuable association with us for a better tomorrow. Four years of engineering education at Sardar Patel Institute of Technology or two years post-graduation, will undoubtedly empower you to lead a successful life. <br />Let’s grow together…</p>
+        <p className="font-semibold">— Dr. B.N. Chaudhari, Principal, SPIT</p>
       </div>
     </div>
   </PageSection>
@@ -156,12 +186,12 @@ const Founders = () => (
         </div>
         <h3 className="text-xl font-semibold text-[#00BFFF]">Dr. K. M. Munshi</h3>
         <p className="text-white/80">
-          Founder of Bharatiya Vidya Bhavan, Dr. Munshi was a visionary leader...
+          “Education would fail ignominiously in its objective if it manufactures only a robot and called him an economic man stressing the adjective economic and forgetting the substantive man. A university cannot afford to ignore the cultural aspects of education whatever studies it specilizes in. Science is a means, not an end. Whereas culture is an end in itself. Even though you may ultimately become a scientist, a doctor, or an engineer, you must while in college, absorb fundamental values which will make you a man of culture. An engineer has not merely to build bridges; he has to be a devoted husband, a kind father, a friendly neighbour, a dutiful citizen, and a man true to himself. He will have trials and tribulations; his heart will fail him at times; he will then need the strength which true culture alone can give.”
         </p>
       </div>
       <div className="space-y-4">
         <div className="aspect-square bg-black/50 rounded-lg flex items-center justify-center text-white/50">
-          Founder Photo
+          <img src="/assets/BVB.jpg" alt="Bharitya Vidya Bhavan's Trustee" />
         </div>
         <h3 className="text-xl font-semibold text-[#00BFFF]">Bhavan's Education Trust</h3>
         <p className="text-white/80">

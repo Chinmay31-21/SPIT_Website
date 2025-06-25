@@ -88,7 +88,7 @@ export const AlumniNetworkSection = () => {
       bio: 'A visionary leader in the fintech space, co-founding PhonePe and driving its technological innovations. Previously led the technology team at Flipkart, building one of India\'s largest e-commerce platforms. Passionate about leveraging technology to transform financial services.',
       achievements: ['PhonePe : Highest No. of UPI Transactions in India', 'NPCI Merhant Award', 'IAMAI Award for Best Fintech App' , 'Launched PhonePe across in India, UAE, Singapore, and Indonesia', 'Flipkart : Led the technology team that built the largest e-commerce platform in India' , 'Outstanding Alumini Award from SPIT'],
       skills: ['Distributed Systems', 'Cloud Computing', 'Financial Modeling', 'Machine Learning', 'Blockchain', 'Scalability', 'Hadoop', 'C++', 'Java', 'Python' , 'JavaScript','Unix/Linux','Product Management','E-Commerce'],
-      industry: 'Finance'
+      industry: 'Startup'
     },
     {
       id: 'a4',
@@ -105,7 +105,7 @@ export const AlumniNetworkSection = () => {
       bio: 'An experienced entrepreneur with a passion for building products that solve real-world problems. Currently leading PhonePe, one of India\'s largest digital payment platforms. Previously co-founded and led the technology team at Flipkart.',
       achievements: ['PhonePe : Highest No. of UPI Transactions in India', 'NPCI Merhant Award', 'IAMAI Award for Best Fintech App' , 'Launched PhonePe across in India, UAE, Singapore, and Indonesia'],
       skills: ['Distributed Systems', 'Cloud Computing', 'Financial Modeling', 'Machine Learning', 'Blockchain', 'Scalability', 'Hadoop', 'C++', 'Java', 'Python' , 'JavaScript','Unix/Linux','Product Management','E-Commerce'],
-      industry: 'Finance'
+      industry: 'Startup'
     },
     {
       id: 'a5',
@@ -139,7 +139,7 @@ export const AlumniNetworkSection = () => {
       bio: 'Enabled via process & change transformation and digital solutions embedded within core operations. UK Energy and Water market covering the span of transmission, distribution and wholesale operations. Passionate about leveraging technology to drive efficiency and innovation in the energy sector.',
       achievements: ['ex-CEO Enzen(UK)', '200th Edition of Weekly Digital Skewber Newsletter', 'Skewb Ltd. - Leading Digital Transformation in Energy Sector'],
       skills: ['Business Analyst', 'Process Transformation', 'Digital Solutions', 'Research', 'Project Management'],
-      industry: 'Consulting'
+      industry: 'Startup'
     },
     {
       id: 'a7',
@@ -346,10 +346,10 @@ export const AlumniNetworkSection = () => {
               Connect with fellow SPIT graduates, share opportunities, and contribute to the growth of our community.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-6 py-3 bg-gradient-to-r from-[#FFD700] to-[#4169E1] text-white rounded-lg font-semibold hover:scale-105 transition-transform">
+              <button className="px-6 py-3 bg-gradient-to-r from-[#48CAE4] to-[#4169E1] text-white rounded-lg font-semibold hover:scale-105 transition-transform">
                 Register as Alumni
               </button>
-              <button className="px-6 py-3 bg-[#4169E1]/20 text-[#4169E1] rounded-lg border border-[#4169E1]/30 font-semibold hover:bg-[#4169E1]/30 transition-colors">
+              <button className="px-6 py-3 bg-[#CAF0F8]/80 text-[#4169E1] rounded-lg border border-[#4169E1]/30 font-semibold hover:bg-[#023E8A]/80 hover:text-[#FFFFFF] transition-colors">
                 Explore Network
               </button>
             </div>
