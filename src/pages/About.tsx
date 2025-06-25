@@ -276,25 +276,30 @@ const Committees = () => (
     <div className="space-y-6">
       {[
         {
-          title: "Academic Council",
-          description: "The apex academic body responsible for defining academic policies, approving curricula, and ensuring the quality and standards of education at the institute.",
-        },
+          title: "Governing Body Committee",
+          description: "Provides overall governance and strategic direction for the institution, ensuring alignment with its mission and vision.",
+            pdfLink: <a href="/assets/GoverningBody.pdf">Governing Body</a>
+          },
         {
           title: "Board of Studies",
           description: "Responsible for curriculum formulation and review, recommending new courses, and ensuring that academic programs remain relevant and up-to-date.",
+          pdfLink: <a href="/assets/BoardofStudies.pdf">Board of Studies</a>
         },
         {
           title: "Anti-Ragging Committee",
           description: "Creates a ragging-free environment with proactive measures, awareness campaigns, and strict enforcement of anti-ragging policies to ensure student safety.",
+          pdfLink: <a href="/assets/AntiRaggingCommittee.pdf">Anti-Ragging Committee</a>
         },
         {
           title: "Women Development Cell",
           description: "Empowers women on campus through workshops, awareness programs, and support initiatives, fostering a safe and inclusive environment for all.",
+          pdfLink: <a href="/assets/WomenDevelopmentCell.pdf">Women Development Cell</a>
         },
-      ].map(({ title, description }) => (
+      ].map(({ title, description, pdfLink }) => (
         <div className="p-4 bg-black/50 rounded-lg" key={title}>
           <h3 className="text-xl font-semibold text-[#00BFFF] mb-2">{title}</h3>
           <p className="text-white/80">{description}</p>
+          <p className="text-white/80">{pdfLink}</p>
         </div>
       ))}
     </div>
