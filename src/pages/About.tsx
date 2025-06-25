@@ -278,17 +278,22 @@ const Committees = () => (
         {
           title: "Governing Body Committee",
           description: "Provides overall governance and strategic direction for the institution, ensuring alignment with its mission and vision.",
-            pdfLink: <a href="/assets/GoverningBody.pdf">Governing Body</a>
+          pdfLink: <a href="/assets/GoverningBody.pdf">Governing Body.pdf</a>
           },
         {
-          title: "Board of Studies",
-          description: "Responsible for curriculum formulation and review, recommending new courses, and ensuring that academic programs remain relevant and up-to-date.",
-          pdfLink: <a href="/assets/BoardofStudies.pdf">Board of Studies</a>
+          title: "Anti-Ragging Committee (Recent)",
+          description: "Creates a ragging-free environment with proactive measures, awareness campaigns, and strict enforcement of anti-ragging policies to ensure student safety.",
+          pdfLink: <a href="/assets/AntiRagging.pdf">Anti-Ragging Committee(Recent).pdf</a> 
         },
         {
-          title: "Anti-Ragging Committee",
-          description: "Creates a ragging-free environment with proactive measures, awareness campaigns, and strict enforcement of anti-ragging policies to ensure student safety.",
-          pdfLink: <a href="/assets/AntiRaggingCommittee.pdf">Anti-Ragging Committee</a>
+          title: "Anti-Ragging Committee (Previous))",
+          description: "",
+          pdfLink: <a href="/assets/AntiRaggingprev.pdf">Anti-Ragging Committee(Previous).pdf</a> 
+        },
+        {
+          title: "Grievance Redressal Committee",
+          description: "Addresses student grievances and ensures a fair and transparent process for resolving issues.",
+          pdfLink: <a href="/assets/GrievanceCommittee.pdf">Grievance Redressal Committee.pdf</a>
         },
         {
           title: "Women Development Cell",
