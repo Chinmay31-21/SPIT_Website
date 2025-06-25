@@ -63,6 +63,62 @@ const AboutLayout = () => {
                   Committees
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/about/institutional-ethics-committee"
+                  className="block text-white px-3 py-2 rounded-md transition-all duration-300 hover:bg-[#00BFFF]/20 hover:text-[#00BFFF] focus:outline-none focus:ring-2 focus:ring-[#00BFFF]"
+                >
+                  Institutional Ethics Committee
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/about/organogram"
+                  className="block text-white px-3 py-2 rounded-md transition-all duration-300 hover:bg-[#00BFFF]/20 hover:text-[#00BFFF] focus:outline-none focus:ring-2 focus:ring-[#00BFFF]"
+                >
+                  Organogram
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/about/deans"
+                  className="block text-white px-3 py-2 rounded-md transition-all duration-300 hover:bg-[#00BFFF]/20 hover:text-[#00BFFF] focus:outline-none focus:ring-2 focus:ring-[#00BFFF]"
+                >
+                  Deans
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/about/employment"
+                  className="block text-white px-3 py-2 rounded-md transition-all duration-300 hover:bg-[#00BFFF]/20 hover:text-[#00BFFF] focus:outline-none focus:ring-2 focus:ring-[#00BFFF]"
+                >
+                  Employment
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/about/bhartiya-vidya-bhavans-trustee"
+                  className="block text-white px-3 py-2 rounded-md transition-all duration-300 hover:bg-[#00BFFF]/20 hover:text-[#00BFFF] focus:outline-none focus:ring-2 focus:ring-[#00BFFF]"
+                >
+                  Bhartiya Vidya Bhavan's Trustee
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/about/campus"
+                  className="block text-white px-3 py-2 rounded-md transition-all duration-300 hover:bg-[#00BFFF]/20 hover:text-[#00BFFF] focus:outline-none focus:ring-2 focus:ring-[#00BFFF]"
+                >
+                  Campus
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/about/contact-us"
+                  className="block text-white px-3 py-2 rounded-md transition-all duration-300 hover:bg-[#00BFFF]/20 hover:text-[#00BFFF] focus:outline-none focus:ring-2 focus:ring-[#00BFFF]"
+                >
+                  Contact Us
+                </Link>
+              </li>
             </ul>
           </nav>
         </div>
@@ -74,6 +130,14 @@ const AboutLayout = () => {
             <Route path="principal-message" element={<PrincipalMessage />} />
             <Route path="founders" element={<Founders />} />
             <Route path="committees" element={<Committees />} />
+            <Route path="institutional-ethics-committee" element={<InstitutionalEthicsCommittee />} />
+            <Route path="organogram" element={<Organogram />} />
+            <Route path="deans" element={<Deans />} />
+            <Route path="employment" element={<Employment />} />
+            <Route path="bhartiya-vidya-bhavans-trustee" element={<BhartiyaVidyaBhavansTrustee />} />
+            <Route path="campus" element={<Campus />} />
+            <Route path="contact-us" element={<ContactUs />} />
+            <Route path="*" element={<div className="text-white">Page Not Found</div>} />
           </Routes>
         </div>
       </div>
@@ -182,20 +246,24 @@ const Founders = () => (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div className="space-y-4">
         <div className="aspect-square bg-black/50 rounded-lg flex items-center justify-center text-white/50">
-          Founder Photo
+          <img src="/assets/KMMM.jpg" alt="Kulpati Dr. K. M. Munshi" />
         </div>
-        <h3 className="text-xl font-semibold text-[#00BFFF]">Dr. K. M. Munshi</h3>
+        <h3 className="text-xl font-semibold text-[#00BFFF]">Kulpati Dr. K. M. Munshi</h3>
         <p className="text-white/80">
           “Education would fail ignominiously in its objective if it manufactures only a robot and called him an economic man stressing the adjective economic and forgetting the substantive man. A university cannot afford to ignore the cultural aspects of education whatever studies it specilizes in. Science is a means, not an end. Whereas culture is an end in itself. Even though you may ultimately become a scientist, a doctor, or an engineer, you must while in college, absorb fundamental values which will make you a man of culture. An engineer has not merely to build bridges; he has to be a devoted husband, a kind father, a friendly neighbour, a dutiful citizen, and a man true to himself. He will have trials and tribulations; his heart will fail him at times; he will then need the strength which true culture alone can give.”
         </p>
       </div>
       <div className="space-y-4">
         <div className="aspect-square bg-black/50 rounded-lg flex items-center justify-center text-white/50">
-          <img src="/assets/BVB.jpg" alt="Bharitya Vidya Bhavan's Trustee" />
+          <img src="/assets/BVBT.jpg" alt="Bharitya Vidya Bhavan's Trustee" />
         </div>
         <h3 className="text-xl font-semibold text-[#00BFFF]">Bhavan's Education Trust</h3>
         <p className="text-white/80">
-          Bhavan's Education Trust has played a pivotal role in SPIT’s growth...
+          Bhavans Education Trust—formally Bharatiya Vidya Bhavan—is a prestigious non‑profit educational trust founded in 1938 by Dr. K. M. Munshi in Mumbai. It oversees a vast network of over 367 institutions in India (and several abroad), offering education spanning from kindergarten to postgraduate, across disciplines like arts, science, commerce, engineering, management, technology, and Indian culture
+        </p>
+        <p  className="text-white/80">A notable pillar of this network is Bharatiya Vidya Bhavan’s Sardar Patel Institute of Technology (SPIT) in Andheri, Mumbai. SPIT began in 1995 as the unaided engineering wing of Sardar Patel College of Engineering and became an independent, self-financed institute in 2005. In 2017, it achieved autonomous status under Mumbai University, marking a significant milestone</p>
+        <p  className="text-white/80">
+          Bhavans Education Trust has been instrumental in SPIT’s journey—from seeding its inception under Bhavan’s wing, to overseeing its infrastructure, funding, governance, and value-driven educational philosophy—helping SPIT emerge as one of Mumbai’s top autonomous engineering institutes.
         </p>
       </div>
     </div>
@@ -209,19 +277,19 @@ const Committees = () => (
       {[
         {
           title: "Academic Council",
-          description: "The highest academic body ensuring quality and standards...",
+          description: "The apex academic body responsible for defining academic policies, approving curricula, and ensuring the quality and standards of education at the institute.",
         },
         {
           title: "Board of Studies",
-          description: "Responsible for curriculum formulation and review...",
+          description: "Responsible for curriculum formulation and review, recommending new courses, and ensuring that academic programs remain relevant and up-to-date.",
         },
         {
           title: "Anti-Ragging Committee",
-          description: "Creates a ragging-free environment with proactive measures...",
+          description: "Creates a ragging-free environment with proactive measures, awareness campaigns, and strict enforcement of anti-ragging policies to ensure student safety.",
         },
         {
           title: "Women Development Cell",
-          description: "Empowers women on campus through workshops and awareness...",
+          description: "Empowers women on campus through workshops, awareness programs, and support initiatives, fostering a safe and inclusive environment for all.",
         },
       ].map(({ title, description }) => (
         <div className="p-4 bg-black/50 rounded-lg" key={title}>
@@ -229,6 +297,151 @@ const Committees = () => (
           <p className="text-white/80">{description}</p>
         </div>
       ))}
+    </div>
+  </PageSection>
+);
+
+const InstitutionalEthicsCommittee = () => (
+  <PageSection>
+    <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Committees</h2>
+    <div className="space-y-6">
+      {[
+        {
+          title: "Academic Council",
+          description: "The apex academic body responsible for defining academic policies, approving curricula, and ensuring the quality and standards of education at the institute.",
+        },
+        {
+          title: "Board of Studies",
+          description: "Responsible for curriculum formulation and review, recommending new courses, and ensuring that academic programs remain relevant and up-to-date.",
+        },
+        {
+          title: "Anti-Ragging Committee",
+          description: "Creates a ragging-free environment with proactive measures, awareness campaigns, and strict enforcement of anti-ragging policies to ensure student safety.",
+        },
+        {
+          title: "Women Development Cell",
+          description: "Empowers women on campus through workshops, awareness programs, and support initiatives, fostering a safe and inclusive environment for all.",
+        },
+      ].map(({ title, description }) => (
+        <div className="p-4 bg-black/50 rounded-lg" key={title}>
+          <h3 className="text-xl font-semibold text-[#00BFFF] mb-2">{title}</h3>
+          <p className="text-white/80">{description}</p>
+        </div>
+      ))}
+    </div>
+  </PageSection>
+);
+
+const Organogram = () => (
+  <PageSection>
+    <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Organogram</h2>
+    <div className="text-white/80 leading-relaxed space-y-4">
+      <p>
+        The Organogram of SPIT illustrates the hierarchical structure of the institution, showcasing the various departments, committees, and their interrelations. It serves as a visual representation of the governance and administrative framework that supports the institute's operations and academic activities.
+      </p>
+     <div className="aspect-square bg-black/50 rounded-lg flex items-center justify-center text-white/50">
+          <img src="/assets/Organo.png" alt="Organogram" />
+        </div>
+    </div>
+  </PageSection>
+);
+
+
+const Deans = () => (
+  <PageSection>
+    <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Deans</h2>
+    <div className="space-y-6">
+      {[
+        {
+          name: "Dr. Sudhir Dhage",
+          designation: "Dean (Administration and Quality Assurance)",
+          description: "Oversees administrative functions and ensures quality assurance processes are in place.",
+          photo: "/assets/SND.png",
+        },
+        {
+          name: "Dr. Y. S. Rao",
+          designation: "Dean (Academics and Research)",
+          description: "Responsible for academic policies, curriculum development, and promoting research initiatives.",
+          photo: "/assets/YSRAO.png",
+        },
+        {
+          name: "Prof. Kiran Talele",
+          designation: "Dean (Students, Alumini and External Relations)",
+          description: "Focuses on student engagement, alumni relations, and building partnerships with external organizations.",
+          photo: "/assets/KTT.png",
+        },
+      ].map(({ name, designation, description, photo }) => (
+        <div className="flex items-center gap-6 p-4 bg-black/50 rounded-lg" key={name}>
+          <div className="w-24 h-24 flex-shrink-0 rounded-lg overflow-hidden bg-black/30 flex items-center justify-center">
+            <img src={photo} alt={name} className="object-cover w-full h-full" />
+          </div>
+          <div>
+            <h3 className="text-xl font-semibold text-[#00BFFF] mb-2">{name}</h3>
+            <p className="text-white/80">{designation}</p>
+            <p className="text-white/80">{description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </PageSection>
+);
+
+
+const Employment = () => (
+  <PageSection>
+    <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Employment</h2>
+    <div className="text-white/80 leading-relaxed space-y-4">
+      <p>
+        SPIT is committed to providing its students with the best employment opportunities. The institute has a dedicated placement cell that works tirelessly to connect students with top companies and organizations. Regular workshops, mock interviews, and resume-building sessions are conducted to prepare students for the competitive job market.
+      </p>
+      <p>
+        The placement cell also collaborates with industry partners to ensure that the curriculum remains relevant and aligned with current industry standards, enhancing the employability of graduates.
+      </p>
+    </div>
+  </PageSection>
+);
+
+const BhartiyaVidyaBhavansTrustee = () => (
+  <PageSection>
+    <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Bhartiya Vidya Bhavan's Trustee</h2>
+    <div className="text-white/80 leading-relaxed space-y-4">
+      <p>
+        The Bhartiya Vidya Bhavan's Trustee plays a crucial role in overseeing the operations and governance of SPIT. The trustee ensures that the institute adheres to its mission and vision, maintaining high standards of education and ethical practices.
+      </p>
+      <p>
+        The trustee also facilitates collaborations with other educational institutions and industry partners, enhancing the overall academic and research environment at SPIT.
+      </p>
+    </div>
+  </PageSection>
+);
+
+const Campus = () => (
+  <PageSection>
+    <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Campus</h2>
+    <div className="text-white/80 leading-relaxed space-y-4">
+      <p>
+        SPIT is situated in a sprawling green campus in Andheri, Mumbai, providing a serene and conducive environment for learning. The campus is equipped with state-of-the-art facilities, including modern classrooms, laboratories, libraries, and recreational areas.
+      </p>
+      <p>
+        The institute also emphasizes sustainability and has implemented various eco-friendly initiatives to reduce its carbon footprint and promote environmental awareness among students.
+      </p>
+    </div>
+  </PageSection>
+);
+
+const ContactUs = () => (
+  <PageSection>
+    <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Contact Us</h2>
+    <div className="text-white/80 leading-relaxed space-y-4">
+      <p>
+        For any inquiries or further information, please feel free to reach out to us:
+      </p>
+      <ul className="list-disc list-inside space-y-2">
+        <li>Email: <a href="mailto:info@spit.ac.in">info@spit.ac.in</a></li>
+        <li>Phone: <a href="tel:+912234567890">+91 22 3456 7890</a></li>
+        <li>Address: <a href="https://www.google.com/maps?q=SPIT,+Andheri,+Mumbai" target="_blank">SPIT, Andheri, Mumbai</a></li>
+        <li>Website: <a href="https://www.spit.ac.in" target="_blank">www.spit.ac.in</a></li>
+      </ul>
     </div>
   </PageSection>
 );

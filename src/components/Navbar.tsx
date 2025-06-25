@@ -20,7 +20,7 @@ const firstRowItems: NavItem[] = [
       { title: 'Infrastructure', href: '/about/infrastructure' },
       { title: 'Governing Body', href: '/about/governing-body' },
       { title: 'Achievements', href: '/about/achievements' },
-      { title: 'Campus Life', href: '/about/campus-life' },
+      { title: 'Campus Life', href: 'https://tour.spit.ac.in/' },
       { title: 'Contact Us', href: '/about/contact' },
     ]
   },
