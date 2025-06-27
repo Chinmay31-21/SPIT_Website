@@ -180,8 +180,8 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
       <motion.div
         className="absolute transform -translate-x-1/2 -translate-y-1/2 z-20"
         style={{
-          left: dimensions.width / 2,
-          top: dimensions.height / 2
+          left: dimensions.width / 2.21,
+          top: dimensions.height / 2.25
         }}
         initial={{ scale: 0, rotate: -180 }}
         animate={{ scale: 1, rotate: 0 }}
