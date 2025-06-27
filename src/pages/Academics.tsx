@@ -75,7 +75,7 @@ const Faculty = () => (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {[1, 2, 3, 4, 5, 6].map((i) => (
         <div key={i} className="p-4 bg-black/50 rounded-lg">
-          <div className="aspect-square bg-black/70 rounded-lg mb-4"></div>
+          <div className="aspect-square bg-black/70 rounded-lg mb-4"><img src="/assets/user.jpg" alt="Faculty" /></div>
           <h3 className="text-lg font-semibold text-[#00BFFF]">Professor Name</h3>
           <p className="text-white/80 text-sm">Department</p>
         </div>
