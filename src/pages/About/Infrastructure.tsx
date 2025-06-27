@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Building, Wifi, Car, Coffee, Heart, BookOpen } from 'lucide-react';
+import { Building, Wifi, Car, Coffee, Heart, BookOpen, Library } from 'lucide-react';
 
 export const Infrastructure = () => {
   const facilities = [
@@ -20,20 +20,30 @@ export const Infrastructure = () => {
       icon: <Wifi className="w-8 h-8" />,
       title: "IT Infrastructure",
       description: "High-speed internet and modern computing facilities",
-      features: ["1 Gbps Internet", "Campus-wide Wi-Fi", "Cloud Services", "Digital(DSpace)Library"]
+      features: ["1 Gbps Internet", "Campus-wide Wi-Fi", "Cloud Services", "Personalized Mail Server and Client with spit.ac.in domain"]
       
     },
-    {
-      icon: <Car className="w-8 h-8" />,
-      title: "Transportation",
-      description: "Convenient transport facilities for students and staff",
-      features: ["Bus Service", "Parking Facilities", "Metro Connectivity", "Shuttle Service"]
-    },
+   {
+  icon: <BookOpen className="w-8 h-8" />,
+  title: "Library",
+  description: "Well-equipped library with extensive resources",
+  features: [
+    "Extensive Collection",
+    <>
+      <a href="https://moodle.spit.ac.in" className="text-[#00BFFF] underline" target="_blank" rel="noopener noreferrer">Moodle</a>
+      {" | "}
+      <a href="http://dspace.spit.ac.in/xmlui/handle/123456789/6" className="text-[#00BFFF] underline" target="_blank" rel="noopener noreferrer">DSpace@SPIT</a>
+    </>,
+    "Digital Resources",
+    "Study Rooms",
+    "Research Support"
+  ]
+},
     {
       icon: <Coffee className="w-8 h-8" />,
       title: "Cafeteria & Recreation",
       description: "Modern dining and recreational facilities",
-      features: ["Multi-cuisine Cafeteria", "Recreation Center", "Sports Complex", "Student Lounge"]
+      features: ["Multi-cuisine Cafeteria", "Recreation Center", "Sports Complex", "Common Rooms"]
     },
     {
       icon: <Heart className="w-8 h-8" />,

@@ -4,21 +4,38 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const images = [
   {
-    url: "https://images.pexels.com/photos/207692/pexels-photo-207692.jpeg",
+    url: "/assets/Entrance2.png",
     title: "SPIT Campus"
   },
   {
-    url: "https://images.pexels.com/photos/2982449/pexels-photo-2982449.jpeg",
+    url: "/assets/Lake.jpg",
+    title: "Campus Lake"
+  },
+  {
+    url: "/assets/AppleLab.png",
+    title: "Apple Lab"
+  },
+  {
+    url: "/assets/Lab1.png",
+    title: "Computing Lab"
+  },
+  {
+    url: "/assets/Auditorium.png",
+    title: "Auditorium"
+  },
+  {
+    url: "/assets/ConferenceRoom.png",
+    title: "Conference Room"
+  },
+  {
+    url: "/assets/Nature.png",
+    title: "Nursery"
+  },
+  {
+    url: "/assets/Library.png",
     title: "Library"
   },
-  {
-    url: "https://images.pexels.com/photos/267507/pexels-photo-267507.jpeg",
-    title: "Computer Lab"
-  },
-  {
-    url: "https://images.pexels.com/photos/356065/pexels-photo-356065.jpeg",
-    title: "Auditorium"
-  }
+  
 ];
 
 export const HeroSection = () => {
