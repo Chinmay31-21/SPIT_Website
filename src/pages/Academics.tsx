@@ -60,7 +60,9 @@ const BTechSection = () => (
         <p className="text-white/80 mb-1">
           <span className="font-semibold text-[#FFD700]">Seats Available:</span> 180
         </p>
-        
+        <p className="text-white/80 mb-1">
+          <span className="font-semibold text-[#FFD700]">Duration :</span> 4 Years
+        </p>
         <p className="text-white/70 mt-1">
           <span className="font-semibold">Broader Perspective:</span> Graduates are equipped for careers in software development, IT consulting, system architecture, and research, with opportunities in both industry and academia.
         </p>
@@ -70,9 +72,10 @@ const BTechSection = () => (
         <p className="text-white/80 mb-1">
           <span className="font-semibold text-[#FFD700]">Seats Available:</span> 60
         </p>
-        <p className="text-white/80">
-          This program emphasizes core computer science concepts along with specialized training in Artificial Intelligence and Machine Learning. Students gain hands-on experience in data science, neural networks, deep learning, and intelligent systems.
+        <p className="text-white/80 mb-1">
+          <span className="font-semibold text-[#FFD700]">Duration :</span> 4 Years
         </p>
+        
         <p className="text-white/70 mt-1">
           <span className="font-semibold">Broader Perspective:</span> Graduates can pursue roles in AI research, data science, robotics, and advanced software engineering, contributing to cutting-edge technological advancements.
         </p>
@@ -82,9 +85,10 @@ const BTechSection = () => (
         <p className="text-white/80 mb-1">
           <span className="font-semibold text-[#FFD700]">Seats Available:</span> 120
         </p>
-        <p className="text-white/80">
-          The program covers electronic circuits, communication systems, signal processing, embedded systems, and wireless technologies. Students learn to design and analyze modern communication networks and electronic devices.
+        <p className="text-white/80 mb-1">
+          <span className="font-semibold text-[#FFD700]">Duration :</span> 4 Years
         </p>
+        
         <p className="text-white/70 mt-1">
           <span className="font-semibold">Broader Perspective:</span> Graduates are prepared for careers in telecommunications, embedded systems, IoT, electronics design, and research in next-generation communication technologies.
         </p>
@@ -98,15 +102,15 @@ const MTechSection = () => (
     <h2 className="text-2xl font-bold text-[#FFD700] mb-4">M.Tech Programs</h2>
     <div className="space-y-6">
       <div>
-        <h3 className="text-xl font-semibold text-[#00BFFF] mb-2">Computer Engineering</h3>
+        <h3 className="text-xl font-semibold text-[#00BFFF] mb-2">Masters of Computer Application (MCA)</h3>
         <p className="text-white/80 mb-1">
-          <span className="font-semibold text-[#FFD700]">Seats Available:</span> 18
+          <span className="font-semibold text-[#FFD700]">Seats Available:</span> 60
         </p>
         <p className="text-white/80">
-          The M.Tech in Computer Engineering program offers advanced study in algorithms, distributed systems, cloud computing, and cybersecurity. Students engage in research and hands-on projects to solve real-world computing challenges.
+          The MCA program provides advanced knowledge in software development, database management, web technologies, and mobile application development. It prepares students for high-level roles in software engineering and IT management.
         </p>
         <p className="text-white/70 mt-1">
-          <span className="font-semibold">Broader Perspective:</span> Graduates are prepared for roles in research and development, advanced software engineering, academia, and leadership positions in the tech industry.
+          <span className="font-semibold">Broader Perspective:</span> Graduates can pursue careers in software development, IT consultancy, project management, and research, with opportunities in both domestic and international markets.
         </p>
       </div>
       <div>
@@ -122,15 +126,15 @@ const MTechSection = () => (
         </p>
       </div>
       <div>
-        <h3 className="text-xl font-semibold text-[#00BFFF] mb-2">Data Science</h3>
+        <h3 className="text-xl font-semibold text-[#00BFFF] mb-2">Computer Enginnering</h3>
         <p className="text-white/80 mb-1">
           <span className="font-semibold text-[#FFD700]">Seats Available:</span> 18
         </p>
         <p className="text-white/80">
-          The M.Tech in Data Science program covers machine learning, big data analytics, statistical modeling, and data visualization. Students work on real-world datasets and industry projects to develop analytical and problem-solving skills.
+          The M.Tech in Computer Engineering program offers advanced studies in computer architecture, distributed systems, and software engineering. It prepares students for leadership roles in technology development and innovation.
         </p>
         <p className="text-white/70 mt-1">
-          <span className="font-semibold">Broader Perspective:</span> Graduates are equipped for roles as data scientists, analysts, AI engineers, and researchers in various sectors.
+          <span className="font-semibold">Broader Perspective:</span> Graduates are equipped for careers in software development, system architecture, IT consultancy, and research, with opportunities in both industry and academia.
         </p>
       </div>
     </div>
@@ -188,7 +192,7 @@ const CE = () => (
       <div>
         <h3 className="text-xl font-semibold text-[#00BFFF] mb-2">Overview</h3>
         <p className="text-white/80">
-          The B.Tech in Computer Engineering program provides a comprehensive foundation in computer science, software engineering, and hardware systems. Students learn programming, data structures, algorithms, and system design.
+         Computer Engineering program provides a comprehensive foundation in computer science, software engineering, and hardware systems. Students learn programming, data structures, algorithms, and system design.
         </p>
         
       </div>
@@ -221,7 +225,7 @@ const EXTC = () => (
       <div>
         <h3 className="text-xl font-semibold text-[#00BFFF] mb-2">Overview</h3>
         <p className="text-white/80">
-          The B.Tech in Electronics and Telecommunication Engineering program covers electronic circuits, communication systems, signal processing, embedded systems, and wireless technologies. Students learn to design and analyze modern communication networks and electronic devices.
+          Electronics and Telecommunication Engineering program covers electronic circuits, communication systems, signal processing, embedded systems, and wireless technologies. Students learn to design and analyze modern communication networks and electronic devices.
         </p>
         </div>
     </div>
