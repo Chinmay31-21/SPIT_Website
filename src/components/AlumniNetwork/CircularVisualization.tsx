@@ -192,7 +192,7 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
             <img
               src="https://www.spit.ac.in/wp-content/themes/spit-main/images/SPIT_logo.png"
               alt="SPIT Logo"
-              className="w-16 h-16 object-contain"
+              className="w-16 h-16 object-contain rounded-full"
             />
           </div>
           <div className="absolute -inset-2 rounded-full border-2 border-purple-400/30 animate-pulse"></div>
