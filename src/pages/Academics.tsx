@@ -41,31 +41,190 @@ const AcademicsLayout = () => {
   );
 };
 
+
+
 const Programs = () => (
   <div className="space-y-6">
-    {['B.Tech', 'M.Tech', 'Ph.D'].map((program) => (
-      <div key={program} className="bg-black/30 p-6 rounded-lg">
-        <h2 className="text-2xl font-bold text-[#FFD700] mb-4">{program} Programs</h2>
-        <div className="space-y-4">
-          <p className="text-white/80">
-            Detailed information about the {program} programs offered at SPIT.
-          </p>
-        </div>
-      </div>
-    ))}
+    <BTechSection />
+    <MTechSection />
+    <PhDSection />
   </div>
 );
 
-const Departments = () => (
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-    {['Computer Engineering', 'Information Technology', 'Electronics & Telecommunication'].map((dept) => (
-      <div key={dept} className="bg-black/30 p-6 rounded-lg">
-        <h2 className="text-xl font-bold text-[#FFD700] mb-4">{dept}</h2>
-        <p className="text-white/80">
-          Overview of the {dept} department and its specializations.
+const BTechSection = () => (
+  <div className="bg-black/30 p-6 rounded-lg">
+    <h2 className="text-2xl font-bold text-[#FFD700] mb-4">B.Tech Programs</h2>
+    <div className="space-y-6">
+      <div>
+        <h3 className="text-xl font-semibold text-[#00BFFF] mb-2">Computer Engineering</h3>
+        <p className="text-white/80 mb-1">
+          <span className="font-semibold text-[#FFD700]">Seats Available:</span> 180
+        </p>
+        
+        <p className="text-white/70 mt-1">
+          <span className="font-semibold">Broader Perspective:</span> Graduates are equipped for careers in software development, IT consulting, system architecture, and research, with opportunities in both industry and academia.
         </p>
       </div>
-    ))}
+      <div>
+        <h3 className="text-xl font-semibold text-[#00BFFF] mb-2">Computer Science and Engineering (AI & ML)</h3>
+        <p className="text-white/80 mb-1">
+          <span className="font-semibold text-[#FFD700]">Seats Available:</span> 60
+        </p>
+        <p className="text-white/80">
+          This program emphasizes core computer science concepts along with specialized training in Artificial Intelligence and Machine Learning. Students gain hands-on experience in data science, neural networks, deep learning, and intelligent systems.
+        </p>
+        <p className="text-white/70 mt-1">
+          <span className="font-semibold">Broader Perspective:</span> Graduates can pursue roles in AI research, data science, robotics, and advanced software engineering, contributing to cutting-edge technological advancements.
+        </p>
+      </div>
+      <div>
+        <h3 className="text-xl font-semibold text-[#00BFFF] mb-2">Electronics and Telecommunication Engineering</h3>
+        <p className="text-white/80 mb-1">
+          <span className="font-semibold text-[#FFD700]">Seats Available:</span> 120
+        </p>
+        <p className="text-white/80">
+          The program covers electronic circuits, communication systems, signal processing, embedded systems, and wireless technologies. Students learn to design and analyze modern communication networks and electronic devices.
+        </p>
+        <p className="text-white/70 mt-1">
+          <span className="font-semibold">Broader Perspective:</span> Graduates are prepared for careers in telecommunications, embedded systems, IoT, electronics design, and research in next-generation communication technologies.
+        </p>
+      </div>
+    </div>
+  </div>
+);
+
+const MTechSection = () => (
+  <div className="bg-black/30 p-6 rounded-lg">
+    <h2 className="text-2xl font-bold text-[#FFD700] mb-4">M.Tech Programs</h2>
+    <div className="space-y-6">
+      <div>
+        <h3 className="text-xl font-semibold text-[#00BFFF] mb-2">Computer Engineering</h3>
+        <p className="text-white/80 mb-1">
+          <span className="font-semibold text-[#FFD700]">Seats Available:</span> 18
+        </p>
+        <p className="text-white/80">
+          The M.Tech in Computer Engineering program offers advanced study in algorithms, distributed systems, cloud computing, and cybersecurity. Students engage in research and hands-on projects to solve real-world computing challenges.
+        </p>
+        <p className="text-white/70 mt-1">
+          <span className="font-semibold">Broader Perspective:</span> Graduates are prepared for roles in research and development, advanced software engineering, academia, and leadership positions in the tech industry.
+        </p>
+      </div>
+      <div>
+        <h3 className="text-xl font-semibold text-[#00BFFF] mb-2">Electronics and Telecommunication Engineering</h3>
+        <p className="text-white/80 mb-1">
+          <span className="font-semibold text-[#FFD700]">Seats Available:</span> 18
+        </p>
+        <p className="text-white/80">
+          This program focuses on advanced topics in VLSI design, embedded systems, wireless communication, and signal processing. Students gain expertise in designing and analyzing modern electronic and communication systems.
+        </p>
+        <p className="text-white/70 mt-1">
+          <span className="font-semibold">Broader Perspective:</span> Graduates can pursue careers in R&D, telecommunications, semiconductor industries, and higher education.
+        </p>
+      </div>
+      <div>
+        <h3 className="text-xl font-semibold text-[#00BFFF] mb-2">Data Science</h3>
+        <p className="text-white/80 mb-1">
+          <span className="font-semibold text-[#FFD700]">Seats Available:</span> 18
+        </p>
+        <p className="text-white/80">
+          The M.Tech in Data Science program covers machine learning, big data analytics, statistical modeling, and data visualization. Students work on real-world datasets and industry projects to develop analytical and problem-solving skills.
+        </p>
+        <p className="text-white/70 mt-1">
+          <span className="font-semibold">Broader Perspective:</span> Graduates are equipped for roles as data scientists, analysts, AI engineers, and researchers in various sectors.
+        </p>
+      </div>
+    </div>
+  </div>
+);
+
+const PhDSection = () => (
+  <div className="bg-black/30 p-6 rounded-lg">
+    <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Ph.D Programs</h2>
+    <div className="space-y-6">
+      <div>
+        <h3 className="text-xl font-semibold text-[#00BFFF] mb-2">Computer Engineering</h3>
+        <p className="text-white/80">
+          The Ph.D in Computer Engineering program is designed for scholars interested in advanced research in areas such as algorithms, artificial intelligence, cybersecurity, and distributed systems. Students work closely with faculty on innovative projects and publish in reputed journals.
+        </p>
+        <p className="text-white/70 mt-1">
+          <span className="font-semibold">Broader Perspective:</span> Graduates pursue careers as researchers, academicians, and leaders in technology-driven organizations.
+        </p>
+      </div>
+      <div>
+        <h3 className="text-xl font-semibold text-[#00BFFF] mb-2">Electronics and Telecommunication Engineering</h3>
+        <p className="text-white/80">
+          This Ph.D program focuses on research in communication systems, VLSI design, embedded systems, and signal processing. Scholars contribute to advancements in electronics and telecommunication through original research and interdisciplinary collaboration.
+        </p>
+        <p className="text-white/70 mt-1">
+          <span className="font-semibold">Broader Perspective:</span> Graduates become experts in their field, contributing to academia, industry R&D, and government research labs.
+        </p>
+      </div>
+      <div>
+        <h3 className="text-xl font-semibold text-[#00BFFF] mb-2">Interdisciplinary Research</h3>
+        <p className="text-white/80">
+          SPIT encourages interdisciplinary Ph.D research across engineering, data science, and emerging technologies. Students are supported to work on real-world problems, often in collaboration with industry and research organizations.
+        </p>
+        <p className="text-white/70 mt-1">
+          <span className="font-semibold">Broader Perspective:</span> Graduates are equipped for leadership roles in research, innovation, and policy-making.
+        </p>
+      </div>
+    </div>
+  </div>
+);
+
+
+const Departments = () => (
+  <div className="space-y-6">
+    <CE />
+    <CSE />
+    <EXTC />
+  </div>
+);
+
+const CE = () => (
+  <div className="bg-black/30 p-6 rounded-lg">
+    <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Computer Engineering</h2>
+    <div className="space-y-6">
+      <div>
+        <h3 className="text-xl font-semibold text-[#00BFFF] mb-2">Overview</h3>
+        <p className="text-white/80">
+          The B.Tech in Computer Engineering program provides a comprehensive foundation in computer science, software engineering, and hardware systems. Students learn programming, data structures, algorithms, and system design.
+        </p>
+        
+      </div>
+      
+    </div>
+  </div>
+);
+
+const CSE = () => (
+  <div className="bg-black/30 p-6 rounded-lg">
+    <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Computer Science and Engineering</h2>
+    <div className="space-y-6">
+      <div>
+        <h3 className="text-xl font-semibold text-[#00BFFF] mb-2">Overview</h3>
+        
+         <p className="text-white/80">
+          This program emphasizes core computer science concepts along with specialized training in Artificial Intelligence and Machine Learning. Students gain hands-on experience in data science, neural networks, deep learning, and intelligent systems.
+        </p>
+        
+      </div>
+      
+    </div>
+  </div>
+);
+
+const EXTC = () => (
+  <div className="bg-black/30 p-6 rounded-lg">
+    <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Electronics and TeleCommunication Engineering</h2>
+    <div className="space-y-6">
+      <div>
+        <h3 className="text-xl font-semibold text-[#00BFFF] mb-2">Overview</h3>
+        <p className="text-white/80">
+          The B.Tech in Electronics and Telecommunication Engineering program covers electronic circuits, communication systems, signal processing, embedded systems, and wireless technologies. Students learn to design and analyze modern communication networks and electronic devices.
+        </p>
+        </div>
+    </div>
   </div>
 );
 
