@@ -19,7 +19,7 @@ import { PowerUpAnimation } from './components/PowerUpAnimation';
 import { BrowserRouter as Router, Routes, Route, useLocation, NavLink, Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { About } from './pages/About';
-import { Academics } from './pages/Academics';
+import AcademicsLayout from './pages/Academics'; // Corrected import
 import { Students } from './pages/Students';
 import { Research } from './pages/Research';
 import { Library } from './pages/Library';
@@ -68,7 +68,7 @@ function App() {
   const [isAnimating, setIsAnimating] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
-  
+
   const { search, isLoading: searchLoading } = useSearch();
 
   useEffect(() => {
@@ -201,7 +201,7 @@ function App() {
             <Routes>
               <Route path="/" element={<MainContent />} />
               <Route path="/about/*" element={<About />} />
-              <Route path="/academics/*" element={<Academics />} />
+              <Route path="/academics/*" element={<AcademicsLayout />} /> {/* Corrected Route */}
               <Route path="/students/*" element={<Students />} />
               <Route path="/research/*" element={<Research />} />
               <Route path="/library/*" element={<Library />} />
