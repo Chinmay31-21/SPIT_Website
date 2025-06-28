@@ -159,11 +159,11 @@ export const Admissions = () => {
               </thead>
               <tbody>
                 <tr className="border-b border-[#4169E1]/30">
-                  <td className="py-4 px-6">Open</td>
-                  <td className="py-4 px-6 text-right">₹1,45,000</td>
-                  <td className="py-4 px-6 text-right">₹1,45,000</td>
-                  <td className="py-4 px-6 text-right">₹1,45,000</td>
-                  <td className="py-4 px-6 text-right">₹1,45,000</td>
+                  <td className="py-4 px-6">B.Tech</td>
+                  <td className="py-4 px-6 text-right">₹2,10,000</td>
+                  <td className="py-4 px-6 text-right">₹2,10,000</td>
+                  <td className="py-4 px-6 text-right">₹2,10,000</td>
+                  <td className="py-4 px-6 text-right">₹2,10,000</td>
                   <td className="py-4 px-6 text-center">
                     <button
                       onClick={() => handlePayment(145000, "First Year Fee - Open Category")}
@@ -175,11 +175,27 @@ export const Admissions = () => {
                   </td>
                 </tr>
                 <tr>
-                  <td className="py-4 px-6">Reserved</td>
-                  <td className="py-4 px-6 text-right">₹15,000</td>
-                  <td className="py-4 px-6 text-right">₹15,000</td>
-                  <td className="py-4 px-6 text-right">₹15,000</td>
-                  <td className="py-4 px-6 text-right">₹15,000</td>
+                  <td className="py-4 px-6">M.Tech</td>
+                  <td className="py-4 px-6 text-right">₹1,00,000</td>
+                  <td className="py-4 px-6 text-right">₹1,00,000</td>
+                  <td className="py-4 px-6 text-right">₹1,00,000</td>
+                  <td className="py-4 px-6 text-right">₹1,00,000</td>
+                  <td className="py-4 px-6 text-center">
+                    <button
+                      onClick={() => handlePayment(15000, "First Year Fee - Reserved Category")}
+                      className="bg-[#4169E1] hover:bg-[#2c5aa0] text-white px-4 py-2 rounded-md flex items-center gap-2 mx-auto"
+                    >
+                      <CreditCard className="w-4 h-4" />
+                      Pay Now
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="py-4 px-6">MCA</td>
+                  <td className="py-4 px-6 text-right">₹1,31,000</td>
+                  <td className="py-4 px-6 text-right">₹1,31,000</td>
+                  <td className="py-4 px-6 text-right">₹1,31,000</td>
+                  <td className="py-4 px-6 text-right">₹1,31,000</td>
                   <td className="py-4 px-6 text-center">
                     <button
                       onClick={() => handlePayment(15000, "First Year Fee - Reserved Category")}
