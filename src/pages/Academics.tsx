@@ -148,10 +148,65 @@ const PageSection = ({ children }) => (
   </motion.div>
 );
 
-// Placeholder components for each section
-const UGProgramme = () => <PageSection>Details about UG Programme</PageSection>;
-const PGProgramme = () => <PageSection>Details about PG Programme</PageSection>;
-const PhDProgramme = () => <PageSection>Details about Ph.D. Programme</PageSection>;
+// UG Programme Section
+const UGProgramme = () => (
+  <PageSection>
+    <h2 className="text-2xl font-bold text-[#FFD700] mb-4">UG Programme</h2>
+    <div className="text-white/80 leading-relaxed space-y-4">
+      <p>
+        Sardar Patel Institute of Technology offers degree programs in the following areas. Our goal is to educate students who excel in engineering and applied science and also have a working knowledge of other disciplines.
+      </p>
+      <div className="bg-gray-100 p-4 rounded-lg">
+        <h3 className="text-lg font-semibold text-black mb-2">Degree Awarded</h3>
+        <ul className="list-disc list-inside text-black space-y-2">
+          <li>B.Tech. Computer Engineering – 240 seats</li>
+          <li>B.Tech. Electronics and Telecommunication Engineering – 120 seats</li>
+          <li>B.Tech. Computer Science And Engineering – 120 seats</li>
+        </ul>
+      </div>
+    </div>
+  </PageSection>
+);
+
+// PG Programme Section
+const PGProgramme = () => (
+  <PageSection>
+    <h2 className="text-2xl font-bold text-[#FFD700] mb-4">PG Programme</h2>
+    <div className="text-white/80 leading-relaxed space-y-6">
+      <p>
+        Sardar Patel Institute of Technology offers postgraduate programs designed to provide advanced knowledge and skills in engineering and technology. These programs aim to prepare students for research, industry, and academic careers.
+      </p>
+      <div className="bg-gray-100 p-4 rounded-lg">
+        <h3 className="text-lg font-semibold text-black mb-2">Degree Awarded</h3>
+        <ul className="list-disc list-inside text-black space-y-2">
+          <li>M.Tech. Computer Engineering</li>
+          <li>M.Tech. Electronics and Telecommunication Engineering</li>
+          <li>M.Tech. Information Technology</li>
+        </ul>
+      </div>
+    </div>
+  </PageSection>
+);
+
+// Ph.D. Programme Section
+const PhDProgramme = () => (
+  <PageSection>
+    <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Ph.D. Programme</h2>
+    <div className="text-white/80 leading-relaxed space-y-6">
+      <p>
+        Sardar Patel Institute of Technology offers a Ph.D. programme in Engineering and Technology, providing opportunities for advanced research and innovation. The programme is designed to foster academic excellence and contribute to the development of cutting-edge technologies.
+      </p>
+      <div className="bg-gray-100 p-4 rounded-lg">
+        <h3 className="text-lg font-semibold text-black mb-2">Research Areas</h3>
+        <ul className="list-disc list-inside text-black space-y-2">
+          <li>Computer Engineering</li>
+          <li>Electronics and Telecommunication Engineering</li>
+          <li>Information Technology</li>
+        </ul>
+      </div>
+    </div>
+  </PageSection>
+);
 
 const Departments = () => (
   <PageSection>
@@ -206,8 +261,220 @@ const Departments = () => (
 );
 
 const Faculty = () => <PageSection>Details about Faculty</PageSection>;
-const Curriculum = () => <PageSection>Details about Curriculum</PageSection>;
-const Moodle = () => <PageSection>Details about Moodle</PageSection>;
+const Curriculum = () => (
+  <PageSection>
+    <h2 className="text-3xl font-bold text-[#FFD700] mb-8 border-b-2 border-[#FFD700] pb-2">
+      Curriculum
+    </h2>
+    <div className="text-white/80 leading-relaxed space-y-6">
+      {/* Multidisciplinary Minors Section */}
+      <div>
+        <h3 className="text-lg font-semibold text-blue-600 mb-2">
+          Syllabi for Multidisciplinary Minors (M.D.M.) W. E. F. 2023-27 Batch
+        </h3>
+        <ul className="list-disc list-inside text-red-600 space-y-2">
+          <li>
+            <a
+              href="/assets/Introduction-Page.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              Introduction Page
+            </a>
+          </li>
+          <li>
+            <a
+              href="/assets/SPIT_MDM_2023-24.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              SPIT MDM 2023-24
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      {/* UG Syllabus Scheme Batch 2023-27 */}
+      <div>
+        <h3 className="text-lg font-semibold text-blue-600 mb-2">
+          UG SYLLABUS Scheme batch 2023-27
+        </h3>
+        <ul className="list-disc list-inside text-red-600 space-y-2">
+          <li>
+            <a
+              href="/assets/ce-scheme-2023-27.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              Computer-Scheme
+            </a>
+          </li>
+          <li>
+            <a
+              href="/assets/ce-syll-2023-27.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              Computer-curriculum
+            </a>
+          </li>
+          <li>
+            <a
+              href="/assets/cse-scheme-2023-27.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              CSE-Scheme
+            </a>
+          </li>
+          <li>
+            <a
+              href="/assets/cse-syll-2023-27.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              CSE-curriculum
+            </a>
+          </li>
+          <li>
+            <a
+              href="/assets/EXTC-Scheme.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              EXTC-Scheme
+            </a>
+          </li>
+          <li>
+            <a
+              href="/assets/EXTC-Curriculum.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              EXTC-curriculum
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      {/* UG Syllabus Scheme Batch 2022-26 */}
+      <div>
+        <h3 className="text-lg font-semibold text-blue-600 mb-2">
+          UG SYLLABUS Scheme batch 2022-26
+        </h3>
+        <ul className="list-disc list-inside text-red-600 space-y-2">
+          <li>
+            <a
+              href="/assets/Computer-Scheme-2022-26.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              Computer Scheme
+            </a>
+          </li>
+          <li>
+            <a
+              href="/assets/CSE-Data-Science-Scheme.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              CSE – Data Science Scheme
+            </a>
+          </li>
+          <li>
+            <a
+              href="/assets/CSE-AIML-Scheme.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              CSE – AIML Scheme
+            </a>
+          </li>
+          <li>
+            <a
+              href="/assets/EXTC-Scheme-2022-26.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              Electronics and Telecommunication Scheme
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      {/* UG Syllabus Scheme Academic Year 2021-25 */}
+      <div>
+        <h3 className="text-lg font-semibold text-blue-600 mb-2">
+          UG SYLLABUS Scheme Academic Year 2021-25
+        </h3>
+        <ul className="list-disc list-inside text-red-600 space-y-2">
+          <li>
+            <a
+              href="/assets/Computer-Scheme-2021-25.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              Computer
+            </a>
+          </li>
+          <li>
+            <a
+              href="/assets/CSE-Data-Science-Scheme-2021-25.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              CSE – Data Science
+            </a>
+          </li>
+          <li>
+            <a
+              href="/assets/CSE-AIML-Scheme-2021-25.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              CSE – AIML
+            </a>
+          </li>
+          <li>
+            <a
+              href="/assets/EXTC-Scheme-2021-25.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              Electronics and Telecommunication
+            </a>
+          </li>
+          <li>
+            <a
+              href="/assets/Open-Electives-2021-25.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              Open Electives
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </PageSection>
+);const Moodle = () => <PageSection>Details about Moodle</PageSection>;
 const Scope = () => <PageSection>Details about SCOPE</PageSection>;
 const ProfessionalEducation = () => <PageSection>Details about Professional Education</PageSection>;
 const CustomizedCourses = () => <PageSection>Details about Customized Courses</PageSection>;
