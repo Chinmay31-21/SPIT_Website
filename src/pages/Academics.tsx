@@ -344,7 +344,7 @@ const Curriculum = () => (
           </li>
           <li>
             <a
-              href="/assets/EXTC-Scheme.pdf"
+              href="/assets/extc-scheme-2023-27.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:underline"
@@ -354,7 +354,7 @@ const Curriculum = () => (
           </li>
           <li>
             <a
-              href="/assets/EXTC-Curriculum.pdf"
+              href="/assets/extc-syll-2023-27.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:underline"
@@ -373,7 +373,7 @@ const Curriculum = () => (
         <ul className="list-disc list-inside text-red-600 space-y-2">
           <li>
             <a
-              href="/assets/Computer-Scheme-2022-26.pdf"
+              href="/assets/CE_2022-2026_Scheme.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:underline"
@@ -383,7 +383,7 @@ const Curriculum = () => (
           </li>
           <li>
             <a
-              href="/assets/CSE-Data-Science-Scheme.pdf"
+              href="/assets/cse-ds-scheme-2022.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:underline"
@@ -393,7 +393,7 @@ const Curriculum = () => (
           </li>
           <li>
             <a
-              href="/assets/CSE-AIML-Scheme.pdf"
+              href="/assets/cse-aiml-scheme-2022.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:underline"
@@ -403,7 +403,7 @@ const Curriculum = () => (
           </li>
           <li>
             <a
-              href="/assets/EXTC-Scheme-2022-26.pdf"
+              href="/assets/B. Tech. EXTC_2022-2026_Scheme_modified.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:underline"
@@ -422,7 +422,7 @@ const Curriculum = () => (
         <ul className="list-disc list-inside text-red-600 space-y-2">
           <li>
             <a
-              href="/assets/Computer-Scheme-2021-25.pdf"
+              href="/assets/CE_2021-2025_Scheme.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:underline"
@@ -432,7 +432,7 @@ const Curriculum = () => (
           </li>
           <li>
             <a
-              href="/assets/CSE-Data-Science-Scheme-2021-25.pdf"
+              href="/assets/cse-ds-scheme-2021.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:underline"
@@ -442,7 +442,7 @@ const Curriculum = () => (
           </li>
           <li>
             <a
-              href="/assets/CSE-AIML-Scheme-2021-25.pdf"
+              href="/assets/cse-aiml-scheme-2021.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:underline"
@@ -452,7 +452,7 @@ const Curriculum = () => (
           </li>
           <li>
             <a
-              href="/assets/EXTC-Scheme-2021-25.pdf"
+              href="/assets/B. Tech. EXTC_2021-2025_Scheme_modified.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:underline"
@@ -462,7 +462,7 @@ const Curriculum = () => (
           </li>
           <li>
             <a
-              href="/assets/Open-Electives-2021-25.pdf"
+              href="/assets/OAE-2021-22.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:underline"
