@@ -164,7 +164,7 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
             key={index}
             cx={dimensions.width / 2}
             cy={dimensions.height / 2}
-            r={Math.min(dimensions.width, dimensions.height) * 0.15 * multiplier}
+            r={Math.min(dimensions.width, dimensions.height) * 0.12 * multiplier}
             fill="none"
             stroke="url(#circleGradient)"
             strokeWidth="2"
@@ -243,14 +243,14 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
           onMouseEnter={() => setHoveredAlumni(alumni.id)}
           onMouseLeave={() => setHoveredAlumni(null)}
           onClick={() => handleAlumniClick(alumni)}
-          whileHover={{ scale: 1.3, z: 50 }}
+          whileHover={{ scale: 1.5, z: 50 }}
           whileTap={{ scale: 0.95 }}
         >
           {/* Alumni Avatar Container */}
           <div className="relative">
             {/* Outer ring animation */}
             <motion.div
-              className="absolute -inset-3 rounded-full border-2 border-purple-400/50"
+              className="absolute -inset-2 rounded-full border-2 border-purple-400/50"
               animate={hoveredAlumni === alumni.id ? {
                 rotate: 360,
                 scale: [1, 1.1, 1]
