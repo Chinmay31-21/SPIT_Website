@@ -214,8 +214,18 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
           <div
             className="rounded-full bg-gradient-to-br from-purple-600 via-purple-700 to-purple-900 flex items-center justify-center shadow-2xl border-4 border-purple-400/50"
             style={{
-              width: dimensions.width < 400 ? 70 : 96,
-              height: dimensions.width < 400 ? 70 : 96
+              width:
+                dimensions.width < 350
+                  ? 48
+                  : dimensions.width < 500
+                  ? 60
+                  : 96,
+              height:
+                dimensions.width < 350
+                  ? 48
+                  : dimensions.width < 500
+                  ? 60
+                  : 96
             }}
           >
             <img
@@ -223,21 +233,41 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
               alt="SPIT Logo"
               className="object-contain rounded-full"
               style={{
-                width: dimensions.width < 400 ? 44 : 64,
-                height: dimensions.width < 400 ? 44 : 64
+                width:
+                  dimensions.width < 350
+                    ? 28
+                    : dimensions.width < 500
+                    ? 36
+                    : 64,
+                height:
+                  dimensions.width < 350
+                    ? 28
+                    : dimensions.width < 500
+                    ? 36
+                    : 64
               }}
             />
           </div>
           <div
             className="absolute rounded-full border-2 border-purple-400/30 animate-pulse"
             style={{
-              inset: dimensions.width < 400 ? -6 : -8
+              inset:
+                dimensions.width < 350
+                  ? -4
+                  : dimensions.width < 500
+                  ? -6
+                  : -8
             }}
           ></div>
           <div
             className="absolute rounded-full border border-purple-300/20 animate-ping"
             style={{
-              inset: dimensions.width < 400 ? -12 : -16
+              inset:
+                dimensions.width < 350
+                  ? -8
+                  : dimensions.width < 500
+                  ? -12
+                  : -16
             }}
           ></div>
         </div>
@@ -307,6 +337,14 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
                 scale: [1, 1.1, 1]
               } : {}}
               transition={{ duration: 2, repeat: Infinity }}
+              style={{
+                inset:
+                  dimensions.width < 350
+                    ? -2
+                    : dimensions.width < 500
+                    ? -3
+                    : -8
+              }}
             />
             <div
               className={`rounded-full overflow-hidden border-3 transition-all duration-300 ${
@@ -315,8 +353,18 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
                   : 'border-purple-600/70'
               }`}
               style={{
-                width: dimensions.width < 400 ? 40 : 64,
-                height: dimensions.width < 400 ? 40 : 64,
+                width:
+                  dimensions.width < 350
+                    ? 24
+                    : dimensions.width < 500
+                    ? 32
+                    : 64,
+                height:
+                  dimensions.width < 350
+                    ? 24
+                    : dimensions.width < 500
+                    ? 32
+                    : 64,
                 borderColor: hoveredAlumni === alumni.id ? getIndustryColor(alumni.industry) : undefined,
                 boxShadow: hoveredAlumni === alumni.id ? `0 0 20px ${getIndustryColor(alumni.industry)}40` : undefined
               }}
