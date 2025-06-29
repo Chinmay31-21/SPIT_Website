@@ -138,8 +138,8 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
       ref={containerRef}
       className="relative mx-auto w-full flex justify-center items-center"
       style={{
-        minHeight: 260,
-        height: dimensions.height,
+        minHeight: dimensions.height + (dimensions.width < 500 ? 120 : 180), // Add vertical space for legend/stats
+        height: dimensions.height + (dimensions.width < 500 ? 120 : 180),
         maxWidth: 800,
         width: '100%',
         background: 'radial-gradient(circle at center, #1a0b2e 0%, #16213e 50%, #0f1419 100%)'
@@ -464,8 +464,9 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
 
       {/* Enhanced Legend */}
       <motion.div
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 sm:left-6 sm:translate-x-0 bg-gradient-to-br from-purple-900/90 to-purple-800/90 backdrop-blur-xl border border-purple-400/30 rounded-xl shadow-2xl"
+        className="absolute left-1/2 -translate-x-1/2 sm:left-6 sm:translate-x-0 bg-gradient-to-br from-purple-900/90 to-purple-800/90 backdrop-blur-xl border border-purple-400/30 rounded-xl shadow-2xl"
         style={{
+          bottom: dimensions.width < 500 ? 12 : 32,
           padding: dimensions.width < 350 ? 8 : dimensions.width < 500 ? 12 : 16,
           minWidth: dimensions.width < 350 ? 90 : dimensions.width < 500 ? 120 : 160,
           fontSize: dimensions.width < 350 ? 10 : dimensions.width < 500 ? 12 : 14
@@ -524,8 +525,9 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
 
       {/* Enhanced Stats Panel */}
       <motion.div
-        className="absolute bottom-6 right-1/2 translate-x-1/2 sm:right-6 sm:translate-x-0 bg-gradient-to-br from-purple-900/90 to-purple-800/90 backdrop-blur-xl border border-purple-400/30 rounded-xl shadow-2xl"
+        className="absolute right-1/2 translate-x-1/2 sm:right-6 sm:translate-x-0 bg-gradient-to-br from-purple-900/90 to-purple-800/90 backdrop-blur-xl border border-purple-400/30 rounded-xl shadow-2xl"
         style={{
+          bottom: dimensions.width < 500 ? 12 : 32,
           padding: dimensions.width < 350 ? 8 : dimensions.width < 500 ? 12 : 16,
           minWidth: dimensions.width < 350 ? 90 : dimensions.width < 500 ? 120 : 160,
           fontSize: dimensions.width < 350 ? 10 : dimensions.width < 500 ? 12 : 14
