@@ -109,7 +109,45 @@ const PlacementAccordion = () => {
                 style={{ objectFit: "contain" }}
               />
               <br />
-              
+              <br />
+              <p className="text-white font-bold"> PhonePe Placed 2023-25</p>
+              <br />
+              <img
+                src="/assets/phonepe.jpg"
+                alt="Internship Report 2024-25"
+                className="max-w-full max-h-[500px] rounded shadow-lg border border-[#4169E1]/30 bg-white"
+                style={{ objectFit: "contain" }}
+                />
+                <br />
+              <p className="text-white font-bold"> JP Morgan Chase & Co. Placed 2023-25</p>
+              <br />
+              <img
+                src="/assets/jpmc.jpg"
+                alt="Internship Report 2024-25"
+                className="max-w-full max-h-[500px] rounded shadow-lg border border-[#4169E1]/30 bg-white"
+                style={{ objectFit: "contain" }}
+                />
+              <br />
+               <br />
+              <p className="text-white font-bold"> Barclays Placed 2023-25</p>
+              <br />
+              <img
+                src="/assets/Barc.jpg"
+                alt="Internship Report 2024-25"
+                className="max-w-full max-h-[500px] rounded shadow-lg border border-[#4169E1]/30 bg-white"
+                style={{ objectFit: "contain" }}
+                />
+              <br />
+               <br />
+              <p className="text-white font-bold"> WorkIndia & MSCI 2024-25</p>
+              <br />
+              <img
+                src="/assets/WM.jpg"
+                alt="Internship Report 2024-25"
+                className="max-w-full max-h-[500px] rounded shadow-lg border border-[#4169E1]/30 bg-white"
+                style={{ objectFit: "contain" }}
+                />
+              <br />
               
             </div>
           )}
@@ -179,6 +217,162 @@ const HigherStudiesAccordion = () => {
               <br />
               
               
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+};
+
+const DaeImages = [
+  {
+    year: "Distinguished Alumni Entrepreneur",
+    src: "/assets/DistinguishedAlumni.jpg",
+    srci: "/assets/alumni.jpg",
+    alt: "Placement Report 2024-25"
+  },
+
+ 
+];
+
+const DaeAccordion = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  return (
+    <div className="w-full">
+      {DaeImages.map((img, idx) => (
+        <div key={img.year} className="mb-3 bg-black/30 backdrop-blur-md border border-[#4169E1]/30 rounded-lg">
+          <button
+            className="w-full flex justify-between items-center bg-gradient-to-t from-[#240046] to-[#10002B] text-white font-semibold text-lg px-6 py-5 rounded transition-all focus:outline-none"
+            onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
+            aria-expanded={openIndex === idx}
+          >
+            <span className="flex items-center gap-3 text-[#FFD700]">
+              <GraduationCap className="w-5 h-5" />
+              S.P.I.T Alumni / Alumni Speaks
+            </span>
+            <span className="text-2xl text-white">{openIndex === idx ? '−' : '+'}</span>
+          </button>
+          {openIndex === idx && (
+            <div className="bg-black/30 px-6 py-5 rounded-b flex flex-col items-center">
+              <br />
+              <p className="w-full bg-gradient-to-t from-[#240046] to-[#10002B] text-white font-semibold text-lg px-6 py-5 rounded transition-all focus:outline-none text-center">Distinguished Alumni Entrepreneur</p>
+              <br />
+              <img
+                src={img.src}
+                alt={img.alt}
+                className="max-w-full max-h-[500px] rounded shadow-lg border border-[#4169E1]/30 bg-white"
+                style={{ objectFit: "contain" }}
+              />
+              <br />
+              <p className="w-full bg-gradient-to-t from-[#240046] to-[#10002B] text-white font-semibold text-lg px-6 py-5 rounded transition-all focus:outline-none text-center">Star Alumni 2020-25</p>
+              <br />
+              <img
+                src={img.srci}
+                alt={img.alt}
+                className="max-w-full max-h-[500px] rounded shadow-lg border border-[#4169E1]/30 bg-white"
+                style={{ objectFit: "contain" }}
+              />
+              <br />
+              {/* Alumni Photo Grid */}
+              <div className="w-full mt-8">
+                <h3 className="w-full bg-gradient-to-t from-[#240046] to-[#10002B] text-white font-semibold text-lg px-6 py-5 rounded transition-all focus:outline-none text-center">Notable Alumni</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-items-center">
+                  {/* Example: Replace src with your uploaded alumni images */}
+                  <div className="flex flex-col items-center">
+                    <img src="/assets/RahulChari.jpg" alt="Rahul Chari" className="w-40 h-40 object-cover rounded mb-2" />
+                    <span className="text-center text-white/90 text-sm">Rahul Chari, Co-Founder Phone Pe</span>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <img src="/assets/MohitLad.jpeg" alt="Mohit Lad" className="w-40 h-40 object-cover rounded mb-2" />
+                    <span className="text-center text-white/90 text-sm">Mohit Lad, CEO ThousandEyes</span>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <img src="/assets/NutanLimaye.jpg" alt="Nutan Limaye" className="w-40 h-40 object-cover rounded mb-2" />
+                    <span className="text-center text-white/90 text-sm">Dr. Nutan Limaye, Prof. IIT Bombay</span>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <img src="/assets/Mayank_Agarwal.jpg" alt="Mayank Agarwal" className="w-40 h-40 object-cover rounded mb-2" />
+                    <span className="text-center text-white/90 text-sm">Dr. Mayank Agarwal, Prof. IIT Patna</span>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <img src="/assets/NileshDungarwal.jpg" alt="Nilesh Dungarwal" className="w-40 h-40 object-cover rounded mb-2" />
+                    <span className="text-center text-white/90 text-sm">Nilesh Dungarwal, Co-Founder WorkIndia</span>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <img src="/assets/RaviMTodi.jpg" alt="Ravi Todi" className="w-40 h-40 object-cover rounded mb-2" />
+                    <span className="text-center text-white/90 text-sm">Dr. Ravi Todi, Qualcomm</span>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <img src="/assets/akshay.jpg" alt="Akshay Bhagwatwar" className="w-40 h-40 object-cover rounded mb-2" />
+                    <span className="text-center text-white/90 text-sm">Dr. Akshay Bhagwatwar, Program Manager, Amazon</span>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <img src="/assets/PrashantNair.jpg" alt="Prashant Nair" className="w-40 h-40 object-cover rounded mb-2" />
+                    <span className="text-center text-white/90 text-sm">Dr. Prashant Nair, Prof. University of British Columbia</span>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <img src="/assets/AbhishekSharma.jpg" alt="Abhishek Sharma" className="w-40 h-40 object-cover rounded mb-2" />
+                    <span className="text-center text-white/90 text-sm">Dr. Abhishek Sharma, Component Research Intel</span>
+                  </div>
+                </div>
+                {/* Alumni YouTube Videos Grid */}
+                <div className="w-full mt-12">
+                  <h3 className="w-full bg-gradient-to-t from-[#240046] to-[#10002B] text-white font-semibold text-lg px-6 py-5 rounded transition-all focus:outline-none text-center mb-6">Alumni Speaks</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-items-center">
+                    {[
+                      {
+                        name: "Vikrant Potnis",
+                        title: "Director, Fortemagna Advisors Pvt. Ltd.",
+                        videoId: "TPDjb0nZHVs"
+                      },
+                      {
+                        name: "Darshan Savalia",
+                        title: "Co-Founder, Sknzy Software Solutions Pvt.",
+                        videoId: "NMxiTmk2iIs"
+                      },
+                      {
+                        name: "Karan Shah",
+                        title: "Physical Design Engineer, Nvidia",
+                        videoId: "fKpHg7UoD5Q"
+                      },
+                      {
+                        name: "Aunansha Sengupta",
+                        title: "Research Scholar, University of Michigan",
+                        videoId: "zVjRZnfgWVw"
+                      },
+                      {
+                        name: "Nandish Avlani",
+                        title: "Senior Design Engineer, AMD",
+                        videoId: "9EykVIfPL6E"
+                      },
+                      {
+                        name: "Jugal Gala",
+                        title: "",
+                        videoId: "j43-UdypPZo"
+                      }
+                    ].map((alumni, idx) => (
+                      <div key={idx} className="flex flex-col items-center w-full">
+                        <div className="w-full aspect-video mb-2 rounded overflow-hidden shadow-lg border border-[#4169E1]/30 bg-black">
+                          <iframe
+                            width="100%"
+                            height="100%"
+                            src={`https://www.youtube.com/embed/${alumni.videoId}`}
+                            title={alumni.name}
+                            
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                          ></iframe>
+                        </div>
+                        <span className="text-center text-white/90 text-sm font-semibold">{alumni.name}</span>
+                        <span className="text-center text-white/70 text-xs">{alumni.title}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                {/* End Alumni YouTube Videos Grid */}
+              </div>
             </div>
           )}
         </div>
@@ -389,10 +583,7 @@ const accordionSections = [
     title: "Our Alumni",
     icon: <GraduationCap className="w-5 h-5" />,
     content: (
-      <div>
-        {/* Add your Alumni content here */}
-        <p className="text-white/80">Alumni achievements and testimonials go here.</p>
-      </div>
+      <DaeAccordion />
     ),
   },
   {
@@ -743,3 +934,4 @@ export const Admissions = () => {
     </div>
   );
 };
+

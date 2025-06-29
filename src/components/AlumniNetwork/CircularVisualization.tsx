@@ -175,8 +175,8 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
         <svg
           className="absolute z-10"
           style={{
-            left: `calc(50% - 20px)`,
-            top: `calc(50% - 30px)`,
+            left: `calc(50% - 0px)`,
+            top: `calc(50% - 50px)`,
             transform: 'translate(-50%, -50%)'
           }}
           width={dimensions.width}
@@ -242,14 +242,14 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
         style={
           dimensions.width < 500
             ? {
-                left: `calc(50% + 0px)`, // Center horizontally for mobile
+                left: `calc(50% - 26px)`, // Center horizontally for mobile
                 top: `calc(50% + ${alumniPositions.length
-                  ? (alumniPositions[0].y - dimensions.height / 2) * 0.6
+                  ? (alumniPositions[0].y - dimensions.height / 2) * 1
                   : 0}px)`, // Move logo closer to the first alumni node
                 transform: 'translate(-50%, -50%)'
               }
             : {
-                left: '50%',
+                left: '45%',
                 top: `calc(50% - 50px)`,
                 transform: 'translate(-50%, -50%)'
               }
@@ -324,7 +324,7 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
       <svg
         className="absolute left-1/2 pointer-events-none z-10"
         style={{
-          top: `calc(50% - ${dimensions.width < 500 ? 30 : 50}px)`,
+          top: `calc(50% - ${dimensions.width < 500 ? 40 : 50}px)`,
           transform: 'translate(-50%, -50%)'
         }}
         width={dimensions.width}
@@ -359,8 +359,8 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
           key={alumni.id}
           className="absolute z-30"
           style={{
-            left: `calc(50% + ${(alumni.x - dimensions.width / 2)}px)`,
-            top: `calc(50% + ${(alumni.y - dimensions.height / 2) - (dimensions.width < 500 ? 30 : 50)}px)`, // Shift up
+            left: `calc(50% + ${(alumni.x - dimensions.width / 1.875)}px)`,
+            top: `calc(50% + ${(alumni.y - dimensions.height / 2) - (dimensions.width < 500 ? 55 : 50)}px)`, // Shift up
             transform: 'translate(-50%, -50%)',
             cursor: 'pointer'
           }}
@@ -435,15 +435,56 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
 
             {/* Status Indicator */}
             <div 
-              className={`absolute -bottom-1 -right-1 w-5 h-5 rounded-full border-2 border-white ${
+              className={`absolute -bottom-1 -right-1 rounded-full border-2 border-white ${
                 alumni.isActive ? 'bg-green-400' : 'bg-gray-500'
               } shadow-lg`}
+              style={{
+                width:
+                  dimensions.width < 350
+                    ? 8
+                    : dimensions.width < 500
+                    ? 10
+                    : 16,
+                height:
+                  dimensions.width < 350
+                    ? 8
+                    : dimensions.width < 500
+                    ? 10
+                    : 16,
+                borderWidth:
+                  dimensions.width < 350
+                    ? 1
+                    : dimensions.width < 500
+                    ? 1.5
+                    : 2
+              }}
             />
 
             {/* Industry Badge */}
             <div 
-              className="absolute -top-2 -left-2 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-white shadow-lg"
-              style={{ backgroundColor: getIndustryColor(alumni.industry) }}
+              className="absolute -top-2 -left-2 flex items-center justify-center text-xs font-bold text-white shadow-lg"
+              style={{
+                width:
+                  dimensions.width < 350
+                    ? 12
+                    : dimensions.width < 500
+                    ? 16
+                    : 24,
+                height:
+                  dimensions.width < 350
+                    ? 12
+                    : dimensions.width < 500
+                    ? 16
+                    : 24,
+                fontSize:
+                  dimensions.width < 350
+                    ? 7
+                    : dimensions.width < 500
+                    ? 9
+                    : 13,
+                backgroundColor: getIndustryColor(alumni.industry),
+                borderRadius: '50%'
+              }}
             >
               {alumni.industry.charAt(0)}
             </div>
