@@ -111,6 +111,46 @@ const AcademicsLayout = () => {
                   CDEEP Courses
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/academics/resources"
+                  className="block text-white px-3 py-2 rounded-md transition-all duration-300 hover:bg-[#00BFFF]/20 hover:text-[#00BFFF] focus:outline-none focus:ring-2 focus:ring-[#00BFFF]"
+                >
+                  Resources
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/academics/academic-calendar"
+                  className="block text-white px-3 py-2 rounded-md transition-all duration-300 hover:bg-[#00BFFF]/20 hover:text-[#00BFFF] focus:outline-none focus:ring-2 focus:ring-[#00BFFF]"
+                >
+                  Academic Calendar
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/academics/academic-council-minutes"
+                  className="block text-white px-3 py-2 rounded-md transition-all duration-300 hover:bg-[#00BFFF]/20 hover:text-[#00BFFF] focus:outline-none focus:ring-2 focus:ring-[#00BFFF]"
+                >
+                  Academic Council Minutes
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/academics/tle-model"
+                  className="block text-white px-3 py-2 rounded-md transition-all duration-300 hover:bg-[#00BFFF]/20 hover:text-[#00BFFF] focus:outline-none focus:ring-2 focus:ring-[#00BFFF]"
+                >
+                  (TLE) Model
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/academics/rules-and-regulations"
+                  className="block text-white px-3 py-2 rounded-md transition-all duration-300 hover:bg-[#00BFFF]/20 hover:text-[#00BFFF] focus:outline-none focus:ring-2 focus:ring-[#00BFFF]"
+                >
+                  Rules & Regulations
+                </Link>
+              </li>
             </ul>
           </nav>
         </div>
@@ -128,6 +168,11 @@ const AcademicsLayout = () => {
             <Route path="customized-courses" element={<CustomizedCourses />} />
             <Route path="centers-initiatives" element={<CentersInitiatives />} />
             <Route path="cdeep-courses" element={<CDEEP />} />
+            <Route path="resources" element={<Resources />} />
+            <Route path="academic-calendar" element={<AcademicCalendar />} />
+            <Route path="academic-council-minutes" element={<AcademicCouncilMinutes />} />
+            <Route path="tle-model" element={<TLEModel />} />
+            <Route path="rules-and-regulations" element={<RulesAndRegulations />} />
             <Route path="*" element={<div className="text-white">Page Not Found</div>} />
           </Routes>
         </div>
@@ -619,7 +664,344 @@ const CustomizedCourses = () => (
     </div>
   </PageSection>
 );
-const CentersInitiatives = () => <PageSection>Details about Centers & Initiatives</PageSection>;
-const CDEEP = () => <PageSection>Details about CDEEP Courses</PageSection>;
+const CentersInitiatives = () => (
+  <PageSection>
+    <h2 className="text-3xl font-bold text-[#FFD700] mb-8 border-b-2 border-[#FFD700] pb-2">
+      Centers & Initiatives
+    </h2>
+    <div className="text-white/80 leading-relaxed space-y-6">
+      {/* Center for Research in Neuromorphic Engineering */}
+      <div>
+        <h3 className="text-lg font-semibold text-blue-600 mb-4">
+          <a
+            href="https://www.spit.ac.in/faculty-research/center-for-research-in-neuromorphic-engineering-crine/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline"
+          >
+            Center for Research in Neuromorphic Engineering (CRINE)
+          </a>
+        </h3>
+        <p>
+          Sardar Patel Institute of Technology started CRINE with the mission of driving innovation through learning from neurons. The objective of this center is to promote research in neuromorphic engineering, to promote collaboration between colleges and disciplines, and to enhance industry-institute interaction. The institute has also signed an MoU with Eduvance, and the center is supported by Cypress Semiconductors University Alliance Program. Faculty and students from different departments of VJTI (Matunga), SPIT (Andheri), and Fr.CRCE (Bandra) started working together in a multidisciplinary area.
+        </p>
+      </div>
+
+      {/* MoU SPIT-VNIT */}
+      <div>
+        <h3 className="text-lg font-semibold text-blue-600 mb-4">
+          <a
+            href="/assets/MoU_SPIT_VNIT.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline"
+          >
+            MoU SPIT-VNIT
+          </a>
+        </h3>
+        <p>
+          Sardar Patel Institute of Technology has signed an MoU with Visvesvaraya National Institute of Technology, Nagpur (VNIT) for collaborative efforts on the following:
+        </p>
+        <ul className="list-disc list-inside space-y-2">
+          <li>Cooperation for Dissemination of Knowledge</li>
+          <li>Joint Research Projects</li>
+          <li>Exchange of Faculty</li>
+          <li>Knowledge Sharing</li>
+          <li>Utilization of Academic Infrastructure</li>
+        </ul>
+      </div>
+
+      {/* Authorized Training Center */}
+      <div>
+        <h3 className="text-lg font-semibold text-blue-600 mb-4">Authorized Training Center</h3>
+        <div className="flex flex-wrap items-center space-x-4">
+          <img
+            src="/assets/dlink-academy-logo (2).png"
+            alt="D-Link Academy Logo"
+            className="w-32 h-auto"
+          />
+          <img
+            src="/assets/cuda-teaching-center-logo.png"
+            alt="CUDA Teaching Center Logo"
+            className="w-32 h-auto"
+          />
+        </div>
+        <p className="mt-4">
+          Sardar Patel Institute of Technology is an authorized training center for D-Link Academy and CUDA Teaching Center, providing specialized training and certification programs.
+        </p>
+      </div>
+    </div>
+  </PageSection>
+);
+const CDEEP = () => (
+  <PageSection>
+    <h2 className="text-3xl font-bold text-[#FFD700] mb-8 border-b-2 border-[#FFD700] pb-2">
+      CDEEP Courses
+    </h2>
+    <div className="text-white/80 leading-relaxed space-y-6">
+      <div className="flex flex-col items-center">
+        {/* Image Section with Thin Blue Neon Border */}
+        <div className="relative group">
+          <img
+            src="/assets/cdeep-poster (2).png"
+            alt="CDEEP Poster"
+            className="w-full max-w-3xl rounded-lg shadow-md transition-transform duration-500 group-hover:scale-105 group-hover:shadow-lg"
+            style={{
+              boxShadow: '0 0 5px #00BFFF, 0 0 10px #00BFFF',
+              transition: 'box-shadow 0.3s ease-in-out',
+            }}
+          />
+          <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-center justify-center">
+            <p className="text-white text-lg font-semibold">Explore CDEEP Courses</p>
+          </div>
+        </div>
+      </div>
+      <p className="text-white mt-4">
+        <strong>Mode of Participation:</strong>
+        <ul className="list-disc list-inside space-y-2 mt-2">
+          <li>Live Classroom: Live lectures from IIT-B at S.P.I.T with live interaction.</li>
+          <li>Extended Live Classroom: Live lectures from IIT-B; participants can interact with IIT-B instructors.</li>
+          <li>Off-line Class Room: Three hours of lectures per week delivered by IIT-B instructors at S.P.I.T with a doubt-solving session by appointment later.</li>
+        </ul>
+      </p>
+      <p className="text-white mt-4">
+        <strong>Venue:</strong> Room no. 310, S.P.I.T Bhavan’s campus, Andheri-(W), Mumbai-400058
+      </p>
+      <p className="text-white mt-4">
+        <strong>Certification:</strong> Participants can be evaluated and certified either by IIT-Bombay or S.P.I.T.
+      </p>
+      <p className="text-white mt-4">
+        <strong>Co-ordinators:</strong>
+        <ul className="list-disc list-inside space-y-2 mt-2">
+          <li>Dr. (Prof) Y.S. Rao - 9820962870</li>
+          <li>Prof. G.T. Haldankar - 9821347829</li>
+        </ul>
+      </p>
+      <p className="text-white mt-4">
+        For more details, contact <a href="mailto:ysrao@spit.ac.in" className="text-red-600 hover:underline">ysrao@spit.ac.in</a>.
+      </p>
+      <div className="mt-4">
+        <a
+          href="/assets/CDEEP_course.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-red-600 font-semibold hover:underline"
+        >
+          Click here for list of courses
+        </a>
+      </div>
+    </div>
+  </PageSection>
+);
+// Resources Section
+const Resources = () => (
+  <PageSection>
+    <h2 className="text-3xl font-bold text-[#FFD700] mb-8 border-b-2 border-[#FFD700] pb-2">
+      Resources
+    </h2>
+    <div className="text-white/80 leading-relaxed space-y-6">
+      <p>
+        To achieve world-class standards of excellence in the field of engineering education and further, to act as a catalyst in supporting research and development in the industry, we pay a great deal of attention to the resources provided to the students.
+      </p>
+
+      {/* Central Library */}
+      <div>
+        <h3 className="text-lg font-semibold text-red-600 mb-2">
+          <a
+            href="https://library.spit.ac.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline"
+          >
+            Central Library
+          </a>
+        </h3>
+        <p>
+          Central Library at S.P.I.T. has more than 15,000 books and subscribes to 21 National and International periodicals along with several online journals. The library has obtained online membership of IEEE and ACM and Institutional Memberships of British Council Library (BCL), Indian Institute of Technology, Powai, Mumbai, and Developing Library network (DELNET) New Delhi. A bibliographic database searching is possible through the DELNET. Internet connectivity is available through a network in the library. The library also has an audio-visual room for students to view its large collection of CBT courses where 40 students can sit at a time. CCTV installed here is fruitfully utilized for sharing lessons, conference proceedings, college notes, and emerging messages, among students and faculty.
+        </p>
+      </div>
+
+      {/* Central Computing Facilities */}
+      <div>
+        <h3 className="text-lg font-semibold text-red-600 mb-2">Central Computing Facilities</h3>
+        <p>
+          The central computing facility is open for all the students. Each of the departments has its own specialized lab for software development activities in various disciplines. Business India weekly magazine made a special mention of the state-of-the-art Linux lab. The total number of nodes in the college is 400+ and growing.
+        </p>
+      </div>
+
+      {/* Language Laboratory */}
+      <div>
+        <h3 className="text-lg font-semibold text-red-600 mb-2">Language Laboratory</h3>
+        <p>
+          The language laboratory is a pioneer initiative undertaken to encourage students in taking up CALL (Computer Assisted Language Learning). It has a collection of CDs and other material in the form of cassettes and books on topics ranging from vocabulary, spelling, and grammar to managerial communication.
+        </p>
+      </div>
+
+      {/* E-Cell */}
+      <div>
+        <h3 className="text-lg font-semibold text-red-600 mb-2">E-Cell</h3>
+        <p>
+          The institute is a member of the National Entrepreneurship Network (NEN). An E-Cell was formed in 2006 to promote and encourage entrepreneurial skills in students.
+        </p>
+      </div>
+
+      {/* Conference Hall */}
+      <div>
+        <h3 className="text-lg font-semibold text-red-600 mb-2">Conference Hall</h3>
+        <p>
+          The fully equipped conference hall is an ideal place for conducting workshops, seminars, research conferences, and lectures by visiting faculty, professional bodies, and organizations.
+        </p>
+      </div>
+
+      {/* Gymkhana */}
+      <div>
+        <h3 className="text-lg font-semibold text-red-600 mb-2">Gymkhana</h3>
+        <p>
+          Located on the first floor, the gymnasium enables students to enjoy a game of Table Tennis or try their skill at Carrom. The huge Bhavan’s ground is where various college cricket events take place. Students as well as the college staff are actively involved in sporting activities.
+        </p>
+      </div>
+
+      {/* Counseling */}
+      <div>
+        <h3 className="text-lg font-semibold text-red-600 mb-2">Counseling</h3>
+        <p>
+          Our counseling services help students deal with difficulties of a personal or academic nature, which arise in the course of their studies. Students can approach the counselor with an appointment and can talk to them on a range of issues such as planning, decision-making, problem-solving, social, and emotional development.
+        </p>
+      </div>
+    </div>
+  </PageSection>
+);
+
+// Academic Calendar Section
+const AcademicCalendar = () => (
+  <PageSection>
+    <h2 className="text-3xl font-bold text-[#FFD700] mb-8 border-b-2 border-[#FFD700] pb-2">
+      Academic Calendar
+    </h2>
+    <div className="text-white/80 leading-relaxed space-y-6">
+      {/* 2025-26 Academic Calendar */}
+      <div>
+        <h3 className="text-lg font-semibold text-white mb-4">2025-26</h3>
+        <ul className="list-disc list-inside space-y-2">
+          <li>
+            <a
+              href="/assets/Academic-Calendar-2025-26-First-Term.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-red-600 hover:underline"
+            >
+              Academic Calendar 2025-26 First Term
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      {/* 2024-25 Academic Calendar */}
+      <div>
+        <h3 className="text-lg font-semibold text-white mb-4">2024-25</h3>
+        <ul className="list-disc list-inside space-y-2">
+          <li>
+            <a
+              href="/assets/2_2_Academic-Calendar-2024-25-Second-Term.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-red-600 hover:underline"
+            >
+              Academic Calendar 2024-25 Second Term
+            </a>
+          </li>
+          <li>
+            <a
+              href="/assets/1_1_Academic-Calendar-2024-25-First-Term.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-red-600 hover:underline"
+            >
+              Academic Calendar 2024-25 First Term
+            </a>
+          </li>
+          <li>
+            <a
+              href="/assets/Academic-Calendar_FE_First-Term_2024-25.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-red-600 hover:underline"
+            >
+              Academic Calendar FE First Term 2024-25
+            </a>
+          </li>
+          <li>
+            <a
+              href="/assets/Academic-Calendar-2024-25-First-Term-FYMCA.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-red-600 hover:underline"
+            >
+              Academic Calendar 2024-25 First Term-FY MCA
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </PageSection>
+);
+
+// Academic Council Minutes Section
+const AcademicCouncilMinutes = () => (
+  <PageSection>
+    <h2 className="text-3xl font-bold text-[#FFD700] mb-8 border-b-2 border-[#FFD700] pb-2">
+      Academic Council Minutes
+    </h2>
+    <div className="text-white/80 leading-relaxed space-y-6">
+      <p>
+        Access the minutes of academic council meetings to stay informed about decisions and updates.
+      </p>
+      <a
+        href="/assets/academic-council-minutes.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-red-600 font-semibold hover:underline"
+      >
+        Download Academic Council Minutes
+      </a>
+    </div>
+  </PageSection>
+);
+
+// (TLE) Model Section
+const TLEModel = () => (
+  <PageSection>
+    <h2 className="text-3xl font-bold text-[#FFD700] mb-8 border-b-2 border-[#FFD700] pb-2">
+      (TLE) Model
+    </h2>
+    <div className="text-white/80 leading-relaxed space-y-6">
+      <p>
+        Learn about the Teaching-Learning-Evaluation (TLE) model implemented at Sardar Patel Institute of Technology to ensure academic excellence.
+      </p>
+    </div>
+  </PageSection>
+);
+
+// Rules & Regulations Section
+const RulesAndRegulations = () => (
+  <PageSection>
+    <h2 className="text-3xl font-bold text-[#FFD700] mb-8 border-b-2 border-[#FFD700] pb-2">
+      Rules & Regulations
+    </h2>
+    <div className="text-white/80 leading-relaxed space-y-6">
+      <p>
+        Familiarize yourself with the rules and regulations governing academic and campus activities at Sardar Patel Institute of Technology.
+      </p>
+      <a
+        href="/assets/rules-and-regulations.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-red-600 font-semibold hover:underline"
+      >
+        Download Rules & Regulations
+      </a>
+    </div>
+  </PageSection>
+);
 
 export default AcademicsLayout;
