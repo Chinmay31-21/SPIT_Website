@@ -1,12 +1,340 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, FileText, GraduationCap, Calculator, CreditCard, Download, Bold } from 'lucide-react';
+import { Calendar, FileText, GraduationCap, Calculator, CreditCard, Download, Bold, Users, BookOpen, FlaskConical, Mail, ArrowRight } from 'lucide-react';
 import { PaymentGateway } from '../components/PaymentGateway';
 import { useHref } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Font } from 'three/examples/jsm/Addons.js';
+import { div } from 'three/examples/jsm/nodes/Nodes.js';
 
-// ...existing imports...
+// Accordion component
+const AccordionSection = ({
+  title,
+  icon,
+  children,
+  isOpen,
+  onClick,
+}: {
+  title: string;
+  icon?: React.ReactNode;
+  children: React.ReactNode;
+  isOpen: boolean;
+  onClick: () => void;
+}) => (
+  <div className="mb-3 bg-black/30 backdrop-blur-md border border-[#4169E1]/30 rounded-lg">
+    <button
+      className="w-full flex justify-between items-center  bg-gradient-to-t from-[#240046] to-[#10002B] text-white font-semibold text-lg px-6 py-5 rounded transition-all focus:outline-none"
+      onClick={onClick}
+      aria-expanded={isOpen}
+    >
+      <span className="flex items-center gap-3 text-[#FFD700]">
+        {icon}
+        {title}
+      </span>
+      <span className="text-2xl text-white">{isOpen ? '−' : '+'}</span>
+    </button>
+    {isOpen && (
+      <div className="bg-black/30 px-6 py-5 rounded-b">
+        {children}
+      </div>
+    )}
+  </div>
+);
+
+const accordionSections = [
+  {  
+    
+    title: "Principal's Letter",
+    icon: <FileText className="w-5 h-5" />,
+    content: (
+      <div>
+        {/* Add your Principal's Letter content here */}
+        <p className="text-white/80 font-bold">Dear Student,</p>
+        <br />
+        <p className="text-white/80">I have great pleasure in expressing my thoughts as the Principal of Sardar Patel Institute of Technology (S.P.I.T.), the numero uno, self-financed, autonomous institution of Maharashtra. We are a constituent of the Bharatiya Vidya Bhavan, not just a conglomeration of more than 300 institutions, but a culture, a saga, a holy journey, started by Dr. K.M. Munshiji with the support of Mahatma Gandhi in 1938. Imparting value-based education with indian cultural ethos has always been the prime objective of the Bhavan.</p>
+        <br />
+        <p className="text-white/80">Engineers and technologists form the backbone of any nation's economic development. The world has recently undergone a very unprecedented, extraordinary, challenging time. We are witnessing an explosion of disruptive technologies. Artificial Intelligence, Machine Learning, Blockchain and Cloud Computing are rapidly growing and penetrating almost every field of engineering. Education, in particular, professional technical education, has landed at a new normal and is rapidly changing its practices.</p>
+        <br />
+        <p className="text-white/80">S.P.I.T. is constantly adapting itself to these changes. It has observed an extraordinary growth in placements during this challenging time, while the majority of other technical institutions were struggling.</p>
+        <br />
+        <p className="text-white/80">Disruptions like covid will come again and again, and humanity will have to face it bravely again and again. Future engineers will work for 50-55 years of their life, they will have 3 to 4 diversified careers in technologies we cannot think of today. To make aspiring minds confident, and courageous to face future challenges, education must prepare them for the "why" and the "how". At S.P.I.T. our teaching-learning and evaluation processes focus on these aspects.</p>
+        <br />
+        <p className="text-white/80">We believe in multi-disciplinary exposure to the learners, yet ensuring growth in one vertical, cherishing human sensitivity and empathy. Our thoughtfully articulated, unique academic model aims towards developing a holistic, all-rounded technocrat. It simultaneously develops knowledge, attitude and skills. We also give importance to physical, philosophical and spiritual growth.</p>
+        <br />
+        <p className="text-white/80">Pursuing a research internship during 6th semester; an industry internship during 8th semester; a provision of simultaneously acquiring a minor in management from SP Jain Institute of Management Research; liberal learning courses spanning from performing arts to trekking, photography, working with NGOs etc, are some of the salient features of academics at S.P.I.T.</p>
+        <br />
+        <p className="text-white/80">Our splendid academic performance, sparkling placements (quantitative and qualitative), enrollment for higher studies at the best places of the world, prizes won by our students in national/international level technical competitions, consistently over many years are the true testimonials of life at S.P.I.T.. With the support of a dedicated and hardworking faculty and staff, the institute has achieved enviable visibility and ranking in a short span of time. On behalf of all stakeholders of S.P.I.T., I welcome you to this family and look forward to your valuable association with us for a better tomorrow. Four years of education at Sardar Patel Institute of Technology will undoubtedly empower you to lead a successful life.</p>
+        <br />
+        <p className="text-white/80">Let's learn together. Let's grow together.</p>
+        <br />
+        <p className="text-white/80 font-bold">Dr. Bhalchandra N. Chaudhari,</p>
+        <p className="text-white/80 font-bold">Principal</p>
+
+      </div>
+    ),
+  },
+  {
+    title: "Admission Programmes",
+    icon: <FileText className="w-5 h-5" />,
+    content: (
+      // ...Programs Offered section...
+      <motion.div
+        initial={false}
+        animate={{ opacity: 1 }}
+        className="mb-4"
+      >
+        <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Programs Offered</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            {
+              name: "B.Tech Computer Engineering",
+              seats: 120,
+              duration: "4 years"
+            },
+            {
+              name: "B.Tech Information Technology",
+              seats: 60,
+              duration: "4 years"
+            },
+            {
+              name: "B.Tech Electronics & Telecom",
+              seats: 60,
+              duration: "4 years"
+            }
+          ].map((program, index) => (
+            <div 
+              key={index}
+              className="bg-black/30 backdrop-blur-md border border-[#4169E1]/30 rounded-lg p-6"
+            >
+              <h3 className="text-xl font-bold text-white mb-4">{program.name}</h3>
+              <div className="space-y-2 text-white/80">
+                <p>Seats: {program.seats}</p>
+                <p>Duration: {program.duration}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+    ),
+  },
+  {
+    title: "Fee Structure",
+    icon: <span className="font-bold text-xl">₹</span>,
+    content: (
+      // ...Fee Structure & Payment section...
+      <motion.div
+        initial={false}
+        animate={{ opacity: 1 }}
+        className="mb-4"
+      >
+        <div className="overflow-x-auto">
+          <table className="w-full text-white">
+            <thead>
+              <tr className="border-b border-[#4169E1]/30">
+                <th className="py-4 px-6 text-left">Category</th>
+                <th className="py-4 px-6 text-right">First Year</th>
+                <th className="py-4 px-6 text-right">Second Year</th>
+                <th className="py-4 px-6 text-right">Third Year</th>
+                <th className="py-4 px-6 text-right">Fourth Year</th>
+                <th className="py-4 px-6 text-center">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-b border-[#4169E1]/30">
+                <td className="py-4 px-6">B.Tech</td>
+                <td className="py-4 px-6 text-right">₹2,10,000</td>
+                <td className="py-4 px-6 text-right">₹2,10,000</td>
+                <td className="py-4 px-6 text-right">₹2,10,000</td>
+                <td className="py-4 px-6 text-right">₹2,10,000</td>
+                <td className="py-4 px-6 text-center">
+                  <button
+                    onClick={() => handlePayment(145000, "First Year Fee - Open Category")}
+                    className="bg-[#4169E1] hover:bg-[#2c5aa0] text-white px-4 py-2 rounded-md flex items-center gap-2 mx-auto"
+                  >
+                    <CreditCard className="w-4 h-4" />
+                    Pay Now
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td className="py-4 px-6">M.Tech</td>
+                <td className="py-4 px-6 text-right">₹1,00,000</td>
+                <td className="py-4 px-6 text-right">₹1,00,000</td>
+                <td className="py-4 px-6 text-right">₹1,00,000</td>
+                <td className="py-4 px-6 text-right">₹1,00,000</td>
+                <td className="py-4 px-6 text-center">
+                  <button
+                    onClick={() => handlePayment(15000, "First Year Fee - Reserved Category")}
+                    className="bg-[#4169E1] hover:bg-[#2c5aa0] text-white px-4 py-2 rounded-md flex items-center gap-2 mx-auto"
+                  >
+                    <CreditCard className="w-4 h-4" />
+                    Pay Now
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td className="py-4 px-6">MCA</td>
+                <td className="py-4 px-6 text-right">₹1,31,000</td>
+                <td className="py-4 px-6 text-right">₹1,31,000</td>
+                <td className="py-4 px-6 text-right">₹1,31,000</td>
+                <td className="py-4 px-6 text-right">₹1,31,000</td>
+                <td className="py-4 px-6 text-center">
+                  <button
+                    onClick={() => handlePayment(15000, "First Year Fee - Reserved Category")}
+                    className="bg-[#4169E1] hover:bg-[#2c5aa0] text-white px-4 py-2 rounded-md flex items-center gap-2 mx-auto"
+                  >
+                    <CreditCard className="w-4 h-4" />
+                    Pay Now
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <div className="mt-6 p-4 bg-black/50 rounded-lg">
+          <h3 className="text-lg font-semibold text-[#FFD700] mb-2">Payment Information</h3>
+          <ul className="text-white/80 space-y-1 text-sm">
+            <li>• Secure payment gateway powered by Razorpay</li>
+            <li>• Accept all major credit/debit cards, UPI, and net banking</li>
+            <li>• Instant payment confirmation and receipt generation</li>
+            <li>• 24/7 customer support for payment issues</li>
+          </ul>
+        </div>
+      </motion.div>
+    ),
+  },
+  {
+    title: "Placements & Internships",
+    icon: <GraduationCap className="w-5 h-5" />,
+    content: (
+      <div>
+        {/* Add your Placements & Internships content here */}
+        <p className="text-white/80">Placement stats and internship info goes here.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Higher Studies",
+    icon: <span className="text-2xl">🏛️</span>,
+    content: (
+      <div>
+        {/* Add your Higher Studies content here */}
+        <p className="text-white/80">Higher studies guidance and info goes here.</p>
+      </div>
+    ),
+  },
+  {
+    title: "SP - Technology Business Incubator",
+    icon: <span className="text-2xl">🏢</span>,
+    content: (
+      <div>
+        {/* Add your TBI content here */}
+        <p className="text-white/80">Incubator details go here.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Life @ SPIT",
+    icon: <span className="text-2xl">👥</span>,
+    content: (
+      <div>
+        {/* Add your Life @ SPIT content here */}
+        <p className="text-white/80">Campus life, clubs, and activities info goes here.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Our Alumni",
+    icon: <GraduationCap className="w-5 h-5" />,
+    content: (
+      <div>
+        {/* Add your Alumni content here */}
+        <p className="text-white/80">Alumni achievements and testimonials go here.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Academics",
+    icon: <BookOpen className="w-5 h-5" />,
+    content: (
+      <div>
+        {/* Add your Academics content here */}
+        <p className="text-white/80">Academic programs, curriculum, and regulations information goes here.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Research",
+    icon: <FlaskConical className="w-5 h-5" />,
+    content: (
+      <div>
+        {/* Add your Research content here */}
+        <p className="text-white/80">Research activities, publications, and projects info goes here.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Electronics & Telecommunication Engineering",
+    icon: <ArrowRight className="w-5 h-5" />,
+    content: (
+      <div>
+        {/* Add your E&TC content here */}
+        <p className="text-white/80">Details about Electronics & Telecommunication Engineering department go here.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Computer Engineering",
+    icon: <ArrowRight className="w-5 h-5" />,
+    content: (
+      <div>
+        {/* Add your Computer Engineering content here */}
+        <p className="text-white/80">Details about Computer Engineering department go here.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Computer Science & Engineering",
+    icon: <ArrowRight className="w-5 h-5" />,
+    content: (
+      <div>
+        {/* Add your Computer Science & Engineering content here */}
+        <p className="text-white/80">Details about Computer Science & Engineering department go here.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Master of Computer Application",
+    icon: <ArrowRight className="w-5 h-5" />,
+    content: (
+      <div>
+        {/* Add your MCA content here */}
+        <p className="text-white/80">Details about Master of Computer Application program go here.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Admissions Core Committee",
+    icon: <Users className="w-5 h-5" />,
+    content: (
+      <div>
+        {/* Add your Admissions Core Committee content here */}
+        <p className="text-white/80">List of committee members and contact info goes here.</p>
+      </div>
+    ),
+  },
+  {
+    title: "Admission Enquiry",
+    icon: <Mail className="w-5 h-5" />,
+    content: (
+      <div>
+        {/* Add your Admission Enquiry content here */}
+        <p className="text-white/80">Contact details and enquiry form link go here.</p>
+      </div>
+    ),
+  },
+];
 
 const CutoffSections = () => (
   <div className="space-y-8">
@@ -58,6 +386,7 @@ const CutoffSection = ({ year, pdf, description }: { year: string; pdf: string; 
 export const Admissions = () => {
   const [showPayment, setShowPayment] = useState(false);
   const [selectedFee, setSelectedFee] = useState<{amount: number; description: string} | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const handlePayment = (amount: number, description: string) => {
     setSelectedFee({ amount, description });
@@ -65,8 +394,6 @@ export const Admissions = () => {
   };
 
   return (
-
-    
     <div className="min-h-screen bg-gradient-to-b (from-[#02365E] to-[#30036B]) py-8">
       <div className="container mx-auto px-4">
         <motion.h1 
@@ -77,7 +404,7 @@ export const Admissions = () => {
           Admissions
         </motion.h1>
 
-<div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -126,19 +453,32 @@ export const Admissions = () => {
             </ul>
           </motion.div>
         </div>
-
-
+        {/* Cutoff for Last 5 Years */}
         <motion.div 
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ delay: 1.2 }}
-  className="mb-8"
->
-  <h2 className="text-2xl font-bold text-[#0077B6] mb-6">Cutoff for Last 5 Years</h2>
-  <CutoffSections />
-</motion.div>
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.2 }}
+          className="mb-8"
+        >
+          <h2 className="text-2xl font-bold text-[#0077B6] mb-6">Cutoff for Last 5 Years</h2>
+          <CutoffSections />
+        </motion.div>
         <br />
-       
+
+       {/* Accordion Section */}
+        <div className="mb-8">
+          {accordionSections.map((section, idx) => (
+            <AccordionSection
+              key={section.title}
+              title={section.title}
+              icon={section.icon}
+              isOpen={openIndex === idx}
+              onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
+            >
+              {section.content}
+            </AccordionSection>
+          ))}
+        </div>
         {/* Important Dates */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -179,46 +519,6 @@ export const Admissions = () => {
           ))}
         </motion.div>
 
-        {/* Programs */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="mb-12"
-        >
-          <h2 className="text-3xl font-bold text-[#FFD700] mb-6">Programs Offered</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                name: "B.Tech Computer Engineering",
-                seats: 120,
-                duration: "4 years"
-              },
-              {
-                name: "B.Tech Information Technology",
-                seats: 60,
-                duration: "4 years"
-              },
-              {
-                name: "B.Tech Electronics & Telecom",
-                seats: 60,
-                duration: "4 years"
-              }
-            ].map((program, index) => (
-              <div 
-                key={index}
-                className="bg-black/30 backdrop-blur-md border border-[#4169E1]/30 rounded-lg p-6"
-              >
-                <h3 className="text-xl font-bold text-white mb-4">{program.name}</h3>
-                <div className="space-y-2 text-white/80">
-                  <p>Seats: {program.seats}</p>
-                  <p>Duration: {program.duration}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-
         {/* Eligibility & Documents */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           <motion.div 
@@ -253,90 +553,6 @@ export const Admissions = () => {
           </motion.div>
         </div>
 
-        {/* Fee Structure with Payment */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1 }}
-          className="bg-black/30 backdrop-blur-md border border-[#4169E1]/30 rounded-lg p-6 mb-8"
-        >
-          <h2 className="text-2xl font-bold text-[#FFD700] mb-6">Fee Structure & Payment</h2>
-          <div className="overflow-x-auto">
-            <table className="w-full text-white">
-              <thead>
-                <tr className="border-b border-[#4169E1]/30">
-                  <th className="py-4 px-6 text-left">Category</th>
-                  <th className="py-4 px-6 text-right">First Year</th>
-                  <th className="py-4 px-6 text-right">Second Year</th>
-                  <th className="py-4 px-6 text-right">Third Year</th>
-                  <th className="py-4 px-6 text-right">Fourth Year</th>
-                  <th className="py-4 px-6 text-center">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b border-[#4169E1]/30">
-                  <td className="py-4 px-6">B.Tech</td>
-                  <td className="py-4 px-6 text-right">₹2,10,000</td>
-                  <td className="py-4 px-6 text-right">₹2,10,000</td>
-                  <td className="py-4 px-6 text-right">₹2,10,000</td>
-                  <td className="py-4 px-6 text-right">₹2,10,000</td>
-                  <td className="py-4 px-6 text-center">
-                    <button
-                      onClick={() => handlePayment(145000, "First Year Fee - Open Category")}
-                      className="bg-[#4169E1] hover:bg-[#2c5aa0] text-white px-4 py-2 rounded-md flex items-center gap-2 mx-auto"
-                    >
-                      <CreditCard className="w-4 h-4" />
-                      Pay Now
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="py-4 px-6">M.Tech</td>
-                  <td className="py-4 px-6 text-right">₹1,00,000</td>
-                  <td className="py-4 px-6 text-right">₹1,00,000</td>
-                  <td className="py-4 px-6 text-right">₹1,00,000</td>
-                  <td className="py-4 px-6 text-right">₹1,00,000</td>
-                  <td className="py-4 px-6 text-center">
-                    <button
-                      onClick={() => handlePayment(15000, "First Year Fee - Reserved Category")}
-                      className="bg-[#4169E1] hover:bg-[#2c5aa0] text-white px-4 py-2 rounded-md flex items-center gap-2 mx-auto"
-                    >
-                      <CreditCard className="w-4 h-4" />
-                      Pay Now
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="py-4 px-6">MCA</td>
-                  <td className="py-4 px-6 text-right">₹1,31,000</td>
-                  <td className="py-4 px-6 text-right">₹1,31,000</td>
-                  <td className="py-4 px-6 text-right">₹1,31,000</td>
-                  <td className="py-4 px-6 text-right">₹1,31,000</td>
-                  <td className="py-4 px-6 text-center">
-                    <button
-                      onClick={() => handlePayment(15000, "First Year Fee - Reserved Category")}
-                      className="bg-[#4169E1] hover:bg-[#2c5aa0] text-white px-4 py-2 rounded-md flex items-center gap-2 mx-auto"
-                    >
-                      <CreditCard className="w-4 h-4" />
-                      Pay Now
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          
-          <div className="mt-6 p-4 bg-black/50 rounded-lg">
-            <h3 className="text-lg font-semibold text-[#FFD700] mb-2">Payment Information</h3>
-            <ul className="text-white/80 space-y-1 text-sm">
-              <li>• Secure payment gateway powered by Razorpay</li>
-              <li>• Accept all major credit/debit cards, UPI, and net banking</li>
-              <li>• Instant payment confirmation and receipt generation</li>
-              <li>• 24/7 customer support for payment issues</li>
-            </ul>
-          </div>
-        </motion.div>
-         
         {/* Quick Payment Options */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
