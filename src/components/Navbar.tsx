@@ -342,6 +342,9 @@ const MobileMenu = () => {
     )
   );
 
+  // Close menu on link click or overlay click
+  const handleClose = () => setIsOpen(false);
+
   return (
     <div className="lg:hidden">
       <button
@@ -349,83 +352,93 @@ const MobileMenu = () => {
         className="text-white hover:text-[#FFD700] transition-colors p-2 min-h-[44px] min-w-[44px]"
         aria-label="Toggle menu"
       >
-        {isOpen ? <X size={24} /> : <MenuIcon size={24} />}
+        <span className="sr-only">Open main menu</span>
+        <motion.div
+          initial={false}
+          animate={{ rotate: isOpen ? 90 : 0 }}
+          transition={{ duration: 0.2 }}
+        >
+          {isOpen ? <X size={32} /> : <MenuIcon size={32} />}
+        </motion.div>
       </button>
-
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ clipPath: 'circle(0% at top right)' }}
-            animate={{ clipPath: 'circle(150% at top right)' }}
-            exit={{ clipPath: 'circle(0% at top right)' }}
-            transition={{ type: 'tween', duration: 0.5, ease: 'easeInOut' }}
-            className="fixed inset-0 light:bg-white/95 dark:bg-black/95 backdrop-blur-lg z-50 overflow-y-auto"
-          >
-            <div className="container mx-auto px-4 py-6">
-              <div className="flex items-center justify-between mb-8">
+          <>
+            {/* Overlay */}
+            <motion.div
+              key="overlay"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.7 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-[9998] bg-black/80 backdrop-blur-[2px]"
+              onClick={handleClose}
+            />
+            {/* Menu Panel - slides in from left and expands vertically */}
+            <motion.nav
+              key="mobilemenu"
+              initial={{ x: '-100%', height: 0 }}
+              animate={{ x: 0, height: '100vh' }}
+              exit={{ x: '-100%', height: 0 }}
+              transition={{ type: 'tween', duration: 0.35 }}
+              className="fixed top-0 left-0 w-full h-full z-[9999] bg-gradient-to-br from-[#240046] via-[#30036B] to-[#02365E] flex flex-col"
+              style={{ touchAction: 'none' }}
+            >
+              <div className="flex items-center justify-between px-6 py-5 border-b border-[#4169E1]/30">
                 <Link 
                   to="/" 
-                  className="flex items-center gap-2 light:text-black dark:text-white hover:text-[#5E035E] transition-colors"
-                  onClick={() => setIsOpen(false)}
+                  className="flex items-center gap-2 text-white hover:text-[#FFD700] transition-colors"
+                  onClick={handleClose}
                 >
-                  <Home size={24} />
-                  <span>Home</span>
+                  <Home size={28} />
+                  <span className="font-bold text-lg">Home</span>
                 </Link>
                 <button
-                  onClick={() => setIsOpen(false)}
-                  className="light:text-black dark:text-white hover:text-[#5E035E] transition-colors p-2"
+                  onClick={handleClose}
+                  className="text-white hover:text-[#FFD700] transition-colors p-2"
+                  aria-label="Close menu"
                 >
-                  <X size={24} />
+                  <X size={32} />
                 </button>
               </div>
-
-              <div className="relative mb-8">
-                <input
-                  type="text"
-                  placeholder="Search menu..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full px-4 py-3 rounded-lg bg-white/5 border border-[#4169E1]/30 text-white placeholder-white/50 focus:outline-none focus:border-[#4169E1]"
-                />
-                <Search className="absolute right-3 top-1/2 -translate-y-1/2 text-white/50" size={20} />
+              <div className="px-6 py-4 flex-1 overflow-y-auto">
+                <div className="relative mb-6">
+                  <input
+                    type="text"
+                    placeholder="Search menu..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-[#4169E1]/30 text-white placeholder-white/60 focus:outline-none focus:border-[#FFD700]"
+                  />
+                  <Search className="absolute right-3 top-1/2 -translate-y-1/2 text-white/50" size={20} />
+                </div>
+                <div>
+                  {filteredItems.map((item) => (
+                    <div key={item.title} className="mb-4">
+                      <details className="group">
+                        <summary className="flex items-center justify-between cursor-pointer text-white hover:text-[#FFD700] transition-colors text-lg font-semibold py-2 px-2 rounded">
+                          {item.title}
+                          <ChevronDown className="transform transition-transform group-open:rotate-180" />
+                        </summary>
+                        <div className="pl-4 mt-2 space-y-1">
+                          {item.items?.map((subItem) => (
+                            <Link
+                              key={subItem.title}
+                              to={subItem.href}
+                              onClick={handleClose}
+                              className="block py-2 px-2 text-white/90 hover:text-[#FFD700] transition-colors rounded hover:bg-[#4169E1]/10 text-base"
+                            >
+                              {subItem.title}
+                            </Link>
+                          ))}
+                        </div>
+                      </details>
+                    </div>
+                  ))}
+                </div>
               </div>
-
-              <div className="space-y-6">
-                {filteredItems.map((item) => (
-                  <motion.div
-                    key={item.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <details className="group">
-                      <summary className="flex items-center justify-between cursor-pointer light:text-black dark:text-white hover:text-[#5E035E] transition-colors text-lg font-semibold mb-2">
-                        {item.title}
-                        <ChevronDown className="transform transition-transform group-open:rotate-180" />
-                      </summary>
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="pl-4 space-y-2"
-                      >
-                        {item.items?.map((subItem) => (
-                          <Link
-                            key={subItem.title}
-                            to={subItem.href}
-                            onClick={() => setIsOpen(false)}
-                            className="block py-2 px-4 light:text-black dark:text-white hover:text-[#5E035E] transition-colors rounded hover:bg-gradient-to-r from-[#4169E1]/10 to-[#5E035E]/10 text-sm"
-                          >
-                            {subItem.title}
-                          </Link>
-                        ))}
-                      </motion.div>
-                    </details>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
+            </motion.nav>
+          </>
         )}
       </AnimatePresence>
     </div>
