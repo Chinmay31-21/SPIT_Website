@@ -50,9 +50,16 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
   useEffect(() => {
     const updateDimensions = () => {
       if (containerRef.current) {
-        const { width } = containerRef.current.getBoundingClientRect();
-        // Responsive: min 320, max 800, 90vw for mobile/tablet
-        const size = Math.max(320, Math.min(width, window.innerWidth < 768 ? window.innerWidth * 0.95 : 800));
+        // Use viewport width for mobile, container width for desktop
+        const vw = Math.min(window.innerWidth, window.innerHeight);
+        let size = 800;
+        if (window.innerWidth < 640) {
+          // Mobile: use 90vw or 90vh, whichever is smaller, minus some padding
+          size = Math.max(260, Math.min(vw * 0.9, 400));
+        } else if (containerRef.current) {
+          const { width } = containerRef.current.getBoundingClientRect();
+          size = Math.max(320, Math.min(width, 800));
+        }
         setDimensions({ width: size, height: size });
       }
     };
@@ -66,17 +73,26 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
     // Center based on SVG center (not CSS)
     const centerX = dimensions.width / 2;
     const centerY = dimensions.height / 2;
-    const baseRadius = Math.min(dimensions.width, dimensions.height) * 0.15;
-    
-    const circles = [
-      { radius: baseRadius * 1.2, count: Math.min(4, filteredAlumni.length) },
-      { radius: baseRadius * 2, count: Math.min(6, Math.max(0, filteredAlumni.length - 4)) },
-      { radius: baseRadius * 2.8, count: Math.max(0, filteredAlumni.length - 10) }
-    ];
-    
+    // Adjust base radius for mobile so avatars don't overflow
+    const baseRadius = Math.min(dimensions.width, dimensions.height) * (dimensions.width < 400 ? 0.18 : 0.15);
+
+    // Distribute alumni more evenly for small screens
+    const circles =
+      dimensions.width < 400
+        ? [
+            { radius: baseRadius * 1.1, count: Math.min(3, filteredAlumni.length) },
+            { radius: baseRadius * 1.7, count: Math.min(5, Math.max(0, filteredAlumni.length - 3)) },
+            { radius: baseRadius * 2.2, count: Math.max(0, filteredAlumni.length - 8) }
+          ]
+        : [
+            { radius: baseRadius * 1.2, count: Math.min(4, filteredAlumni.length) },
+            { radius: baseRadius * 2, count: Math.min(6, Math.max(0, filteredAlumni.length - 4)) },
+            { radius: baseRadius * 2.8, count: Math.max(0, filteredAlumni.length - 10) }
+          ];
+
     let alumniIndex = 0;
     const positions: any[] = [];
-    
+
     circles.forEach((circle, circleIndex) => {
       for (let i = 0; i < circle.count && alumniIndex < filteredAlumni.length; i++) {
         const angle = (i / circle.count) * 2 * Math.PI - Math.PI / 2;
@@ -122,7 +138,7 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
       ref={containerRef}
       className="relative mx-auto w-full flex justify-center items-center"
       style={{
-        minHeight: 320,
+        minHeight: 260,
         height: dimensions.height,
         maxWidth: 800,
         width: '100%',
@@ -166,9 +182,8 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
             <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0.3" />
           </radialGradient>
         </defs>
-        
         {/* Concentric circles */}
-        {[1.2, 2, 2.8].map((multiplier, index) => (
+        {(dimensions.width < 400 ? [1.1, 1.7, 2.2] : [1.2, 2, 2.8]).map((multiplier, index) => (
           <motion.circle
             key={index}
             cx={dimensions.width / 2}
@@ -196,15 +211,35 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
         transition={{ duration: 1, delay: 0.5, type: "spring" }}
       >
         <div className="relative flex items-center justify-center">
-          <div className="w-24 h-24 rounded-full bg-gradient-to-br from-purple-600 via-purple-700 to-purple-900 flex items-center justify-center shadow-2xl border-4 border-purple-400/50">
+          <div
+            className="rounded-full bg-gradient-to-br from-purple-600 via-purple-700 to-purple-900 flex items-center justify-center shadow-2xl border-4 border-purple-400/50"
+            style={{
+              width: dimensions.width < 400 ? 70 : 96,
+              height: dimensions.width < 400 ? 70 : 96
+            }}
+          >
             <img
               src="https://www.spit.ac.in/wp-content/themes/spit-main/images/SPIT_logo.png"
               alt="SPIT Logo"
-              className="w-16 h-16 object-contain rounded-full"
+              className="object-contain rounded-full"
+              style={{
+                width: dimensions.width < 400 ? 44 : 64,
+                height: dimensions.width < 400 ? 44 : 64
+              }}
             />
           </div>
-          <div className="absolute -inset-2 rounded-full border-2 border-purple-400/30 animate-pulse"></div>
-          <div className="absolute -inset-4 rounded-full border border-purple-300/20 animate-ping"></div>
+          <div
+            className="absolute rounded-full border-2 border-purple-400/30 animate-pulse"
+            style={{
+              inset: dimensions.width < 400 ? -6 : -8
+            }}
+          ></div>
+          <div
+            className="absolute rounded-full border border-purple-300/20 animate-ping"
+            style={{
+              inset: dimensions.width < 400 ? -12 : -16
+            }}
+          ></div>
         </div>
       </motion.div>
 
@@ -264,9 +299,7 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
           whileHover={{ scale: 1.5, z: 50 }}
           whileTap={{ scale: 0.95 }}
         >
-          {/* Alumni Avatar Container */}
           <div className="relative">
-            {/* Outer ring animation */}
             <motion.div
               className="absolute -inset-2 rounded-full border-2 border-purple-400/50"
               animate={hoveredAlumni === alumni.id ? {
@@ -275,15 +308,15 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
               } : {}}
               transition={{ duration: 2, repeat: Infinity }}
             />
-            
-            {/* Main avatar */}
-            <div 
-              className={`w-16 h-16 rounded-full overflow-hidden border-3 transition-all duration-300 ${
-                hoveredAlumni === alumni.id 
-                  ? 'border-purple-400 shadow-lg shadow-purple-400/50 scale-110' 
+            <div
+              className={`rounded-full overflow-hidden border-3 transition-all duration-300 ${
+                hoveredAlumni === alumni.id
+                  ? 'border-purple-400 shadow-lg shadow-purple-400/50 scale-110'
                   : 'border-purple-600/70'
               }`}
               style={{
+                width: dimensions.width < 400 ? 40 : 64,
+                height: dimensions.width < 400 ? 40 : 64,
                 borderColor: hoveredAlumni === alumni.id ? getIndustryColor(alumni.industry) : undefined,
                 boxShadow: hoveredAlumni === alumni.id ? `0 0 20px ${getIndustryColor(alumni.industry)}40` : undefined
               }}
@@ -292,6 +325,10 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
                 src={alumni.avatar}
                 alt={alumni.name}
                 className="w-full h-full object-cover"
+                style={{
+                  width: '100%',
+                  height: '100%'
+                }}
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(alumni.name)}&background=8B5CF6&color=fff&size=64`;
