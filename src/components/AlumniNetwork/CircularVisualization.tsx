@@ -218,13 +218,13 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
             style={{
               width:
                 dimensions.width < 350
-                  ? 40
+                  ? 48
                   : dimensions.width < 500
                   ? 60
                   : 96,
               height:
                 dimensions.width < 350
-                  ? 50
+                  ? 48
                   : dimensions.width < 500
                   ? 60
                   : 96
@@ -237,13 +237,13 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
               style={{
                 width:
                   dimensions.width < 350
-                    ? 28
+                    ? 24
                     : dimensions.width < 500
                     ? 36
                     : 64,
                 height:
                   dimensions.width < 350
-                    ? 28
+                    ? 32
                     : dimensions.width < 500
                     ? 36
                     : 64
