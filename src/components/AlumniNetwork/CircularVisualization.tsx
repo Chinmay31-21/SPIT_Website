@@ -46,15 +46,16 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
     member.industry.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  // Update dimensions on resize
+  // Responsive dimensions based on window size
   useEffect(() => {
     const updateDimensions = () => {
       if (containerRef.current) {
-        const { width, height } = containerRef.current.getBoundingClientRect();
-        setDimensions({ width: Math.max(width, 400), height: Math.max(height, 400) });
+        const { width } = containerRef.current.getBoundingClientRect();
+        // Responsive: min 320, max 800, 90vw for mobile/tablet
+        const size = Math.max(320, Math.min(width, window.innerWidth < 768 ? window.innerWidth * 0.95 : 800));
+        setDimensions({ width: size, height: size });
       }
     };
-
     updateDimensions();
     window.addEventListener('resize', updateDimensions);
     return () => window.removeEventListener('resize', updateDimensions);
@@ -62,6 +63,7 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
 
   // Calculate positions for multiple concentric circles
   const getAlumniPositions = () => {
+    // Center based on SVG center (not CSS)
     const centerX = dimensions.width / 2;
     const centerY = dimensions.height / 2;
     const baseRadius = Math.min(dimensions.width, dimensions.height) * 0.15;
@@ -80,7 +82,6 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
         const angle = (i / circle.count) * 2 * Math.PI - Math.PI / 2;
         const x = centerX + Math.cos(angle) * circle.radius;
         const y = centerY + Math.sin(angle) * circle.radius;
-        
         positions.push({
           ...filteredAlumni[alumniIndex],
           x,
@@ -92,7 +93,6 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
         alumniIndex++;
       }
     });
-    
     return positions;
   };
 
@@ -118,10 +118,14 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
   };
 
   return (
-    <div 
-      ref={containerRef} 
-      className="relative w-full h-[800px] overflow-hidden"
+    <div
+      ref={containerRef}
+      className="relative mx-auto w-full flex justify-center items-center"
       style={{
+        minHeight: 320,
+        height: dimensions.height,
+        maxWidth: 800,
+        width: '100%',
         background: 'radial-gradient(circle at center, #1a0b2e 0%, #16213e 50%, #0f1419 100%)'
       }}
     >
@@ -150,7 +154,12 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
       </div>
 
       {/* Concentric circles background */}
-      <svg className="absolute inset-0 w-full h-full">
+      <svg
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+        width={dimensions.width}
+        height={dimensions.height}
+        style={{ maxWidth: '100%', maxHeight: '100%' }}
+      >
         <defs>
           <radialGradient id="circleGradient" cx="50%" cy="50%">
             <stop offset="0%" stopColor="#8B5CF6" stopOpacity="0.1" />
@@ -178,16 +187,15 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
 
       {/* Center Hub - SPIT Logo */}
       <motion.div
-        className="absolute transform -translate-x-1/2 -translate-y-1/2 z-20"
+        className="absolute left-1/2 top-1/2 z-20"
         style={{
-          left: dimensions.width / 2.21,
-          top: dimensions.height / 2.25
+          transform: 'translate(-50%, -50%)'
         }}
         initial={{ scale: 0, rotate: -180 }}
         animate={{ scale: 1, rotate: 0 }}
         transition={{ duration: 1, delay: 0.5, type: "spring" }}
       >
-        <div className="relative">
+        <div className="relative flex items-center justify-center">
           <div className="w-24 h-24 rounded-full bg-gradient-to-br from-purple-600 via-purple-700 to-purple-900 flex items-center justify-center shadow-2xl border-4 border-purple-400/50">
             <img
               src="https://www.spit.ac.in/wp-content/themes/spit-main/images/SPIT_logo.png"
@@ -201,7 +209,12 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
       </motion.div>
 
       {/* Connection Lines */}
-      <svg className="absolute inset-0 w-full h-full pointer-events-none z-10">
+      <svg
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-10"
+        width={dimensions.width}
+        height={dimensions.height}
+        style={{ maxWidth: '100%', maxHeight: '100%' }}
+      >
         <defs>
           <linearGradient id="connectionGradient" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="#8B5CF6" stopOpacity="0.8" />
@@ -230,12 +243,17 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
       {alumniPositions.map((alumni, index) => (
         <motion.div
           key={alumni.id}
-          className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group z-30"
-          style={{ left: alumni.x, top: alumni.y }}
+          className="absolute z-30"
+          style={{
+            left: `calc(50% + ${(alumni.x - dimensions.width / 2)}px)`,
+            top: `calc(50% + ${(alumni.y - dimensions.height / 2)}px)`,
+            transform: 'translate(-50%, -50%)',
+            cursor: 'pointer'
+          }}
           initial={{ scale: 0, opacity: 0, rotate: -90 }}
           animate={{ scale: 1, opacity: 1, rotate: 0 }}
-          transition={{ 
-            duration: 0.8, 
+          transition={{
+            duration: 0.8,
             delay: 0.5 + index * 0.1,
             type: "spring",
             stiffness: 100
@@ -360,8 +378,8 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
       ))}
 
       {/* Enhanced Legend */}
-      <motion.div 
-        className="absolute bottom-6 left-6 bg-gradient-to-br from-purple-900/90 to-purple-800/90 backdrop-blur-xl border border-purple-400/30 rounded-xl p-4 shadow-2xl"
+      <motion.div
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 sm:left-6 sm:translate-x-0 bg-gradient-to-br from-purple-900/90 to-purple-800/90 backdrop-blur-xl border border-purple-400/30 rounded-xl p-4 shadow-2xl"
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1 }}
@@ -386,8 +404,8 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
       </motion.div>
 
       {/* Enhanced Stats Panel */}
-      <motion.div 
-        className="absolute bottom-6 right-6 bg-gradient-to-br from-purple-900/90 to-purple-800/90 backdrop-blur-xl border border-purple-400/30 rounded-xl p-4 shadow-2xl"
+      <motion.div
+        className="absolute bottom-6 right-1/2 translate-x-1/2 sm:right-6 sm:translate-x-0 bg-gradient-to-br from-purple-900/90 to-purple-800/90 backdrop-blur-xl border border-purple-400/30 rounded-xl p-4 shadow-2xl"
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1.2 }}
@@ -418,7 +436,7 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
 
       {/* Search Results Indicator */}
       {searchQuery && (
-        <motion.div 
+        <motion.div
           className="absolute top-6 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-purple-600/80 to-purple-700/80 backdrop-blur-xl border border-purple-400/50 rounded-xl px-6 py-3 shadow-xl"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
