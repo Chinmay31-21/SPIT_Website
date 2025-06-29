@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, FileText, GraduationCap, Calculator, CreditCard, Download } from 'lucide-react';
+import { Calendar, FileText, GraduationCap, Calculator, CreditCard, Download, Bold } from 'lucide-react';
 import { PaymentGateway } from '../components/PaymentGateway';
 import { useHref } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { Font } from 'three/examples/jsm/Addons.js';
 
 // ...existing imports...
 
@@ -12,27 +13,27 @@ const CutoffSections = () => (
     <CutoffSection
       year="2024-25"
       pdf="/assets/Cutoff2425.pdf"
-      description="Cutoff details for the academic year 2024-25."
+      description="Check the Cutoff details of MHT-CET for the academic year 2024-25."
     />
     <CutoffSection
       year="2023-24"
       pdf="/assets/Cutoff2324.pdf"
-      description="Cutoff details for the academic year 2023-24."
+      description="Check the Cutoff details of MHT-CET for the academic year 2023-24."
     />
     <CutoffSection
       year="2022-23"
       pdf="/assets/Cutoff2223.pdf"
-      description="Cutoff details for the academic year 2022-23."
+      description="Check the Cutoff details of MHT-CET for the academic year 2022-23."
     />
     <CutoffSection
       year="2021-22"
       pdf="/assets/Cutoff2122.pdf"
-      description="Cutoff details for the academic year 2021-22."
+      description="Check the Cutoff details of MHT-CET for the academic year 2021-22."
     />
     <CutoffSection
       year="2020-21"
       pdf="/assets/Cutoff2021.pdf"
-      description="Cutoff details for the academic year 2020-21."
+      description="Check the Cutoff details of MHT-CET for the academic year 2020-21."
     />
   </div>
 );
@@ -40,13 +41,13 @@ const CutoffSections = () => (
 const CutoffSection = ({ year, pdf, description }: { year: string; pdf: string; description: string }) => (
   <div className="bg-black/30 p-6 rounded-lg shadow-lg flex flex-col md:flex-row md:items-center md:justify-between">
     <div>
-      <h2 className="text-2xl font-bold text-[#FFD700] mb-2">Cutoff {year}</h2>
+      <h2 className="text-2xl font-bold text-[#FFD700] mb-2">MHT-CET Cutoff {year}</h2>
       <p className="text-white/80 mb-4">{description}</p>
     </div>
     <a
       href={pdf}
       download
-      className="bg-[#4169E1] hover:bg-[#2c5aa0] text-white px-4 py-2 rounded text-sm flex items-center gap-2 w-max"
+      className=" bg-gradient-to-b from-[#DDBEA9] to-[#FFE8D6] hover:bg-gradient-to-t text-black px-4 py-2 rounded text-sm flex items-center gap-2 w-max"
     >
       <Download className="w-4 h-4" />
       Download PDF
@@ -64,15 +65,68 @@ export const Admissions = () => {
   };
 
   return (
+
+    
     <div className="min-h-screen bg-gradient-to-b (from-[#02365E] to-[#30036B]) py-8">
       <div className="container mx-auto px-4">
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-4xl font-bold bg-gradient-to-r from-[#FFD700] to-[#4169E1] bg-clip-text text-transparent mb-8"
+          className="text-4xl font-bold bg-gradient-to-r from-[#5E035E] to-[#30036B] dark:from-[#FFD700] dark:to-[#DAA520] bg-clip-text text-transparent mb-8"
         >
           Admissions
         </motion.h1>
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.6 }}
+            className="bg-black/30 backdrop-blur-md border border-[#4169E1]/30 rounded-lg p-6"
+          >
+            <h2 className="text-2xl font-bold text-[#FFD700] mb-4">SPIT Highlights</h2>
+            <ul className="space-y-3 text-white/80">
+              <li>• Numero Uno, Self-Financed, Empowered Autonomous Institution of Maharashtra.</li>
+              <li>• 100 % Placement with Average Salary at par with IITs</li>
+              <li>• Consistently ranked in the bracket of 100 to 150 by NIRF in the country.</li>
+              <li>• Unique, flexible, globally competent curriculum.</li>
+              <li>• Strong culture of innovation, research and entrepreneurship.</li>
+              <li>• Consistent winners of Industry organized technical competitions like Texas Instruments, ARM, KPMG & many more.</li>
+              <li>• Fruitful industry association, Semester long industry internship.</li>
+              <li>• 100% Digital Campus with state-of-the-art infrastructure.</li>
+              <li>• 24x7 Wi-Fi enabled campus.</li>
+            </ul>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.8 }}
+            className="bg-black/30 backdrop-blur-md border border-[#4169E1]/30 rounded-lg p-6"
+          >
+            <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Important Information to Know</h2>
+            <ul className="space-y-3 text-white/80">
+            <br />
+              <button  className=" bg-gradient-to-b from-[#DDBEA9] to-[#FFE8D6] hover:bg-gradient-to-t text-black px-4 py-2 rounded text-sm flex items-center gap-2 w-max">
+              <li><a href="https://www.spit.ac.in/admissions-enquiry-2025-26/" >Admissions Enquiry 2025-26</a></li>
+              </button>
+              <br />
+              <button  className=" bg-gradient-to-b from-[#DDBEA9] to-[#FFE8D6] hover:bg-gradient-to-t text-black px-4 py-2 rounded text-sm flex items-center gap-2 w-max">
+              <li><a href="/assets/FAQAdmissions.pdf" >Frequently Asked Questions</a></li>
+              </button>
+              <br />
+              <button  className=" bg-gradient-to-b from-[#DDBEA9] to-[#FFE8D6] hover:bg-gradient-to-t text-black px-4 py-2 rounded text-sm flex items-center gap-2 w-max">
+              <li><a href="/assets/SPITBrochure.pdf" >SPIT Brochure</a></li>
+              </button>
+              <br />
+              <button  className=" bg-gradient-to-b from-[#DDBEA9] to-[#FFE8D6] hover:bg-gradient-to-t text-black px-4 py-2 rounded text-sm flex items-center gap-2 w-max">
+              <li><a href="/assets/AcademicContactDetails.pdf" >Contact Details</a></li>
+              </button>
+              <br />
+            </ul>
+          </motion.div>
+        </div>
+
 
         <motion.div 
   initial={{ opacity: 0, y: 20 }}
@@ -80,7 +134,7 @@ export const Admissions = () => {
   transition={{ delay: 1.2 }}
   className="mb-8"
 >
-  <h2 className="text-2xl font-bold text-[#FFD700] mb-6">Cutoff of Last 5 Years</h2>
+  <h2 className="text-2xl font-bold text-[#0077B6] mb-6">Cutoff for Last 5 Years</h2>
   <CutoffSections />
 </motion.div>
         <br />
@@ -282,7 +336,7 @@ export const Admissions = () => {
             </ul>
           </div>
         </motion.div>
-
+         
         {/* Quick Payment Options */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -327,6 +381,7 @@ export const Admissions = () => {
             }}
           />
         )}
+        
       </div>
     </div>
   );
