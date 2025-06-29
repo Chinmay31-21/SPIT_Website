@@ -249,7 +249,7 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
                 transform: 'translate(-50%, -50%)'
               }
             : {
-                left: '50%',
+                left: '45%',
                 top: `calc(50% - 50px)`,
                 transform: 'translate(-50%, -50%)'
               }
