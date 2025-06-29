@@ -591,8 +591,65 @@ const accordionSections = [
     icon: <BookOpen className="w-5 h-5" />,
     content: (
       <div>
-        {/* Add your Academics content here */}
-        <p className="text-white/80">Academic programs, curriculum, and regulations information goes here.</p>
+        {/* Curriculum Structure Section */}
+        <div className="flex flex-col items-center mb-8">
+          <a
+            href="/assets/UG_Academics_Salient_Features.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full mb-6"
+          >
+            <div className="flex items-center bg-[#f2f2f2] rounded px-4 py-3 text-[#2B107E] font-semibold shadow hover:bg-[#e9e9e9] transition">
+              <span className="mr-2 bg-[#2B107E]">📄</span>
+              <a href="/assets/UGCurriculumStructureSPIT.pdf">Read about our Salient features of UG Academics [Document]</a>
+            </div>
+          </a>
+          <div className="w-full flex justify-center">
+            <img
+              src="/assets/CurriculumStructure.jpeg"
+              alt="Curriculum Structure @ S.P.I.T"
+              className="max-w-full md:max-w-2xl border border-[#4169E1]/30 rounded shadow"
+            />
+          </div>
+          <div className="w-full md:w-2/3 mt-6">
+            <h3 className="text-lg font-bold text-[#BBD0FF] mb-2">Detailed Curriculum:</h3>
+            <ol className="list-decimal list-inside text-[#49B6FF] font-semibold space-y-1">
+              <li>
+                <a href="/assets/B.-Tech.-CSE-DS_2021-2025_Scheme.pdf" target="_blank" rel="noopener noreferrer" className="underline hover:text-[#0077B6]">
+                  B.Tech. Computer Science & Engineering (Data Science)
+                </a>
+              </li>
+              <li>
+                <a href="/assets/B.-Tech.-CE_2021-2025_Scheme.pdf" target="_blank" rel="noopener noreferrer" className="underline hover:text-[#0077B6]">
+                  B.Tech. Computer Engineering
+                </a>
+              </li>
+              <li>
+                <a href="/assets/B.-Tech.-CSE-AIML_2021-2025_Scheme.pdf" target="_blank" rel="noopener noreferrer" className="underline hover:text-[#0077B6]">
+                  B.Tech. Computer Science & Engineering (Artificial Intelligence And Machine Learning)
+                </a>
+              </li>
+              <li>
+                <a href="/assets/B.-Tech.-EXTC_2021-2025_Scheme.pdf" target="_blank" rel="noopener noreferrer" className="underline hover:text-[#0077B6]">
+                  B.Tech. Electronics & Telecommunication Engineering
+                </a>
+              </li>
+            </ol>
+            <div className="mt-4">
+              <a
+                href="/assets/salient_features_curriculum.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#49B6FF] underline hover:text-[#0077B6] text-sm"
+              >
+                <span className="mr-2 bg-[#2B107E]">📄</span>
+                Salient features of curriculum
+              </a>
+            </div>
+          </div>
+        </div>
+        {/* End Curriculum Structure Section */}
+        {/* ...existing Academics content if any... */}
       </div>
     ),
   },
@@ -600,9 +657,103 @@ const accordionSections = [
     title: "Research",
     icon: <FlaskConical className="w-5 h-5" />,
     content: (
-      <div>
-        {/* Add your Research content here */}
-        <p className="text-white/80">Research activities, publications, and projects info goes here.</p>
+      <div className="w-full flex flex-col items-center px-2 md:px-8 py-6">
+        {/* Top Images Row */}
+        <div className="flex flex-col md:flex-row w-full justify-center items-center gap-8 mb-8">
+          <img
+            src="/assets/Key-attributes-of-SP-IT-RD-Cell.png"
+            alt="Key attributes of R&D Cell, S.P.I.T"
+            className="max-w-xs md:max-w-sm w-full border border-[#4169E1]/30 rounded shadow bg-white p-2"
+          />
+          <img
+            src="/assets/Initatives.png"
+            alt="R&D Initiatives"
+            className="max-w-xs md:max-w-sm w-full border border-[#4169E1]/30 rounded shadow bg-white p-2"
+          />
+        </div>
+        {/* Publications, Consultancy, Patents, Competitions */}
+        <div className="w-full flex flex-col md:flex-row gap-8 justify-center">
+          {/* Left Column */}
+          <div className="flex-1 min-w-[250px]">
+            <div className="mb-6">
+              <h3 className="font-bold text-[#C9EDDC] text-lg mb-2 flex justify-between">PUBLICATIONS  <span className="text-[#F6C900]">836</span></h3>
+              <hr />
+              <br />
+              <div className="text-sm text-[#C9EDDC] space-y-1">
+                <div className="flex justify-between"><span>Conference</span><span>562</span></div>
+                <div className="flex justify-between"><span>Journal</span><span>72</span></div>
+                <div className="flex justify-between"><span>International</span><span>602</span></div>
+                <div className="flex justify-between"><span>National</span><span>32</span></div>
+                <div className="flex justify-between"><span>(by students)</span><span>546</span></div>
+                <div className="flex justify-between"><span>Faculty</span><span>88</span></div>
+              </div>
+              <div className="mt-2 text-s text-[#C9EDDC]">
+                <span className="font-semibold">Publication in 2020-21</span>
+                <div className="flex justify-between"><span>Conference</span><span>171</span></div>
+                <div className="flex justify-between"><span>Journal</span><span>31</span></div>
+              </div>
+            </div>
+            <div className="mb-6">
+              <h3 className="font-bold text-[#C9EDDC] text-lg mb-2 flex justify-between">PATENTS <span className="text-[#F6C900]">88</span></h3>
+              <div className="text-sm text-[#C9EDDC] space-y-1">
+                <div className="flex justify-between"><span>2015</span><span>12</span></div>
+                <div className="flex justify-between"><span>2016</span><span>8</span></div>
+                <div className="flex justify-between"><span>2017</span><span>10</span></div>
+                <div className="flex justify-between"><span>2018</span><span>9</span></div>
+                <div className="flex justify-between"><span>2019</span><span>50</span></div>
+                <div className="flex justify-between"><span>2020</span><span>6</span></div>
+              </div>
+            </div>
+          </div>
+          {/* Center Column */}
+          <div className="flex-1 min-w-[250px]">
+            <div className="mb-6">
+              <h3 className="font-bold text-[#C9EDDC] text-lg mb-2 flex justify-between">CONSULTANCY</h3>
+              <div className="text-sm text-[#C9EDDC] space-y-1">
+                <span className="font-semibold">FUNDED PROJECTS • 2017-21</span>
+                <ul className="list-disc list-inside pl-2">
+                  <li>BioMS, Starlyte, Industrial Signal Simulator, Aquacare, High power battery charger, Universal solar pump controller, power controller for induction casting machine, Development of Software applications to maintain service calls, Riddhi Heatron, Suyog, Zava Automotive Private Limited, General Auto Electronic Corporation, Digital Dojo, India Times Daily (MCA)</li>
+                  <br />
+                  <br />
+                  <li>SGGS Institute of Engineering and Technology (SGGS), Nanded</li>
+                  <br />
+                  <br />
+                  <li>India Times Daily, Smartly built</li>
+                  <br />
+                  <br />
+                </ul>
+              </div>
+            </div>
+          </div>
+          {/* Right Column */}
+          <div className="flex-1 min-w-[250px]">
+            <div className="mb-6">
+              <h3 className="font-bold text-[#C9EDDC] text-lg mb-2 flex justify-between">COMPETITIONS <span className="text-black">136</span></h3>
+              <div className="text-sm text-[#C9EDDC] space-y-1">
+                <div className="flex justify-between"><span>ELECTRONICS & TELECOMMUNICATIONS</span><span>71</span></div>
+                <div className="flex justify-between"><span>ELECTRONICS</span><span>37</span></div>
+                <div className="flex justify-between"><span>INFORMATION TECHNOLOGY</span><span>5</span></div>
+                <div className="flex justify-between"><span>COMPUTER SCIENCE</span><span>18</span></div>
+                <div className="flex justify-between"><span>MASTER OF COMPUTER APPLICATIONS</span><span>5</span></div>
+                <br />
+              </div>
+              <div className="text-sm text-[#C9EDDC] space-y-1">
+                <span className="font-semibold">• TEXAS INSTRUMENTS <br /><br />• HACKTHON <br /><br />• MITSHUBSHI <br /><br /> • E-YANTRA ACCS <br /><br /> • IEEE <br /><br /> • XTREME <br /><br /> </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Know more link */}
+        <div className="w-full flex justify-start mt-4">
+          <a
+            href="/assets/All-R-D-Data-brouchure-2.pdf"
+            className="text-[#49B6FF] text-xs font-bold underline hover:text-[#0077B6]"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Click here to know more...
+          </a>
+        </div>
       </div>
     ),
   },
@@ -610,9 +761,32 @@ const accordionSections = [
     title: "Electronics & Telecommunication Engineering",
     icon: <ArrowRight className="w-5 h-5" />,
     content: (
-      <div>
-        {/* Add your E&TC content here */}
-        <p className="text-white/80">Details about Electronics & Telecommunication Engineering department go here.</p>
+      <div className="w-full flex flex-col items-start mt-8">
+        <h2 className="text-3xl font-bold text-[#E5C3D1] mb-2 bg-[#613F75] text-center w-full rounded-lg ">At a glance</h2>
+        <br />
+        <a
+          href="/assets/EXTC_Flyer.pdf"
+          className="text-[#92D5E6] text-xs font-bold underline hover:text-[#0077B6] mb-2 style-bold"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Click here to know more...
+        </a>
+        <br />
+        <br />
+        <div className="w-full max-w-xl border-2 border-black rounded shadow bg-white p-2">
+          <div className="aspect-video">
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/gAGGQyKsb0g"
+              title="Electronics and TeleCommunication Department 2025"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="w-full h-full"
+            ></iframe>
+          </div>
+        </div>
       </div>
     ),
   },
@@ -620,9 +794,32 @@ const accordionSections = [
     title: "Computer Engineering",
     icon: <ArrowRight className="w-5 h-5" />,
     content: (
-      <div>
-        {/* Add your Computer Engineering content here */}
-        <p className="text-white/80">Details about Computer Engineering department go here.</p>
+      <div className="w-full flex flex-col items-start mt-8">
+        <h2 className="text-3xl font-bold text-[#E5C3D1] mb-2 bg-[#613F75] text-center w-full rounded-lg ">At a glance</h2>
+        <br />
+        <a
+          href="/assets/Computer_Flyer.pdf"
+          className="text-[#92D5E6] text-xs font-bold underline hover:text-[#0077B6] mb-2 style-bold"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Click here to know more...
+        </a>
+        <br />
+        <br />
+        <div className="w-full max-w-xl border-2 border-black rounded shadow bg-white p-2">
+          <div className="aspect-video">
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/vNmwIC-pacQ?si=uH3MwTeddLqo0NJI" 
+              title="Computer Engineering 2025"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="w-full h-full"
+            ></iframe>
+          </div>
+        </div>
       </div>
     ),
   },
@@ -630,9 +827,32 @@ const accordionSections = [
     title: "Computer Science & Engineering",
     icon: <ArrowRight className="w-5 h-5" />,
     content: (
-      <div>
-        {/* Add your Computer Science & Engineering content here */}
-        <p className="text-white/80">Details about Computer Science & Engineering department go here.</p>
+      <div className="w-full flex flex-col items-start mt-8">
+        <h2 className="text-3xl font-bold text-[#E5C3D1] mb-2 bg-[#613F75] text-center w-full rounded-lg ">At a glance</h2>
+        <br />
+        <a
+          href="/assets/Data-Science.pdf"
+          className="text-[#92D5E6] text-xs font-bold underline hover:text-[#0077B6] mb-2 style-bold"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Click here to know more...
+        </a>
+        <br />
+        <br />
+        <div className="w-full max-w-xl border-2 border-black rounded shadow bg-white p-2">
+          <div className="aspect-video">
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/z5dSzReM9eU?si=NSW_BCIkfA_OEuzs"  
+              title="Computer Science and Engineering 2025"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="w-full h-full"
+            ></iframe>
+          </div>
+        </div>
       </div>
     ),
   },
@@ -640,9 +860,20 @@ const accordionSections = [
     title: "Master of Computer Application",
     icon: <ArrowRight className="w-5 h-5" />,
     content: (
-      <div>
-        {/* Add your MCA content here */}
-        <p className="text-white/80">Details about Master of Computer Application program go here.</p>
+      <div className="w-full flex flex-col items-start mt-8">
+        <h2 className="text-3xl font-bold text-[#E5C3D1] mb-2 bg-[#613F75] text-center w-full rounded-lg ">At a glance</h2>
+        <br />
+        <a
+          href="/assets/MCA_flyer-2021.pdf"
+          className="text-[#92D5E6] text-xs font-bold underline hover:text-[#0077B6] mb-2 style-bold"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Click here to know more...
+        </a>
+        <br />
+        <br />
+        
       </div>
     ),
   },
@@ -650,9 +881,19 @@ const accordionSections = [
     title: "Admissions Core Committee",
     icon: <Users className="w-5 h-5" />,
     content: (
-      <div>
-        {/* Add your Admissions Core Committee content here */}
-        <p className="text-white/80">List of committee members and contact info goes here.</p>
+      <div className="w-full flex flex-col items-start mt-8">
+        <h2 className="text-3xl font-bold text-[#E5C3D1] mb-2 bg-[#613F75] text-center w-full rounded-lg ">Admission Core Committees</h2>
+        <br />
+        <ul className='text-[#92D5E6] text-xs font-bold list-disc pl-4'>
+          <li>1. Dr. Y.S. Rao - Chairman</li>
+          <li>2. Prof. Jignesh Sisodia - Vice Chairman</li>
+          <li>3. Dr. Kailas Devadkar - Member</li>
+          <li>4. Prof. Kaisar Katchi - Member</li>
+          <li>5. Smt. Pallavi More - Member</li>
+        </ul>
+        <br />
+        <br />
+        
       </div>
     ),
   },
@@ -661,8 +902,16 @@ const accordionSections = [
     icon: <Mail className="w-5 h-5" />,
     content: (
       <div>
-        {/* Add your Admission Enquiry content here */}
-        <p className="text-white/80">Contact details and enquiry form link go here.</p>
+        <br />
+              <button  className=" bg-gradient-to-b from-[#DDBEA9] to-[#FFE8D6] hover:bg-gradient-to-t text-black px-4 py-2 rounded text-sm flex items-center gap-2 w-max">
+              <li><a href="https://www.spit.ac.in/admissions-enquiry-2025-26/" >Admissions Enquiry 2025-26</a></li>
+              </button>
+              <br />
+              <br />
+              <button  className=" bg-gradient-to-b from-[#DDBEA9] to-[#FFE8D6] hover:bg-gradient-to-t text-black px-4 py-2 rounded text-sm flex items-center gap-2 w-max">
+              <li><a href="/assets/AdmissionContactDetails.pdf" >Contact Details</a></li>
+              </button>
+              <br />
       </div>
     ),
   },
@@ -763,24 +1012,28 @@ export const Admissions = () => {
             transition={{ delay: 0.8 }}
             className="bg-black/30 backdrop-blur-md border border-[#4169E1]/30 rounded-lg p-6"
           >
-            <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Important Information to Know</h2>
+            <h2 className="text-2xl font-bold text-[#FFD700] mb-4 w-full text-center">Important Information to Know</h2>
             <ul className="space-y-3 text-white/80">
             <br />
-              <button  className=" bg-gradient-to-b from-[#DDBEA9] to-[#FFE8D6] hover:bg-gradient-to-t text-black px-4 py-2 rounded text-sm flex items-center gap-2 w-max">
+              <button  className=" bg-gradient-to-b from-[#DDBEA9] to-[#FFE8D6] hover:bg-gradient-to-t text-black px-4 py-2 rounded  items-center gap-2 w-full text-center">
               <li><a href="https://www.spit.ac.in/admissions-enquiry-2025-26/" >Admissions Enquiry 2025-26</a></li>
               </button>
               <br />
-              <button  className=" bg-gradient-to-b from-[#DDBEA9] to-[#FFE8D6] hover:bg-gradient-to-t text-black px-4 py-2 rounded text-sm flex items-center gap-2 w-max">
+              <br />
+              <button  className=" bg-gradient-to-b from-[#DDBEA9] to-[#FFE8D6] hover:bg-gradient-to-t text-black px-4 py-2 rounded  items-center gap-2 w-full text-center">
               <li><a href="/assets/FAQAdmissions.pdf" >Frequently Asked Questions</a></li>
               </button>
               <br />
-              <button  className=" bg-gradient-to-b from-[#DDBEA9] to-[#FFE8D6] hover:bg-gradient-to-t text-black px-4 py-2 rounded text-sm flex items-center gap-2 w-max">
+              <br />
+              <button  className=" bg-gradient-to-b from-[#DDBEA9] to-[#FFE8D6] hover:bg-gradient-to-t text-black px-4 py-2 rounded  items-center gap-2 w-full text-center">
               <li><a href="/assets/SPITBrochure.pdf" >SPIT Brochure</a></li>
               </button>
               <br />
-              <button  className=" bg-gradient-to-b from-[#DDBEA9] to-[#FFE8D6] hover:bg-gradient-to-t text-black px-4 py-2 rounded text-sm flex items-center gap-2 w-max">
-              <li><a href="/assets/AcademicContactDetails.pdf" >Contact Details</a></li>
+              <br />
+              <button  className=" bg-gradient-to-b from-[#DDBEA9] to-[#FFE8D6] hover:bg-gradient-to-t text-black px-4 py-2 rounded  items-center gap-2 w-full text-center">
+              <li><a href="/assets/AdmissionContactDetails.pdf" >Contact Details</a></li>
               </button>
+              <br />
               <br />
             </ul>
           </motion.div>
