@@ -464,25 +464,59 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
 
       {/* Enhanced Legend */}
       <motion.div
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 sm:left-6 sm:translate-x-0 bg-gradient-to-br from-purple-900/90 to-purple-800/90 backdrop-blur-xl border border-purple-400/30 rounded-xl p-4 shadow-2xl"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 sm:left-6 sm:translate-x-0 bg-gradient-to-br from-purple-900/90 to-purple-800/90 backdrop-blur-xl border border-purple-400/30 rounded-xl shadow-2xl"
+        style={{
+          padding: dimensions.width < 350 ? 8 : dimensions.width < 500 ? 12 : 16,
+          minWidth: dimensions.width < 350 ? 90 : dimensions.width < 500 ? 120 : 160,
+          fontSize: dimensions.width < 350 ? 10 : dimensions.width < 500 ? 12 : 14
+        }}
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1 }}
       >
-        <h4 className="text-white font-bold text-sm mb-3">Industries</h4>
-        <div className="grid grid-cols-1 gap-2">
+        <h4
+          className="text-white font-bold mb-2"
+          style={{
+            fontSize: dimensions.width < 350 ? 11 : dimensions.width < 500 ? 13 : 16
+          }}
+        >
+          Industries
+        </h4>
+        <div
+          className="grid grid-cols-1 gap-2"
+          style={{
+            gap: dimensions.width < 350 ? 2 : 4
+          }}
+        >
           {Object.entries({
             'Technology': '#8B5CF6',
             'Finance': '#06D6A0',
             'Startup': '#F72585',
             'Healthcare': '#EF476F'
           }).map(([industry, color]) => (
-            <div key={industry} className="flex items-center gap-2">
-              <div 
-                className="w-3 h-3 rounded-full shadow-sm"
-                style={{ backgroundColor: color }}
+            <div
+              key={industry}
+              className="flex items-center"
+              style={{
+                gap: dimensions.width < 350 ? 3 : 6
+              }}
+            >
+              <div
+                className="rounded-full shadow-sm"
+                style={{
+                  width: dimensions.width < 350 ? 8 : 12,
+                  height: dimensions.width < 350 ? 8 : 12,
+                  backgroundColor: color
+                }}
               />
-              <span className="text-white/80 text-xs font-medium">{industry}</span>
+              <span
+                className="text-white/80 font-medium"
+                style={{
+                  fontSize: dimensions.width < 350 ? 9 : dimensions.width < 500 ? 11 : 13
+                }}
+              >
+                {industry}
+              </span>
             </div>
           ))}
         </div>
@@ -490,32 +524,57 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
 
       {/* Enhanced Stats Panel */}
       <motion.div
-        className="absolute bottom-6 right-1/2 translate-x-1/2 sm:right-6 sm:translate-x-0 bg-gradient-to-br from-purple-900/90 to-purple-800/90 backdrop-blur-xl border border-purple-400/30 rounded-xl p-4 shadow-2xl"
+        className="absolute bottom-6 right-1/2 translate-x-1/2 sm:right-6 sm:translate-x-0 bg-gradient-to-br from-purple-900/90 to-purple-800/90 backdrop-blur-xl border border-purple-400/30 rounded-xl shadow-2xl"
+        style={{
+          padding: dimensions.width < 350 ? 8 : dimensions.width < 500 ? 12 : 16,
+          minWidth: dimensions.width < 350 ? 90 : dimensions.width < 500 ? 120 : 160,
+          fontSize: dimensions.width < 350 ? 10 : dimensions.width < 500 ? 12 : 14
+        }}
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1.2 }}
       >
         <div className="text-center">
-          <motion.div 
-            className="text-3xl font-bold text-white mb-1"
+          <motion.div
+            className="font-bold text-white mb-1"
+            style={{
+              fontSize: dimensions.width < 350 ? 18 : dimensions.width < 500 ? 22 : 28
+            }}
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 1.5, type: "spring" }}
           >
             {filteredAlumni.length}
           </motion.div>
-          <div className="text-purple-300 text-xs font-medium mb-3">Alumni</div>
+          <div
+            className="text-purple-300 font-medium mb-2"
+            style={{
+              fontSize: dimensions.width < 350 ? 9 : dimensions.width < 500 ? 11 : 13
+            }}
+          >
+            Alumni
+          </div>
         </div>
         <div className="text-center">
-          <motion.div 
-            className="text-xl font-bold text-green-400 mb-1"
+          <motion.div
+            className="font-bold text-green-400 mb-1"
+            style={{
+              fontSize: dimensions.width < 350 ? 14 : dimensions.width < 500 ? 16 : 22
+            }}
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 1.7, type: "spring" }}
           >
             {filteredAlumni.filter(a => a.isActive).length}
           </motion.div>
-          <div className="text-green-300/70 text-xs font-medium">Active</div>
+          <div
+            className="text-green-300/70 font-medium"
+            style={{
+              fontSize: dimensions.width < 350 ? 9 : dimensions.width < 500 ? 11 : 13
+            }}
+          >
+            Active
+          </div>
         </div>
       </motion.div>
 
