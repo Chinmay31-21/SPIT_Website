@@ -360,14 +360,135 @@ const FundedProjects = () => (
 const InternationalConferences = () => (
   <div className="text-white/80 leading-relaxed space-y-6">
     <h2 className="text-3xl font-bold text-[#FFD700] mb-8 border-b-2 border-[#FFD700] pb-2">International Conferences</h2>
-    <p>Content for International Conferences section...</p>
+    <p>
+      Explore the details of the IEEE Colloquium hosted by SPIT:
+    </p>
+    <a
+      href="https://etrx.spit.ac.in/wp-content/blogs.dir/19/files/2012/ieee_colloquium/index.html"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-[#FFD700] underline hover:text-white transition-all duration-300"
+    >
+      Explore IEEE Colloquium
+    </a>
   </div>
 );
 
 const StudentsTechnicalActivities = () => (
   <div className="text-white/80 leading-relaxed space-y-6">
     <h2 className="text-3xl font-bold text-[#FFD700] mb-8 border-b-2 border-[#FFD700] pb-2">Students Technical Activities</h2>
-    <p>Content for Students Technical Activities section...</p>
+
+    <h3 className="text-2xl font-bold text-white mt-6">1. Technical Paper Presentation</h3>
+    <p className="text-red-500 font-semibold mt-2">Objective description and Process of execution of Competition</p>
+
+    <h4 className="text-xl font-bold text-white mt-4">2020-21</h4>
+    <h5 className="text-lg font-bold text-white mt-2">TPP Odd Semester</h5>
+    <ul className="list-none pl-6 space-y-2">
+      <li>
+        <a
+          href="/assets/TPP-PE-Nov-2020-EXTC-Report.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-red-500 underline hover:text-[#FFD700]"
+        >
+          TPP PE Nov 2020 EXTC Report
+        </a>
+      </li>
+      <li>
+        <a
+          href="/assets/TPP-PE-Report-EXTC-2019-20-Category-I.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-red-500 underline hover:text-[#FFD700]"
+        >
+          TPP PE Report EXTC 2019-20 Category I
+        </a>
+      </li>
+      <li>
+        <a
+          href="/assets/TPP-COMP-2020-2021-ODD.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-red-500 underline hover:text-[#FFD700]"
+        >
+          TPP COMP 2020-2021 ODD
+        </a>
+      </li>
+      <li>
+        <a
+          href="/assets/TPP-Nov-2020-IT-department-report.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-red-500 underline hover:text-[#FFD700]"
+        >
+          TPP Nov 2020 IT Department Report
+        </a>
+      </li>
+      <li>
+        <a
+          href="/assets/TPP_ETRX_Department_Report_Odd_Sem.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-red-500 underline hover:text-[#FFD700]"
+        >
+          TPP ETRX Department Report Odd Sem
+        </a>
+      </li>
+      <li>
+        <a
+          href="/assets/TPP_ETRX_2020-2021_ODD.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-red-500 underline hover:text-[#FFD700]"
+        >
+          TPP ETRX 2020-2021 ODD
+        </a>
+      </li>
+    </ul>
+
+    <h5 className="text-lg font-bold text-white mt-4">PE Odd Semester</h5>
+    <ul className="list-none pl-6 space-y-2">
+      <li>
+        <a
+          href="/assets/PE_Nov_2020_IT_Department_Report.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-red-500 underline hover:text-[#FFD700]"
+        >
+          PE Nov 2020 IT Department Report
+        </a>
+      </li>
+      <li>
+        <a
+          href="/assets/PE_COMP_2020-2021_ODD.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-red-500 underline hover:text-[#FFD700]"
+        >
+          PE COMP 2020-2021 ODD
+        </a>
+      </li>
+      <li>
+        <a
+          href="/assets/PE_Computer_Category_1.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-red-500 underline hover:text-[#FFD700]"
+        >
+          PE Computer Category 1
+        </a>
+      </li>
+      <li>
+        <a
+          href="/assets/PE_ETRX_2020-2021_ODD.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-red-500 underline hover:text-[#FFD700]"
+        >
+          PE ETRX 2020-2021 ODD
+        </a>
+      </li>
+    </ul>
   </div>
 );
 
