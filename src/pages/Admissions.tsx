@@ -1012,24 +1012,28 @@ export const Admissions = () => {
             transition={{ delay: 0.8 }}
             className="bg-black/30 backdrop-blur-md border border-[#4169E1]/30 rounded-lg p-6"
           >
-            <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Important Information to Know</h2>
+            <h2 className="text-2xl font-bold text-[#FFD700] mb-4 w-full text-center">Important Information to Know</h2>
             <ul className="space-y-3 text-white/80">
             <br />
-              <button  className=" bg-gradient-to-b from-[#DDBEA9] to-[#FFE8D6] hover:bg-gradient-to-t text-black px-4 py-2 rounded text-sm flex items-center gap-2 w-max">
+              <button  className=" bg-gradient-to-b from-[#DDBEA9] to-[#FFE8D6] hover:bg-gradient-to-t text-black px-4 py-2 rounded  items-center gap-2 w-full text-center">
               <li><a href="https://www.spit.ac.in/admissions-enquiry-2025-26/" >Admissions Enquiry 2025-26</a></li>
               </button>
               <br />
-              <button  className=" bg-gradient-to-b from-[#DDBEA9] to-[#FFE8D6] hover:bg-gradient-to-t text-black px-4 py-2 rounded text-sm flex items-center gap-2 w-max">
+              <br />
+              <button  className=" bg-gradient-to-b from-[#DDBEA9] to-[#FFE8D6] hover:bg-gradient-to-t text-black px-4 py-2 rounded  items-center gap-2 w-full text-center">
               <li><a href="/assets/FAQAdmissions.pdf" >Frequently Asked Questions</a></li>
               </button>
               <br />
-              <button  className=" bg-gradient-to-b from-[#DDBEA9] to-[#FFE8D6] hover:bg-gradient-to-t text-black px-4 py-2 rounded text-sm flex items-center gap-2 w-max">
+              <br />
+              <button  className=" bg-gradient-to-b from-[#DDBEA9] to-[#FFE8D6] hover:bg-gradient-to-t text-black px-4 py-2 rounded  items-center gap-2 w-full text-center">
               <li><a href="/assets/SPITBrochure.pdf" >SPIT Brochure</a></li>
               </button>
               <br />
-              <button  className=" bg-gradient-to-b from-[#DDBEA9] to-[#FFE8D6] hover:bg-gradient-to-t text-black px-4 py-2 rounded text-sm flex items-center gap-2 w-max">
+              <br />
+              <button  className=" bg-gradient-to-b from-[#DDBEA9] to-[#FFE8D6] hover:bg-gradient-to-t text-black px-4 py-2 rounded  items-center gap-2 w-full text-center">
               <li><a href="/assets/AdmissionContactDetails.pdf" >Contact Details</a></li>
               </button>
+              <br />
               <br />
             </ul>
           </motion.div>
