@@ -435,15 +435,56 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
 
             {/* Status Indicator */}
             <div 
-              className={`absolute -bottom-1 -right-1 w-5 h-5 rounded-full border-2 border-white ${
+              className={`absolute -bottom-1 -right-1 rounded-full border-2 border-white ${
                 alumni.isActive ? 'bg-green-400' : 'bg-gray-500'
               } shadow-lg`}
+              style={{
+                width:
+                  dimensions.width < 350
+                    ? 8
+                    : dimensions.width < 500
+                    ? 10
+                    : 16,
+                height:
+                  dimensions.width < 350
+                    ? 8
+                    : dimensions.width < 500
+                    ? 10
+                    : 16,
+                borderWidth:
+                  dimensions.width < 350
+                    ? 1
+                    : dimensions.width < 500
+                    ? 1.5
+                    : 2
+              }}
             />
 
             {/* Industry Badge */}
             <div 
-              className="absolute -top-2 -left-2 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-white shadow-lg"
-              style={{ backgroundColor: getIndustryColor(alumni.industry) }}
+              className="absolute -top-2 -left-2 flex items-center justify-center text-xs font-bold text-white shadow-lg"
+              style={{
+                width:
+                  dimensions.width < 350
+                    ? 12
+                    : dimensions.width < 500
+                    ? 16
+                    : 24,
+                height:
+                  dimensions.width < 350
+                    ? 12
+                    : dimensions.width < 500
+                    ? 16
+                    : 24,
+                fontSize:
+                  dimensions.width < 350
+                    ? 7
+                    : dimensions.width < 500
+                    ? 9
+                    : 13,
+                backgroundColor: getIndustryColor(alumni.industry),
+                borderRadius: '50%'
+              }}
             >
               {alumni.industry.charAt(0)}
             </div>
