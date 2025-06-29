@@ -238,11 +238,22 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
 
       {/* Center Hub - SPIT Logo */}
       <motion.div
-        className="absolute left-1/2 z-20"
-        style={{
-          top: `calc(50% - ${dimensions.width < 500 ? 30 : 50}px)`, // Shift up by 30px (mobile) or 50px (desktop)
-          transform: 'translate(-50%, -50%)'
-        }}
+        className="absolute z-20"
+        style={
+          dimensions.width < 500
+            ? {
+                left: `calc(50% + 0px)`, // Center horizontally for mobile
+                top: `calc(50% + ${alumniPositions.length
+                  ? (alumniPositions[0].y - dimensions.height / 2) * 0.6
+                  : 0}px)`, // Move logo closer to the first alumni node
+                transform: 'translate(-50%, -50%)'
+              }
+            : {
+                left: '50%',
+                top: `calc(50% - 50px)`,
+                transform: 'translate(-50%, -50%)'
+              }
+        }
         initial={{ scale: 0, rotate: -180 }}
         animate={{ scale: 1, rotate: 0 }}
         transition={{ duration: 1, delay: 0.5, type: "spring" }}
