@@ -138,7 +138,7 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
       ref={containerRef}
       className="relative mx-auto w-full flex justify-center items-center"
       style={{
-        minHeight: dimensions.height + (dimensions.width < 500 ? 120 : 180), // Add vertical space for legend/stats
+        minHeight: dimensions.height + (dimensions.width < 500 ? 120 : 180),
         height: dimensions.height + (dimensions.width < 500 ? 120 : 180),
         maxWidth: 800,
         width: '100%',
@@ -170,41 +170,76 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
       </div>
 
       {/* Concentric circles background */}
-      <svg
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-        width={dimensions.width}
-        height={dimensions.height}
-        style={{ maxWidth: '100%', maxHeight: '100%' }}
-      >
-        <defs>
-          <radialGradient id="circleGradient" cx="50%" cy="50%">
-            <stop offset="0%" stopColor="#8B5CF6" stopOpacity="0.1" />
-            <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0.3" />
-          </radialGradient>
-        </defs>
-        {/* Concentric circles */}
-        {(dimensions.width < 400 ? [1.1, 1.7, 2.2] : [1.2, 2, 2.8]).map((multiplier, index) => (
-          <motion.circle
-            key={index}
-            cx={dimensions.width / 2}
-            cy={dimensions.height / 2}
-            r={Math.min(dimensions.width, dimensions.height) * 0.12 * multiplier}
-            fill="none"
-            stroke="url(#circleGradient)"
-            strokeWidth="2"
-            strokeDasharray="5,5"
-            initial={{ strokeDashoffset: 0 }}
-            animate={{ strokeDashoffset: 100 }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          />
-        ))}
-      </svg>
+      {dimensions.width < 500 ? (
+        // Mobile: position circles relative to shifted logo/alumni
+        <svg
+          className="absolute z-10"
+          style={{
+            left: `calc(50% - 20px)`,
+            top: `calc(50% - 30px)`,
+            transform: 'translate(-50%, -50%)'
+          }}
+          width={dimensions.width}
+          height={dimensions.height}
+        >
+          <defs>
+            <radialGradient id="circleGradient" cx="50%" cy="50%">
+              <stop offset="0%" stopColor="#8B5CF6" stopOpacity="0.1" />
+              <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0.3" />
+            </radialGradient>
+          </defs>
+          {(dimensions.width < 400 ? [1.1, 1.7, 2.2] : [1.2, 2, 2.8]).map((multiplier, index) => (
+            <motion.circle
+              key={index}
+              cx={dimensions.width / 2}
+              cy={dimensions.height / 2}
+              r={Math.min(dimensions.width, dimensions.height) * 0.12 * multiplier}
+              fill="none"
+              stroke="url(#circleGradient)"
+              strokeWidth="2"
+              strokeDasharray="5,5"
+              initial={{ strokeDashoffset: 0 }}
+              animate={{ strokeDashoffset: 100 }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            />
+          ))}
+        </svg>
+      ) : (
+        // Desktop: keep circles centered
+        <svg
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+          width={dimensions.width}
+          height={dimensions.height}
+          style={{ maxWidth: '100%', maxHeight: '100%' }}
+        >
+          <defs>
+            <radialGradient id="circleGradient" cx="50%" cy="50%">
+              <stop offset="0%" stopColor="#8B5CF6" stopOpacity="0.1" />
+              <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0.3" />
+            </radialGradient>
+          </defs>
+          {[1.2, 2, 2.8].map((multiplier, index) => (
+            <motion.circle
+              key={index}
+              cx={dimensions.width / 2}
+              cy={dimensions.height / 2}
+              r={Math.min(dimensions.width, dimensions.height) * 0.12 * multiplier}
+              fill="none"
+              stroke="url(#circleGradient)"
+              strokeWidth="2"
+              strokeDasharray="5,5"
+              initial={{ strokeDashoffset: 0 }}
+              animate={{ strokeDashoffset: 100 }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            />
+          ))}
+        </svg>
+      )}
 
       {/* Center Hub - SPIT Logo */}
       <motion.div
-        className="absolute z-20"
+        className="absolute left-1/2 z-20"
         style={{
-          left: `calc(50% - ${dimensions.width < 500 ? 20 : 40}px)`, // Shift left by 20px (mobile) or 40px (desktop)
           top: `calc(50% - ${dimensions.width < 500 ? 30 : 50}px)`, // Shift up by 30px (mobile) or 50px (desktop)
           transform: 'translate(-50%, -50%)'
         }}
@@ -276,9 +311,8 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
       </motion.div>
       {/* Connection Lines */}
       <svg
-        className="absolute pointer-events-none z-10"
+        className="absolute left-1/2 pointer-events-none z-10"
         style={{
-          left: `calc(50% - ${dimensions.width < 500 ? 20 : 40}px)`,
           top: `calc(50% - ${dimensions.width < 500 ? 30 : 50}px)`,
           transform: 'translate(-50%, -50%)'
         }}
@@ -314,8 +348,8 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
           key={alumni.id}
           className="absolute z-30"
           style={{
-            left: `calc(50% + ${(alumni.x - dimensions.width / 2) - (dimensions.width < 500 ? 20 : 40)}px)`,
-            top: `calc(50% + ${(alumni.y - dimensions.height / 2) - (dimensions.width < 500 ? 30 : 50)}px)`,
+            left: `calc(50% + ${(alumni.x - dimensions.width / 2)}px)`,
+            top: `calc(50% + ${(alumni.y - dimensions.height / 2) - (dimensions.width < 500 ? 30 : 50)}px)`, // Shift up
             transform: 'translate(-50%, -50%)',
             cursor: 'pointer'
           }}
