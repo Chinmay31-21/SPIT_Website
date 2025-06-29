@@ -202,8 +202,10 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
 
       {/* Center Hub - SPIT Logo */}
       <motion.div
-        className="absolute left-1/2 top-1/2 z-20"
+        className="absolute z-20"
         style={{
+          left: `calc(50% - ${dimensions.width < 500 ? 20 : 40}px)`, // Shift left by 20px (mobile) or 40px (desktop)
+          top: `calc(50% - ${dimensions.width < 500 ? 30 : 50}px)`, // Shift up by 30px (mobile) or 50px (desktop)
           transform: 'translate(-50%, -50%)'
         }}
         initial={{ scale: 0, rotate: -180 }}
@@ -272,13 +274,16 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
           ></div>
         </div>
       </motion.div>
-
       {/* Connection Lines */}
       <svg
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-10"
+        className="absolute pointer-events-none z-10"
+        style={{
+          left: `calc(50% - ${dimensions.width < 500 ? 20 : 40}px)`,
+          top: `calc(50% - ${dimensions.width < 500 ? 30 : 50}px)`,
+          transform: 'translate(-50%, -50%)'
+        }}
         width={dimensions.width}
         height={dimensions.height}
-        style={{ maxWidth: '100%', maxHeight: '100%' }}
       >
         <defs>
           <linearGradient id="connectionGradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -303,15 +308,14 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
           />
         ))}
       </svg>
-
       {/* Alumni Nodes */}
       {alumniPositions.map((alumni, index) => (
         <motion.div
           key={alumni.id}
           className="absolute z-30"
           style={{
-            left: `calc(50% + ${(alumni.x - dimensions.width / 2)}px)`,
-            top: `calc(50% + ${(alumni.y - dimensions.height / 2)}px)`,
+            left: `calc(50% + ${(alumni.x - dimensions.width / 2) - (dimensions.width < 500 ? 20 : 40)}px)`,
+            top: `calc(50% + ${(alumni.y - dimensions.height / 2) - (dimensions.width < 500 ? 30 : 50)}px)`,
             transform: 'translate(-50%, -50%)',
             cursor: 'pointer'
           }}
