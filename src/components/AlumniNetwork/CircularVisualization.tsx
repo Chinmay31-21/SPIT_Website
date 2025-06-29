@@ -242,8 +242,10 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
         style={
           dimensions.width < 500
             ? {
-                left: '50%',
-                top: '50%',
+                left: `calc(50% + 0px)`, // Center horizontally for mobile
+                top: `calc(50% + ${alumniPositions.length
+                  ? (alumniPositions[0].y - dimensions.height / 2) * 0.6
+                  : 0}px)`, // Move logo closer to the first alumni node
                 transform: 'translate(-50%, -50%)'
               }
             : {
@@ -321,19 +323,10 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
       {/* Connection Lines */}
       <svg
         className="absolute left-1/2 pointer-events-none z-10"
-        style={
-          dimensions.width < 500
-            ? {
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)'
-              }
-            : {
-                top: `calc(50% - 50px)`,
-                left: '50%',
-                transform: 'translate(-50%, -50%)'
-              }
-        }
+        style={{
+          top: `calc(50% - ${dimensions.width < 500 ? 30 : 50}px)`,
+          transform: 'translate(-50%, -50%)'
+        }}
         width={dimensions.width}
         height={dimensions.height}
       >
@@ -365,21 +358,12 @@ export const CircularVisualization: React.FC<CircularVisualizationProps> = ({
         <motion.div
           key={alumni.id}
           className="absolute z-30"
-          style={
-            dimensions.width < 500
-              ? {
-                  left: `calc(50% + ${(alumni.x - dimensions.width / 2)}px)`,
-                  top: `calc(50% + ${(alumni.y - dimensions.height / 2)}px)`,
-                  transform: 'translate(-50%, -50%)',
-                  cursor: 'pointer'
-                }
-              : {
-                  left: `calc(50% + ${(alumni.x - dimensions.width / 2)}px)`,
-                  top: `calc(50% + ${(alumni.y - dimensions.height / 2) - 50}px)`, // Shift up
-                  transform: 'translate(-50%, -50%)',
-                  cursor: 'pointer'
-                }
-          }
+          style={{
+            left: `calc(50% + ${(alumni.x - dimensions.width / 2)}px)`,
+            top: `calc(50% + ${(alumni.y - dimensions.height / 2) - (dimensions.width < 500 ? 30 : 50)}px)`, // Shift up
+            transform: 'translate(-50%, -50%)',
+            cursor: 'pointer'
+          }}
           initial={{ scale: 0, opacity: 0, rotate: -90 }}
           animate={{ scale: 1, opacity: 1, rotate: 0 }}
           transition={{
