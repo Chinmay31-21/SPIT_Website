@@ -41,6 +41,153 @@ const AccordionSection = ({
   </div>
 );
 
+const placementImages = [
+  {
+    year: "2024-25",
+    src: "/assets/Placement25.jpg",
+    srci: "/assets/Internship25.jpg",
+    alt: "Placement Report 2024-25"
+  },
+  {
+    year: "2023-24",
+    src: "/assets/Placement24.jpg",
+    alt: "Placement Report 2023-24"
+  },
+  {
+    year: "2022-23",
+    src: "/assets/Placement23.jpg",
+    alt: "Placement Report 2022-23"
+  },
+  {
+    year: "2021-22",
+    src: "/assets/Placement22.jpg",
+    alt: "Placement Report 2021-22"
+  },
+  {
+    year: "2020-21",
+    src: "/assets/Placement21.jpg",
+    alt: "Placement Report 2020-21"
+  }
+];
+
+const PlacementAccordion = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  return (
+    <div className="w-full">
+      {placementImages.map((img, idx) => (
+        <div key={img.year} className="mb-3 bg-black/30 backdrop-blur-md border border-[#4169E1]/30 rounded-lg">
+          <button
+            className="w-full flex justify-between items-center bg-gradient-to-t from-[#240046] to-[#10002B] text-white font-semibold text-lg px-6 py-5 rounded transition-all focus:outline-none"
+            onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
+            aria-expanded={openIndex === idx}
+          >
+            <span className="flex items-center gap-3 text-[#FFD700]">
+              <GraduationCap className="w-5 h-5" />
+              Placement Report {img.year}
+            </span>
+            <span className="text-2xl text-white">{openIndex === idx ? '−' : '+'}</span>
+          </button>
+          {openIndex === idx && (
+            <div className="bg-black/30 px-6 py-5 rounded-b flex flex-col items-center">
+              <br />
+              <p className="text-white font-bold">Placement Report 2024-25</p>
+              <br />
+              <img
+                src={img.src}
+                alt={img.alt}
+                className="max-w-full max-h-[500px] rounded shadow-lg border border-[#4169E1]/30 bg-white"
+                style={{ objectFit: "contain" }}
+              />
+              <br />
+              <p className="text-white font-bold">Internship Report 2024-25</p>
+              <br />
+              <img
+                src={img.srci}
+                alt={img.alt}
+                className="max-w-full max-h-[500px] rounded shadow-lg border border-[#4169E1]/30 bg-white"
+                style={{ objectFit: "contain" }}
+              />
+              <br />
+              
+              
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+};
+
+const higherstudiesImages = [
+  {
+    year: "2024-25",
+    src: "/assets/Higher25.jpg",
+    alt: "Placement Report 2024-25"
+  },
+  {
+    year: "2023-24",
+    src: "/assets/Placement24.jpg",
+    alt: "Placement Report 2023-24"
+  },
+  {
+    year: "2022-23",
+    src: "/assets/Placement23.jpg",
+    alt: "Placement Report 2022-23"
+  },
+  {
+    year: "2021-22",
+    src: "/assets/Placement22.jpg",
+    alt: "Placement Report 2021-22"
+  },
+  {
+    year: "2020-21",
+    src: "/assets/Placement21.jpg",
+    alt: "Placement Report 2020-21"
+  }
+];
+
+const HigherStudiesAccordion = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  return (
+    <div className="w-full">
+      {higherstudiesImages.map((img, idx) => (
+        <div key={img.year} className="mb-3 bg-black/30 backdrop-blur-md border border-[#4169E1]/30 rounded-lg">
+          <button
+            className="w-full flex justify-between items-center bg-gradient-to-t from-[#240046] to-[#10002B] text-white font-semibold text-lg px-6 py-5 rounded transition-all focus:outline-none"
+            onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
+            aria-expanded={openIndex === idx}
+          >
+            <span className="flex items-center gap-3 text-[#FFD700]">
+              <GraduationCap className="w-5 h-5" />
+              Higher Studies Report {img.year}
+            </span>
+            <span className="text-2xl text-white">{openIndex === idx ? '−' : '+'}</span>
+          </button>
+          {openIndex === idx && (
+            <div className="bg-black/30 px-6 py-5 rounded-b flex flex-col items-center">
+              <br />
+              <p className="text-white font-bold">Higher Studies Report 2024-25</p>
+              <br />
+              <img
+                src={img.src}
+                alt={img.alt}
+                className="max-w-full max-h-[500px] rounded shadow-lg border border-[#4169E1]/30 bg-white"
+                style={{ objectFit: "contain" }}
+              />
+              <br />
+              
+              
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+};
+
+
 const accordionSections = [
   {  
     
@@ -208,20 +355,14 @@ const accordionSections = [
     title: "Placements & Internships",
     icon: <GraduationCap className="w-5 h-5" />,
     content: (
-      <div>
-        {/* Add your Placements & Internships content here */}
-        <p className="text-white/80">Placement stats and internship info goes here.</p>
-      </div>
+      <PlacementAccordion />
     ),
   },
   {
     title: "Higher Studies",
     icon: <span className="text-2xl">🏛️</span>,
     content: (
-      <div>
-        {/* Add your Higher Studies content here */}
-        <p className="text-white/80">Higher studies guidance and info goes here.</p>
-      </div>
+      <HigherStudiesAccordion />
     ),
   },
   {
