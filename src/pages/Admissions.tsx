@@ -1,7 +1,58 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, FileText, GraduationCap, Calculator, CreditCard } from 'lucide-react';
+import { Calendar, FileText, GraduationCap, Calculator, CreditCard, Download } from 'lucide-react';
 import { PaymentGateway } from '../components/PaymentGateway';
+import { useHref } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
+// ...existing imports...
+
+const CutoffSections = () => (
+  <div className="space-y-8">
+    <CutoffSection
+      year="2024-25"
+      pdf="/assets/Cutoff2425.pdf"
+      description="Cutoff details for the academic year 2024-25."
+    />
+    <CutoffSection
+      year="2023-24"
+      pdf="/assets/Cutoff2324.pdf"
+      description="Cutoff details for the academic year 2023-24."
+    />
+    <CutoffSection
+      year="2022-23"
+      pdf="/assets/Cutoff2223.pdf"
+      description="Cutoff details for the academic year 2022-23."
+    />
+    <CutoffSection
+      year="2021-22"
+      pdf="/assets/Cutoff2122.pdf"
+      description="Cutoff details for the academic year 2021-22."
+    />
+    <CutoffSection
+      year="2020-21"
+      pdf="/assets/Cutoff2021.pdf"
+      description="Cutoff details for the academic year 2020-21."
+    />
+  </div>
+);
+
+const CutoffSection = ({ year, pdf, description }: { year: string; pdf: string; description: string }) => (
+  <div className="bg-black/30 p-6 rounded-lg shadow-lg flex flex-col md:flex-row md:items-center md:justify-between">
+    <div>
+      <h2 className="text-2xl font-bold text-[#FFD700] mb-2">Cutoff {year}</h2>
+      <p className="text-white/80 mb-4">{description}</p>
+    </div>
+    <a
+      href={pdf}
+      download
+      className="bg-[#4169E1] hover:bg-[#2c5aa0] text-white px-4 py-2 rounded text-sm flex items-center gap-2 w-max"
+    >
+      <Download className="w-4 h-4" />
+      Download PDF
+    </a>
+  </div>
+);
 
 export const Admissions = () => {
   const [showPayment, setShowPayment] = useState(false);
@@ -23,6 +74,17 @@ export const Admissions = () => {
           Admissions
         </motion.h1>
 
+        <motion.div 
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 1.2 }}
+  className="mb-8"
+>
+  <h2 className="text-2xl font-bold text-[#FFD700] mb-6">Cutoff of Last 5 Years</h2>
+  <CutoffSections />
+</motion.div>
+        <br />
+       
         {/* Important Dates */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
