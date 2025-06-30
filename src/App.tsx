@@ -34,10 +34,11 @@ import { NBA } from './pages/accreditation/NBA';
 import { IQAC } from './pages/accreditation/IQAC';
 import { AICTE } from './pages/accreditation/AICTE';
 import { MandatoryDisclosure } from './pages/resources/MandatoryDisclosure';
-import { Tender } from './pages/resources/MandatoryDisclosure';
-import { AntiRagging } from './pages/resources/MandatoryDisclosure';
-import { RTI } from './pages/resources/MandatoryDisclosure';
-import { Grievance } from './pages/resources/MandatoryDisclosure';
+import { Tender } from './pages/resources/Tender';
+import { AntiRagging } from './pages/resources/AntiRagging';
+import { RTI } from './pages/resources/RTI';
+import { Grievance } from './pages/resources/Grievance';
+import { FeesRegulatory } from './pages/resources/FeesRegulatory';
 import { AlumniNetworkDemo } from './pages/AlumniNetworkDemo';
 
 const PageTransition = ({ children }: { children: React.ReactNode }) => {
@@ -216,6 +217,7 @@ function App() {
               <Route path="/accreditation/IQAC" element={<IQAC />} />
               <Route path="/accreditation/AICTE" element={<AICTE />} />
               <Route path="/resources/mandatory-disclosure" element={<MandatoryDisclosure />} />
+              <Route path="/resources/FeesRegulatory" element={<FeesRegulatory />} />
               <Route path="/resources/tender" element={<Tender />} />
               <Route path="/resources/antiragging" element={<AntiRagging />} />
               <Route path="/resources/rti" element={<RTI />} />
