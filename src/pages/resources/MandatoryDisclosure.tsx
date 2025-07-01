@@ -4,8 +4,8 @@ import React from 'react';
 export const MandatoryDisclosure = () => (
   <section className="container mx-auto px-4 py-16 md:px-20 max-w-6xl text-black">
     <h1 className="text-4xl font-bold text-[#FFD700] mb-6">Mandatory Disclosure</h1>
-    <p className="mb-4">Sardar Patel Institute of Technology is committed to transparency and compliance with the regulations set by AICTE and other statutory bodies. The mandatory disclosure document contains detailed information about our governance, programs, faculty, infrastructure, financial status, and other institutional data required to ensure quality and accountability in higher education.</p>
-    <ul className="list-disc pl-6 space-y-2">
+    <p className="mb-4 light:text-black dark:text-white">Sardar Patel Institute of Technology is committed to transparency and compliance with the regulations set by AICTE and other statutory bodies. The mandatory disclosure document contains detailed information about our governance, programs, faculty, infrastructure, financial status, and other institutional data required to ensure quality and accountability in higher education.</p>
+    <ul className="list-disc pl-6 space-y-2 light:text-black dark:text-white">
       <li><strong>AICTE Approval:</strong> Regularly updated approval letters from AICTE for all programs.</li>
       <li><strong>Governing Body:</strong> Composition of the governing body including industry experts, academicians, and representatives from management.</li>
       <li><strong>Faculty Details:</strong> Qualifications, experience, and designations of all teaching staff.</li>
