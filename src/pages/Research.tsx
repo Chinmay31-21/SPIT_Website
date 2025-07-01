@@ -3,7 +3,7 @@ import { Link, Routes, Route } from 'react-router-dom';
 import { ThemeContext } from '../ThemeProvider'; // Assuming ThemeProvider provides the theme context
 
 const Preamble = () => (
-  <div className="text-white/80 leading-relaxed space-y-6">
+  <div className="text-white/80 leading-relaxed space-y-6 bg-gradient-to-r from-[#02365e] to-[#30036b]  p-6 rounded-lg shadow-lg">
     <h2 className="text-3xl font-bold text-[#FFD700] mb-8 border-b-2 border-[#FFD700] pb-2">Preamble</h2>
     <p>
       At Bharatiya Vidya Bhavan's Sardar Patel Institute of Technology, research is an integral part of academic activity carried within various undergraduate and postgraduate programs. 
@@ -73,7 +73,7 @@ const Preamble = () => (
 );
 
 const IdeaLab = () => (
-  <div className="text-white/80 leading-relaxed space-y-6">
+  <div className="text-white/80 leading-relaxed space-y-6 bg-gradient-to-r from-[#02365e] to-[#30036b]  p-6 rounded-lg shadow-lg">
     <h2 className="text-3xl font-bold text-[#FFD700] mb-8 border-b-2 border-[#FFD700] pb-2">IdeaLab</h2>
     <p>
       IdeaLab at SPIT is a hub for innovation and creativity. It provides students and faculty with resources to develop prototypes, conduct experiments, and bring ideas to life. 
@@ -93,7 +93,7 @@ const IdeaLab = () => (
   </div>
 );
 const RDCommittee = () => (
-  <div className="text-white/80 leading-relaxed space-y-6">
+  <div className="text-white/80 leading-relaxed space-y-6 bg-gradient-to-r from-[#02365e] to-[#30036b]  p-6 rounded-lg shadow-lg">
     <h2 className="text-3xl font-bold text-[#FFD700] mb-8 border-b-2 border-[#FFD700] pb-2">R&D Committee</h2>
     <p>
       The Research and Development (R&D) Committee at Sardar Patel Institute of Technology (SPIT) is dedicated to fostering a culture of research and innovation among faculty and students. 
@@ -145,7 +145,7 @@ const RDCommittee = () => (
   </div>
 );
 const PolicyResearchAreas = () => (
-  <div className="text-white/80 leading-relaxed space-y-6">
+  <div className="text-white/80 leading-relaxed space-y-6 bg-gradient-to-r from-[#02365e] to-[#30036b]  p-6 rounded-lg shadow-lg">
     <h2 className="text-3xl font-bold text-[#FFD700] mb-8 border-b-2 border-[#FFD700] pb-2">Policy & Research Areas</h2>
     <ul className="list-disc pl-6 space-y-2">
       <li>
@@ -189,7 +189,7 @@ const PolicyResearchAreas = () => (
     <p>Below are the tables representing the sanctioned and proposed budgets:</p>
 
     {/* Table for Financial Year 2017-18 */}
-    <h4 className="text-xl font-bold text-[#FFD700] mt-6">Proposed Budget for Financial Year 2017-18</h4>
+    <h4 className="text-white/80 leading-relaxed space-y-6 bg-gradient-to-r from-[#02365e] to-[#30036b]  p-6 rounded-lg shadow-lg">Proposed Budget for Financial Year 2017-18</h4>
     <table className="table-auto border-collapse border border-[#FFD700] w-full text-left">
       <thead>
         <tr>
@@ -265,7 +265,7 @@ const PolicyResearchAreas = () => (
   </div>
 );
 const FundedProjects = () => (
-  <div className="text-white/80 leading-relaxed space-y-6">
+  <div className="text-white/80 leading-relaxed space-y-6 bg-gradient-to-r from-[#02365e] to-[#30036b]  p-6 rounded-lg shadow-lg">
     <h2 className="text-4xl font-bold text-[#FFD700] mb-8 border-b-4 border-[#FFD700] pb-2">Funded Projects</h2>
     <p className="text-lg">
       Below is the summary of funded projects carried out, including funding agencies and grants received:
@@ -358,7 +358,7 @@ const FundedProjects = () => (
   </div>
 );
 const InternationalConferences = () => (
-  <div className="text-white/80 leading-relaxed space-y-6">
+  <div className="text-white/80 leading-relaxed space-y-6 bg-gradient-to-r from-[#02365e] to-[#30036b]  p-6 rounded-lg shadow-lg">
     <h2 className="text-3xl font-bold text-[#FFD700] mb-8 border-b-2 border-[#FFD700] pb-2">International Conferences</h2>
     <p>
       Explore the details of the IEEE Colloquium hosted by SPIT:
@@ -375,7 +375,7 @@ const InternationalConferences = () => (
 );
 
 const StudentsTechnicalActivities = () => (
-  <div className="text-white/80 leading-relaxed space-y-6">
+  <div className="text-white/80 leading-relaxed space-y-6 bg-gradient-to-r from-[#02365e] to-[#30036b]  p-6 rounded-lg shadow-lg">
     <h2 className="text-3xl font-bold text-[#FFD700] mb-8 border-b-2 border-[#FFD700] pb-2">Students Technical Activities</h2>
 
     <h3 className="text-2xl font-bold text-white mt-6">1. Technical Paper Presentation</h3>
@@ -493,28 +493,28 @@ const StudentsTechnicalActivities = () => (
 );
 
 const CurrentEventsActivities = () => (
-  <div className="text-white/80 leading-relaxed space-y-6">
+  <div className="text-white/80 leading-relaxed space-y-6 bg-gradient-to-r from-[#02365e] to-[#30036b]  p-6 rounded-lg shadow-lg">
     <h2 className="text-3xl font-bold text-[#FFD700] mb-8 border-b-2 border-[#FFD700] pb-2">Current Events & Activities</h2>
     <p>Content for Current Events & Activities section...</p>
   </div>
 );
 
 const UsefulLinks = () => (
-  <div className="text-white/80 leading-relaxed space-y-6">
+  <div className="text-white/80 leading-relaxed space-y-6 bg-gradient-to-r from-[#02365e] to-[#30036b]  p-6 rounded-lg shadow-lg">
     <h2 className="text-3xl font-bold text-[#FFD700] mb-8 border-b-2 border-[#FFD700] pb-2">Useful Links</h2>
     <p>Content for Useful Links section...</p>
   </div>
 );
 
 const PublicationsPortal = () => (
-  <div className="text-white/80 leading-relaxed space-y-6">
+  <div className="text-white/80 leading-relaxed space-y-6 bg-gradient-to-r from-[#02365e] to-[#30036b]  p-6 rounded-lg shadow-lg">
     <h2 className="text-3xl font-bold text-[#FFD700] mb-8 border-b-2 border-[#FFD700] pb-2">Publications Portal</h2>
     <p>Content for Publications Portal section...</p>
   </div>
 );
 
 const IIRSISROOutreachProgramme = () => (
-  <div className="text-white/80 leading-relaxed space-y-6">
+  <div className="text-white/80 leading-relaxed space-y-6 bg-gradient-to-r from-[#02365e] to-[#30036b]  p-6 rounded-lg shadow-lg">
     <h2 className="text-3xl font-bold text-[#FFD700] mb-8 border-b-2 border-[#FFD700] pb-2">IIRS-ISRO Outreach Programme</h2>
     <p>Content for IIRS-ISRO Outreach Programme section...</p>
   </div>

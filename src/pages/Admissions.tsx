@@ -956,7 +956,7 @@ const CutoffSection = ({ year, pdf, description }: { year: string; pdf: string; 
     <a
       href={pdf}
       download
-      className=" bg-gradient-to-b from-[#DDBEA9] to-[#FFE8D6] hover:bg-gradient-to-t text-black px-4 py-2 rounded text-sm flex items-center gap-2 w-max"
+      className="bg-gradient-to-b from-[#240046] to-[#10002B] text-white hover:bg-gradient-to-t px-4 py-2 rounded text-sm flex items-center gap-2 w-max"
     >
       <Download className="w-4 h-4" />
       Download PDF
@@ -1015,23 +1015,23 @@ export const Admissions = () => {
             <h2 className="text-2xl font-bold text-[#FFD700] mb-4 w-full text-center">Important Information to Know</h2>
             <ul className="space-y-3 text-white/80">
             <br />
-              <button  className=" bg-gradient-to-b from-[#DDBEA9] to-[#FFE8D6] hover:bg-gradient-to-t text-black px-4 py-2 rounded  items-center gap-2 w-full text-center">
-              <li><a href="https://www.spit.ac.in/admissions-enquiry-2025-26/" >Admissions Enquiry 2025-26</a></li>
+              <button  className=" bg-gradient-to-b from-[#240046] to-[#10002B] text-white hover:bg-gradient-to-t px-4 py-2 rounded  items-center gap-2 w-full text-center">
+              <li className="text-white"><a href="https://www.spit.ac.in/admissions-enquiry-2025-26/" >Admissions Enquiry 2025-26</a></li>
               </button>
               <br />
               <br />
-              <button  className=" bg-gradient-to-b from-[#DDBEA9] to-[#FFE8D6] hover:bg-gradient-to-t text-black px-4 py-2 rounded  items-center gap-2 w-full text-center">
-              <li><a href="/assets/FAQAdmissions.pdf" >Frequently Asked Questions</a></li>
+              <button  className=" bg-gradient-to-t from-[#240046] to-[#10002B] text-white hover:bg-gradient-to-t px-4 py-2 rounded  items-center gap-2 w-full text-center">
+              <li className="text-white"><a href="/assets/FAQAdmissions.pdf" >Frequently Asked Questions</a></li>
               </button>
               <br />
               <br />
-              <button  className=" bg-gradient-to-b from-[#DDBEA9] to-[#FFE8D6] hover:bg-gradient-to-t text-black px-4 py-2 rounded  items-center gap-2 w-full text-center">
-              <li><a href="/assets/SPITBrochure.pdf" >SPIT Brochure</a></li>
+              <button  className=" bg-gradient-to-t from-[#240046] to-[#10002B] text-white hover:bg-gradient-to-t px-4 py-2 rounded  items-center gap-2 w-full text-center">
+              <li className="text-white"><a href="/assets/SPITBrochure.pdf" >SPIT Brochure</a></li>
               </button>
               <br />
               <br />
-              <button  className=" bg-gradient-to-b from-[#DDBEA9] to-[#FFE8D6] hover:bg-gradient-to-t text-black px-4 py-2 rounded  items-center gap-2 w-full text-center">
-              <li><a href="/assets/AdmissionContactDetails.pdf" >Contact Details</a></li>
+              <button  className=" bg-gradient-to-t from-[#240046] to-[#10002B] text-white hover:bg-gradient-to-t px-4 py-2 rounded  items-center gap-2 w-full text-center">
+              <li className="text-white"><a href="/assets/AdmissionContactDetails.pdf" >Contact Details</a></li>
               </button>
               <br />
               <br />
