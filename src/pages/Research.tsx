@@ -500,23 +500,145 @@ const CurrentEventsActivities = () => (
 );
 
 const UsefulLinks = () => (
-  <div className="text-white/80 leading-relaxed space-y-6 bg-gradient-to-r from-[#02365e] to-[#30036b]  p-6 rounded-lg shadow-lg">
+  <div className="text-white/80 leading-relaxed space-y-6 bg-gradient-to-r from-[#02365e] to-[#30036b] p-6 rounded-lg shadow-lg">
     <h2 className="text-3xl font-bold text-[#FFD700] mb-8 border-b-2 border-[#FFD700] pb-2">Useful Links</h2>
-    <p>Content for Useful Links section...</p>
+    <p className="text-lg mb-4">Explore these useful resources for research and funding opportunities:</p>
+    <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <li className="p-4 border border-[#FFD700] rounded-lg bg-white/10 shadow-md">
+        <a
+          href="http://www.nstmis-dst.org/directory/dae.htm"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-red-500 font-semibold underline hover:text-[#FFD700] transition-all duration-300"
+        >
+          http://www.nstmis-dst.org/directory/dae.htm
+        </a>
+      </li>
+      <li className="p-4 border border-[#FFD700] rounded-lg bg-white/10 shadow-md">
+        <a
+          href="https://meity.gov.in/content/funding-process"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-red-500 font-semibold underline hover:text-[#FFD700] transition-all duration-300"
+        >
+          https://meity.gov.in/content/funding-process
+        </a>
+      </li>
+      <li className="p-4 border border-[#FFD700] rounded-lg bg-white/10 shadow-md">
+        <a
+          href="https://www.serbonline.in/SERB/HomePage.do"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-red-500 font-semibold underline hover:text-[#FFD700] transition-all duration-300"
+        >
+          https://www.serbonline.in/SERB/HomePage.do
+        </a>
+      </li>
+      <li className="p-4 border border-[#FFD700] rounded-lg bg-white/10 shadow-md">
+        <a
+          href="http://www.dst.gov.in/call-for-proposals"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-red-500 font-semibold underline hover:text-[#FFD700] transition-all duration-300"
+        >
+          http://www.dst.gov.in/call-for-proposals
+        </a>
+      </li>
+      <li className="p-4 border border-[#FFD700] rounded-lg bg-white/10 shadow-md">
+        <a
+          href="https://mnre.gov.in/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-red-500 font-semibold underline hover:text-[#FFD700] transition-all duration-300"
+        >
+          https://mnre.gov.in/
+        </a>
+      </li>
+      <li className="p-4 border border-[#FFD700] rounded-lg bg-white/10 shadow-md">
+        <a
+          href="https://www.isro.gov.in/research-and-academia-interface/respond-projects"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-red-500 font-semibold underline hover:text-[#FFD700] transition-all duration-300"
+        >
+          https://www.isro.gov.in/research-and-academia-interface/respond-projects
+        </a>
+      </li>
+      <li className="p-4 border border-[#FFD700] rounded-lg bg-white/10 shadow-md">
+        <a
+          href="https://www.drdo.gov.in/drdo/English/indexCorpDir.jsp?pg=application.jsp&dir=LSRB"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-red-500 font-semibold underline hover:text-[#FFD700] transition-all duration-300"
+        >
+          https://www.drdo.gov.in/drdo/English/indexCorpDir.jsp?pg=application.jsp&dir=LSRB
+        </a>
+      </li>
+      <li className="p-4 border border-[#FFD700] rounded-lg bg-white/10 shadow-md">
+        <a
+          href="https://twas.org/twas-voice-science-south"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-red-500 font-semibold underline hover:text-[#FFD700] transition-all duration-300"
+        >
+          https://twas.org/twas-voice-science-south
+        </a>
+      </li>
+      <li className="p-4 border border-[#FFD700] rounded-lg bg-white/10 shadow-md">
+        <a
+          href="http://centralsquarefoundation.org/grant-type/research-grants/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-red-500 font-semibold underline hover:text-[#FFD700] transition-all duration-300"
+        >
+          http://centralsquarefoundation.org/grant-type/research-grants/
+        </a>
+      </li>
+      <li className="p-4 border border-[#FFD700] rounded-lg bg-white/10 shadow-md">
+        <a
+          href="https://www.mu.ac.in"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-red-500 font-semibold underline hover:text-[#FFD700] transition-all duration-300"
+        >
+          https://www.mu.ac.in
+        </a>
+      </li>
+    </ul>
   </div>
 );
 
 const PublicationsPortal = () => (
-  <div className="text-white/80 leading-relaxed space-y-6 bg-gradient-to-r from-[#02365e] to-[#30036b]  p-6 rounded-lg shadow-lg">
+  <div className="text-white/80 leading-relaxed space-y-6 bg-gradient-to-r from-[#02365e] to-[#30036b] p-6 rounded-lg shadow-lg">
     <h2 className="text-3xl font-bold text-[#FFD700] mb-8 border-b-2 border-[#FFD700] pb-2">Publications Portal</h2>
-    <p>Content for Publications Portal section...</p>
+    <p>
+      Explore the details of publications and research work at SPIT:
+    </p>
+    <a
+      href="https://research.spit.ac.in/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-[#FFD700] underline hover:text-white transition-all duration-300"
+    >
+      Visit Publications Portal
+    </a>
   </div>
 );
 
 const IIRSISROOutreachProgramme = () => (
-  <div className="text-white/80 leading-relaxed space-y-6 bg-gradient-to-r from-[#02365e] to-[#30036b]  p-6 rounded-lg shadow-lg">
+  <div className="text-white/80 leading-relaxed space-y-6 bg-gradient-to-r from-[#02365e] to-[#30036b] p-6 rounded-lg shadow-lg">
     <h2 className="text-3xl font-bold text-[#FFD700] mb-8 border-b-2 border-[#FFD700] pb-2">IIRS-ISRO Outreach Programme</h2>
-    <p>Content for IIRS-ISRO Outreach Programme section...</p>
+    <p>
+      Explore the details of the IIRS-ISRO Outreach Programme hosted by SPIT:
+    </p>
+    <a
+      href="https://www.spit.ac.in/faculty-research/iirs-isro-outreach-programme/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-[#FFD700] underline hover:text-white transition-all duration-300"
+    >
+      Visit IIRS-ISRO Outreach Programme
+    </a>
   </div>
 );
 
