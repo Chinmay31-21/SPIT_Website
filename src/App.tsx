@@ -25,6 +25,7 @@ import { Research } from './pages/Research';
 import { Library } from './pages/Library';
 import { Placements } from './pages/Placements';
 import { Admissions } from './pages/Admissions';
+import { Exams } from './pages/Exam';
 import { Contact } from './pages/Contact';
 import { NAAC } from './pages/accreditation/NAAC';
 import { NIRF } from './pages/accreditation/NIRF';
@@ -192,6 +193,7 @@ function App() {
                 <NavLink to="/accreditation/AICTE" className={({ isActive }) => isActive ? "text-[#FFFFFF] font-semibold transition-colors" : "text-white hover:text-[#FFD700] transition-colors"}>AICTE</NavLink>
                 <span className="text-[#663399]">|</span>
                 <NavLink to="/alumni-network" className={({ isActive }) => isActive ? "text-[#FFFFFF] font-semibold transition-colors" : "text-white hover:text-[#FFD700] transition-colors"}>Alumni Network</NavLink>
+               
               </div>
             </div>
           </header>
@@ -202,13 +204,15 @@ function App() {
             <Routes>
               <Route path="/" element={<MainContent />} />
               <Route path="/about/*" element={<About />} />
-              <Route path="/academics/*" element={<AcademicsLayout />} /> {/* Corrected Route */}
+              <Route path="/academics/*" element={<AcademicsLayout />} />
               <Route path="/students/*" element={<Students />} />
               <Route path="/research/*" element={<Research />} />
               <Route path="/library/*" element={<Library />} />
               <Route path="/placements/*" element={<Placements />} />
               <Route path="/admissions/*" element={<Admissions />} />
               <Route path="/contact/*" element={<Contact />} />
+              <Route path="/exam/*" element={<Exams />} />
+
               <Route path="/accreditation/NAAC" element={<NAAC />} />
               <Route path="/accreditation/NIRF" element={<NIRF />} />
               <Route path="/accreditation/IIC" element={<IIC />} />

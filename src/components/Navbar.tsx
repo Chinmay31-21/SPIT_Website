@@ -125,13 +125,13 @@ const secondRowItems: NavItem[] = [
   {
     title: 'EXAM',
     items: [
-      { title: 'All Notifications', href: '/Exam/notifications' },
-      { title: 'Results', href: '/Exam/Results' },
-      { title: 'Fees', href: '/Exam/Fees' },
-      { title: 'Timetable', href: '/Exam/timetable' },
-      { title: 'Examination Manual', href: '/Exam/ex-manual' },
-      { title: 'Exam Staff', href: '/Exam/Staff' },
-      { title: 'Contact Us', href: '/Exam/Contact' },
+      { title: 'All Notifications', href: '/exam/notifications' },
+      { title: 'Results', href: '/exam/Results' },
+      { title: 'Fees', href: '/exam/Fees' },
+      { title: 'Timetable', href: '/exam/timetable' },
+      { title: 'Examination Manual', href: '/exam/ex-manual' },
+      { title: 'Exam Staff', href: '/exam/Staff' },
+      { title: 'Contact Us', href: '/exam/Contact' },
     ]
   },
   {
