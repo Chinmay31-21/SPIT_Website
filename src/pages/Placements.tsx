@@ -186,6 +186,96 @@ export const Placements = () => {
             </div>
           </div>
         </div>
+<br />
+        {/* Placement Preparation Roadmap - Vertical Timeline with Smooth Transition */}
+        <div className="mb-20">
+          <h2 className="text-4xl font-bold bg-gradient-to-r from-[#5E035E] to-[#30036B] dark:from-[#FFD700] dark:to-[#DAA520] bg-clip-text text-transparent mb-12 text-center">
+            Placement Preparation Journey
+          </h2>
+          <div className="relative flex flex-col items-center w-full">
+            {/* Vertical Line */}
+            <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-[#2B107E]/30 z-0" style={{ minHeight: 900, transform: "translateX(-50%)" }} />
+            <div className="w-full flex flex-col gap-24 z-10">
+              {[
+                {
+                  img: "/assets/industry-session.jpg",
+                  title: "Industry Sessions",
+                  desc: "Sessions by experts from top companies like PhonePe and Deutsche Bank bridge the gap between students and industry.",
+                  icon: "Q",
+                  align: "left"
+                },
+                {
+                  img: "/assets/dsa-hackathon.jpg",
+                  title: "DSA Preparation & Hackathon",
+                  desc: "Regular programming tests prepare students for placements and identify technical gaps. Participation in top hackathons offers students a chance to showcase skills and earn early placements.",
+                  icon: "Q",
+                  align: "right"
+                },
+                {
+                  img: "/assets/mock-interview.jpg",
+                  title: "Mock Interview",
+                  desc: "Placed final-year students conduct mock interviews and provide feedback on technical and non-technical aspects to prepare students for placements.",
+                  icon: "A",
+                  align: "left"
+                },
+                {
+                  img: "/assets/workshop-session.jpg",
+                  title: "Workshop & Sessions",
+                  desc: "Placed students and interns offer guidance to clear doubts and aid preparation.",
+                  icon: "A",
+                  align: "right"
+                },
+                {
+                  img: "/assets/group-session.jpg",
+                  title: "Group Session",
+                  desc: "Group sessions and peer learning help students to share experiences and strategies for placement success.",
+                  icon: "S",
+                  align: "left"
+                }
+              ].map((step, idx) => (
+                <div
+                  key={idx}
+                  className={`flex flex-col md:flex-row items-center justify-center gap-8 w-full transition-all duration-700 ease-in-out`}
+                >
+                  {/* Left Side */}
+                  {step.align === "left" && (
+                    <>
+                      <div className="md:w-1/2 flex justify-end md:pr-12">
+                        <div className="bg-[#2B107E] rounded-xl shadow-lg p-4 w-full max-w-md transition-transform duration-700 hover:scale-105">
+                          <img src={step.img} alt={step.title} className="rounded mb-4 w-full object-cover max-h-56 transition-all duration-700" />
+                          <div className="text-white font-bold text-lg mb-1">{step.title}</div>
+                          <div className="text-white/80 text-sm">{step.desc}</div>
+                        </div>
+                      </div>
+                      <div className="flex flex-col items-center">
+                        <div className="w-10 h-10 rounded-full bg-white border-4 border-[#2B107E] flex items-center justify-center font-bold text-[#2B107E] text-lg shadow mb-2 transition-all duration-700">{step.icon}</div>
+                        {idx < 4 && <div className="h-24 w-1 bg-[#2B107E]/30 hidden md:block"></div>}
+                      </div>
+                      <div className="md:w-1/2"></div>
+                    </>
+                  )}
+                  {/* Right Side */}
+                  {step.align === "right" && (
+                    <>
+                      <div className="md:w-1/2"></div>
+                      <div className="flex flex-col items-center">
+                        <div className="w-10 h-10 rounded-full bg-white border-4 border-[#2B107E] flex items-center justify-center font-bold text-[#2B107E] text-lg shadow mb-2 transition-all duration-700">{step.icon}</div>
+                        {idx < 4 && <div className="h-24 w-1 bg-[#2B107E]/30 hidden md:block"></div>}
+                      </div>
+                      <div className="md:w-1/2 flex justify-start md:pl-12">
+                        <div className="bg-[#2B107E] rounded-xl shadow-lg p-4 w-full max-w-md transition-transform duration-700 hover:scale-105">
+                          <img src={step.img} alt={step.title} className="rounded mb-4 w-full object-cover max-h-56 transition-all duration-700" />
+                          <div className="text-white font-bold text-lg mb-1">{step.title}</div>
+                          <div className="text-white/80 text-sm">{step.desc}</div>
+                        </div>
+                      </div>
+                    </>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
 
        
         

@@ -289,13 +289,13 @@ const Departments = () => (
       ].map(({ name, link }) => (
         <div
           key={name}
-          className="bg-gray-100 p-4 rounded-lg shadow-md hover:bg-[#FFD700]/10 transition-all duration-300"
+          className=" text-[#95B8D1] bg-[#0A6B78] p-4 rounded-lg shadow-md hover:bg-[#FFD700]/10 transition-all duration-300"
         >
           <a
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-red-600 font-semibold hover:underline"
+            className="font-semibold hover:underline"
           >
             {name}
           </a>
@@ -314,10 +314,10 @@ const Curriculum = () => (
     <div className="text-white/80 leading-relaxed space-y-6">
       {/* Multidisciplinary Minors Section */}
       <div>
-        <h3 className="text-lg font-semibold text-blue-600 mb-2">
+        <h3 className="text-lg font-semibold text-[#9575E4] mb-2">
           Syllabi for Multidisciplinary Minors (M.D.M.) W. E. F. 2023-27 Batch
         </h3>
-        <ul className="list-disc list-inside text-red-600 space-y-2">
+        <ul className="list-disc list-inside text-[#FFF3B0] space-y-2">
           <li>
             <a
               href="/assets/Introduction-Page.pdf"
@@ -343,10 +343,10 @@ const Curriculum = () => (
 
       {/* UG Syllabus Scheme Batch 2023-27 */}
       <div>
-        <h3 className="text-lg font-semibold text-blue-600 mb-2">
+        <h3 className="text-lg font-semibold text-[#9575E4] mb-2">
           UG SYLLABUS Scheme batch 2023-27
         </h3>
-        <ul className="list-disc list-inside text-red-600 space-y-2">
+        <ul className="list-disc list-inside text-[#FFF3B0] space-y-2">
           <li>
             <a
               href="/assets/ce-scheme-2023-27.pdf"
@@ -412,10 +412,10 @@ const Curriculum = () => (
 
       {/* UG Syllabus Scheme Batch 2022-26 */}
       <div>
-        <h3 className="text-lg font-semibold text-blue-600 mb-2">
+        <h3 className="text-lg font-semibold text-[#9575E4] mb-2">
           UG SYLLABUS Scheme batch 2022-26
         </h3>
-        <ul className="list-disc list-inside text-red-600 space-y-2">
+        <ul className="list-disc list-inside text-[#FFF3B0] space-y-2">
           <li>
             <a
               href="/assets/CE_2022-2026_Scheme.pdf"
@@ -461,10 +461,10 @@ const Curriculum = () => (
 
       {/* UG Syllabus Scheme Academic Year 2021-25 */}
       <div>
-        <h3 className="text-lg font-semibold text-blue-600 mb-2">
+        <h3 className="text-lg font-semibold text-[#9575E4] mb-2">
           UG SYLLABUS Scheme Academic Year 2021-25
         </h3>
-        <ul className="list-disc list-inside text-red-600 space-y-2">
+        <ul className="list-disc list-inside text-[#FFF3B0] space-y-2">
           <li>
             <a
               href="/assets/CE_2021-2025_Scheme.pdf"
@@ -534,7 +534,7 @@ const Moodle = () => (
           href="https://moodle.spit.ac.in/login/index.php"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-red-600 font-semibold hover:underline"
+          className="text-[#FFF3B0] font-semibold hover:underline"
         >
           Click here to access Moodle
         </a>
@@ -559,7 +559,7 @@ const Scope = () => (
           href="https://scope.spit.ac.in/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-red-600 font-semibold hover:underline"
+          className="text-[#FFF3B0] font-semibold hover:underline"
         >
           Click here to access SCOPE
         </a>
@@ -659,7 +659,7 @@ const CustomizedCourses = () => (
         </ul>
       </div>
       <p className="text-white">
-        For more information on bringing our courses to you, kindly email your requirements at <a href="mailto:principal@spit.ac.in" className="text-red-600 hover:underline">principal@spit.ac.in</a>.
+        For more information on bringing our courses to you, kindly email your requirements at <a href="mailto:principal@spit.ac.in" className="text-[#FFF3B0] hover:underline">principal@spit.ac.in</a>.
       </p>
     </div>
   </PageSection>
@@ -778,14 +778,14 @@ const CDEEP = () => (
         </ul>
       </p>
       <p className="text-white mt-4">
-        For more details, contact <a href="mailto:ysrao@spit.ac.in" className="text-red-600 hover:underline">ysrao@spit.ac.in</a>.
+        For more details, contact <a href="mailto:ysrao@spit.ac.in" className="text-[#FFF3B0] hover:underline">ysrao@spit.ac.in</a>.
       </p>
       <div className="mt-4">
         <a
           href="/assets/CDEEP_course.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-red-600 font-semibold hover:underline"
+          className="text-[#FFF3B0] font-semibold hover:underline"
         >
           Click here for list of courses
         </a>
@@ -806,7 +806,7 @@ const Resources = () => (
 
       {/* Central Library */}
       <div>
-        <h3 className="text-lg font-semibold text-red-600 mb-2">
+        <h3 className="text-lg font-semibold text-[#FFF3B0] mb-2">
           <a
             href="https://library.spit.ac.in/"
             target="_blank"
@@ -823,7 +823,7 @@ const Resources = () => (
 
       {/* Central Computing Facilities */}
       <div>
-        <h3 className="text-lg font-semibold text-red-600 mb-2">Central Computing Facilities</h3>
+        <h3 className="text-lg font-semibold text-[#FFF3B0] mb-2">Central Computing Facilities</h3>
         <p>
           The central computing facility is open for all the students. Each of the departments has its own specialized lab for software development activities in various disciplines. Business India weekly magazine made a special mention of the state-of-the-art Linux lab. The total number of nodes in the college is 400+ and growing.
         </p>
@@ -831,7 +831,7 @@ const Resources = () => (
 
       {/* Language Laboratory */}
       <div>
-        <h3 className="text-lg font-semibold text-red-600 mb-2">Language Laboratory</h3>
+        <h3 className="text-lg font-semibold text-[#FFF3B0] mb-2">Language Laboratory</h3>
         <p>
           The language laboratory is a pioneer initiative undertaken to encourage students in taking up CALL (Computer Assisted Language Learning). It has a collection of CDs and other material in the form of cassettes and books on topics ranging from vocabulary, spelling, and grammar to managerial communication.
         </p>
@@ -839,7 +839,7 @@ const Resources = () => (
 
       {/* E-Cell */}
       <div>
-        <h3 className="text-lg font-semibold text-red-600 mb-2">E-Cell</h3>
+        <h3 className="text-lg font-semibold text-[#FFF3B0] mb-2">E-Cell</h3>
         <p>
           The institute is a member of the National Entrepreneurship Network (NEN). An E-Cell was formed in 2006 to promote and encourage entrepreneurial skills in students.
         </p>
@@ -847,7 +847,7 @@ const Resources = () => (
 
       {/* Conference Hall */}
       <div>
-        <h3 className="text-lg font-semibold text-red-600 mb-2">Conference Hall</h3>
+        <h3 className="text-lg font-semibold text-[#FFF3B0] mb-2">Conference Hall</h3>
         <p>
           The fully equipped conference hall is an ideal place for conducting workshops, seminars, research conferences, and lectures by visiting faculty, professional bodies, and organizations.
         </p>
@@ -855,7 +855,7 @@ const Resources = () => (
 
       {/* Gymkhana */}
       <div>
-        <h3 className="text-lg font-semibold text-red-600 mb-2">Gymkhana</h3>
+        <h3 className="text-lg font-semibold text-[#FFF3B0] mb-2">Gymkhana</h3>
         <p>
           Located on the first floor, the gymnasium enables students to enjoy a game of Table Tennis or try their skill at Carrom. The huge Bhavan’s ground is where various college cricket events take place. Students as well as the college staff are actively involved in sporting activities.
         </p>
@@ -863,7 +863,7 @@ const Resources = () => (
 
       {/* Counseling */}
       <div>
-        <h3 className="text-lg font-semibold text-red-600 mb-2">Counseling</h3>
+        <h3 className="text-lg font-semibold text-[#FFF3B0] mb-2">Counseling</h3>
         <p>
           Our counseling services help students deal with difficulties of a personal or academic nature, which arise in the course of their studies. Students can approach the counselor with an appointment and can talk to them on a range of issues such as planning, decision-making, problem-solving, social, and emotional development.
         </p>
@@ -888,7 +888,7 @@ const AcademicCalendar = () => (
               href="/assets/Academic-Calendar-2025-26-First-Term.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-red-600 hover:underline"
+              className="text-[#FFF3B0] hover:underline"
             >
               Academic Calendar 2025-26 First Term
             </a>
@@ -905,7 +905,7 @@ const AcademicCalendar = () => (
               href="/assets/2_2_Academic-Calendar-2024-25-Second-Term.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-red-600 hover:underline"
+              className="text-[#FFF3B0] hover:underline"
             >
               Academic Calendar 2024-25 Second Term
             </a>
@@ -915,7 +915,7 @@ const AcademicCalendar = () => (
               href="/assets/1_1_Academic-Calendar-2024-25-First-Term.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-red-600 hover:underline"
+              className="text-[#FFF3B0] hover:underline"
             >
               Academic Calendar 2024-25 First Term
             </a>
@@ -925,7 +925,7 @@ const AcademicCalendar = () => (
               href="/assets/Academic-Calendar_FE_First-Term_2024-25.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-red-600 hover:underline"
+              className="text-[#FFF3B0] hover:underline"
             >
               Academic Calendar FE First Term 2024-25
             </a>
@@ -935,7 +935,7 @@ const AcademicCalendar = () => (
               href="/assets/Academic-Calendar-2024-25-First-Term-FYMCA.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-red-600 hover:underline"
+              className="text-[#FFF3B0] hover:underline"
             >
               Academic Calendar 2024-25 First Term-FY MCA
             </a>
@@ -960,7 +960,7 @@ const AcademicCouncilMinutes = () => (
         href="/assets/academic-council-minutes.pdf"
         target="_blank"
         rel="noopener noreferrer"
-        className="text-red-600 font-semibold hover:underline"
+        className="text-[#FFF3B0] font-semibold hover:underline"
       >
         Download Academic Council Minutes
       </a>
@@ -996,7 +996,7 @@ const RulesAndRegulations = () => (
         href="/assets/rules-and-regulations.pdf"
         target="_blank"
         rel="noopener noreferrer"
-        className="text-red-600 font-semibold hover:underline"
+        className="text-[#FFF3B0] font-semibold hover:underline"
       >
         Download Rules & Regulations
       </a>
