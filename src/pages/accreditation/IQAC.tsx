@@ -47,10 +47,12 @@ export const IQAC = () => {
   ];
 
   const meetings = [
-    { date: "March 15, 2024", agenda: "Review of Academic Performance", status: "Completed" },
-    { date: "February 20, 2024", agenda: "Infrastructure Development Plan", status: "Completed" },
-    { date: "January 18, 2024", agenda: "Student Feedback Analysis", status: "Completed" },
-    { date: "December 12, 2023", agenda: "Faculty Development Programs", status: "Completed" }
+    { date: "AY 2024-25", agenda: "MoM (2024-25)", status: "In Progress" },
+    { date: "AY 2023-24", agenda: <a href="/assets/IQAC-Minutes-2023-24.pdf">MoM (2023-24)</a> , status: "Completed" },
+    { date: "AY 2021-22", agenda: <a href="/assets/AY-2021-22.pdf">MoM (2021-22)</a>, status: "Completed" },
+    { date: "AY 2020-21", agenda: <a href="/assets/AY-2020-21.pdf">MoM (2020-21)</a>, status: "Completed" },
+    { date: "AY 2020-21", agenda: <a href="/assets/AY-2019-20.pdf">MoM (2019-20)</a>, status: "Completed" },
+    { date: "AY 2020-21", agenda: <a href="/assets/AY-2018-19.pdf">MoM (2018-19)</a>, status: "Completed" }
   ];
 
   return (

@@ -377,45 +377,429 @@ const NotificationsSection = () => (
   </section>
 );
 
+const resultCards = [
+  {
+    title: "Fees Structure for the Academic Year 2023-24",
+    link: "/exam/feestructure",
+    date: "November 16th, 2024",
+    type: "posted by administrator@spit.ac.in under Fees"
+  },
+  {
+    title: "Regular Result Dec 2022",
+    link: "/exam/examination",
+    date: "Dec 2022",
+    type: "Result"
+  },
+  {
+    title: "Special Examination Odd Even Semester 2023-24 Gazettes",
+    link: "/exam/specialexaminationoddevensemester202324gazettes",
+    date: "November 15th, 2024",
+    type: "posted by administrator@spit.ac.in under Rules"
+  },
+  {
+    title: "Re-Examination January 2024 Results",
+    link: "/exam/reexaminationjanuary2024results",
+    date: "November 12th, 2024",
+    type: "posted by administrator@spit.ac.in under Results"
+  },
+  {
+    title: "Odd Semester Results 2023–24",
+    link: "/exam/oddsemresults2324",
+    date: "November 5th, 2024",
+    type: "posted by administrator@spit.ac.in under Results"
+  },
+  // ...add more as needed
+];
+
 const ResultsSection = () => (
   <section className="bg-gradient-to-br from-[#2B107E] to-[#02365E] rounded-xl p-8 text-white shadow animate-fade-in">
-    <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Results</h2>
-    <p>Latest exam results and archives will be listed here.</p>
+    <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Result Section</h2>
+    <div className="responsive-grid">
+      {resultCards.map((card, idx) => (
+        <div
+          key={idx}
+          className="card bg-black/30 backdrop-blur-lg p-5 flex flex-col justify-between min-h-[160px] hover:shadow-xl transition-all"
+        >
+          <div>
+            <div className="text-lg font-semibold text-white mb-2">{card.title}</div>
+            <div className="text-white/70 text-xs mb-4">{card.date} &middot; {card.type}</div>
+          </div>
+          {/* Use <Link> for internal navigation, <a> for external/PDF */}
+          {card.link.startsWith('/exam/') ? (
+            <Link
+              to={card.link}
+              className="inline-block mt-auto px-4 py-2 rounded bg-gradient-to-r from-[#B3DEE2] to-[#83BFE6] text-black font-bold text-sm hover:from-[#4169E1] hover:to-[#2B107E] hover:text-white transition"
+            >
+              View Details
+            </Link>
+          ) : (
+            <a
+              href={card.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-auto px-4 py-2 rounded bg-gradient-to-r from-[#B3DEE2] to-[#83BFE6] text-black font-bold text-sm hover:from-[#4169E1] hover:to-[#2B107E] hover:text-white transition"
+            >
+              View PDF
+            </a>
+          )}
+        </div>
+      ))}
+    </div>
   </section>
 );
+
+const feeCards = [
+  {
+    title: "Fees Structure for the Academic Year 2023-24",
+    link: "/exam/feestructure",
+    date: "November 16th, 2024",
+    type: "posted by administrator@spit.ac.in under Fees"
+  },
+  {
+    title: "Regular Result Dec 2022",
+    link: "/exam/examination",
+    date: "Dec 2022",
+    type: "Result"
+  },
+  {
+    title: "Special Examination Odd Even Semester 2023-24 Gazettes",
+    link: "/exam/specialexaminationoddevensemester202324gazettes",
+    date: "November 15th, 2024",
+    type: "posted by administrator@spit.ac.in under Rules"
+  },
+  {
+    title: "Re-Examination January 2024 Results",
+    link: "/exam/reexaminationjanuary2024results",
+    date: "November 12th, 2024",
+    type: "posted by administrator@spit.ac.in under Results"
+  },
+  {
+    title: "Odd Semester Results 2023–24",
+    link: "/exam/oddsemresults2324",
+    date: "November 5th, 2024",
+    type: "posted by administrator@spit.ac.in under Results"
+  },
+  // ...add more as needed
+];
 
 const FeesSection = () => (
   <section className="bg-gradient-to-br from-[#2B107E] to-[#02365E] rounded-xl p-8 text-white shadow animate-fade-in">
-    <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Fees</h2>
-    <p>Examination fee details and payment instructions.</p>
+    <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Fees Section</h2>
+    <div className="responsive-grid">
+      {feeCards.map((card, idx) => (
+        <div
+          key={idx}
+          className="card bg-black/30 backdrop-blur-lg p-5 flex flex-col justify-between min-h-[160px] hover:shadow-xl transition-all"
+        >
+          <div>
+            <div className="text-lg font-semibold text-white mb-2">{card.title}</div>
+            <div className="text-white/70 text-xs mb-4">{card.date} &middot; {card.type}</div>
+          </div>
+          {/* Use <Link> for internal navigation, <a> for external/PDF */}
+          {card.link.startsWith('/exam/') ? (
+            <Link
+              to={card.link}
+              className="inline-block mt-auto px-4 py-2 rounded bg-gradient-to-r from-[#B3DEE2] to-[#83BFE6] text-black font-bold text-sm hover:from-[#4169E1] hover:to-[#2B107E] hover:text-white transition"
+            >
+              View Details
+            </Link>
+          ) : (
+            <a
+              href={card.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-auto px-4 py-2 rounded bg-gradient-to-r from-[#B3DEE2] to-[#83BFE6] text-black font-bold text-sm hover:from-[#4169E1] hover:to-[#2B107E] hover:text-white transition"
+            >
+              View PDF
+            </a>
+          )}
+        </div>
+      ))}
+    </div>
   </section>
 );
+
+const timetableCards = [
+  {
+    title: "Fees Structure for the Academic Year 2023-24",
+    link: "/exam/feestructure",
+    date: "November 16th, 2024",
+    type: "posted by administrator@spit.ac.in under Fees"
+  },
+  {
+    title: "Regular Result Dec 2022",
+    link: "/exam/examination",
+    date: "Dec 2022",
+    type: "Result"
+  },
+  {
+    title: "Special Examination Odd Even Semester 2023-24 Gazettes",
+    link: "/exam/specialexaminationoddevensemester202324gazettes",
+    date: "November 15th, 2024",
+    type: "posted by administrator@spit.ac.in under Rules"
+  },
+  {
+    title: "Re-Examination January 2024 Results",
+    link: "/exam/reexaminationjanuary2024results",
+    date: "November 12th, 2024",
+    type: "posted by administrator@spit.ac.in under Results"
+  },
+  {
+    title: "Odd Semester Results 2023–24",
+    link: "/exam/oddsemresults2324",
+    date: "November 5th, 2024",
+    type: "posted by administrator@spit.ac.in under Results"
+  },
+  // ...add more as needed
+];
 
 const TimetableSection = () => (
   <section className="bg-gradient-to-br from-[#2B107E] to-[#02365E] rounded-xl p-8 text-white shadow animate-fade-in">
-    <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Timetable</h2>
-    <p>Upcoming and past exam timetables.</p>
+    <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Time Table Section</h2>
+    <div className="responsive-grid">
+      {timetableCards.map((card, idx) => (
+        <div
+          key={idx}
+          className="card bg-black/30 backdrop-blur-lg p-5 flex flex-col justify-between min-h-[160px] hover:shadow-xl transition-all"
+        >
+          <div>
+            <div className="text-lg font-semibold text-white mb-2">{card.title}</div>
+            <div className="text-white/70 text-xs mb-4">{card.date} &middot; {card.type}</div>
+          </div>
+          {/* Use <Link> for internal navigation, <a> for external/PDF */}
+          {card.link.startsWith('/exam/') ? (
+            <Link
+              to={card.link}
+              className="inline-block mt-auto px-4 py-2 rounded bg-gradient-to-r from-[#B3DEE2] to-[#83BFE6] text-black font-bold text-sm hover:from-[#4169E1] hover:to-[#2B107E] hover:text-white transition"
+            >
+              View Details
+            </Link>
+          ) : (
+            <a
+              href={card.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-auto px-4 py-2 rounded bg-gradient-to-r from-[#B3DEE2] to-[#83BFE6] text-black font-bold text-sm hover:from-[#4169E1] hover:to-[#2B107E] hover:text-white transition"
+            >
+              View PDF
+            </a>
+          )}
+        </div>
+      ))}
+    </div>
   </section>
 );
+
+const manualCards = [
+  {
+    title: "Fees Structure for the Academic Year 2023-24",
+    link: "/exam/feestructure",
+    date: "November 16th, 2024",
+    type: "posted by administrator@spit.ac.in under Fees"
+  },
+  {
+    title: "Regular Result Dec 2022",
+    link: "/exam/examination",
+    date: "Dec 2022",
+    type: "Result"
+  },
+  {
+    title: "Special Examination Odd Even Semester 2023-24 Gazettes",
+    link: "/exam/specialexaminationoddevensemester202324gazettes",
+    date: "November 15th, 2024",
+    type: "posted by administrator@spit.ac.in under Rules"
+  },
+  {
+    title: "Re-Examination January 2024 Results",
+    link: "/exam/reexaminationjanuary2024results",
+    date: "November 12th, 2024",
+    type: "posted by administrator@spit.ac.in under Results"
+  },
+  {
+    title: "Odd Semester Results 2023–24",
+    link: "/exam/oddsemresults2324",
+    date: "November 5th, 2024",
+    type: "posted by administrator@spit.ac.in under Results"
+  },
+  // ...add more as needed
+];
 
 const ManualSection = () => (
   <section className="bg-gradient-to-br from-[#2B107E] to-[#02365E] rounded-xl p-8 text-white shadow animate-fade-in">
-    <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Examination Manual</h2>
-    <p>Download the examination manual and guidelines.</p>
+    <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Manual Section</h2>
+    <div className="responsive-grid">
+      {manualCards.map((card, idx) => (
+        <div
+          key={idx}
+          className="card bg-black/30 backdrop-blur-lg p-5 flex flex-col justify-between min-h-[160px] hover:shadow-xl transition-all"
+        >
+          <div>
+            <div className="text-lg font-semibold text-white mb-2">{card.title}</div>
+            <div className="text-white/70 text-xs mb-4">{card.date} &middot; {card.type}</div>
+          </div>
+          {/* Use <Link> for internal navigation, <a> for external/PDF */}
+          {card.link.startsWith('/exam/') ? (
+            <Link
+              to={card.link}
+              className="inline-block mt-auto px-4 py-2 rounded bg-gradient-to-r from-[#B3DEE2] to-[#83BFE6] text-black font-bold text-sm hover:from-[#4169E1] hover:to-[#2B107E] hover:text-white transition"
+            >
+              View Details
+            </Link>
+          ) : (
+            <a
+              href={card.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-auto px-4 py-2 rounded bg-gradient-to-r from-[#B3DEE2] to-[#83BFE6] text-black font-bold text-sm hover:from-[#4169E1] hover:to-[#2B107E] hover:text-white transition"
+            >
+              View PDF
+            </a>
+          )}
+        </div>
+      ))}
+    </div>
   </section>
 );
 
+const staffCards = [
+  {
+    title: "Fees Structure for the Academic Year 2023-24",
+    link: "/exam/feestructure",
+    date: "November 16th, 2024",
+    type: "posted by administrator@spit.ac.in under Fees"
+  },
+  {
+    title: "Regular Result Dec 2022",
+    link: "/exam/examination",
+    date: "Dec 2022",
+    type: "Result"
+  },
+  {
+    title: "Special Examination Odd Even Semester 2023-24 Gazettes",
+    link: "/exam/specialexaminationoddevensemester202324gazettes",
+    date: "November 15th, 2024",
+    type: "posted by administrator@spit.ac.in under Rules"
+  },
+  {
+    title: "Re-Examination January 2024 Results",
+    link: "/exam/reexaminationjanuary2024results",
+    date: "November 12th, 2024",
+    type: "posted by administrator@spit.ac.in under Results"
+  },
+  {
+    title: "Odd Semester Results 2023–24",
+    link: "/exam/oddsemresults2324",
+    date: "November 5th, 2024",
+    type: "posted by administrator@spit.ac.in under Results"
+  },
+  // ...add more as needed
+];
+
 const StaffSection = () => (
-  <section className="bg-gradient-to-br from-[#2B107E] to-[#02365E] rounded-xl p-8 text-white shadow animate-fade-in">
-    <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Exam Staff</h2>
-    <p>Contact details and roles of examination staff.</p>
+ <section className="bg-gradient-to-br from-[#2B107E] to-[#02365E] rounded-xl p-8 text-white shadow animate-fade-in">
+    <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Staff Section</h2>
+    <div className="responsive-grid">
+      {staffCards.map((card, idx) => (
+        <div
+          key={idx}
+          className="card bg-black/30 backdrop-blur-lg p-5 flex flex-col justify-between min-h-[160px] hover:shadow-xl transition-all"
+        >
+          <div>
+            <div className="text-lg font-semibold text-white mb-2">{card.title}</div>
+            <div className="text-white/70 text-xs mb-4">{card.date} &middot; {card.type}</div>
+          </div>
+          {/* Use <Link> for internal navigation, <a> for external/PDF */}
+          {card.link.startsWith('/exam/') ? (
+            <Link
+              to={card.link}
+              className="inline-block mt-auto px-4 py-2 rounded bg-gradient-to-r from-[#B3DEE2] to-[#83BFE6] text-black font-bold text-sm hover:from-[#4169E1] hover:to-[#2B107E] hover:text-white transition"
+            >
+              View Details
+            </Link>
+          ) : (
+            <a
+              href={card.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-auto px-4 py-2 rounded bg-gradient-to-r from-[#B3DEE2] to-[#83BFE6] text-black font-bold text-sm hover:from-[#4169E1] hover:to-[#2B107E] hover:text-white transition"
+            >
+              View PDF
+            </a>
+          )}
+        </div>
+      ))}
+    </div>
   </section>
 );
+
+const contactCards = [
+  {
+    title: "Fees Structure for the Academic Year 2023-24",
+    link: "/exam/feestructure",
+    date: "November 16th, 2024",
+    type: "posted by administrator@spit.ac.in under Fees"
+  },
+  {
+    title: "Regular Result Dec 2022",
+    link: "/exam/examination",
+    date: "Dec 2022",
+    type: "Result"
+  },
+  {
+    title: "Special Examination Odd Even Semester 2023-24 Gazettes",
+    link: "/exam/specialexaminationoddevensemester202324gazettes",
+    date: "November 15th, 2024",
+    type: "posted by administrator@spit.ac.in under Rules"
+  },
+  {
+    title: "Re-Examination January 2024 Results",
+    link: "/exam/reexaminationjanuary2024results",
+    date: "November 12th, 2024",
+    type: "posted by administrator@spit.ac.in under Results"
+  },
+  {
+    title: "Odd Semester Results 2023–24",
+    link: "/exam/oddsemresults2324",
+    date: "November 5th, 2024",
+    type: "posted by administrator@spit.ac.in under Results"
+  },
+  // ...add more as needed
+];
 
 const ContactSection = () => (
   <section className="bg-gradient-to-br from-[#2B107E] to-[#02365E] rounded-xl p-8 text-white shadow animate-fade-in">
-    <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Contact Us</h2>
-    <p>For exam-related queries, contact examcell@spit.ac.in</p>
+    <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Contact Section</h2>
+    <div className="responsive-grid">
+      {contactCards.map((card, idx) => (
+        <div
+          key={idx}
+          className="card bg-black/30 backdrop-blur-lg p-5 flex flex-col justify-between min-h-[160px] hover:shadow-xl transition-all"
+        >
+          <div>
+            <div className="text-lg font-semibold text-white mb-2">{card.title}</div>
+            <div className="text-white/70 text-xs mb-4">{card.date} &middot; {card.type}</div>
+          </div>
+          {/* Use <Link> for internal navigation, <a> for external/PDF */}
+          {card.link.startsWith('/exam/') ? (
+            <Link
+              to={card.link}
+              className="inline-block mt-auto px-4 py-2 rounded bg-gradient-to-r from-[#B3DEE2] to-[#83BFE6] text-black font-bold text-sm hover:from-[#4169E1] hover:to-[#2B107E] hover:text-white transition"
+            >
+              View Details
+            </Link>
+          ) : (
+            <a
+              href={card.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-auto px-4 py-2 rounded bg-gradient-to-r from-[#B3DEE2] to-[#83BFE6] text-black font-bold text-sm hover:from-[#4169E1] hover:to-[#2B107E] hover:text-white transition"
+            >
+              View PDF
+            </a>
+          )}
+        </div>
+      ))}
+    </div>
   </section>
 );
 
