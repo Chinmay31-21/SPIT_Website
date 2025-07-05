@@ -26,6 +26,7 @@ import { Library } from './pages/Library';
 import { Placements } from './pages/Placements';
 import { Admissions } from './pages/Admissions';
 import { Exams } from './pages/Exam';
+
 import { Contact } from './pages/Contact';
 import { NAAC } from './pages/accreditation/NAAC';
 import { NIRF } from './pages/accreditation/NIRF';

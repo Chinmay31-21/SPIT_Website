@@ -819,15 +819,15 @@ export const Exams = () => {
     <section className="container mx-auto px-4 py-12 max-w-6xl">
       <div className="flex flex-col md:flex-row gap-8">
         {/* Sidebar Navigation */}
-        <aside className="w-full md:w-1/3 light:bg-[#D6D5C9] dark:bg-[#838486] rounded-xl p-6 font-medium flex flex-col gap-2 min-w-[220px] max-w-xs">
+        <aside className="w-full md:w-1/3 bg-gradient-to-b from-[#30036B] to-[#274156] dark:from-[#3D348B] dark:to-[#004F2D] rounded-xl p-6 font-medium flex flex-col gap-2 min-w-[220px] max-w-xs">
           {sections.map((sec) => (
             <NavLink
               key={sec.id}
               to={`/exam/${sec.id}`}
               className={({ isActive }) =>
-                `text-left px-4 py-2 rounded transition font-semibold ${
+                `text-left px-4 py-2 rounded transition font-semibold  ${
                   isActive || currentSection === sec.id
-                    ? "bg-[#2B107E] text-[#FFD700]"
+                    ? "bg-[#2B107E] text-[#FFD700] "
                     : "hover:text-[#2B107E] hover:bg-[#9AD4D6]/90"
                 }`
               }
