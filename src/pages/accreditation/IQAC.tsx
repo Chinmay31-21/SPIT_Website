@@ -38,12 +38,16 @@ export const IQAC = () => {
   ];
 
   const documents = [
-    { title: "IQAC Guidelines", type: "PDF", size: "2.5 MB" },
-    { title: "Annual Quality Assurance Report 2023", type: "PDF", size: "5.2 MB" },
-    { title: "Best Practices Document", type: "PDF", size: "1.8 MB" },
-    { title: "Quality Policy", type: "PDF", size: "0.9 MB" },
-    { title: "Stakeholder Feedback Analysis", type: "PDF", size: "3.1 MB" },
-    { title: "Academic Audit Report", type: "PDF", size: "4.3 MB" }
+    { title: "IQAC Constitution 2024-25", type: "PDF", size: "166 KB", link: "/assets/IQAC_Constitution_2024.pdf" },
+    { title: "IQAC Constitution 2022-23", type: "PDF", size: "339 KB", link: "/assets/IQAC-Constitution-2022-23.pdf" },
+    { title: "IQAC Constitution 2021-22", type: "PDF", size: "331 KB", link: "/assets/IQAC-Constitution-2021-22.pdf" },
+    { title: "IQAC Constitution 2019-20", type: "PDF", size: "340 KB", link: "/assets/IQAC-Constitution-2019-20.pdf" },
+    { title: "IQAC Constitution 2018-19", type: "PDF", size: "343 KB", link: "/assets/IQAC-Constitution-2018-19.pdf" },
+    { title: "Institutional Perspective Plan", type: "PDF", size: "30.5 MB", link: "/assets/Institutional Perspective Plan-1.pdf" },
+    { title: "Two days Faculty Development Programme on “Continuous Quality Improvement” on 13th & 14th March", type: "JPG", size: "1036 KB", link: "/assets/FacultyDevelopmentProgrammeIQAC.jpg" },
+    { title: "Institutional Distinctiveness", type: "PDF", size: "547 KB", link: "/assets/Placements-1.pdf " },
+    { title: "Code of Conduct 2023", type: "PDF", size: "4.9 MB", link: "/assets/Institutional_Values_and_Code_of_Conduct_2022_23.pdf " },
+    { title: "Code of Conduct 2021", type: "PDF", size: "899 KB", link: "/assets/Code-of-Conduct_2021.pdf " }
   ];
 
   const meetings = [
@@ -56,12 +60,12 @@ export const IQAC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0A0A0A] py-8">
+    <div className="min-h-screen dark:bg-[#0A0A0A] light:bg-gradient-to-r from-[#02365E] to-[#30036B] py-8">
       <div className="container mx-auto px-4">
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-4xl font-bold bg-gradient-to-r from-[#FFD700] to-[#4169E1] bg-clip-text text-transparent mb-8 text-center"
+          className="text-4xl font-bold bg-gradient-to-r from-[#5E035E] to-[#30036B] dark:from-[#FFD700] dark:to-[#EDAE49] bg-clip-text text-transparent mb-8 text-center"
         >
           Internal Quality Assurance Cell (IQAC)
         </motion.h1>
@@ -72,6 +76,7 @@ export const IQAC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
           className="bg-black/30 backdrop-blur-md border border-[#4169E1]/30 rounded-lg p-6 mb-8"
+          id="iqac-vision-mission"
         >
           <div className="flex items-center gap-4 mb-6">
             <Award className="text-[#FFD700] w-12 h-12" />
@@ -98,8 +103,8 @@ export const IQAC = () => {
         </motion.div>
 
         {/* Objectives */}
-        <div className="mb-12">
-          <h2 className="text-3xl font-bold text-[#FFD700] mb-6 text-center">Key Objectives</h2>
+        <div className="mb-12" id="iqac-objectives">
+          <h2 className="text-3xl font-bold text-[#5E035E] dark:text-[#FFD700] mb-6 text-center">Key Objectives</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {objectives.map((objective, index) => (
               <motion.div
@@ -127,6 +132,7 @@ export const IQAC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
           className="bg-black/30 backdrop-blur-md border border-[#4169E1]/30 rounded-lg p-6 mb-8"
+          id="iqac-activities"
         >
           <h2 className="text-2xl font-bold text-[#FFD700] mb-6">IQAC Activities</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -140,7 +146,7 @@ export const IQAC = () => {
         </motion.div>
 
         {/* Documents & Downloads */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8" id="iqac-documents">
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -153,12 +159,20 @@ export const IQAC = () => {
             </h2>
             <div className="space-y-4">
               {documents.map((doc, index) => (
-                <div key={index} className="flex items-center justify-between p-3 bg-black/50 rounded-lg hover:bg-black/70 transition-colors cursor-pointer">
+                <div key={index} className="flex items-center justify-between p-3 bg-black/50 rounded-lg hover:bg-black/70 transition-colors">
                   <div>
                     <h4 className="text-white font-semibold">{doc.title}</h4>
                     <p className="text-white/60 text-sm">{doc.type} • {doc.size}</p>
                   </div>
-                  <Download className="w-5 h-5 text-[#4169E1]" />
+                  <a
+                    href={doc.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 text-[#4169E1] hover:text-[#FFD700] transition"
+                  >
+                    <Download className="w-5 h-5" />
+                    <span className="sr-only">Download</span>
+                  </a>
                 </div>
               ))}
             </div>
@@ -170,6 +184,7 @@ export const IQAC = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 1 }}
             className="bg-black/30 backdrop-blur-md border border-[#4169E1]/30 rounded-lg p-6"
+            id='iqac-meetings'
           >
             <h2 className="text-2xl font-bold text-[#FFD700] mb-6 flex items-center gap-2">
               <Calendar className="w-6 h-6" />
@@ -197,27 +212,59 @@ export const IQAC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2 }}
           className="bg-black/30 backdrop-blur-md border border-[#4169E1]/30 rounded-lg p-6 mb-8"
+          id="iqac-committee"
         >
           <h2 className="text-2xl font-bold text-[#FFD700] mb-6">IQAC Committee</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { name: "Dr. Rajesh Kumar", role: "Chairperson", department: "Principal" },
-              { name: "Prof. Sunita Sharma", role: "Coordinator", department: "Computer Engineering" },
-              { name: "Dr. Amit Patel", role: "Member", department: "Electronics Engineering" },
-              { name: "Prof. Priya Mehta", role: "Member", department: "Information Technology" },
-              { name: "Mr. Ravi Singh", role: "External Expert", department: "Industry Representative" },
-              { name: "Ms. Kavita Joshi", role: "Administrative Officer", department: "Administration" }
+            {/*
+              Updated committee members list as per the provided data
+            */}
+            { [
+              { name: "Principal Dr.B.N.Chaudhari", role: "Chairperson", department: "" },
+              { name: "Dr. Sudhir Dhage", role: "IQAC Coordinator", department: "" },
+              { name: "Dr. S. G. Bhirud", role: "Management Representative", department: "" },
+              { name: "Dr. M. S. Sutaone", role: "External Domain Expert", department: "" },
+              { name: "Dr. A. N. Awale", role: "External Domain Expert", department: "" },
+              { name: "Dr. Vahida Attar", role: "External Domain Expert", department: "" },
+              { name: "Mr. Jay Borhade", role: "Industry Expert", department: "" },
+              { name: "Dr. Prashant Kasambe", role: "NBA/NAAC/NIRF Coordinator", department: "" },
+              { name: "Prof. Anand Godbole", role: "Member", department: "" },
+              { name: "Prof. Disha Sail", role: "Member", department: "" },
+              { name: "Prof. Swapnali Kurhade", role: "Member", department: "" },
+              { name: "Prof. Pramod Bide", role: "Member", department: "" },
+              { name: "Dr. Sujnta Kulkarni", role: "Member", department: "" },
+              { name: "Prof. Harshil Kanakia", role: "Member", department: "" },
+              { name: "Dr. Deepak Karia", role: "Member", department: "" },
+              { name: "Dr. Anand Mane", role: "Member", department: "" },
+              { name: "Prof. Ananthalaxmi", role: "Member", department: "" },
+              { name: "Smt. Pallavi More", role: "Administrative Member", department: "" },
+              { name: "Mr. Vedant Agrawal", role: "Alumni Representative", department: "" },
+              { name: "Mrs. Sphurti Asawa", role: "Student Representative", department: "" },
+              { name: "Prof. Nitin M. Deshmukh", role: "Parent Representative", department: "" }
             ].map((member, index) => (
               <div key={index} className="bg-black/50 rounded-lg p-4 text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-[#FFD700] to-[#4169E1] rounded-full mx-auto mb-3 flex items-center justify-center">
+                <div className="w-16 h-16 bg-gradient-to-r from-[#02365E] to-[#30036B] rounded-full mx-auto mb-3 flex items-center justify-center">
                   <Users className="w-8 h-8 text-white" />
                 </div>
                 <h4 className="text-white font-bold">{member.name}</h4>
-                <p className="text-[#4169E1] text-sm">{member.role}</p>
-                <p className="text-white/60 text-xs">{member.department}</p>
+                <p className="text-[#FFD700] text-sm">{member.role}</p>
+                {/* department is left blank as per your data */}
               </div>
             ))}
           </div>
+          <p className="text-white/60 text-xs mt-4">
+            *Representative in the category will be invited for the meeting
+            as per the agenda. The committee may co-opt members from time to time as per the requirements.
+          </p>
+          <br />
+          <p><h2 className='text-white font-bold'>Roles & Responsibilities</h2></p>
+          <ul className='text-white/80 list-disc pl-6'>
+            <li>To obtain the feedback regarding the evaluation and assessment methods</li>
+            <li>To maintain up-to-date information for national and international accreditation.</li>
+            <li>To contribute and lead academic audit (Internal/External).</li>
+            <li>To work across the department to ensure a system to provide material and information necessary for AICTE, AISHE, NBA, NAAC etc.</li>
+          </ul>
+          <p></p>
         </motion.div>
 
         {/* Contact Information */}
@@ -226,13 +273,14 @@ export const IQAC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.4 }}
           className="bg-black/30 backdrop-blur-md border border-[#4169E1]/30 rounded-lg p-6"
+          id="iqac-contact"
         >
           <h2 className="text-2xl font-bold text-[#FFD700] mb-6">Contact IQAC</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
               <h3 className="text-xl text-white mb-4">Coordinator</h3>
               <div className="space-y-2 text-white/80">
-                <p><strong>Prof. Sunita Sharma</strong></p>
+                <p><strong>Prof. Sudhir Dhage</strong></p>
                 <p>IQAC Coordinator</p>
                 <p>Email: iqac@spit.ac.in</p>
                 <p>Phone: +91 (22) 2670 7445</p>

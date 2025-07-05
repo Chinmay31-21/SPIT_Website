@@ -86,6 +86,7 @@ html.light .custom-scrollbar::-webkit-scrollbar-thumb:hover {
 html {
   scrollbar-width: thin;
   scrollbar-color: rgb(156 163 175) rgb(243 244 246);
+  scroll-behavior: smooth;
 }
 
 html.dark {

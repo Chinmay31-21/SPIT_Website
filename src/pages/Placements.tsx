@@ -14,7 +14,7 @@ export const Placements = () => {
         <div className="mb-16">
           <h2 className="text-4xl font-bold bg-gradient-to-r from-[#5E035E] to-[#30036B] dark:from-[#FFD700] dark:to-[#DAA520] bg-clip-text text-transparent mb-12 text-center">About Training & Placement Cell</h2>
           <div className="max-w-4xl mx-auto text-center text-lg text-gray-100 bg-[#2B107E]/90 rounded-xl px-8 py-8 shadow mb-8">
-            The Training and Placement Cell at Sardar Patel Institute of Technology (S.P.I.T.) is dedicated to bridging the gap between academia and industry. We strive to provide our students with the best opportunities for internships and placements by collaborating with leading organizations across various sectors. Our cell organizes workshops, seminars, and training sessions to enhance students' employability skills and prepare them for the dynamic professional world. With a strong network of recruiters and a commitment to excellence, we ensure our students are well-equipped for successful careers.
+            Aligned with the institute’s vision and mission, the Training and Placement Cell works with the academic curriculum to enhance students’ employability. The T&P Officer actively motivates and prepares students for interviews and career opportunities through systematic coaching and guidance. The cell offers services including career counseling, employment opportunities, and interview preparation, ensuring comprehensive readiness for the professional world. Located on the first floor of the Institute Building, the cell is a dynamic hub frequently visited by students, faculty, industry leaders, and entrepreneurs. It functions as a fully equipped department dedicated to facilitating successful placements.
           </div>
         </div>
 
@@ -151,42 +151,6 @@ export const Placements = () => {
           </div>
         </div>
 
-{/* Testimonials from Top Recruiters - Carousel */}
-        <div className="mb-16">
-          <h2 className="text-4xl font-bold text-[#FFD700] text-center mb-12">What Recruiters Say</h2>
-          <RecruiterTestimonialsCarousel />
-        </div>
-
-        {/* Placement Reports & Star Alumni Photo Card Carousel */}
-        <div className="mb-16">
-          <h2 className="text-4xl font-bold bg-gradient-to-r from-[#5E035E] to-[#30036B] dark:from-[#FFD700] dark:to-[#DAA520] bg-clip-text text-transparent mb-12 text-center">Placement Reports & Star Alumni</h2>
-          <PhotoCardCarousel />
-        </div>
-
-        {/* Contact Section */}
-        <div className="bg-black/30 backdrop-blur-md border border-[#00BFFF]/30 rounded-lg p-8">
-          <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Contact TPO</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <p className="text-white mb-2 font-bold">Training & Placement Officer</p>
-              <p className="text-white/70 ">Email: tpo@spit.ac.in</p>
-              <p className="text-white/70">Phone: +91 9987001445</p>
-            </div>
-            <div>
-              <p className="text-white mb-2 font-bold">Placement Coordinators</p>
-              <p className="text-white/70">Student Coordinator: tpc@spit.ac.in</p>
-              <p className="text-white/70">Faculty Coordinator: faculty.tpo@spit.ac.in</p>
-            </div>
-            <div>
-              <p className="text-white mb-2 font-bold">Find Us</p>
-              <p className="text-white/70">Room No. 104,
-              <p className="text-white/70"> Bharatiya Vidya Bhavans Sardar Patel Institute of Technology Munshi Nagar,</p>
-              <p className="text-white/70"> Andheri (West), Mumbai 400 058</p>
-</p>
-            </div>
-          </div>
-        </div>
-<br />
         {/* Placement Preparation Roadmap - Vertical Timeline with Smooth Transition */}
         <div className="mb-20">
           <h2 className="text-4xl font-bold bg-gradient-to-r from-[#5E035E] to-[#30036B] dark:from-[#FFD700] dark:to-[#DAA520] bg-clip-text text-transparent mb-12 text-center">
@@ -276,6 +240,44 @@ export const Placements = () => {
             </div>
           </div>
         </div>
+
+{/* Testimonials from Top Recruiters - Carousel */}
+        <div className="mb-16">
+          <h2 className="text-4xl font-bold text-[#FFD700] text-center mb-12">What Recruiters Say</h2>
+          <RecruiterTestimonialsCarousel />
+        </div>
+
+        {/* Placement Reports & Star Alumni Photo Card Carousel */}
+        <div className="mb-16">
+          <h2 className="text-4xl font-bold bg-gradient-to-r from-[#5E035E] to-[#30036B] dark:from-[#FFD700] dark:to-[#DAA520] bg-clip-text text-transparent mb-12 text-center">Placement Reports & Star Alumni</h2>
+          <PhotoCardCarousel />
+        </div>
+
+        {/* Contact Section */}
+        <div className="bg-black/30 backdrop-blur-md border border-[#00BFFF]/30 rounded-lg p-8">
+          <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Contact TPO</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <p className="text-white mb-2 font-bold">Training & Placement Officer</p>
+              <p className="text-white/70 ">Email: tpo@spit.ac.in</p>
+              <p className="text-white/70">Phone: +91 9987001445</p>
+            </div>
+            <div>
+              <p className="text-white mb-2 font-bold">Placement Coordinators</p>
+              <p className="text-white/70">Student Coordinator: tpc@spit.ac.in</p>
+              <p className="text-white/70">Faculty Coordinator: faculty.tpo@spit.ac.in</p>
+            </div>
+            <div>
+              <p className="text-white mb-2 font-bold">Find Us</p>
+              <p className="text-white/70">Room No. 104,
+              <p className="text-white/70"> Bharatiya Vidya Bhavans Sardar Patel Institute of Technology Munshi Nagar,</p>
+              <p className="text-white/70"> Andheri (West), Mumbai 400 058</p>
+</p>
+            </div>
+          </div>
+        </div>
+<br />
+        
 
        
         
