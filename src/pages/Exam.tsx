@@ -819,7 +819,7 @@ export const Exams = () => {
     <section className="container mx-auto px-4 py-12 max-w-6xl">
       <div className="flex flex-col md:flex-row gap-8">
         {/* Sidebar Navigation */}
-        <aside className="w-full md:w-1/3 bg-gradient-to-b from-[#30036B] to-[#274156] dark:from-[#3D348B] dark:to-[#004F2D] rounded-xl p-6 font-medium flex flex-col gap-2 min-w-[220px] max-w-xs">
+        <aside className="w-full md:w-1/3 bg-gradient-to-b from-[#30036B] to-[#241E4E] dark:from-[#3D348B] dark:to-[#241E4E] rounded-xl p-6 font-medium flex flex-col gap-2 min-w-[220px] max-w-xs">
           {sections.map((sec) => (
             <NavLink
               key={sec.id}
