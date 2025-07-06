@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu } from '@headlessui/react';
 import { ChevronDown, Menu as MenuIcon, Search, X, Home } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { ThemeToggle } from './ThemeToggle';
 
 
@@ -191,7 +191,7 @@ const secondRowItems: NavItem[] = [
   {
     title: 'CAREERS@SPIT',
     items: [
-      { title: 'Current Openings', href: '/careers' },
+      { title: 'Current Openings', href: '/CareerAtSpit/*' },
       { title: 'Faculty Positions', href: '/careers/faculty' },
       { title: 'Staff Positions', href: '/careers/staff' },
       { title: 'Benefits', href: '/careers/benefits' },
@@ -252,7 +252,7 @@ const thirdRowItems: NavItem[] = [
   {
     title: 'SHRESTHA CLUB',
     items: [
-      { title: 'About club', href: '/SC' },
+      { title: 'About club', href: '/Shresthaclub/*' },
     ]
   },
 ];

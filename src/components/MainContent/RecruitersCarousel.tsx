@@ -45,24 +45,28 @@ export const RecruitersCarousel = () => {
 
   const variants = {
     enter: (direction: number) => ({
-      x: direction > 0 ? 100 : -100,
+      x: direction > 0 ? 200 : -200,
       opacity: 0,
+      scale: 0.96,
       position: 'absolute'
     }),
     center: {
       x: 0,
       opacity: 1,
-      position: 'relative'
+      scale: 1,
+      position: 'relative',
+      transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] }
     },
     exit: (direction: number) => ({
-      x: direction > 0 ? -100 : 100,
+      x: direction > 0 ? -200 : 200,
       opacity: 0,
+      scale: 0.96,
       position: 'absolute'
     })
   };
 
   return (
-    <section className="py-16 bg-gradient-to-b (from-[#02365E] to-[#30036B]) overflow-hidden">
+    <section className="py-16 bg-gradient-to-b from-[#02365E] to-[#30036B] overflow-hidden">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-[#FFD700] mb-12 text-center">
           What Recruiters Say
@@ -77,25 +81,26 @@ export const RecruitersCarousel = () => {
               initial="enter"
               animate="center"
               exit="exit"
-              transition={{ type: "tween", duration: 0.6, ease: "easeInOut" }}
+              transition={{ type: "spring", stiffness: 60, damping: 18 }}
               className="w-full"
+              style={{ willChange: "transform, opacity" }}
             >
-              <div className="bg-black/30 backdrop-blur-lg rounded-xl border border-[#00BFFF]/20 p-8">
+              <div className="bg-black/30 backdrop-blur-lg rounded-xl border border-[#00BFFF]/20 p-8 shadow-2xl transition-shadow duration-500">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                  <div className="relative aspect-video rounded-lg overflow-hidden">
+                  <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg transition-transform duration-500">
                     <img
                       src={testimonials[currentIndex].logo}
                       alt={testimonials[currentIndex].company}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center">
-                      <h3 className="text-3xl font-bold text-white">
+                      <h3 className="text-3xl font-bold text-white drop-shadow-lg">
                         {testimonials[currentIndex].company}
                       </h3>
                     </div>
                   </div>
                   <div className="flex flex-col justify-center">
-                    <blockquote className="text-xl text-white/90 italic mb-6">
+                    <blockquote className="text-xl text-white/90 italic mb-6 transition-colors duration-500">
                       "{testimonials[currentIndex].quote}"
                     </blockquote>
                     <div>
@@ -114,19 +119,21 @@ export const RecruitersCarousel = () => {
 
           <button
             onClick={() => paginate(-1)}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/60 text-white p-2 rounded-full shadow-lg hover:bg-[#FFD700] hover:text-black transition-all duration-300 scale-100 hover:scale-110 focus:outline-none"
+            aria-label="Previous"
           >
-            <ChevronLeft size={24} />
+            <ChevronLeft size={28} />
           </button>
           <button
             onClick={() => paginate(1)}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/60 text-white p-2 rounded-full shadow-lg hover:bg-[#FFD700] hover:text-black transition-all duration-300 scale-100 hover:scale-110 focus:outline-none"
+            aria-label="Next"
           >
-            <ChevronRight size={24} />
+            <ChevronRight size={28} />
           </button>
         </div>
 
-        <div className="flex justify-center mt-8 space-x-2">
+        <div className="flex justify-center mt-8 space-x-3">
           {testimonials.map((_, index) => (
             <button
               key={index}
@@ -134,9 +141,12 @@ export const RecruitersCarousel = () => {
                 setDirection(index > currentIndex ? 1 : -1);
                 setCurrentIndex(index);
               }}
-              className={`w-3 h-3 rounded-full transition-colors ${
-                index === currentIndex ? 'bg-[#FFD700]' : 'bg-white/30'
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                index === currentIndex
+                  ? 'bg-[#FFD700] shadow-lg scale-125'
+                  : 'bg-white/30 scale-100'
               }`}
+              aria-label={`Go to testimonial ${index + 1}`}
             />
           ))}
         </div>

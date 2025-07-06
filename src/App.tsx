@@ -26,7 +26,8 @@ import { Library } from './pages/Library';
 import { Placements } from './pages/Placements';
 import { Admissions } from './pages/Admissions';
 import { Exams } from './pages/Exam';
-
+ import  ShresthaClub  from './pages/ShresthaClub';
+import CareerAtSpit from './pages/CareerAtSpit';
 import { Contact } from './pages/Contact';
 import { NAAC } from './pages/accreditation/NAAC';
 import { NIRF } from './pages/accreditation/NIRF';
@@ -213,7 +214,8 @@ function App() {
               <Route path="/admissions/*" element={<Admissions />} />
               <Route path="/contact/*" element={<Contact />} />
               <Route path="/exam/*" element={<Exams />} />
-
+              <Route path="/shresthaclub/*" element={<ShresthaClub />} />
+              <Route path="/careeratspit/*" element={<CareerAtSpit />} />
               <Route path="/accreditation/NAAC" element={<NAAC />} />
               <Route path="/accreditation/NIRF" element={<NIRF />} />
               <Route path="/accreditation/IIC" element={<IIC />} />

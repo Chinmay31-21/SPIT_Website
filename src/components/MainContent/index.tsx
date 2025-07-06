@@ -10,6 +10,7 @@ import { RecruitersCarousel } from './RecruitersCarousel';
 import { UpdatePanel } from './UpdatePanel';
 import { AntiRaggingBanner } from './AntiRaggingBanner';
 
+
 export const MainContent = () => {
   return (
     <main className="relative">
