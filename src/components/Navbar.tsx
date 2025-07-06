@@ -108,13 +108,7 @@ const firstRowItems: NavItem[] = [
       { title: 'Alumni', href: '/students/alumni' },
       { title: 'Capacity Development Programme', href: '/students/capacity-development' },
     ]
-  },
-];
-
-// Second row menu items - Student services and support
-const secondRowItems: NavItem[] = [
- 
-  {
+  }, {
     title: 'LIBRARY',
     items: [
       { title: 'Dspace', href: '/Library/Dspace' },
@@ -160,7 +154,11 @@ const secondRowItems: NavItem[] = [
       { title: 'Enactus', href: '/e/enactus' },
     ]
   },
-  {
+];
+
+// Second row menu items - Student services and support
+const secondRowItems: NavItem[] = [
+ {
     title: 'IQAC',
     items: [
       { title: 'About IQAC', href: '/accreditation/IQAC' },
@@ -201,12 +199,7 @@ const secondRowItems: NavItem[] = [
       { title: 'Contact HR', href: '/CareerAtSpit/*' },
     ]
   },
-];
-
-// Third row menu items - Administrative and compliance
-const thirdRowItems: NavItem[] = [
-  
-  {
+   {
     title: 'TENDER',
     items: [
       { title: 'Active Tenders', href: '/resources/tender' },
@@ -256,6 +249,12 @@ const thirdRowItems: NavItem[] = [
     ]
   },
 ];
+
+// Third row menu items - Administrative and compliance
+/*const thirdRowItems: NavItem[] = [
+  
+ 
+];*/
 
 const DropdownMenu = ({ item }: { item: NavItem }) => {
   const [sparkles, setSparkles] = useState<{ id: number; x: number; y: number }[]>([]);
@@ -322,7 +321,7 @@ const DropdownMenu = ({ item }: { item: NavItem }) => {
 const MobileMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const allItems = [...firstRowItems, ...secondRowItems, ...thirdRowItems];
+  const allItems = [...firstRowItems, ...secondRowItems/*, ...thirdRowItems*/];
 
   useEffect(() => {
     if (isOpen) {
@@ -349,7 +348,7 @@ const MobileMenu = () => {
     <div className="lg:hidden">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="text-white hover:text-[#FFD700] transition-colors p-2 min-h-[44px] min-w-[44px]"
+        className="text-white hover:text-[#FFD700] transition-colors p-2 min-h-[30px] min-w-[30px]"
         aria-label="Toggle menu"
       >
         <span className="sr-only">Open main menu</span>
@@ -502,7 +501,7 @@ export const Navbar = () => {
           </div>
         </div>
 
-        {/* Third Row - Administrative & Compliance */}
+{/* Third Row - Administrative & Compliance */}
         <div className="hidden lg:flex items-center justify-between h-14">
           <div className="flex items-center justify-between w-full">
             {thirdRowItems.map((item) =>
@@ -519,7 +518,8 @@ export const Navbar = () => {
               )
             )}
           </div>
-        </div>
+        </div>   
+       
 
         {/* Mobile Menu */}
         <div className="lg:hidden flex items-center justify-between h-16">
