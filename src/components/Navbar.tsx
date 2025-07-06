@@ -501,24 +501,7 @@ export const Navbar = () => {
           </div>
         </div>
 
-{/* Third Row - Administrative & Compliance */}
-        <div className="hidden lg:flex items-center justify-between h-14">
-          <div className="flex items-center justify-between w-full">
-            {thirdRowItems.map((item) =>
-              item.items ? (
-                <DropdownMenu key={item.title} item={item} />
-              ) : (
-                <Link
-                  key={item.title}
-                  to={item.href || '#'}
-                  className="nav-item font-medium min-h-[44px] flex items-center px-2 text-xs lg:text-sm"
-                >
-                  {item.title}
-                </Link>
-              )
-            )}
-          </div>
-        </div>   
+
        
 
         {/* Mobile Menu */}
