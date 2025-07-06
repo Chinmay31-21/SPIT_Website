@@ -17,20 +17,60 @@ export const UpdatePanel = () => {
   const [updates, setUpdates] = useState<Update[]>([
     {
       id: '1',
-      title: 'FY BTECH Admission 2024-25',
-      link: '#',
+      title: 'Advertisement for Faculty Recruitment-2025',
+      link: '/assets/newspaper-22-05-2025.pdf',
       isNew: true,
       isSeen: false,
       timestamp: 'Just now'
     },
     {
       id: '2',
-      title: 'Tender for GPU Lab (2025)',
-      link: '#',
+      title: 'Advertisement Tenure 3-Years',
+      link: '/assets/advertisement-final-1.pdf',
       isNew: true,
       isSeen: false,
       timestamp: '2 hours ago'
-    }
+    },
+    {
+      id: '3',
+      title: 'Application form tenure Faculty – 2025',
+      link: '/assets/Application-form-for-Tenure-Faculty-2025.docx',
+      isNew: true,
+      isSeen: false,
+      timestamp: '2 hours ago'
+    },
+    {
+      id: '4',
+      title: 'Cut off Marks 24-25',
+      link: '/assets/Cutoff2425.pdf',
+      isNew: true,
+      isSeen: false,
+      timestamp: '2 hours ago'
+    },
+    {
+      id: '5',
+      title: 'FRA Fee Approval (ENGG, MCA,ME) for 2025-26',
+      link: '/assets/FRA-Fee-Approval-ENGG-MCAME-for-2025-26.pdf',
+      isNew: true,
+      isSeen: false,
+      timestamp: '2 hours ago'
+    },
+    {
+      id: '6',
+      title: 'Bid for Building Extension Works at SPIT',
+      link: '/assets/Final_1-Tendor-SPIT-Building-Extension-2025-PDF.pdf',
+      isNew: true,
+      isSeen: false,
+      timestamp: '2 hours ago'
+    },
+    {
+      id: '7',
+      title: 'B.Tech. Engg Revised Fee Notice for 2024-25',
+      link: '/assets/B.Tech_.-Engg-Revised-Fee-Notice-for-2024-25.pdf',
+      isNew: true,
+      isSeen: false,
+      timestamp: '2 hours ago'
+    },
   ]);
 
   useEffect(() => {
@@ -121,6 +161,7 @@ export const UpdatePanel = () => {
                       >
                         <a
                           href={update.link}
+                          target='_blank'
                           className="block"
                           onClick={() => markAsSeen(update.id)}
                         >
