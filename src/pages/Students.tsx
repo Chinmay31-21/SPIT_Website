@@ -213,13 +213,127 @@ const LOR = () => (
   </div>
 );
 const Council = () => (
-  <div className="text-white/80">Students Council Content</div>
+  <div className="text-white/80 leading-relaxed space-y-6 bg-gradient-to-r from-[#02365e] to-[#30036b] p-8 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+    <h2 className="text-5xl font-bold text-[#FFD700] mb-6 border-b-4 border-[#FFD700] pb-2">Student Council</h2>
+    <p className="text-xl">
+      The Student Council at SPIT serves as the voice of the student body, fostering communication between students and the administration. 
+      It organizes various events, promotes extracurricular activities, and ensures the welfare of students. 
+      The council is committed to creating a vibrant and inclusive campus environment where every student feels empowered to contribute and grow.
+    </p>
+    <h3 className="text-3xl font-bold text-[#FFD700] mt-8 mb-4">Roles and Responsibilities</h3>
+    <ul className="list-disc pl-6 space-y-4 text-lg">
+      <li>Acting as a bridge between students and the administration to address concerns and suggestions.</li>
+      <li>Organizing cultural, technical, and sports events to promote holistic development.</li>
+      <li>Encouraging student participation in extracurricular activities and fostering leadership skills.</li>
+      <li>Ensuring the welfare and inclusivity of all students on campus.</li>
+      <li>Representing SPIT at intercollegiate events and competitions.</li>
+    </ul>
+    <h3 className="text-3xl font-bold text-[#FFD700] mt-8 mb-4">Major Events Organized</h3>
+    <p className="text-lg">
+      The Student Council organizes several flagship events throughout the year, including:
+    </p>
+    <ul className="list-disc pl-6 space-y-4 text-lg">
+      <li><span className="font-bold">Oculus:</span> SPIT's annual technical and cultural fest, featuring workshops, competitions, and performances.</li>
+      <li><span className="font-bold">Sports Week:</span> A week-long celebration of sportsmanship and athleticism with various tournaments.</li>
+      <li><span className="font-bold">Seva:</span> Community service initiatives aimed at giving back to society.</li>
+      <li><span className="font-bold">Rotaract Club Activities:</span> Leadership and social service programs under the Rotaract Club.</li>
+    </ul>
+    <p className="text-lg">
+      <span className="font-bold">To know more:</span>{' '}
+      <a
+        href="/assets/Student_Council.pdf" // Replace with the actual path to the PDF
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-red-500 underline hover:text-[#FFD700] transition-all duration-300"
+      >
+        Click here to view the Student Council PDF
+      </a>
+    </p>
+  </div>
 );
 const Rules = () => (
-  <div className="text-white/80">Rules & Regulations Content</div>
+  <div className="text-white/80 leading-relaxed space-y-6 bg-gradient-to-r from-[#02365e] to-[#30036b] p-8 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+    <h2 className="text-5xl font-bold text-[#FFD700] mb-6 border-b-4 border-[#FFD700] pb-2">Rules & Regulations</h2>
+    <p className="text-xl">
+      SPIT is committed to maintaining a disciplined and respectful environment for all students. The rules and regulations are designed to ensure the safety, integrity, and academic excellence of the institution. Students are expected to adhere to the code of conduct and uphold the values of SPIT.
+    </p>
+
+    <h3 className="text-3xl font-bold text-[#FFD700] mt-8 mb-4">General Rules</h3>
+    <ul className="list-disc pl-6 space-y-4 text-lg">
+      <li>Students must carry their ID cards at all times while on campus.</li>
+      <li>Attendance in classes and labs is mandatory, and students must meet the minimum attendance criteria.</li>
+      <li>Use of mobile phones during lectures and labs is strictly prohibited.</li>
+      <li>Students must maintain cleanliness and avoid littering on campus.</li>
+      <li>Any form of misconduct, including bullying or harassment, will result in strict disciplinary action.</li>
+    </ul>
+
+    <h3 className="text-3xl font-bold text-[#FFD700] mt-8 mb-4">Academic Integrity</h3>
+    <p className="text-lg">
+      SPIT places a strong emphasis on academic integrity. Students are expected to:
+    </p>
+    <ul className="list-disc pl-6 space-y-4 text-lg">
+      <li>Submit original work and avoid plagiarism in assignments and projects.</li>
+      <li>Refrain from cheating during examinations or assessments.</li>
+      <li>Respect intellectual property rights and acknowledge sources appropriately.</li>
+    </ul>
+
+    <h3 className="text-3xl font-bold text-[#FFD700] mt-8 mb-4">Code of Conduct</h3>
+    <p className="text-lg">
+      The Code of Conduct outlines the expected behavior of students on campus. It includes guidelines for maintaining decorum, respecting faculty and peers, and adhering to institutional policies.
+    </p>
+    <p className="text-lg">
+      <span className="font-bold">To know more:</span>{' '}
+      <a
+        href="/assets/Code-of-conduct-for-students.pdf" // Replace with the actual path to the PDF
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-red-500 underline hover:text-[#FFD700] transition-all duration-300"
+      >
+        Click here to view the Code of Conduct for Students
+      </a>
+    </p>
+  </div>
 );
 const Activities = () => (
-  <div className="text-white/80">Student Activities Content</div>
+  <div className="text-white/80 leading-relaxed space-y-6 bg-gradient-to-r from-[#02365e] to-[#30036b] p-8 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+    <h2 className="text-5xl font-bold text-[#FFD700] mb-6 border-b-4 border-[#FFD700] pb-2">Student Activities</h2>
+    <p className="text-xl">
+      SPIT offers a vibrant campus life with numerous opportunities for students to engage in academic, cultural, and social activities. 
+      These activities are designed to foster holistic development, leadership skills, and a sense of community among students.
+    </p>
+
+    <h3 className="text-3xl font-bold text-[#FFD700] mt-8 mb-4">Technical Clubs</h3>
+    <ul className="list-disc pl-6 space-y-4 text-lg">
+      <li><span className="font-bold">CSI-SPIT:</span> The Computer Society of India chapter at SPIT organizes workshops, hackathons, and coding competitions.</li>
+      <li><span className="font-bold">IEEE-SPIT:</span> The IEEE chapter promotes innovation and research through technical events and seminars.</li>
+      <li><span className="font-bold">Robotics Club:</span> A platform for students to explore robotics and automation through hands-on projects.</li>
+    </ul>
+
+    <h3 className="text-3xl font-bold text-[#FFD700] mt-8 mb-4">Cultural Activities</h3>
+    <ul className="list-disc pl-6 space-y-4 text-lg">
+      <li><span className="font-bold">Drama Club:</span> A space for students to showcase their acting and storytelling skills.</li>
+      <li><span className="font-bold">Music Club:</span> Encourages students to explore their musical talents through performances and jam sessions.</li>
+      <li><span className="font-bold">Dance Club:</span> A vibrant community for students passionate about dance.</li>
+    </ul>
+
+    <h3 className="text-3xl font-bold text-[#FFD700] mt-8 mb-4">Social Initiatives</h3>
+    <ul className="list-disc pl-6 space-y-4 text-lg">
+      <li><span className="font-bold">Rotaract Club:</span> Focuses on leadership and community service through various initiatives.</li>
+      <li><span className="font-bold">Seva:</span> A platform for students to contribute to social causes and give back to society.</li>
+    </ul>
+
+    <h3 className="text-3xl font-bold text-[#FFD700] mt-8 mb-4">Sports</h3>
+    <p className="text-lg">
+      SPIT encourages students to participate in sports and physical activities to promote teamwork, discipline, and a healthy lifestyle. 
+      The annual Sports Week features tournaments in cricket, football, basketball, and more.
+    </p>
+
+    <h3 className="text-3xl font-bold text-[#FFD700] mt-8 mb-4">Flagship Events</h3>
+    <ul className="list-disc pl-6 space-y-4 text-lg">
+      <li><span className="font-bold">Oculus:</span> SPIT's annual technical and cultural fest, featuring workshops, competitions, and performances.</li>
+      <li><span className="font-bold">Hackathons:</span> Opportunities for students to showcase their coding and problem-solving skills.</li>
+    </ul>
+  </div>
 );
 const AntiRagging = () => (
   <div className="text-white/80">Anti-ragging Content</div>
