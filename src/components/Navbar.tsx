@@ -192,13 +192,13 @@ const secondRowItems: NavItem[] = [
     title: 'CAREERS@SPIT',
     items: [
       { title: 'Current Openings', href: '/CareerAtSpit/*' },
-      { title: 'Faculty Positions', href: '/careers/faculty' },
-      { title: 'Staff Positions', href: '/careers/staff' },
-      { title: 'Benefits', href: '/careers/benefits' },
-      { title: 'How to Apply', href: '/careers/apply' },
-      { title: 'Selection Process', href: '/careers/process' },
-      { title: 'FAQs', href: '/careers/faqs' },
-      { title: 'Contact HR', href: '/careers/contact' },
+      { title: 'Faculty Positions', href: '/CareerAtSpit/*' },
+      { title: 'Staff Positions', href: '/CareerAtSpit/*' },
+      { title: 'Benefits', href: '/CareerAtSpit/*' },
+      { title: 'How to Apply', href: '/CareerAtSpit/*' },
+      { title: 'Selection Process', href: '/CareerAtSpit/*' },
+      { title: 'FAQs', href: '/CareerAtSpit/*' },
+      { title: 'Contact HR', href: '/CareerAtSpit/*' },
     ]
   },
 ];
@@ -240,7 +240,7 @@ const thirdRowItems: NavItem[] = [
   {
     title: 'MICRO SPEC. PROG',
     items: [
-      { title: 'Micro Specializations Prog', href: '/accreditation/MsP' },
+      { title: 'Micro Specializations Prog', href: '/MicroSpecializationPrograms/*' },
     ]
   },
   {
@@ -276,7 +276,7 @@ const DropdownMenu = ({ item }: { item: NavItem }) => {
       {({ open }) => (
         <>
           <Menu.Button 
-            className="nav-item flex items-center gap-1 font-medium min-h-[44px] min-w-[44px] justify-center md:justify-start px-2 text-xs lg:text-sm"
+            className="nav-item flex items-center gap-1 font-medium min-h-[30px] min-w-[30px] justify-center md:justify-start px-2 text-xs lg:text-sm"
             onMouseMove={addSparkle}
           >
             <span className="truncate">{item.title}</span>
