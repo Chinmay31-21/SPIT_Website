@@ -21,7 +21,7 @@ export const UpdatePanel = () => {
       link: '/assets/newspaper-22-05-2025.pdf',
       isNew: true,
       isSeen: false,
-      timestamp: 'Just now'
+      timestamp: '16 hours ago'
     },
     {
       id: '2',
@@ -29,7 +29,7 @@ export const UpdatePanel = () => {
       link: '/assets/advertisement-final-1.pdf',
       isNew: true,
       isSeen: false,
-      timestamp: '2 hours ago'
+      timestamp: '3 June 2025'
     },
     {
       id: '3',
@@ -37,7 +37,7 @@ export const UpdatePanel = () => {
       link: '/assets/Application-form-for-Tenure-Faculty-2025.docx',
       isNew: true,
       isSeen: false,
-      timestamp: '2 hours ago'
+      timestamp: '17 May 2025'
     },
     {
       id: '4',
@@ -45,7 +45,7 @@ export const UpdatePanel = () => {
       link: '/assets/Cutoff2425.pdf',
       isNew: true,
       isSeen: false,
-      timestamp: '2 hours ago'
+      timestamp: '16 April 2025'
     },
     {
       id: '5',
@@ -53,7 +53,7 @@ export const UpdatePanel = () => {
       link: '/assets/FRA-Fee-Approval-ENGG-MCAME-for-2025-26.pdf',
       isNew: true,
       isSeen: false,
-      timestamp: '2 hours ago'
+      timestamp: '4 April 2025'
     },
     {
       id: '6',
@@ -61,7 +61,7 @@ export const UpdatePanel = () => {
       link: '/assets/Final_1-Tendor-SPIT-Building-Extension-2025-PDF.pdf',
       isNew: true,
       isSeen: false,
-      timestamp: '2 hours ago'
+      timestamp: '30 March 2025'
     },
     {
       id: '7',
@@ -69,7 +69,15 @@ export const UpdatePanel = () => {
       link: '/assets/B.Tech_.-Engg-Revised-Fee-Notice-for-2024-25.pdf',
       isNew: true,
       isSeen: false,
-      timestamp: '2 hours ago'
+      timestamp: '24 March 2025'
+    },
+    {
+      id: '8',
+      title: 'Click Here for Older Announcements',
+      link: './pages/AllAnnouncements/*',
+      isNew: true,
+      isSeen: false,
+      timestamp: '1 hour ago'
     },
   ]);
 

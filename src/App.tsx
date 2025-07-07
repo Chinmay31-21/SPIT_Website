@@ -28,6 +28,7 @@ import { Admissions } from './pages/Admissions';
 import { Exams } from './pages/Exam';
  import  ShresthaClub  from './pages/ShresthaClub';
 import CareerAtSpit from './pages/CareerAtSpit';
+import AllAnnouncements from './pages/AllAnnouncements';
 import MicroSpecializationPrograms from './pages/MicroSpecializationPrograms';
 import { Contact } from './pages/Contact';
 import { NAAC } from './pages/accreditation/NAAC';
@@ -218,6 +219,7 @@ function App() {
               <Route path="/shresthaclub/*" element={<ShresthaClub />} />
               <Route path="/careeratspit/*" element={<CareerAtSpit />} />
               <Route path="/microspecializationprograms/*" element={<MicroSpecializationPrograms/>}/>
+              <Route path="/allannouncements/*" element={<AllAnnouncements/>}/>
               <Route path="/accreditation/NAAC" element={<NAAC />} />
               <Route path="/accreditation/NIRF" element={<NIRF />} />
               <Route path="/accreditation/IIC" element={<IIC />} />
