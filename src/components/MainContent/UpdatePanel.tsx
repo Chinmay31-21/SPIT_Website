@@ -72,13 +72,13 @@ export const UpdatePanel = () => {
       timestamp: '24 March 2025'
     },
     {
-      id: '8',
-      title: 'Click Here for Older Announcements',
-      link: './pages/AllAnnouncements/*',
-      isNew: true,
-      isSeen: false,
-      timestamp: '1 hour ago'
-    },
+  id: '8',
+  title: 'Click Here for Older Announcements',
+  link: '/AllAnnouncements', // or '/all-announcements', depending on your route
+  isNew: true,
+  isSeen: false,
+  timestamp: '1 hour ago'
+},
   ]);
 
   useEffect(() => {
@@ -170,6 +170,7 @@ export const UpdatePanel = () => {
                         <a
                           href={update.link}
                           target='_blank'
+                          rel='opener referrer'
                           className="block"
                           onClick={() => markAsSeen(update.id)}
                         >
