@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import {
   Box,
   Tabs,
@@ -10,8 +11,10 @@ import {
   ListItem,
   ListItemText,
   Divider,
+  ThemeProvider,
 } from "@mui/material";
-// ...import your theme if needed...
+import { lightTheme } from "../theme/theme";
+
 
 const sections = [
   { label: "All", key: "all" },
@@ -26,29 +29,301 @@ const sections = [
 // Dummy data for demonstration
 const announcements = [
   {
-    title: "Fees Structure for the Academic Year 2023-24",
+    
+    title: <a href="/assets/Tender-for-GPU.pdf" className="hover:text-[#F7F6C5]">Advertisement for Faculty Recruitment-2025</a>,
     date: "November 16th, 2024",
-    section: "fees",
-    description: "Fee details for the academic year 2023-24.",
-  },
-  {
-    title: "Last Five Years Topper Students",
-    date: "November 15th, 2024",
     section: "notices",
-    description: "List of toppers for the last five years.",
+    description: "Faculty Recruitment for AY 2025",
   },
   {
-    title: "Examination",
-    date: "November 15th, 2024",
+    title: <a href="/assets/advertisement-final-1.pdf" className="hover:text-[#F7F6C5]">Advertisement Tenure 3-Years</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Tenured Assistant Professor, Associate Professor,Professor, and Professor of Practice on 3 years tenure (Purely Contract basis) ",
+  },
+  {
+    title: <a href="/assets/Application-form-for-Tenure-Faculty-2025.docx" className="hover:text-[#F7F6C5]">Application form tenure Faculty – 2025</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Application Form for Tenure 2025",
+  },
+  {
+   title: <a href="/assets/Cutoff2425.pdf" className="hover:text-[#F7F6C5]">Cut off Marks 24-25</a>,
+    date: "November 16th, 2024",
     section: "exams",
-    description: "Exam schedule and instructions.",
+    description: "MHT-CET Cut off for 2024-25",
   },
   {
-    title: "Re-Examination January 2024 Results",
-    date: "November 12th, 2024",
-    section: "results",
-    description: "Results for January 2024 re-examination.",
+   title: <a href="/assets/FRA-Fee-Approval-ENGG-MCAME-for-2025-26.pdf" className="hover:text-[#F7F6C5]">FRA Fee Approval (ENGG, MCA,ME) for 2025-26</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Fee Approval for AY 2024-25",
   },
+  {
+   title: <a href="/assets/Final_1-Tendor-SPIT-Building-Extension-2025-PDF.pdf" className="hover:text-[#F7F6C5]">Bid for Building Extension Works at SPIT</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Conditions of the Contract & Bill Of Quantities",
+  },
+  {
+   title: <a href="/assets/B.Tech_.-Engg-Revised-Fee-Notice-for-2024-25.pdf" className="hover:text-[#F7F6C5]">B.Tech. Engg Revised Fee Notice for 2024-25</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Balance Fees Payable for Students of Batch AY 2024-25",
+  },
+  {
+   title: <a href="/assets/Tender-for-GPU.pdf" className="hover:text-[#F7F6C5]">Tender for GPU Server-(AI Computing Laboratory)</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Quotation for GPU Servers of AI Computing Laboratory",
+  },
+  {
+   title: <a href="/assets/2025-HK-TENDER-FINAL-DOCUMENT.pdf" className="hover:text-[#F7F6C5]">Inviting Quotation for Providing House Keeping Services at Sardar Patel Institute of Technology.</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Inviting Quotation for Providing House Keeping Services at Sardar Patel Institute of Technology.",
+  },
+  {
+   title: <a href="/assets/phd-result-extc.pdf" className="hover:text-[#F7F6C5]">List of selected Candidates for PhD-EXTC for January 2024-25</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "List of Students selected for Ph.D. Programme in Electronics and Telecommunication Engineering for 2024-25 (January)",
+  },
+  {
+   title: <a href="/assets/phd-result-mca.pdf" className="hover:text-[#F7F6C5]">List of selected Candidates for PhD-MCA for January 2024-25</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "List of Students selected for Ph.D. Programme in MCA for 2024-25 (January)",
+  },
+  {
+   title: <a href="/assets/ANNEXURE-I-2.pdf" className="hover:text-[#F7F6C5]">ANNEXURE I</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Notice Inviting Tender-4 _ Desktops, Laptops, Printers, Software, etc._ AY 2024-25",
+  },
+  {
+   title: <a href="/assets/ANNEXURE-II-2.pdf" className="hover:text-[#F7F6C5]">ANNEXURE II</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Notice Inviting Tender-4 _ Desktops, Laptops, Printers, Software, etc._ AY 2024-25",
+  },
+  {
+   title: <a href="/assets/ANNEXURE-III-desktops-laptop-printers-1.pdf" className="hover:text-[#F7F6C5]">ANNEXURE III-desktops laptop printers</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Notice Inviting Tender-4 _ Desktops, Laptops, Printers, Software, etc._ AY 2024-25",
+  },
+  {
+   title: <a href="/assets/S.P.I.T.-Terms-and-Conditions-for-Vendors-2.pdf" className="hover:text-[#F7F6C5]">S.P.I.T. -Terms and Conditions for Vendors</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Notice Inviting Tender-4 _ Desktops, Laptops, Printers, Software, etc._ AY 2024-25",
+  },
+  {
+   title: <a href="/assets/FINAL-TENDER-DOCUMENT.pdf" className="hover:text-[#F7F6C5]">PILING WORK REQUIRED FOR THE PROJECT: ALTERATION and EXTENSION to the COLLEGE BUILDING of SPIT</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Condition of Contract and Bill of Quantities",
+  },
+  {
+   title: <a href="/assets/S.P.I.T Tender Notice 3.pdf" className="hover:text-[#F7F6C5]">S.P.I.T Tender Notice 3</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Notice Inviting Tender-3 _ Electronic Equipment Requirements_ AY 2024-25",
+  },
+  {
+   title: <a href="/assets/ANNEXURE-I.pdf" className="hover:text-[#F7F6C5]">ANNEXURE I</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Notice Inviting Tender-3 _ Electronic Equipment Requirements_ AY 2024-25",
+  },
+  {
+   title: <a href="/assets/ANNEXURE-II.pdf" className="hover:text-[#F7F6C5]">ANNEXURE II</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Notice Inviting Tender-3 _ Electronic Equipment Requirements_ AY 2024-25",
+  },
+  {
+   title: <a href="/assets/ANNEXURE-III-Equipments.pdf" className="hover:text-[#F7F6C5]">ANNEXURE III-Equipments</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Notice Inviting Tender-3 _ Electronic Equipment Requirements_ AY 2024-25",
+  },
+  {
+   title: <a href="/assets/S.P.I.T.-Terms-and-Conditions-for-Vendors.pdf" className="hover:text-[#F7F6C5]">S.P.I.T. -Terms and Conditions for Vendors</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Notice Inviting Tender-3 _ Electronic Equipment Requirements_ AY 2024-25",
+  },
+  {
+   title: <a href="/assets/2025-HK-TENDER-FINAL-DOCUMENT.pdf" className="hover:text-[#F7F6C5]">2025 HK TENDER FINAL DOCUMENT</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Notice Inviting Tender-4 _ Desktops, Laptops, Printers, Software, etc._ AY 2024-25",
+  },
+  {
+   title: <a href="/assets/S.P.I.T.-Tender-Notice-2.pdf" className="hover:text-[#F7F6C5]">S.P.I.T. Tender Notice 2</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Notice Inviting Tender-2 _ Smart LABS-AY 2024-25",
+  },
+  {
+   title: <a href="/assets/ANNEXURE-I-2.pdf" className="hover:text-[#F7F6C5]">ANNEXURE I</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Notice Inviting Tender-2 _ Smart LABS-AY 2024-25",
+  },
+  {
+   title: <a href="/assetsANNEXURE-II-2.pdf" className="hover:text-[#F7F6C5]">ANNEXURE II</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Notice Inviting Tender-2 _ Smart LABS-AY 2024-25",
+  },
+  {
+   title: <a href="/assets/ANNEXURE-III-OCT-2024.pdf" className="hover:text-[#F7F6C5]">ANNEXURE III OCT 2024</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Notice Inviting Tender-2 _ Smart LABS-AY 2024-25",
+  },
+  {
+   title: <a href="/assets/S.P.I.T.-Terms-and-Conditions-for-Vendors-1.pdf" className="hover:text-[#F7F6C5]">S.P.I.T. -Terms and Conditions for Vendors</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Notice Inviting Tender-2 _ Smart LABS-AY 2024-25",
+  },
+  {
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice As Of 12_00 Noon On 22 October 2024</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Cutoff-For-2024-25-As-Of-12_00-Noon-On-22-October-2024.pdf" className="hover:text-[#F7F6C5]">Cutoff For 2024-25 As Of 12_00 Noon On 22 October 2024</a>,
+    date: "November 16th, 2024",
+    section: "exams",
+    description: " First Year B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Final-Merit-List-for-DSE-Vacancy-Against-Cap-2024-25_22.10.2024.pdf" className="hover:text-[#F7F6C5]">Final Merit List for DSE Vacancy Against Cap 22-10-2024</a>,
+    date: "November 16th, 2024",
+    section: "exams",
+    description: "DSY B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/DSEB-18.10.pdf" className="hover:text-[#F7F6C5]">VACANCY NOTICE for DSE 18-10-2024</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Vacancy Notice for DSY B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Instructions-for-First-Year-B.Tech_.-IL-and-After-CAP-Round-5-22-10-2024.pdf" className="hover:text-[#F7F6C5]">Instructions for First Year B.Tech. IL and After CAP Round 5 – 22-10-2024</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice As Of 12_00 Noon On 22 October 2024</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice As Of 12_00 Noon On 22 October 2024</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice As Of 12_00 Noon On 22 October 2024</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice As Of 12_00 Noon On 22 October 2024</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice As Of 12_00 Noon On 22 October 2024</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice As Of 12_00 Noon On 22 October 2024</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice As Of 12_00 Noon On 22 October 2024</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice As Of 12_00 Noon On 22 October 2024</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice As Of 12_00 Noon On 22 October 2024</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice As Of 12_00 Noon On 22 October 2024</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice As Of 12_00 Noon On 22 October 2024</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice As Of 12_00 Noon On 22 October 2024</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice As Of 12_00 Noon On 22 October 2024</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice As Of 12_00 Noon On 22 October 2024</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice As Of 12_00 Noon On 22 October 2024</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice As Of 12_00 Noon On 22 October 2024</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice As Of 12_00 Noon On 22 October 2024</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+
   // ...add more as needed...
 ];
 
@@ -67,11 +342,14 @@ const AllAnnouncements: React.FC = () => {
   const filtered = filterAnnouncements(selectedSection);
 
   return (
+    
+    <ThemeProvider theme={lightTheme}>
+     
     <Box
       sx={{
         minHeight: "100vh",
         background: (theme) =>
-          `linear-gradient(135deg, ${theme.palette.background.default} 60%, ${theme.palette.primary.light} 100%)`,
+          `linear-gradient(135deg, ${theme.palette.background.default} 30%, ${theme.palette.primary.light} 100%) dark:linear-gradient(45deg, ${theme.palette.background.default} 60%, ${theme.palette.primary.dark}100%)`,
         py: 4,
       }}
     >
@@ -82,7 +360,7 @@ const AllAnnouncements: React.FC = () => {
           mx: "auto",
           p: 3,
           borderRadius: 3,
-          background: (theme) => theme.palette.background.paper,
+          background: "linear-gradient(135deg,rgb(110, 43, 191) 0%,rgb(71, 20, 118) 50%,rgb(26, 11, 102) 100%)",
         }}
       >
         <Typography variant="h4" fontWeight={700} gutterBottom>
@@ -91,19 +369,26 @@ const AllAnnouncements: React.FC = () => {
         <Tabs
           value={selectedSection}
           onChange={handleTabChange}
-          indicatorColor="primary"
-          textColor="primary"
+          indicatorColor="secondary"
+          textColor="secondary"
           variant="scrollable"
           scrollButtons="auto"
           sx={{ mb: 2 }}
         >
           {sections.map((section) => (
-            <Tab
-              key={section.key}
-              label={section.label}
-              value={section.key}
-              sx={{ fontWeight: 600, textTransform: "none" }}
-            />
+           <Tab
+  key={section.key}
+  label={section.label}
+  value={section.key}
+  sx={{
+    fontWeight: 600,
+    textTransform: "none",
+    color: "#FFA35D !important" , // Set your desired color
+    "&.Mui-selected": {
+      color: "#FFD700 !important", // Set color for selected tab
+    },
+  }}
+/>
           ))}
         </Tabs>
         <Fade in timeout={500} key={selectedSection}>
@@ -153,6 +438,9 @@ const AllAnnouncements: React.FC = () => {
         </Fade>
       </Paper>
     </Box>
+    
+  </ThemeProvider>
+  
   );
 };
 
