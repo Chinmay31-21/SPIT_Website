@@ -6,7 +6,7 @@ Welcome to the official repository for the new **Sardar Patel Institute of Techn
 
 ## 🌐 Live Demo
 
-[🔗 Click here to view the live website](https://spit-website.vercel.app/) *(Add your deployment link)*
+[🔗 SPIT-Website Redesign - Redeveloped - Restructed - Redeployed](https://spit-website.vercel.app/)
 
 ---
 
