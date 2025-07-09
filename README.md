@@ -47,11 +47,11 @@ The SPIT Website project reflects real-world frontend and web design practices. 
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** HTML5, CSS3, JavaScript (ES6+)
-- **Styling Frameworks:** Bootstrap / Tailwind CSS *(based on current branch)*
-- **Version Control:** Git, GitHub
+- **Frontend:** HTML5, CSS3, JavaScript (ES6+) , React Native , TypeScript , Node.js , Json 
+- **Styling Frameworks:** Bootstrap / Tailwind CSS / React
+- **Version Control:** Git, GitHub , npm , node.js
 - **Tools:** Figma (Wireframing), VS Code, Lighthouse, Chrome DevTools
-- **Deployment:** GitHub Pages / Netlify *(customizable)*
+- **Deployment:** GitHub Pages / Netlify / Vercel 
 
 ---
 
