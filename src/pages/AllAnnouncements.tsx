@@ -222,107 +222,228 @@ const announcements = [
     description: "Vacancy Notice for First Year B.Tech. 2024-25",
   },
   {
-   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice As Of 12_00 Noon On 22 October 2024</a>,
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">DSE Institute Level advt 18-10-2024</a>,
     date: "November 16th, 2024",
     section: "notices",
     description: "Vacancy Notice for First Year B.Tech. 2024-25",
   },
   {
-   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice As Of 12_00 Noon On 22 October 2024</a>,
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">DSE VACANCY NOTICE & ROUND ON 17.10.24</a>,
     date: "November 16th, 2024",
     section: "notices",
     description: "Vacancy Notice for First Year B.Tech. 2024-25",
   },
   {
-   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice As Of 12_00 Noon On 22 October 2024</a>,
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">VACANCY NOTICE 15-10-24</a>,
     date: "November 16th, 2024",
     section: "notices",
     description: "Vacancy Notice for First Year B.Tech. 2024-25",
   },
   {
-   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice As Of 12_00 Noon On 22 October 2024</a>,
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice 2024-25 10.10.2024</a>,
     date: "November 16th, 2024",
     section: "notices",
     description: "Vacancy Notice for First Year B.Tech. 2024-25",
   },
   {
-   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice As Of 12_00 Noon On 22 October 2024</a>,
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">First Year Ph.D. Fee Structure 2024-25</a>,
     date: "November 16th, 2024",
     section: "notices",
     description: "Vacancy Notice for First Year B.Tech. 2024-25",
   },
   {
-   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice As Of 12_00 Noon On 22 October 2024</a>,
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">List of Certificate to be attached with the P.hD Application Form</a>,
     date: "November 16th, 2024",
     section: "notices",
     description: "Vacancy Notice for First Year B.Tech. 2024-25",
   },
   {
-   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice As Of 12_00 Noon On 22 October 2024</a>,
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Cutoff For 2024-25 After Round IV On September 15 2024</a>,
     date: "November 16th, 2024",
     section: "notices",
     description: "Vacancy Notice for First Year B.Tech. 2024-25",
   },
   {
-   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice As Of 12_00 Noon On 22 October 2024</a>,
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice 2024-25 For Round IV As Of 09:00 PM On 14 September 2024</a>,
     date: "November 16th, 2024",
     section: "notices",
     description: "Vacancy Notice for First Year B.Tech. 2024-25",
   },
   {
-   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice As Of 12_00 Noon On 22 October 2024</a>,
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Instructions for First Year B.Tech. IL and After CAP Round 4 – 15-09-2024</a>,
     date: "November 16th, 2024",
     section: "notices",
     description: "Vacancy Notice for First Year B.Tech. 2024-25",
   },
   {
-   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice As Of 12_00 Noon On 22 October 2024</a>,
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">IEEE India Council Industry Academia Young Professionals Committee (IAYPC) workshop followed by hackathon</a>,
     date: "November 16th, 2024",
     section: "notices",
     description: "Vacancy Notice for First Year B.Tech. 2024-25",
   },
   {
-   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice As Of 12_00 Noon On 22 October 2024</a>,
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice 2024-25 For Round IV As Of 05:00 PM On 13 September 2024.docx</a>,
     date: "November 16th, 2024",
     section: "notices",
     description: "Vacancy Notice for First Year B.Tech. 2024-25",
   },
   {
-   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice As Of 12_00 Noon On 22 October 2024</a>,
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Cutoff For 2024-25 After Round III On September 13 2024</a>,
     date: "November 16th, 2024",
     section: "notices",
     description: "Vacancy Notice for First Year B.Tech. 2024-25",
   },
   {
-   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice As Of 12_00 Noon On 22 October 2024</a>,
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice 2024-25 For Round III As Of 11:00 AM On 13 September 2024.docx</a>,
     date: "November 16th, 2024",
     section: "notices",
     description: "Vacancy Notice for First Year B.Tech. 2024-25",
   },
   {
-   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice As Of 12_00 Noon On 22 October 2024</a>,
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice 2024-25 For Round III As Of 07:00 PM On 12 September 2024</a>,
     date: "November 16th, 2024",
     section: "notices",
     description: "Vacancy Notice for First Year B.Tech. 2024-25",
   },
   {
-   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice As Of 12_00 Noon On 22 October 2024</a>,
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Schedule of FY B Tech Induction Program : AY 2024-25</a>,
     date: "November 16th, 2024",
     section: "notices",
     description: "Vacancy Notice for First Year B.Tech. 2024-25",
   },
   {
-   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice As Of 12_00 Noon On 22 October 2024</a>,
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Instructions for First Year B.Tech. IL and After CAP Round III – 13-09-2024</a>,
     date: "November 16th, 2024",
     section: "notices",
     description: "Vacancy Notice for First Year B.Tech. 2024-25",
   },
   {
-   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Notice As Of 12_00 Noon On 22 October 2024</a>,
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">List of selected Candidates for PhD for AY 2024-25</a>,
     date: "November 16th, 2024",
     section: "notices",
     description: "Vacancy Notice for First Year B.Tech. 2024-25",
   },
+  {
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Vacancy Position After CAP (for IL Round 2)</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Institute Level Vacancy Notice 2024-25</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Final Merit List 2024-25 01 MH – CET</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Final Merit List 2024-25 02 MH – JEE Only</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Final Merit List 2024-25 03 OMS – CET</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Final Merit List 2024-25 04 OMS – JEE Only</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Final Merit List 2024-25 05 – Non-Eligible</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Classes Commencement Notice</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Schedule for Institute Level Seats and Vacant Seats After CAP Round III ENGG 2024-25</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">FACULTY RECRUITMENT FOR PROGRAMMING COURSES</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Sponsored by AICTE ATAL FDP on AI in Healthcare and Agriculture</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">FE IL EXTENSION NOTICE 24-25</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">FE DOCUMENTS</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Academic Calendar 2024-25 First Term</a>,
+    date: "November 16th, 2024",
+    section: "exams",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Ph.D. Application Form</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Ph.D. Advertisement</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">First Year B.Tech Institute Level Application Form 2024-25</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Notice Inviting Tender-1 _ Smart Classrooms-Labs-AY 2024-25</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">FRA Approved Fee For the Academic Year 2024-255</a>,
+    date: "November 16th, 2024",
+    section: "fees",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+  {
+   title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">Click here to read more announcements…</a>,
+    date: "November 16th, 2024",
+    section: "notices",
+    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+  },
+
 
   // ...add more as needed...
 ];
@@ -364,7 +485,7 @@ const AllAnnouncements: React.FC = () => {
         }}
       >
         <Typography variant="h4" fontWeight={700} gutterBottom>
-          Announcements
+          Announcements of 2024-25
         </Typography>
         <Tabs
           value={selectedSection}
