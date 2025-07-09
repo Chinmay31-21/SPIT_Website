@@ -119,11 +119,11 @@ SPIT_Website/
 
 Feel free to connect with us:
 
-- **Chinmay Tawade** – [LinkedIn](https://www.linkedin.com/in/chinmay-tawade-915133340/) | chinmay@example.com  
+- **Chinmay Tawade** – [LinkedIn](https://www.linkedin.com/in/chinmay-tawade-915133340/) 
 - **Shravani Harel** – [LinkedIn](https://www.linkedin.com/in/sharavani-harel-a6b389340/)  
 - **Aryan Gupta** - [LinkedIn](),
-- **Sanyogeeta Pradhan** - [LinkedIn](https://www.linkedin.com/in/sanyogeeta-pradhan-merce6666/)
-, **Neerav Joshi** - [LinkedIn](https://www.linkedin.com/in/neerav-joshi-388a5432b/)
+- **Sanyogeeta Pradhan** - [LinkedIn](https://www.linkedin.com/in/sanyogeeta-pradhan-merce6666/),
+-  **Neerav Joshi** - [LinkedIn](https://www.linkedin.com/in/neerav-joshi-388a5432b/)
 
 > _“We believe in building what we want to see – functional, inclusive, and impactful.”_
 
