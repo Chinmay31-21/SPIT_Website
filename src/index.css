@@ -868,6 +868,13 @@ html.dark .bg-black\/20 {
   border: 1px solid rgba(30, 64, 175, 0.2) !important;
 }
 
+html.dark footer {
+  background: linear-gradient(135deg, #010e40 0%, #070335 50%, #130134 100%) !important;
+  backdrop-filter: blur(6px);
+  border-top: 1px solid rgba(30, 64, 175, 0.15) !important;
+  box-shadow: 0 -4px 6px -1px rgba(30, 64, 175, 0.018);
+}
+
 /* Responsive adjustments */
 @media (max-width: 600px) {
   .popup-container {
