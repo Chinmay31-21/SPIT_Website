@@ -95,6 +95,46 @@ function App() {
     setSearchResults(results);
   };
 
+  const [showPopup, setShowPopup] = useState(false);
+  const [carouselIndex, setCarouselIndex] = useState(0);
+  const [isCarouselHovered, setIsCarouselHovered] = useState(false);
+
+  // Carousel data: image, headline, description
+  const carouselSlides = [
+    {
+      src: "/assets/alumni.jpg",
+      headline: "SPIT Alumni Network",
+      description: "Connect, collaborate, and grow with our vibrant alumni community. Discover success stories and opportunities."
+    },
+    {
+      src: "/assets/phonepe.jpg",
+      headline: "PhonePe Placement Drive",
+      description: "Our students excel in top tech companies. Congratulations to the latest batch placed at PhonePe!"
+    },
+    {
+      src: "/assets/jpmc.jpg",
+      headline: "J.P. Morgan Chase Careers",
+      description: "SPIT graduates making an impact at global financial leaders. Explore our placement highlights."
+    }
+  ];
+
+  // Show popup only after coin flip animation is done
+  useEffect(() => {
+    if (!isLoading) {
+      const timer = setTimeout(() => setShowPopup(true), 300);
+      return () => clearTimeout(timer);
+    }
+  }, [isLoading]);
+
+  // Auto-slide carousel every 3s, pause on hover
+  useEffect(() => {
+    if (!showPopup || isCarouselHovered) return;
+    const interval = setInterval(() => {
+      setCarouselIndex(idx => (idx + 1) % carouselSlides.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [showPopup, isCarouselHovered, carouselSlides.length]);
+
   if (showPowerUp) {
     return <PowerUpAnimation onComplete={() => setShowPowerUp(false)} />;
   }
@@ -120,6 +160,78 @@ function App() {
   return (
     <SEOLayout>
       <Router>
+        <>
+          {/* Popup only after coin flip animation */}
+          {showPopup && (
+            <div className="popup-overlay flex items-center justify-center z-[9999]">
+              <div
+                className="popup-container relative flex flex-col items-center bg-gradient-to-br from-[#f8f9fa] via-[#e9ecef] to-[#dee2e6] dark:from-[#18181b] dark:via-[#192351] dark:to-[#27193f] rounded-xl shadow-2xl p-0 w-full max-w-lg"
+                style={{ minHeight: 380 }}
+              >
+                <button
+                  className="popup-close absolute top-4 left-4 bg-[#1e40af] hover:bg-[#FFD700] text-white rounded-full w-10 h-10 flex items-center justify-center text-2xl font-bold shadow transition-colors"
+                  onClick={() => setShowPopup(false)}
+                  aria-label="Close"
+                >
+                  &times;
+                </button>
+                {/* Headline above image */}
+                <h2 className="w-full text-center text-xl md:text-2xl font-bold text-[#1e40af] dark:text-[#FFD700] mt-8 mb-2 px-4">
+                  {carouselSlides[carouselIndex].headline}
+                </h2>
+                <div
+                  className="w-full flex-1 flex items-center justify-center px-8 pt-2 pb-2"
+                  onMouseEnter={() => setIsCarouselHovered(true)}
+                  onMouseLeave={() => setIsCarouselHovered(false)}
+                >
+                  <img
+                    src={carouselSlides[carouselIndex].src}
+                    alt={carouselSlides[carouselIndex].headline}
+                    className="w-full max-h-[55vh] object-contain rounded-lg shadow-lg transition duration-500"
+                  />
+                </div>
+                {/* Description below image */}
+                <p className="w-full text-center text-base text-[#222] dark:text-[#e9ecef] mb-2 px-6">
+                  {carouselSlides[carouselIndex].description}
+                </p>
+                <div className="flex justify-between items-center w-full px-8 pb-6">
+                  <button
+                    className="popup-carousel-arrow left bg-[#e9ecef] dark:bg-[#1e40af]/20 hover:bg-[#1e40af] dark:hover:bg-[#FFD700] text-[#1e40af] dark:text-[#FFD700] rounded-full w-9 h-9 flex items-center justify-center text-xl font-bold shadow transition-colors"
+                    onClick={() =>
+                      setCarouselIndex((carouselIndex - 1 + carouselSlides.length) % carouselSlides.length)
+                    }
+                    aria-label="Previous"
+                  >
+                    &#8592;
+                  </button>
+                  <div className="popup-carousel-indicators flex gap-2">
+                    {carouselSlides.map((_, idx) => (
+                      <span
+                        key={idx}
+                        className={`dot w-3 h-3 rounded-full cursor-pointer transition-colors ${
+                          carouselIndex === idx
+                            ? "bg-[#1e40af] dark:bg-[#FFD700] shadow"
+                            : "bg-[#e9ecef] dark:bg-[#192351]"
+                        }`}
+                        onClick={() => setCarouselIndex(idx)}
+                        aria-label={`Go to slide ${idx + 1}`}
+                      />
+                    ))}
+                  </div>
+                  <button
+                    className="popup-carousel-arrow right bg-[#e9ecef] dark:bg-[#1e40af]/20 hover:bg-[#1e40af] dark:hover:bg-[#FFD700] text-[#1e40af] dark:text-[#FFD700] rounded-full w-9 h-9 flex items-center justify-center text-xl font-bold shadow transition-colors"
+                    onClick={() =>
+                      setCarouselIndex((carouselIndex + 1) % carouselSlides.length)
+                    }
+                    aria-label="Next"
+                  >
+                    &#8594;
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+        </>
         <div className="min-h-screen bg-white dark:bg-[#0A0A0A] flex flex-col">
           <header className="relative border-t-2 border-[#4169E1] bg-black/30 backdrop-blur-md">
             <div className="container mx-auto px-4 py-4">

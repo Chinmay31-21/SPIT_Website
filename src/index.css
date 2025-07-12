@@ -1,26 +1,31 @@
-@tailwind base;
+/* Import Tailwind's base, component, and utility styles for rapid UI development */
+@tailwind base;  
 @tailwind components;
 @tailwind utilities;
 
+/* Define a CSS variable for theme transition duration */
 :root {
-  --transition-duration: 0.3s;
+  --transition-duration: 0.6s;
 }
 
+/* Set color scheme for dark mode */
 html.dark { color-scheme: dark; }
+/* Set color scheme for light mode */
 html.light { color-scheme: light; }
 
-/* Theme transition */
+/* Smooth theme transitions for all elements and pseudo-elements */
 .theme-transition,
 .theme-transition *,
 .theme-transition *:before,
 .theme-transition *:after {
-  transition: background-color var(--transition-duration) cubic-bezier(.4,0,.2,1),
-              color var(--transition-duration) cubic-bezier(.4,0,.2,1),
-              border-color var(--transition-duration) cubic-bezier(.4,0,.2,1),
-              box-shadow var(--transition-duration) cubic-bezier(.4,0,.2,1) !important;
+  transition: background-color var(--transition-duration, 0.7s) cubic-bezier(0.77, 0, 0.175, 1),
+              color var(--transition-duration, 0.7s) cubic-bezier(0.77, 0, 0.175, 1),
+              border-color var(--transition-duration, 0.7s) cubic-bezier(0.77, 0, 0.175, 1),
+              box-shadow var(--transition-duration, 0.7s) cubic-bezier(0.77, 0, 0.175, 1),
+              transform var(--transition-duration, 0.7s) cubic-bezier(0.77, 0, 0.175, 1) !important; /* Futuristic, ultra-smooth */
 }
 
-/* Reduce motion for accessibility */
+/* Accessibility: Remove transitions and animations for users who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     transition: none !important;
@@ -29,103 +34,119 @@ html.light { color-scheme: light; }
   }
 }
 
-/* Base styles */
+/* Base body styles for background and text color, supporting dark mode */
 body {
-  @apply bg-white text-[#0A0A0A] dark:bg-[#0A0A0A] dark:text-white;
+  @apply bg-[#f5f7fa] text-[#0A0A0A] dark:bg-[#18181b] dark:text-white;
 }
 
-/* Light mode specific body styling */
+/* Light mode: gradient background, dark text, full viewport height */
 html.light body {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%);
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #e3eafc 100%);
   color: #0A0A0A;
   min-height: 100vh;
 }
 
-/* Dark mode specific body styling */
+/* Dark mode: gradient background, light text, full viewport height */
 html.dark body {
-  background: linear-gradient(135deg, #0A0A0A 0%, #1a1a1a 50%, #2d2d2d 100%);
+  background: linear-gradient(135deg, #0A0A0A 0%, #192351 50%, #27193f 100%);
   color: #FFFFFF;
   min-height: 100vh;
 }
 
-/* Custom scrollbar for both themes */
+/* Custom scrollbar styles for all themes */
 .custom-scrollbar {
-  scrollbar-width: thin;
+  scrollbar-width: thin; /* Thin scrollbar for modern look */
 }
 
+/* Webkit scrollbar width and height */
 .custom-scrollbar::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 
+/* Scrollbar track color for both themes using Tailwind */
 .custom-scrollbar::-webkit-scrollbar-track {
   @apply bg-gray-100 dark:bg-gray-800;
 }
 
+/* Light mode: override scrollbar track color for better contrast */
 html.light .custom-scrollbar::-webkit-scrollbar-track {
   background: #e9ecef;
 }
 
+/* Scrollbar thumb color and rounded corners for both themes */
 .custom-scrollbar::-webkit-scrollbar-thumb {
   @apply bg-gray-300 dark:bg-gray-600 rounded-full;
 }
 
+/* Light mode: override scrollbar thumb color */
 html.light .custom-scrollbar::-webkit-scrollbar-thumb {
   background: #1e40af;
 }
 
+/* Scrollbar thumb hover effect for both themes */
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   @apply bg-gray-400 dark:bg-gray-500;
 }
 
+/* Light mode: override scrollbar thumb hover color */
 html.light .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #1e3a8a;
 }
 
-/* Global scrollbar */
+/* Global scrollbar styles for html element */
 html {
   scrollbar-width: thin;
-  scrollbar-color: rgb(156 163 175) rgb(243 244 246);
-  scroll-behavior: smooth;
+  scrollbar-color: rgb(156 163 175) rgb(243 244 246); /* Thumb and track colors */
+  scroll-behavior: smooth; /* Smooth scrolling */
 }
 
+/* Dark mode: override global scrollbar colors */
 html.dark {
   scrollbar-color: rgb(75 85 99) rgb(31 41 55);
 }
 
+/* Light mode: override global scrollbar colors */
 html.light {
   scrollbar-color: #1e40af #e9ecef;
 }
 
+/* Webkit scrollbar width for html */
 html::-webkit-scrollbar {
   width: 8px;
 }
 
+/* Webkit scrollbar track for html using Tailwind */
 html::-webkit-scrollbar-track {
   @apply bg-gray-100 dark:bg-gray-800;
 }
 
+/* Light mode: override html scrollbar track color */
 html.light html::-webkit-scrollbar-track {
   background: #e9ecef;
 }
 
+/* Webkit scrollbar thumb for html using Tailwind */
 html::-webkit-scrollbar-thumb {
   @apply bg-gray-300 dark:bg-gray-600 rounded-full;
 }
 
+/* Light mode: override html scrollbar thumb color */
 html.light html::-webkit-scrollbar-thumb {
   background: #1e40af;
 }
 
+/* Webkit scrollbar thumb hover for html using Tailwind */
 html::-webkit-scrollbar-thumb:hover {
   @apply bg-gray-400 dark:bg-gray-500;
 }
 
+/* Light mode: override html scrollbar thumb hover color */
 html.light html::-webkit-scrollbar-thumb:hover {
   background: #1e3a8a;
 }
 
-/* Existing animations */
+/* Coin flip animation for visual effects */
 @keyframes coin-flip {
   0% { transform: rotateY(0) translateY(0); }
   25% { transform: rotateY(180deg) translateY(-50px); }
@@ -134,92 +155,94 @@ html.light html::-webkit-scrollbar-thumb:hover {
   100% { transform: rotateY(720deg) translateY(0) translateX(-200px); }
 }
 
+/* Cosmic animation for moving elements diagonally */
 @keyframes cosmic {
   0% { transform: translate(100vw, -100%) rotate(-45deg); }
   100% { transform: translate(-100vw, 100%) rotate(-45deg); }
 }
 
+/* Float animation for subtle vertical movement */
 @keyframes float {
   0% { transform: translateY(0px); }
   50% { transform: translateY(0px); }
   100% { transform: translateY(0px); }
 }
 
+/* Glow animation for text shadow effects */
 @keyframes glow {
-   0% { text-shadow: 0 0 5px rgba(189, 189, 185, 0.977); }
+  0% { text-shadow: 0 0 5px rgba(189, 189, 185, 0.977); }
   50% { text-shadow: 0 0 20px rgba(254, 254, 253, 0.8); }
   100% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.856); }
 }
 
+/* Sparkle animation for twinkling effects */
 @keyframes sparkle {
   0%, 100% { opacity: 0; transform: scale(1); }
   50% { opacity: 1; transform: scale(1.2); }
 }
 
+/* Liquid flow animation for backgrounds */
 @keyframes liquid-flow {
   0% { transform: translateY(-100%) rotate(0deg); opacity: 0; }
   50% { transform: translateY(0) rotate(180deg); opacity: 0.5; }
   100% { transform: translateY(100%) rotate(360deg); opacity: 0; }
 }
 
+/* Slide-in animation for elements appearing from above */
 @keyframes slide-in {
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Fade-in animation for smooth appearance */
 @keyframes fade-in {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
-/* Network animation for alumni section */
+/* Pulse network animation for alumni section nodes */
 @keyframes pulse-network {
   0%, 100% { opacity: 0.3; transform: scale(1); }
   50% { opacity: 0.8; transform: scale(1.05); }
 }
 
+/* Orbit animation for rotating elements */
 @keyframes orbit {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
 
+/* Utility classes for applying animations */
 .animate-coin-flip {
   animation: coin-flip 3s ease-in-out forwards;
 }
-
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
-
 .animate-glow {
   animation: glow 2s ease-in-out infinite;
 }
-
 .animate-sparkle {
   animation: sparkle 1.5s ease-in-out infinite;
 }
-
 .animate-slide-in {
   animation: slide-in 0.3s ease-out forwards;
 }
-
 .animate-fade-in {
   animation: fade-in 0.2s ease-out forwards;
 }
-
 .animate-pulse-network {
   animation: pulse-network 2s ease-in-out infinite;
 }
-
 .animate-orbit {
   animation: orbit 20s linear infinite;
 }
 
+/* Liquid animation effect for backgrounds */
 .animate-liquid {
   position: relative;
   overflow: hidden;
 }
-
 .animate-liquid::before {
   content: '';
   position: absolute;
@@ -229,81 +252,97 @@ html.light html::-webkit-scrollbar-thumb:hover {
   pointer-events: none;
 }
 
-/* Navigation styles */
+/* Navigation item styles for menu links */
 .nav-item {
-  @apply relative text-[#0A0A0A] dark:text-white transition-all duration-300 text-sm whitespace-nowrap;
+  @apply relative text-[#1E152A] dark:text-[#FFFFFF] transition-all duration-300 text-sm whitespace-nowrap;
 }
 
+/* Light mode: override nav item color */
 html.light .nav-item {
   color: #fbfbfb;
 }
 
+/* Nav item gradient background for hover effect */
 .nav-item::before {
   content: '';
-  @apply absolute inset-0 bg-gradient-to-r from-[#4169E1]/0 via-[#4169E1]/20 to-[#4169E1]/0 opacity-0 transition-opacity duration-300;
+  @apply absolute inset-0 bg-gradient-to-r from-[#FFD700]/0 via-[#FFD700]/20 to-[#FFD700]/0 opacity-0 transition-opacity duration-300;
 }
 
+/* Light mode: override nav item gradient for better contrast */
 html.light .nav-item::before {
   background: linear-gradient(to right, rgba(73, 30, 175, 0) 0%, rgba(64, 30, 175, 0.086) 50%, rgba(53, 17, 196, 0.005) 100%);
 }
 
+/* Nav item hover: show gradient background */
 .nav-item:hover::before {
   @apply opacity-100;
 }
 
+/* Nav item underline effect for hover */
 .nav-item::after {
   content: '';
-  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#FFD700] to-[#4169E1] transition-all duration-300;
+  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#FFD700] to-[#e6b30b] transition-all duration-300;
 }
 
+/* Light mode: override nav item underline gradient */
 html.light .nav-item::after {
-  background: linear-gradient(to right, #171acd, #370be6);
+  background: linear-gradient(to right, #cda317, #e6b30b);
 }
 
+/* Nav item hover: expand underline */
 .nav-item:hover::after {
   @apply w-full;
 }
 
+/* Dropdown item styles for menu */
 .dropdown-item {
   @apply relative overflow-hidden;
 }
 
+/* Dropdown item gradient background for hover effect */
 .dropdown-item::before {
   content: '';
   @apply absolute inset-0 bg-gradient-to-r from-[#4169E1]/0 via-[#4169E1]/10 to-[#4169E1]/0 translate-x-[-100%] transition-transform duration-500;
 }
 
+/* Set a gradient background for dropdown items in light mode for visual feedback */
 html.light .dropdown-item::before {
   background: linear-gradient(to right, rgba(30, 64, 175, 0) 0%, rgba(30, 64, 175, 0.05) 50%, rgba(30, 64, 175, 0) 100%);
 }
 
+/* On hover, animate the dropdown item's background to slide in for interactivity */
 .dropdown-item:hover::before {
-  @apply translate-x-[100%];
+  @apply translate-x-[100%]; /* Use Tailwind to translate the gradient fully across the item */
 }
 
+/* Sparkle effect for visual decoration, e.g., on buttons or highlights */
 .sparkle {
-  @apply absolute w-1 h-1 bg-white rounded-full pointer-events-none;
-  animation: sparkle 0.8s linear infinite;
+  @apply absolute w-1 h-1 bg-white rounded-full pointer-events-none; /* Position and style the sparkle dot */
+  animation: sparkle 0.8s linear infinite; /* Animate the sparkle for a twinkling effect */
 }
 
+/* In light mode, change sparkle color for better contrast */
 html.light .sparkle {
-  background: #2147c3;
+  background: #c39b21; /* Gold color for sparkles in light mode */
 }
 
-/* Mobile menu animations */
+/* Mobile menu enter animation for smooth opening effect */
 .mobile-menu-enter {
-  clip-path: circle(0% at top right);
+  clip-path: circle(0% at top right); /* Start with menu clipped to nothing at top right */
 }
 
+/* Mobile menu active: expand to full size with transition */
 .mobile-menu-enter-active {
   clip-path: circle(150% at top right);
   transition: clip-path 0.5s ease-in-out;
 }
 
+/* Mobile menu exit: start from full size */
 .mobile-menu-exit {
   clip-path: circle(150% at top right);
 }
 
+/* Mobile menu exit active: shrink to nothing with transition */
 .mobile-menu-exit-active {
   clip-path: circle(0% at top right);
   transition: clip-path 0.5s ease-in-out;
@@ -313,7 +352,7 @@ html.light .sparkle {
 
 /* Header and Navigation */
 html.light header {
-  background: rgba(248, 249, 250, 0.95) !important;
+  background: linear-gradient(135deg,#0c307a 0%, #20036a 100%) !important;
   backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(30, 64, 175, 0.2) !important;
   box-shadow: 0 4px 6px -1px rgba(30, 64, 175, 0.1);
@@ -355,14 +394,14 @@ html.light .bg-gradient-to-b.from-\[#0D0D0D\].to-\[#1A1A1A\] {
 
 /* Card backgrounds - Professional theme */
 html.light .bg-black\/30 {
-  background-color: #03045E !important;/*background: linear-gradient(135deg,#0c307a 0%, #20036a 100%) !important;*//*Header Colour*/
+  background: linear-gradient(135deg,#0c307a 0%, #20036a 100%) ;/*background: linear-gradient(135deg,#0c307a 0%, #20036a 100%) !important;*//*Header Colour*/
   backdrop-filter: blur(20px);
   border: 1px solid rgba(30, 64, 175, 0.15) !important;
   box-shadow: 0 8px 32px rgba(30, 64, 175, 0.08);
 }
 
 html.light .bg-black\/50 {
-  background: linear-gradient(135deg, #ffffff35 0%, #ffffff35 100%) !important;/*Footer colour*/
+  background: linear-gradient(135deg, #ffffff14 0%, #ffffff0f 100%) !important;/*Footer colour*/
   backdrop-filter: blur(16px);
   border: 1px solid rgba(30, 64, 175, 0.2) !important;
 }
@@ -631,6 +670,214 @@ html.light .loading-spinner {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+/* Popup overlay styles */
+.popup-overlay {
+  position: fixed; /* Overlay covers the viewport */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(30, 30, 30, 0.65); /* Semi-transparent dark background */
+  z-index: 9999; /* Above all content */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fade-in 0.3s ease; /* Smooth fade-in */
+}
+
+/* Popup container styles */
+.popup-container {
+  background: light-gradient(135deg,#010e40 0%, #070335 50%, #130134 100%);
+  color: #222;
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(30,64,175,0.18);
+  padding: 2rem 2.5rem;
+  max-width: 90vw;
+  max-height: 80vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Close button styles */
+.popup-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #00ccff;
+  border: none;
+  border-radius: 50%;
+  width: 2.2rem;
+  height: 2.2rem;
+  font-size: 1.5rem;
+  color: #1e40af;
+  cursor: pointer;
+  transition: background 0.2s;
+  z-index: 2;
+}
+.popup-close:hover {
+  background: #1e40af;
+  color: #fff;
+}
+
+/* Carousel container styles */
+.popup-carousel {
+  width: 100%;
+  max-width: 500px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Carousel image styles */
+.popup-carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 16px rgba(30,64,175,0.08);
+  transition: opacity 0.4s;
+}
+
+/* Carousel navigation arrows */
+.popup-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #e9ecef;
+  border: none;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.3rem;
+  color: #1eafaa;
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.2s;
+  opacity: 0.85;
+}
+.popup-carousel-arrow:hover {
+  background: #1e40af;
+  color: #fff;
+}
+.popup-carousel-arrow.left {
+  left: 0.5rem;
+}
+.popup-carousel-arrow.right {
+  right: 0.5rem;
+}
+
+/* Carousel indicators (dots) */
+.popup-carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.popup-carousel-indicators .dot {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  background: #e9ecef;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.popup-carousel-indicators .dot.active {
+  background: #1e40af;
+}
+
+/* Header and Navigation */
+html.dark header {
+  background: linear-gradient(135deg, #010e40 0%, #070335 50%, #130134 100%) !important;
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(30, 64, 175, 0.2) !important;
+  box-shadow: 0 4px 6px -1px rgba(30, 64, 175, 0.1);
+}
+
+/* Main content backgrounds */
+html.dark .min-h-screen.bg-\[#0A0A0A\] {
+  background: linear-gradient(135deg, #9fc4e9 0%, #e9ecef 50%, #dee2e6 100%) !important;
+}
+
+html.dark .bg-\[#0A0A0A\] {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%) !important;
+}
+
+html.dark .bg-\[#1A1A1A\] {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%) !important;
+}
+
+/* Gradient backgrounds */
+html.dark .bg-gradient-to-b.from-\[#0A0A0A\].to-\[#1A1A1A\] {
+  background: linear-gradient(to bottom, #ffffff, #f8f9fa) !important;
+}
+
+html.dark .bg-gradient-to-b.from-\[#1A1A1A\].to-\[#0A0A0A\] {
+  background: linear-gradient(to bottom, #f8f9fa, #ffffff) !important;
+}
+
+html.dark .bg-gradient-to-b.from-black.to-\[#0A0A0A\] {
+  background: linear-gradient(to bottom, #ffffff, #f8f9fa) !important;
+}
+
+html.dark .py-16.bg-gradient-to-b.from-\[#0A0A0A\].to-black {
+  background: linear-gradient(to bottom, #f8f9fa, #ffffff) !important;
+}
+
+html.dark .bg-gradient-to-b.from-\[#0D0D0D\].to-\[#1A1A1A\] {
+  background: linear-gradient(to bottom, #f8fafc, #e2e8f0) !important;
+}
+
+/* Card backgrounds - Professional theme */
+html.dark .bg-black\/30 {
+  background: linear-gradient(135deg, #010e40 0%, #070335 50%, #130134 100%) ;/*background: linear-gradient(135deg,#0c307a 0%, #20036a 100%) !important;*//*Cards Colour */
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(30, 64, 175, 0.15) !important;
+  box-shadow: 0 8px 32px rgba(30, 64, 175, 0.08);
+}
+
+html.dark .bg-black\/50 {
+  background: linear-gradient(135deg, #02103250 0%, #15011768 100%) !important;/*Footer colour*/
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(30, 64, 175, 0.2) !important;
+}
+
+html.dark .bg-white\/5 {
+    background: linear-gradient(135deg, #0077B6 0%, #03045E 100%) !important; /*About Colour*/
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(30, 64, 175, 0.2) !important;
+}
+
+html.dark .bg-white\/95 {
+  /*background-color: #dee2e6;*/ background: linear-gradient(135deg,  #010e40 0%, #070335 50%, #130134 100%) !important; /*Menu Colour */
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(30, 64, 175, 0.15) !important;
+  box-shadow: 0 8px 32px rgba(30, 64, 175, 0.08);
+}
+
+html.dark .bg-black\/20 {
+    background: linear-gradient(135deg,  #010e40 0%, #070335 50%, #130134 100%) !important;/*Alumini Section Colour*/
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(30, 64, 175, 0.2) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .popup-container {
+    padding: 1rem;
+    max-width: 98vw;
+  }
+  .popup-carousel {
+    max-width: 95vw;
+    height: 180px;
+  }
 }
 
 /* Responsive breakpoints */
