@@ -27,7 +27,7 @@ export const AchievementsSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-gradient-to-b (from-[#02365E] to-[#30036B])">
+    <section className="py-16 bg-gradient-to-tl from-[#C6B8FF] to-[#B8F3FF] dark:from-[#010e40] dark:to-[#130134]">
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

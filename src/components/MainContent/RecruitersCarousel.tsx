@@ -66,9 +66,9 @@ export const RecruitersCarousel = () => {
   };
 
   return (
-    <section className="py-16 bg-gradient-to-b from-[#02365E] to-[#30036B] overflow-hidden">
+    <section className="py-16 bg-gradient-to-bl from-[#C6B8FF] to-[#B8F3FF] dark:from-[#010e40] dark:to-[#130134] overflow-hidden">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-[#FFD700] mb-12 text-center">
+        <h2 className="text-4xl font-bold text-[#570761] dark:text-[#FFD700] mb-12 text-center">
           What Recruiters Say
         </h2>
 

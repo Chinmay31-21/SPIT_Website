@@ -212,7 +212,7 @@ export const AlumniNetworkSection = () => {
   return (
     <section 
       ref={sectionRef}
-      className="min-h-screen bg-gradient-to-b from-[#0D0D0D] to-[#1A1A1A] relative overflow-hidden py-20"
+      className="min-h-screen bg-gradient-to-tl from-[#C6B8FF] to-[#B8F3FF] dark:from-[#010e40] dark:to-[#130134] relative overflow-hidden py-20"
     >
       {/* Background Effects */}
       <div className="absolute inset-0 opacity-30">
@@ -233,11 +233,11 @@ export const AlumniNetworkSection = () => {
           className="text-center mb-16"
         >
           <motion.h2 
-            className="text-5xl font-bold bg-gradient-to-r from-[#ACBED8] to-[#FFFFFF] bg-clip-text text-transparent mb-6"
+            className="text-5xl font-bold bg-gradient-to-br from-[#570761] to-[#3423A6] dark:bg-gradient-to-r dark:from-[#ACBED8] dark:to-[#FFFFFF] bg-clip-text text-transparent mb-6"
           >
             Our Global Alumni Network
           </motion.h2>
-          <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-[#171738] dark:text-[#ACBED8] max-w-3xl mx-auto leading-relaxed font-semibold">
             SPIT graduates are making their mark across the globe, leading innovation at the world's most prestigious companies and driving technological advancement.
           </p>
         </motion.div>
@@ -315,7 +315,7 @@ export const AlumniNetworkSection = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-center"
         >
-          <h3 className="text-2xl font-bold text-white mb-8">
+          <h3 className="text-2xl font-bold text-[#570761] dark:text-[#ACBED8] mb-8">
             Our Alumni Work At
           </h3>
           <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
@@ -323,7 +323,7 @@ export const AlumniNetworkSection = () => {
               <motion.div
                 key={company}
                 whileHover={{ scale: 1.1, opacity: 1 }}
-                className="text-white font-semibold text-lg transition-all cursor-pointer hover:text-[#4169E1]"
+                className="text-[#570761] dark:text-[#ACBED8] font-semibold text-lg transition-all cursor-pointer dark:hover:text-[#FFD700] hover:text-[#2E1760] hover:scale-105"
               >
                 {company}
               </motion.div>

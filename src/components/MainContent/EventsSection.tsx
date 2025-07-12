@@ -58,7 +58,7 @@ export const EventsSection = () => {
   ];
 
   return (
-    <div className="py-16 bg-gradient-to-b (from-[#02365E] to-[#30036B])">
+    <div className="py-16 bg-gradient-to-bl from-[#C6B8FF] to-[#B8F3FF] dark:from-[#010e40] dark:to-[#130134]">
       <div className="container mx-auto px-4">
         {/* Upcoming Events */}
         <motion.div
@@ -66,7 +66,7 @@ export const EventsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           className="mb-16"
         >
-          <h2 className="text-3xl font-bold text-[#FFD700] mb-8 flex items-center gap-3">
+          <h2 className="text-3xl font-bold text-[#570761] dark:text-[#FFD700] mb-8 flex items-center gap-3">
             <Calendar className="w-8 h-8" />
             Upcoming Events
           </h2>
@@ -93,7 +93,7 @@ export const EventsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           className="mb-16"
         >
-          <h2 className="text-3xl font-bold text-[#FFD700] mb-8 flex items-center gap-3">
+          <h2 className="text-3xl font-bold text-[#570761] dark:text-[#FFD700] mb-8 flex items-center gap-3">
             <Users className="w-8 h-8" />
             Alumni Speak
           </h2>
@@ -122,7 +122,7 @@ export const EventsSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
         >
-          <h2 className="text-3xl font-bold text-[#FFD700] mb-8 flex items-center gap-3">
+          <h2 className="text-3xl font-bold text-[#570761] dark:text-[#FFD700] mb-8 flex items-center gap-3">
             <Award className="w-8 h-8" />
             What Recruiters Say
           </h2>
