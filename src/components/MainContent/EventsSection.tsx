@@ -58,7 +58,7 @@ export const EventsSection = () => {
   ];
 
   return (
-    <div className="py-16 bg-gradient-to-bl from-[#C6B8FF] to-[#B8F3FF] dark:from-[#010e40] dark:to-[#130134]">
+    <div className="py-16 bg-gradient-to-bl from-[#C6B8FF] to-[#B8F3FF] dark:from-[#0E1428] dark:to-[#27193f]">
       <div className="container mx-auto px-4">
         {/* Upcoming Events */}
         <motion.div

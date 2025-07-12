@@ -212,7 +212,7 @@ export const AlumniNetworkSection = () => {
   return (
     <section 
       ref={sectionRef}
-      className="min-h-screen bg-gradient-to-tl from-[#C6B8FF] to-[#B8F3FF] dark:from-[#010e40] dark:to-[#130134] relative overflow-hidden py-20"
+      className="min-h-screen bg-gradient-to-tl from-[#C6B8FF] to-[#B8F3FF] dark:from-[#0E1428] dark:to-[#27193f] relative overflow-hidden py-20"
     >
       {/* Background Effects */}
       <div className="absolute inset-0 opacity-30">
