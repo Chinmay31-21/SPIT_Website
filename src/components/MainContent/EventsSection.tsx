@@ -7,17 +7,20 @@ export const EventsSection = () => {
     {
       title: "Annual Technical Symposium",
       date: "March 15-17, 2024",
-      description: "Three days of technical competitions, workshops, and guest lectures."
+      description: "Three days of technical competitions, workshops, and guest lectures.",
+      photo: "/assets/ConferenceRoom.png" // Add your image paths here
     },
     {
       title: "Cultural Festival",
       date: "April 5-7, 2024",
-      description: "Celebrate art, music, and dance with performances and competitions."
+      description: "Celebrate art, music, and dance with performances and competitions.",
+      photo: "/assets/Entrance1.png"
     },
     {
       title: "Industry Connect Week",
       date: "May 1-5, 2024",
-      description: "Networking sessions with industry leaders and alumni."
+      description: "Networking sessions with industry leaders and alumni.",
+      photo: "/assets/Auditorium.png"
     }
   ];
 
@@ -77,13 +80,30 @@ export const EventsSection = () => {
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-black/30 backdrop-blur-lg border border-[#00BFFF]/30 rounded-lg p-6"
+                className="bg-black/30 backdrop-blur-lg border border-[#00BFFF]/30 rounded-lg p-0 overflow-hidden flex flex-col"
               >
-                <h3 className="text-xl font-bold text-white mb-2">{event.title}</h3>
-                <p className="text-[#00BFFF] mb-3">{event.date}</p>
-                <p className="text-white/70">{event.description}</p>
+                {/* Event Photo */}
+                <img
+                  src={event.photo}
+                  alt={event.title}
+                  className="w-full h-40 object-cover rounded-t-lg"
+                />
+                <div className="p-6 flex-1 flex flex-col">
+                  <h3 className="text-xl font-bold text-white mb-2">{event.title}</h3>
+                  <p className="text-[#00BFFF] mb-3">{event.date}</p>
+                  <p className="text-white/70">{event.description}</p>
+                </div>
               </motion.div>
             ))}
+          </div>
+          {/* View All News & Events Button */}
+          <div className="flex justify-center mt-10">
+            <a
+              href="https://news-and-events-spit.vercel.app/"
+              className="px-6 py-3 bg-[#570761] text-white rounded-lg font-semibold shadow-lg hover:bg-[#FFD700] hover:text-[#570761] transition-colors"
+            >
+              View All News & Events
+            </a>
           </div>
         </motion.div>
 
