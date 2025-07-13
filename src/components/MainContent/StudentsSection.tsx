@@ -24,17 +24,17 @@ export const StudentsSection = () => {
             {
               icon: <Users className="w-8 h-8" />,
               title: "Vibrant Community",
-              description: "Join diverse clubs and participate in cultural events"
+              description: "Join diverse clubs and participate in cultural events and Hackathons events"
             },
             {
               icon: <Award className="w-8 h-8" />,
               title: "Leadership",
-              description: "Develop leadership skills through various initiatives"
+              description: "Develop leadership skills through various initiatives and new startup opportunities"
             },
             {
               icon: <Rocket className="w-8 h-8" />,
               title: "Innovation",
-              description: "State-of-the-art facilities for research and development"
+              description: "State-of-the-art facilities for research and development projects"
             }
           ].map((item, index) => (
             <motion.div
@@ -71,11 +71,11 @@ export const StudentsSection = () => {
             <h3 className="text-2xl font-bold bg-gradient-to-r from-[#5E035E] to-[#30036B] dark:from-[#FFD700] dark:to-[#DAA520] bg-clip-text text-transparent mb-4">Experience Campus Life</h3>
             <p className="dark:text-white/100 mb-6 light:text-black/90">
               At SPIT, we believe in holistic development. Our campus buzzes with activities, 
-              from technical workshops to cultural festivals, providing students with countless 
+              from technical workshops and National level Hackthons to cultural festivals and events, providing students with countless 
               opportunities to learn, grow, and create lasting memories.
             </p>
             <button className="bg-[#00BFFF]/20 text-[#00BFFF] px-6 py-3 rounded-lg border border-[#00BFFF]/30 hover:bg-[#00BFFF]/30 transition-colors w-fit">
-              Explore Student Activities
+              <a href="/students">Explore Student Activities</a>
             </button>
           </motion.div>
         </div>

@@ -6,22 +6,22 @@ export const StatsSection = () => {
   const stats = [
     {
       icon: <Trophy className="w-8 h-8" />,
-      value: "42 LPA",
-      label: "Highest Package",
+      value: "52 LPA",
+      label: "Highest Package (2024-25)",
     },
     {
       icon: <Users className="w-8 h-8" />,
-      value: "95%",
+      value: "99.83%",
       label: "Placement Rate",
     },
     {
       icon: <Building2 className="w-8 h-8" />,
-      value: "200+",
+      value: "100+",
       label: "Recruiting Companies",
     },
     {
       icon: <GraduationCap className="w-8 h-8" />,
-      value: "10000+",
+      value: "5000+",
       label: "Alumni Network",
     },
   ];

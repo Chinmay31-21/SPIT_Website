@@ -6,7 +6,7 @@ export const Placements = () => {
     <div className="min-h-screen bg-gradient-to-b (from-[#02365E] to-[#30036B]) py-8">
       <div className="container mx-auto px-4">
         <h1 className="text-4xl font-bold bg-gradient-to-r from-[#5E035E] to-[#30036B] dark:from-[#FFD700] dark:to-[#DAA520] bg-clip-text text-transparent mb-12 text-center"
->  Main Website - <a href="https://placements.spit.ac.in/" className="hover:text-[#023E7D]">'Training & Placement Cell'</a>
+> For Exact Stats 2024-25 Main Website - <a href="https://placements.spit.ac.in/" className="hover:text-[#023E7D] dark:hover:text-[#D9FFF8]">'Training & Placement Cell'</a>
           
         </h1>
 

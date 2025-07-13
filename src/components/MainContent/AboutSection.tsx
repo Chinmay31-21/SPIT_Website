@@ -66,7 +66,7 @@ export const AboutSection = () => {
             <div className="bg-white/10 backdrop-blur-lg rounded-lg p-4 border border-white/20 flex items-center gap-3">
               <GraduationCap className="text-[#FFD700] w-6 h-6" />
               <div>
-                <div className="text-xl md:text-2xl font-bold text-white">50+</div>
+                <div className="text-xl md:text-2xl font-bold text-white">30+</div>
                 <div className="text-white/70 text-xs md:text-sm">Years of Excellence</div>
               </div>
             </div>
