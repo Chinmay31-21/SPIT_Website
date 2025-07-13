@@ -233,6 +233,7 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
   const handleTouchEnd = () => {
     mouseRef.current.down = false;
   };
+  // Only enable drag listeners while on initial stage
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -242,12 +243,17 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
     };
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
-    document.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mousedown', handleMouseDown);
-    document.addEventListener('mouseup', handleMouseUp);
-    document.addEventListener('touchmove', handleTouchMove, { passive: false });
-    document.addEventListener('touchstart', handleTouchStart);
-    document.addEventListener('touchend', handleTouchEnd);
+
+    // Only add drag listeners if stage is 'initial'
+    if (stage === 'initial') {
+      document.addEventListener('mousemove', handleMouseMove);
+      document.addEventListener('mousedown', handleMouseDown);
+      document.addEventListener('mouseup', handleMouseUp);
+      document.addEventListener('touchmove', handleTouchMove, { passive: false });
+      document.addEventListener('touchstart', handleTouchStart);
+      document.addEventListener('touchend', handleTouchEnd);
+    }
+
     const style = document.createElement('style');
     style.textContent = `
       @keyframes particleFloat {
@@ -257,14 +263,18 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
     `;
     document.head.appendChild(style);
     animateFluid();
+
     return () => {
       window.removeEventListener('resize', resizeCanvas);
-      document.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mousedown', handleMouseDown);
-      document.removeEventListener('mouseup', handleMouseUp);
-      document.removeEventListener('touchmove', handleTouchMove);
-      document.removeEventListener('touchstart', handleTouchStart);
-      document.removeEventListener('touchend', handleTouchEnd);
+      // Remove drag listeners only if stage was 'initial'
+      if (stage === 'initial') {
+        document.removeEventListener('mousemove', handleMouseMove);
+        document.removeEventListener('mousedown', handleMouseDown);
+        document.removeEventListener('mouseup', handleMouseUp);
+        document.removeEventListener('touchmove', handleTouchMove);
+        document.removeEventListener('touchstart', handleTouchStart);
+        document.removeEventListener('touchend', handleTouchEnd);
+      }
       if (style.parentNode) {
         document.head.removeChild(style);
       }
@@ -272,7 +282,7 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, []);
+  }, [stage]);
   // --- End Fluid Drag Feature Integration ---
 
   return (
@@ -288,7 +298,12 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
         <canvas
           ref={canvasRef}
           className="absolute top-0 left-0 w-full h-full z-0 pointer-events-none"
-          style={{ width: '100vw', height: '100vh' }}
+          style={{
+            width: '100vw',
+            height: '100vh',
+            opacity: stage === 'initial' ? 1 : 0,
+            transition: 'opacity 0.5s'
+          }}
         />
         {/* Custom Cursor */}
         <div
@@ -296,7 +311,9 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
           className="fixed w-5 h-5 rounded-full pointer-events-none z-50 transition-transform duration-100 ease-out"
           style={{
             background: 'radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.2) 100%)',
-            mixBlendMode: 'difference'
+            mixBlendMode: 'difference',
+            opacity: stage === 'initial' ? 1 : 0,
+            transition: 'opacity 0.5s'
           }}
         />
         {/* ⚡ Spark Overlay */}
