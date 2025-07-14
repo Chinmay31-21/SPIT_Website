@@ -5,6 +5,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 const images = [
   {
     url: "/assets/Welcome.jpg",
+    mobileUrl: "/assets/WelcomeMobile.jpg", // Add a mobile-optimized image for small screens
     title: "SPIT Welcomes You"
   },
   {
@@ -85,9 +86,10 @@ export const HeroSection = () => {
   };
 
   return (
-    <div className="relative h-[80vh] overflow-hidden bg-black">
-      <div className="absolute inset-0 bg-gradient-to-b (from-[#02365E] to-[#30036B])" />
-      <div className="absolute inset-0 bg-gradient-to-t (from-[#02365E] to-[#30036B])" />
+    <div className="relative h-[40vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] xl:h-[90vh] w-full overflow-hidden bg-black">
+      {/* Gradient overlays */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#02365E] to-[#30036B] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#02365E] to-[#30036B] pointer-events-none" />
       
       <AnimatePresence initial={false} custom={direction}>
         <motion.div
@@ -114,35 +116,61 @@ export const HeroSection = () => {
           }}
           className="absolute inset-0"
         >
-          <img
-            src={images[currentIndex].url}
-            alt={images[currentIndex].title}
-            className="w-full h-full object-cover transform scale-105"
-          />
+          {/* For the first image, show a different image on small screens */}
+          {currentIndex === 0 ? (
+            <>
+              {/* Mobile image */}
+              <img
+                src={images[0].mobileUrl}
+                alt={images[0].title}
+                className="block sm:hidden w-full h-full min-h-0 min-w-0 object-cover object-center"
+                style={{ maxHeight: '100%', maxWidth: '100%' }}
+              />
+              {/* Desktop image */}
+              <img
+                src={images[0].url}
+                alt={images[0].title}
+                className="hidden sm:block w-full h-full min-h-0 min-w-0 object-cover object-center"
+                style={{ maxHeight: '100%', maxWidth: '100%' }}
+              />
+            </>
+          ) : (
+            <img
+              src={images[currentIndex].url}
+              alt={images[currentIndex].title}
+              className="w-full h-full min-h-0 min-w-0 object-cover object-center"
+              style={{ maxHeight: '100%', maxWidth: '100%' }}
+            />
+          )}
         </motion.div>
       </AnimatePresence>
 
-      <div className="absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black to-transparent h-32" />
+      {/* Bottom gradient overlay */}
+      <div className="absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black to-transparent h-24 sm:h-32" />
 
+      {/* Navigation buttons */}
       <button
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
+        className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 z-20 p-1 sm:p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
         onClick={() => paginate(-1)}
       >
-        <ChevronLeft size={24} />
+        <ChevronLeft size={20} className="sm:hidden" />
+        <ChevronLeft size={24} className="hidden sm:inline" />
       </button>
 
       <button
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
+        className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 z-20 p-1 sm:p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
         onClick={() => paginate(1)}
       >
-        <ChevronRight size={24} />
+        <ChevronRight size={20} className="sm:hidden" />
+        <ChevronRight size={24} className="hidden sm:inline" />
       </button>
 
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-2">
+      {/* Indicators */}
+      <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-1 sm:space-x-2">
         {images.map((_, index) => (
           <button
             key={index}
-            className={`w-2 h-2 rounded-full transition-colors ${
+            className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-colors ${
               index === currentIndex ? 'bg-white' : 'bg-white/50'
             }`}
             onClick={() => {
