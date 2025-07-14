@@ -397,7 +397,7 @@ const MobileMenu = () => {
                   className="text-white hover:text-[#FFD700] transition-colors p-2"
                   aria-label="Close menu"
                 >
-                  <X size={32} />
+                  <X size={32} className='text-white hover:text-[#FFD700] transition-colors' />
                 </button>
               </div>
               <div className="px-6 py-4 flex-1 overflow-y-auto">

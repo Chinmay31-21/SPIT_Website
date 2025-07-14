@@ -3,9 +3,9 @@ import { Award, CheckCircle, FileText, Users, BarChart2 } from 'lucide-react';
 
 export const NBA = () => {
   return (
-    <div className="min-h-screen bg-[#0D0D0D] py-8">
+    <div className="min-h-screen bg-gradient-to-bl from-[#C6B8FF] to-[#B8F3FF] dark:from-[#0E1428] dark:to-[#27193f] py-8">
       <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold bg-gradient-to-r from-[#FFD700] to-[#DAA520] bg-clip-text text-transparent mb-8">
+        <h1 className="text-4xl font-bold bg-gradient-to-r from-[#5E035E] to-[#30036B] dark:from-[#FFD700] dark:to-[#DAA520] bg-clip-text text-transparent mb-8">
           NBA Accreditation
         </h1>
 
@@ -15,7 +15,7 @@ export const NBA = () => {
             <Award className="text-[#FFD700] w-12 h-12" />
             <div>
               <h2 className="text-2xl font-bold text-white">Accredited Programs</h2>
-              <p className="text-[#00BFFF]">Valid till 2025</p>
+              <p className="text-[#00BFFF]">Valid till 2030</p>
             </div>
           </div>
         </div>
@@ -25,21 +25,21 @@ export const NBA = () => {
           {[
             {
               program: "Computer Engineering",
-              status: "Accredited",
-              validity: "2022-2025",
+              status: "Not Accredited",
+              validity: "Not Elligible",
+              intake: "240 seats"
+            },
+            {
+              program: "Computer Science and Engineering",
+              status: "Not Accredited",
+              validity: "Not Elligible",
               intake: "120 seats"
             },
             {
-              program: "Information Technology",
+              program: "Electronics and Telecommunication Engineering",
               status: "Accredited",
-              validity: "2022-2025",
+              validity: "2024-2030",
               intake: "120 seats"
-            },
-            {
-              program: "Electronics Engineering",
-              status: "Accredited",
-              validity: "2022-2025",
-              intake: "60 seats"
             }
           ].map((program, index) => (
             <div key={index} className="bg-black/30 backdrop-blur-md border border-[#00BFFF]/30 rounded-lg p-6">
@@ -76,13 +76,13 @@ export const NBA = () => {
               icon: <BarChart2 className="w-6 h-6" />,
               title: "Quality Metrics",
               items: [
-                "Student-Faculty Ratio: 15:1",
-                "Faculty with Ph.D: 75%",
-                "Research Publications: 200+",
-                "Patents Filed: 25+",
-                "Placement Rate: 95%",
-                "Higher Studies: 20%",
-                "Industry Collaboration: 50+"
+                "Student-Faculty Ratio: 12:1",
+                "Faculty with Ph.D: 80%",
+                "Research Publications: 300+",
+                "Patents Filed: 30+",
+                "Placement Rate: 99.83%",
+                "Higher Studies: 18%",
+                "Industry Collaboration: 60+"
               ]
             }
           ].map((section, index) => (
@@ -107,7 +107,9 @@ export const NBA = () => {
         <div className="bg-black/30 backdrop-blur-md border border-[#00BFFF]/30 rounded-lg p-6">
           <h2 className="text-2xl font-bold text-[#FFD700] mb-6 flex items-center gap-2">
             <Users className="w-6 h-6" />
-            Resources & Contact
+            For Complete NBA Documentation, follow this link:  <button className=""><a href="https://nbawebpage.vercel.app/" className='bg-gradient-to-r from-[#5E035E] to-[#30036B] hover:bg-gradient-to-l hover:from-[#FED99B] hover:to-[#FED18C] rounded-lg backdrop-blur-md text-[#D6EFFF] hover:text-[#022F40] px-4 py-0 transition-colors duration-300'>
+              NBA
+             </a> </button>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
@@ -130,12 +132,12 @@ export const NBA = () => {
               </ul>
             </div>
             <div>
-              <h3 className="text-xl text-white mb-4">Contact Information</h3>
-              <div className="space-y-2 text-white/80">
-                <p>NBA Coordinator: Dr. Michael Brown</p>
-                <p>Email: nba@spit.ac.in</p>
-                <p>Phone: +91-XX-XXXXXXXX</p>
-                <p>Office: Academic Building, Room 301</p>
+              <h3 className="text-xl text-white mb-4">What is NBA?</h3>
+              
+                <p>T<div className="space-y-2 text-white/80">he National Board of Accreditation (NBA) is an autonomous body that evaluates and accredits technical programs in India.</p>
+                <p>It aims to enhance the quality of education and promote excellence in technical institutions.</p>
+                <p>NBA accreditation is a mark of quality and recognition for engineering programs.</p> 
+                <p>It ensures that programs meet global standards and prepare students for industry challenges.</p>
               </div>
             </div>
           </div>

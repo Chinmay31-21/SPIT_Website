@@ -3,9 +3,9 @@ import { FileText, Award, CheckCircle, BarChart2, Users } from 'lucide-react';
 
 export const NAAC = () => {
   return (
-    <div className="min-h-screen bg-[#0D0D0D] py-8">
+    <div className="min-h-screen bg-gradient-to-bl from-[#C6B8FF] to-[#B8F3FF] dark:from-[#0E1428] dark:to-[#27193f] py-8">
       <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold bg-gradient-to-r from-[#FFD700] to-[#DAA520] bg-clip-text text-transparent mb-8">
+        <h1 className="text-4xl font-bold bg-gradient-to-r from-[#5E035E] to-[#30036B] dark:from-[#FFD700] dark:to-[#DAA520] bg-clip-text text-transparent mb-8">
           NAAC Accreditation
         </h1>
 
@@ -14,8 +14,8 @@ export const NAAC = () => {
           <div className="flex items-center gap-4">
             <Award className="text-[#FFD700] w-12 h-12" />
             <div>
-              <h2 className="text-2xl font-bold text-white">Grade A++</h2>
-              <p className="text-[#00BFFF]">CGPA: 3.68 out of 4.00</p>
+              <h2 className="text-2xl font-bold text-white">Grade A+</h2>
+              <p className="text-[#00BFFF]">CGPA: 3.38 out of 4.00</p>
             </div>
           </div>
         </div>
@@ -52,7 +52,8 @@ export const NAAC = () => {
                 'Academic Calendar',
                 'Best Practices',
                 'Institutional Distinctiveness',
-                'Quality Initiatives'
+                'Quality Initiatives',
+                'DVV Clarification',
               ].map((doc) => (
                 <li key={doc} className="flex items-center gap-2">
                   <span className="w-2 h-2 bg-[#00BFFF] rounded-full"></span>
@@ -72,10 +73,10 @@ export const NAAC = () => {
             </h2>
             <div className="space-y-4">
               {[
-                { label: 'Student Satisfaction', value: '92%' },
-                { label: 'Faculty with Ph.D', value: '75%' },
-                { label: 'Research Publications', value: '500+' },
-                { label: 'Placement Rate', value: '95%' }
+                { label: 'Student Satisfaction', value: '90%' },
+                { label: 'Faculty with Ph.D', value: '80%' },
+                { label: 'Research Publications', value: '300+' },
+                { label: 'Placement Rate', value: '99.83%' }
               ].map((metric) => (
                 <div key={metric.label} className="flex justify-between items-center">
                   <span className="text-white/80">{metric.label}</span>
@@ -90,7 +91,9 @@ export const NAAC = () => {
         <div className="mt-8 bg-black/30 backdrop-blur-md border border-[#00BFFF]/30 rounded-lg p-6">
           <h2 className="text-2xl font-bold text-[#FFD700] mb-6 flex items-center gap-2">
             <Users className="w-6 h-6" />
-            Internal Quality Assurance Cell (IQAC)
+            NAAC Total Disclosure and Criteria Follow this link : <button className=""><a href="#" className='bg-gradient-to-r from-[#5E035E] to-[#30036B] hover:bg-gradient-to-l hover:from-[#FED99B] hover:to-[#FED18C] rounded-lg backdrop-blur-md text-[#D6EFFF] hover:text-[#022F40] px-4 py-0 transition-colors duration-300'>
+              NAAC
+             </a> </button>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
@@ -103,11 +106,21 @@ export const NAAC = () => {
               </ul>
             </div>
             <div>
-              <h3 className="text-xl text-white mb-4">Contact</h3>
+              <h3 className="text-xl text-white mb-4">Functions</h3>
+              <ul className="space-y-2 text-white/80">
+                <li>Coordination of quality assurance activities</li>
+                <li>Preparation of AQAR and SSR</li>
+                <li>Organizing workshops and seminars</li>
+                <li>Collaboration with other institutions</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className='text-xl text-white mb-4'>What is NAAC?</h3>
               <div className="space-y-2 text-white/80">
-                <p>IQAC Coordinator: Dr. John Doe</p>
-                <p>Email: iqac@spit.ac.in</p>
-                <p>Phone: +91-XX-XXXXXXXX</p>
+                <p>The National Assessment and Accreditation Council (NAAC) is an autonomous body that assesses and accredits higher education institutions in India.
+                It aims to promote quality education and enhance the overall performance of institutions.</p>
+                <p>NAAC accreditation is a recognition of the quality and standards of education provided by an institution.
+                It helps institutions identify their strengths and areas for improvement.</p>
               </div>
             </div>
           </div>

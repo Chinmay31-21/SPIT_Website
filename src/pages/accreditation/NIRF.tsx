@@ -3,9 +3,9 @@ import { Trophy, TrendingUp, Users, BookOpen, Building } from 'lucide-react';
 
 export const NIRF = () => {
   return (
-    <div className="min-h-screen bg-[#0D0D0D] py-8">
+    <div className="min-h-screen bg-gradient-to-bl from-[#C6B8FF] to-[#B8F3FF] dark:from-[#0E1428] dark:to-[#27193f] py-8">
       <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold bg-gradient-to-r from-[#FFD700] to-[#DAA520] bg-clip-text text-transparent mb-8">
+        <h1 className="text-4xl font-bold bg-gradient-to-r from-[#5E035E] to-[#30036B] dark:from-[#FFD700] dark:to-[#DAA520] bg-clip-text text-transparent mb-8">
           NIRF Ranking
         </h1>
 
@@ -14,8 +14,8 @@ export const NIRF = () => {
           <div className="flex items-center gap-4">
             <Trophy className="text-[#FFD700] w-12 h-12" />
             <div>
-              <h2 className="text-2xl font-bold text-white">Rank 42</h2>
-              <p className="text-[#00BFFF]">Engineering Category 2023</p>
+              <h2 className="text-2xl font-bold text-white">Rank 201-300</h2>
+              <p className="text-[#00BFFF]">Engineering Category 2025</p>
             </div>
           </div>
         </div>
@@ -26,7 +26,7 @@ export const NIRF = () => {
             {
               icon: <TrendingUp className="w-6 h-6" />,
               title: "Teaching, Learning & Resources",
-              score: "85.20",
+              score: "74.20",
               metrics: [
                 "Student Strength",
                 "Faculty-Student Ratio",
@@ -37,7 +37,7 @@ export const NIRF = () => {
             {
               icon: <Users className="w-6 h-6" />,
               title: "Research and Professional Practice",
-              score: "78.45",
+              score: "68.45",
               metrics: [
                 "Publications",
                 "Quality of Publications",
@@ -48,7 +48,7 @@ export const NIRF = () => {
             {
               icon: <BookOpen className="w-6 h-6" />,
               title: "Graduation Outcomes",
-              score: "92.30",
+              score: "86.30",
               metrics: [
                 "Metric for University Examinations",
                 "Metric for Number of Ph.D Students Graduated"
@@ -78,10 +78,14 @@ export const NIRF = () => {
           <h2 className="text-2xl font-bold text-[#FFD700] mb-6">Ranking Progress</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {[
-              { year: "2023", rank: "42" },
-              { year: "2022", rank: "45" },
-              { year: "2021", rank: "48" },
-              { year: "2020", rank: "50" }
+              { year: "2024", rank: "201-300" },
+              { year: "2023", rank: "201-300" },
+              { year: "2022", rank: "167" },
+              { year: "2021", rank: "143" },
+              { year: "2020", rank: "125" },
+              { year: "2019", rank: "114" },
+              { year: "2018", rank: "101-150" },
+              { year: "2017", rank: "101-150" },
             ].map((item, index) => (
               <div key={index} className="text-center p-4 bg-black/50 rounded-lg">
                 <div className="text-white/80">{item.year}</div>
@@ -95,7 +99,9 @@ export const NIRF = () => {
         <div className="bg-black/30 backdrop-blur-md border border-[#00BFFF]/30 rounded-lg p-6">
           <h2 className="text-2xl font-bold text-[#FFD700] mb-6 flex items-center gap-2">
             <Building className="w-6 h-6" />
-            Resources & Downloads
+            For NIRF Reports and Submitted Data Follow this Link : <button ><a href="https://nbawebpage.vercel.app/" className='bg-gradient-to-r from-[#5E035E] to-[#30036B] hover:bg-gradient-to-l hover:from-[#FED99B] hover:to-[#FED18C] rounded-lg backdrop-blur-md text-[#D6EFFF] hover:text-[#022F40] px-4 py-0 transition-colors duration-300'>
+              NIRF
+             </a> </button>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
@@ -117,11 +123,11 @@ export const NIRF = () => {
               </ul>
             </div>
             <div>
-              <h3 className="text-xl text-white mb-4">Contact Information</h3>
+              <h3 className="text-xl text-white mb-4">What is NIRF Ranking?</h3>
               <div className="space-y-2 text-white/80">
-                <p>NIRF Coordinator: Dr. Jane Smith</p>
-                <p>Email: nirf@spit.ac.in</p>
-                <p>Phone: +91-XX-XXXXXXXX</p>
+                <p>The National Institutional Ranking Framework (NIRF) is a methodology adopted by the Ministry of Education, Government of India, to rank higher education institutions in the country.</p>
+                <p>NIRF Ranking is based on various parameters such as Teaching, Learning & Resources, Research and Professional Practices, Graduation Outcomes, Outreach and Inclusivity, and Perception.</p>
+                <p>The rankings aim to provide a comprehensive assessment of the quality of education and research in Indian universities and colleges.</p>
               </div>
             </div>
           </div>
