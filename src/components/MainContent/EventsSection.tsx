@@ -26,37 +26,40 @@ export const EventsSection = () => {
 
   const testimonials = [
     {
-      name: "Priya Sharma",
-      batch: "2018",
-      role: "Senior Software Engineer at Google",
-      content: "SPIT provided me with the perfect platform to grow both technically and personally."
+      name: "Omkar Rao",
+      batch: "2025",
+      role: "Software Developer at Morgan Stanley",
+      content: "SPIT provided me with the perfect platform to grow both technically and personally with a strong focus on practical learning, I was well-prepared for my career in tech."
     },
     {
-      name: "Rahul Mehta",
-      batch: "2019",
-      role: "Product Manager at Meta",
-      content: "The practical exposure and industry connections at SPIT were invaluable for my career."
+      name: "Jash Jain",
+      batch: "2022",
+      role: "Software Engineer at Amazon(USA)",
+      content: "The hands-on projects and collaborative environment at SPIT were instrumental in shaping my skills and confidence. The faculty's support and the vibrant student community made my time here unforgettable."
     },
     {
-      name: "Anita Desai",
-      batch: "2020",
-      role: "Tech Lead at Amazon",
-      content: "The research opportunities and mentorship at SPIT shaped my professional journey."
+      name: "Abhishek Mane",
+      batch: "2021",
+      role: "Senior Software Engineer at Meta(UK)",
+      content: "SPIT's emphasis on innovation and real-world applications helped me develop a strong foundation in software engineering. The diverse opportunities and challenges I faced here prepared me for the dynamic tech industry."
     }
   ];
 
   const recruiters = [
     {
-      company: "Google",
-      quote: "SPIT consistently produces high-quality engineers with strong problem-solving skills."
+      company: "Morgan Stanley",
+      quote: "SPIT graduates consistently demonstrate strong problem-solving skills and a solid understanding of software development principles.",
+      photo: "/assets/jpmcdark.png"
     },
     {
-      company: "Microsoft",
-      quote: "The students from SPIT demonstrate excellent technical knowledge and adaptability."
+      company: "Barclays",
+      quote: "Finance and technology converge at SPIT, producing graduates who excel in both domains. Their analytical skills and technical expertise are impressive.",
+      photo: "/assets/Barclays-Logo.png"
     },
     {
-      company: "Amazon",
-      quote: "We're impressed by the innovative thinking and professional attitude of SPIT graduates."
+      company: "PhonePe",
+      quote: "The innovative mindset and technical proficiency of SPIT students make them valuable assets in the fintech industry. We look forward to collaborating with them in the future.",
+      photo: "/assets/Phonepe1.png"
     }
   ];
 
@@ -126,6 +129,7 @@ export const EventsSection = () => {
                 transition={{ delay: index * 0.1 }}
                 className="bg-black/30 backdrop-blur-lg border border-[#00BFFF]/30 rounded-lg p-6"
               >
+                
                 <p className="text-white/70 mb-4">"{testimonial.content}"</p>
                 <div>
                   <p className="text-white font-bold">{testimonial.name}</p>
@@ -155,6 +159,11 @@ export const EventsSection = () => {
                 transition={{ delay: index * 0.1 }}
                 className="bg-black/30 backdrop-blur-lg border border-[#00BFFF]/30 rounded-lg p-6"
               >
+                <img
+                  src={recruiter.photo}
+                  alt={recruiter.company}
+                  className="w-full h-40 object-cover rounded-t-lg"
+                />
                 <h3 className="text-xl font-bold text-white mb-4">{recruiter.company}</h3>
                 <p className="text-white/70">"{recruiter.quote}"</p>
               </motion.div>
