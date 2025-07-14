@@ -146,9 +146,9 @@ function App() {
           <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#FFD700] to-[#DAA520] shadow-lg transform-gpu backface-hidden">
             <div className="w-full h-full flex items-center justify-center">
               <img
-                src="https://www.spit.ac.in/wp-content/themes/spit-main/images/SPIT_logo.png"
+                src="/assets/SPIT_Logo.png"
                 alt="SPIT Logo"
-                className="w-24 h-24 object-contain"
+                className="w-45 h-45 object-contain"
               />
             </div>
           </div>
@@ -239,9 +239,9 @@ function App() {
                 <div className="flex items-start gap-4 w-full md:w-auto">
                   <Link to="/" className="flex items-center gap-4">
                     <img
-                      src="https://www.spit.ac.in/wp-content/themes/spit-main/images/SPIT_logo.png"
+                      src="/assets/SPIT_Logo.png"
                       alt="SPIT Logo"
-                      className="w-16 h-16 object-contain animate-float"
+                      className="w-20 h-20 object-contain animate-float"
                     />
                     <div>
                       <p className="text-[#FFFFFF]/80 dark:text-white/80 text-sm">Bhartiya Vidya Bhavan's</p>

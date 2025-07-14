@@ -424,7 +424,7 @@ export const PowerUpAnimation = ({ onComplete }: { onComplete: () => void }) => 
   >
     <div className="relative inline-block p-4 rounded-full border-4 border-[#00BFFF] shadow-[0_0_40px_#00BFFF] bg-black/20 backdrop-blur-lg">
       <motion.img
-        src="https://www.spit.ac.in/wp-content/themes/spit-main/images/SPIT_logo.png"
+        src="/assets/SPIT_Logo.png"
         alt="SPIT Logo"
         className="w-40 h-40 rounded-full object-cover"
         animate={{ rotate: [0, 360] }}

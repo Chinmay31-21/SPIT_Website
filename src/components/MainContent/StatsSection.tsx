@@ -21,7 +21,7 @@ export const StatsSection = () => {
     },
     {
       icon: <GraduationCap className="w-8 h-8" />,
-      value: "5000+",
+      value: "5K+",
       label: "Alumni Network",
     },
   ];

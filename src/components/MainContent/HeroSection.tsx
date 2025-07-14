@@ -4,6 +4,10 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const images = [
   {
+    url: "/assets/Welcome.jpg",
+    title: "SPIT Welcomes You"
+  },
+  {
     url: "/assets/Entrance2.png",
     title: "SPIT Campus"
   },
