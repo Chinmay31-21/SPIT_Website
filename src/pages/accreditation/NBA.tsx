@@ -133,8 +133,8 @@ export const NBA = () => {
             </div>
             <div>
               <h3 className="text-xl text-white mb-4">What is NBA?</h3>
-              
-                <p>T<div className="space-y-2 text-white/80">he National Board of Accreditation (NBA) is an autonomous body that evaluates and accredits technical programs in India.</p>
+            <div className="space-y-2 text-white/80">        
+                <p>The National Board of Accreditation (NBA) is an autonomous body that evaluates and accredits technical programs in India.</p>
                 <p>It aims to enhance the quality of education and promote excellence in technical institutions.</p>
                 <p>NBA accreditation is a mark of quality and recognition for engineering programs.</p> 
                 <p>It ensures that programs meet global standards and prepare students for industry challenges.</p>
