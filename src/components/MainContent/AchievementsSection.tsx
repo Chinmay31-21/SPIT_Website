@@ -11,13 +11,13 @@ export const AchievementsSection = () => {
     },
     {
       icon: <Star className="w-8 h-8" />,
-      title: "NIRF Ranking",
-      description: "Among top 50 engineering institutes in India"
+      title: "NIRF Ranking (2024): 201-300",
+      description: "Among top 300 engineering institutes in India"
     },
     {
       icon: <Award className="w-8 h-8" />,
       title: "Research Excellence",
-      description: "100+ research papers published annually"
+      description: "200+ research papers published annually"
     },
     {
       icon: <Medal className="w-8 h-8" />,

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { CreditCard, Shield, CheckCircle, AlertCircle, Download } from 'lucide-react';
+import { paymentService } from '../services/paymentService';
 
 interface PaymentDetails {
   amount: number;
@@ -12,9 +13,10 @@ interface PaymentGatewayProps {
   isOpen: boolean;
   onClose: () => void;
   paymentDetails: PaymentDetails;
+  onSuccess?: (paymentDetails: PaymentDetails, userDetails: any) => void; // Add this
 }
 
-export const PaymentGateway: React.FC<PaymentGatewayProps> = ({ isOpen, onClose, paymentDetails }) => {
+export const PaymentGateway: React.FC<PaymentGatewayProps> = ({ isOpen, onClose, paymentDetails, onSuccess }) => {
   const [paymentStep, setPaymentStep] = useState<'details' | 'processing' | 'success' | 'failed'>('details');
   const [formData, setFormData] = useState({
     name: '',
@@ -26,12 +28,28 @@ export const PaymentGateway: React.FC<PaymentGatewayProps> = ({ isOpen, onClose,
   const handlePayment = async () => {
     setPaymentStep('processing');
     
-    // Simulate payment processing
-    setTimeout(() => {
+    try {
+      const order = await paymentService.createOrder({
+        amount: paymentDetails.amount,
+        // ...other payment details
+      });
+      
+      // Initialize Razorpay
+      const options = {
+        key: process.env.REACT_APP_RAZORPAY_KEY_ID,
+        // ...other Razorpay options
+      };
+      
       // Simulate success/failure (90% success rate)
       const isSuccess = Math.random() > 0.1;
       setPaymentStep(isSuccess ? 'success' : 'failed');
-    }, 3000);
+      if (isSuccess && onSuccess) {
+        onSuccess(paymentDetails, formData);
+      }
+    } catch (error) {
+      console.error('Payment failed:', error);
+      setPaymentStep('failed');
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
