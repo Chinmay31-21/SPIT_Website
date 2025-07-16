@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { CreditCard, Shield, CheckCircle, AlertCircle, Download } from 'lucide-react';
-import { paymentService } from '../services/paymentService';
 
 interface PaymentDetails {
   amount: number;
@@ -28,28 +27,15 @@ export const PaymentGateway: React.FC<PaymentGatewayProps> = ({ isOpen, onClose,
   const handlePayment = async () => {
     setPaymentStep('processing');
     
-    try {
-      const order = await paymentService.createOrder({
-        amount: paymentDetails.amount,
-        // ...other payment details
-      });
-      
-      // Initialize Razorpay
-      const options = {
-        key: process.env.REACT_APP_RAZORPAY_KEY_ID,
-        // ...other Razorpay options
-      };
-      
+    // Simulate payment processing
+    setTimeout(() => {
       // Simulate success/failure (90% success rate)
       const isSuccess = Math.random() > 0.1;
       setPaymentStep(isSuccess ? 'success' : 'failed');
       if (isSuccess && onSuccess) {
         onSuccess(paymentDetails, formData);
       }
-    } catch (error) {
-      console.error('Payment failed:', error);
-      setPaymentStep('failed');
-    }
+    }, 3000);
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

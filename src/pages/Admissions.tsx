@@ -477,7 +477,7 @@ const accordionSections = [
                 <th className="py-4 px-6 text-right">Second Year</th>
                 <th className="py-4 px-6 text-right">Third Year</th>
                 <th className="py-4 px-6 text-right">Fourth Year</th>
-                <th className="py-4 px-6 text-center">Action</th>
+                <a href="#" className="py-4 px-6 text-center"><th className="py-4 px-6 text-center" >Action</th></a>
               </tr>
             </thead>
             <tbody>
@@ -487,7 +487,7 @@ const accordionSections = [
                 <td className="py-4 px-6 text-right">₹2,10,000</td>
                 <td className="py-4 px-6 text-right">₹2,10,000</td>
                 <td className="py-4 px-6 text-right">₹2,10,000</td>
-                <td className="py-4 px-6 text-center">
+                <a href="https://spit-payment.vercel.app/" className="py-4 px-6 text-center"><td className="py-4 px-6 text-center">
                   <button
                     onClick={() => handlePayment(145000, "First Year Fee - Open Category")}
                     className="bg-[#4169E1] hover:bg-[#2c5aa0] text-white px-4 py-2 rounded-md flex items-center gap-2 mx-auto"
@@ -496,6 +496,7 @@ const accordionSections = [
                     Pay Now
                   </button>
                 </td>
+                </a>
               </tr>
               <tr>
                 <td className="py-4 px-6">M.Tech</td>
@@ -503,7 +504,7 @@ const accordionSections = [
                 <td className="py-4 px-6 text-right">₹1,00,000</td>
                 <td className="py-4 px-6 text-right">₹1,00,000</td>
                 <td className="py-4 px-6 text-right">₹1,00,000</td>
-                <td className="py-4 px-6 text-center">
+                <a href="https://spit-payment.vercel.app/" className="py-4 px-6 text-center"><td className="py-4 px-6 text-center">
                   <button
                     onClick={() => handlePayment(15000, "First Year Fee - Reserved Category")}
                     className="bg-[#4169E1] hover:bg-[#2c5aa0] text-white px-4 py-2 rounded-md flex items-center gap-2 mx-auto"
@@ -512,6 +513,7 @@ const accordionSections = [
                     Pay Now
                   </button>
                 </td>
+                </a>
               </tr>
               <tr>
                 <td className="py-4 px-6">MCA</td>
@@ -519,7 +521,8 @@ const accordionSections = [
                 <td className="py-4 px-6 text-right">₹1,31,000</td>
                 <td className="py-4 px-6 text-right">₹1,31,000</td>
                 <td className="py-4 px-6 text-right">₹1,31,000</td>
-                <td className="py-4 px-6 text-center">
+               <a href="https://spit-payment.vercel.app/" className="py-4 px-6 text-center"> <td className="py-4 px-6 text-center">
+                  
                   <button
                     onClick={() => handlePayment(15000, "First Year Fee - Reserved Category")}
                     className="bg-[#4169E1] hover:bg-[#2c5aa0] text-white px-4 py-2 rounded-md flex items-center gap-2 mx-auto"
@@ -528,6 +531,7 @@ const accordionSections = [
                     Pay Now
                   </button>
                 </td>
+                </a>
               </tr>
             </tbody>
           </table>
