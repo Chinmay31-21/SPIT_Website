@@ -336,10 +336,184 @@ const Activities = () => (
   </div>
 );
 const AntiRagging = () => (
-  <div className="text-white/80">Anti-ragging Content</div>
+  <div className="text-white/80 leading-relaxed space-y-6 bg-gradient-to-r from-[#02365e] to-[#30036b] p-8 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+    <h2 className="text-4xl font-bold text-[#FFD700] mb-6 border-b-4 border-[#FFD700] pb-2">Anti-Ragging Policy: Ensuring a Safe and Respectful Campus</h2>
+    
+    <div className="flex flex-col md:flex-row items-center gap-8">
+      <div className="md:w-1/2">
+        <p className="text-lg mb-4">
+          At SPIT, we are absolutely committed to fostering a **zero-tolerance environment towards ragging**. 
+          Our primary goal is to nurture a campus where every student feels secure, respected, and empowered to thrive academically and personally, free from any fear or intimidation. 
+          Ragging, in any form, is a severe criminal offense and will lead to strict disciplinary action as per UGC regulations and Indian law.
+        </p>
+        <p className="text-lg">
+          Our comprehensive anti-ragging policy is designed to ensure the **well-being and security** of all individuals within our community. We actively promote a culture of mutual respect, harmony, and academic excellence, where positive interactions are encouraged and celebrated.
+        </p>
+        <p className="text-lg mt-4">
+          <span className="font-bold">For a detailed understanding of our anti-ragging policies, guidelines, and available reporting mechanisms, please refer to the official document:</span>{' '}
+          <a
+            href="/assets/Ragging-UGC-27-June-2019 (1).pdf" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-red-500 underline hover:text-[#FFD700] transition-all duration-300"
+          >
+            Click here to view the Anti-Ragging Policy PDF
+          </a>
+        </p>
+      </div>
+      <div className="md:w-1/2">
+        <img
+          src="https://images.pexels.com/photos/3862635/pexels-photo-3862635.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" // Placeholder: **Consider replacing with an image specific to SPIT or a more relevant stock image.**
+          alt="Students interacting positively in a college environment, symbolizing safety and support."
+          className="w-full h-auto object-cover rounded-lg shadow-lg border border-[#00BFFF]/50"
+        />
+        <p className="text-center text-sm text-white/60 mt-2">
+          Cultivating an atmosphere of respect and support among all students.
+        </p>
+      </div>
+    </div>
+    
+    ---
+
+    <h3 className="text-3xl font-bold text-[#FFD700] mt-8 mb-4 border-b-2 border-[#FFD700] pb-2">Understanding What Constitutes Ragging</h3>
+    <p className="text-lg">
+      Ragging encompasses any act that causes or is likely to cause annoyance, hardship, or psychological harm to a fresher or junior student. This broad definition includes, but is not limited to:
+    </p>
+    <ul className="list-disc pl-6 space-y-2 text-lg">
+      <li>Any **disorderly conduct**, whether through spoken words, written communication, or physical acts.</li>
+      <li>Teasing, treating, or handling a fresher or junior student with **rudeness or disrespect**.</li>
+      <li>Engaging in **rowdy or undisciplined activities** that disturb the peace of the campus.</li>
+      <li>Causing **psychological harm, fear, or apprehension** in a student.</li>
+      <li>Forcing a student to perform acts that lead to **shame, torment, embarrassment**, or adversely affect their self-respect.</li>
+    </ul>
+
+    ---
+
+    <h3 className="text-3xl font-bold text-[#FFD700] mt-8 mb-4 border-b-2 border-[#FFD700] pb-2">Report an Incident: Your Voice Matters</h3>
+    <p className="text-lg">
+      If you, or anyone you know, experiences or witnesses an act of ragging, it is crucial to **report it immediately**. Your identity will be protected, and prompt action will be taken.
+    </p>
+    <p className="text-lg font-bold text-red-400">
+      **National Anti-Ragging Helpline: 1800-180-5522** (Toll-Free, available 24x7)
+    </p>
+    <a
+      href="https://www.antiragging.in/Complaint.aspx"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-block px-6 py-3 text-lg font-bold text-white bg-red-600 rounded-lg hover:bg-red-700 transition-all duration-300 mt-4"
+    >
+      Register an Online Complaint Here
+    </a>
+
+    <h3 className="text-3xl font-bold text-[#FFD700] mt-8 mb-4 border-b-2 border-[#FFD700] pb-2">Additional Online Support</h3>
+    <p className="text-lg">
+      For further information, FAQs, and additional resources regarding anti-ragging initiatives and support, you can visit the official online portal:
+    </p>
+    <a
+      href="https://www.antiragging.in/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-block px-6 py-3 text-lg font-bold text-white bg-[#00BFFF] rounded-lg hover:bg-[#00A0E0] transition-all duration-300 mt-4"
+    >
+      Visit the National Anti-Ragging Portal
+    </a>
+  </div>
 );
 const Seva = () => (
-  <div className="text-white/80">Seva Content</div>
+  <div className="text-white/80 leading-relaxed space-y-6 bg-gradient-to-r from-[#02365e] to-[#30036b] p-8 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+    <h2 className="text-4xl font-bold text-[#FFD700] mb-6 border-b-4 border-[#FFD700] pb-2">Seva: Social Education through Various Activities</h2>
+    <p className="text-lg mb-4">
+      The **SEVA initiative** at Sardar Patel Institute of Technology (SPIT) stands for "**Social Education through Various Activities**." This program is dedicated to encouraging students to participate actively in a diverse range of social and community-oriented endeavors, fostering a sense of social responsibility and civic engagement.
+    </p>
+
+    <div className="flex flex-col md:flex-row items-center gap-8 mb-8">
+      <div className="md:w-1/2">
+        <h3 className="text-3xl font-bold text-[#FFD700] mb-4 border-b-2 border-[#FFD700] pb-2">Key Activities and Contributions</h3>
+        <ul className="list-disc pl-6 space-y-3 text-lg">
+          <li>
+            **Volunteering for Public Services:** Students actively volunteer for organizations like the Mumbai Fire Brigade, contributing to crucial public safety efforts.
+          </li>
+          <li>
+            **Educational Support:** Assisting schools in improving their laboratories by developing experimental setups and educating economically disadvantaged children.
+          </li>
+          <li>
+            **Disaster Relief:** Volunteering during national calamities such as earthquakes and floods, providing essential support to affected communities.
+          </li>
+          <li>
+            **Environmental Initiatives:** Participating in tree planting and maintenance drives, and contributing to national campaigns like Swachh Bharat Abhiyan.
+          </li>
+          <li>
+            **Digital Literacy:** Contributing to the Digital India initiative, promoting technological literacy and access.
+          </li>
+          <li>
+            **Research and Awareness:** Engaging in field visits and scientific case studies on pressing rural and urban issues (e.g., traffic congestion), and conducting case studies on Indian culture.
+          </li>
+          <li>
+            **Community Education:** Delivering voluntary lectures in village schools, sharing knowledge and inspiring younger generations.
+          </li>
+        </ul>
+      </div>
+      <div className="md:w-1/2">
+        {/* IMAGE PLACEHOLDER 1 */}
+        <img
+          src="https://images.pexels.com/photos/339620/pexels-photo-339620.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          alt="Students engaged in a community service activity, like teaching or helping"
+          className="w-full h-auto object-cover rounded-lg shadow-lg border border-[#00BFFF]/50"
+        />
+        <p className="text-center text-sm text-white/60 mt-2">
+          SPIT students actively participating in community service.
+        </p>
+      </div>
+    </div>
+
+    ---
+
+    <div className="flex flex-col md:flex-row items-center gap-8 mt-8">
+      <div className="md:w-1/2 order-2 md:order-1">
+        {/* IMAGE PLACEHOLDER 2 */}
+        <img
+          src="https://images.pexels.com/photos/593152/pexels-photo-593152.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          alt="Students collaborating with an external organization, symbolizing partnerships"
+          className="w-full h-auto object-cover rounded-lg shadow-lg border border-[#00BFFF]/50"
+        />
+        <p className="text-center text-sm text-white/60 mt-2">
+          Collaborating for a greater social impact.
+        </p>
+      </div>
+      <div className="md:w-1/2 order-1 md:order-2">
+        <h3 className="text-3xl font-bold text-[#FFD700] mb-4 border-b-2 border-[#FFD700] pb-2">Collaborations and Engagements</h3>
+        <p className="text-lg mb-4">
+          SPIT's SEVA program also collaborates with various reputable organizations to amplify its impact and reach:
+        </p>
+        <ul className="list-disc pl-6 space-y-3 text-lg">
+          <li>
+            **Fire and Security Association of India (FSAI):** Working together on initiatives related to fire safety and security.
+          </li>
+          <li>
+            **Make a Difference (MAD):** Partnering to empower children at risk through education.
+          </li>
+          <li>
+            **Rally for Rivers (RFR):** Supporting efforts for river revitalization and environmental sustainability.
+          </li>
+        </ul>
+        <p className="text-lg">
+          Furthermore, SEVA promotes **Liberal Arts Education**, encouraging a holistic development approach that extends beyond technical studies.
+        </p>
+      </div>
+    </div>
+
+    <p className="text-lg mt-8 text-center">
+      For more details on the Seva initiative at SPIT, you can visit the official page: {' '}
+      <a
+        href="https://www.spit.ac.in/seva/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-red-500 underline hover:text-[#FFD700] transition-all duration-300"
+      >
+        Learn more about SPIT Seva
+      </a>
+    </p>
+  </div>
 );
 const Sports = () => (
   <div className="text-white/80">Sports Content</div>
