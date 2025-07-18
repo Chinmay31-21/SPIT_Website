@@ -347,7 +347,7 @@ function App() {
               <Route path="/resources/rti" element={<RTI />} />
               <Route path="/resources/grievance" element={<Grievance />} />
               <Route path="/alumni-network" element={<AlumniNetworkDemo />} />
-              <Route path="/report" element={<AnnualReport />} />
+              <Route path="/report/*" element={<AnnualReport />} />
             </Routes>
           </PageTransition>
 
