@@ -31,8 +31,8 @@ const resultCards = [
 ];
 
 const CareerAtSpit = () => (
-  <section className="bg-gradient-to-br from-[#2B107E] to-[#02365E] rounded-xl p-8 text-white shadow animate-fade-in">
-    <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Career @ SPIT</h2>
+  <section className="bg-gradient-to-bl from-[#C6B8FF] to-[#B8F3FF] dark:from-[#0E1428] dark:to-[#27193f] mx-auto px-4 py-8 rounded-xl p-8 text-white shadow animate-fade-in">
+    <h2 className="text-2xl font-bold text-[#5E035E] dark:text-[#FFD700] mb-4">Career @ SPIT</h2>
     <div className="responsive-grid">
       {resultCards.map((card, idx) => (
         <div

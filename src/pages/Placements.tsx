@@ -3,8 +3,8 @@ import { Building2, Users, Trophy, TrendingUp } from 'lucide-react';
 
 export const Placements = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b (from-[#02365E] to-[#30036B]) py-8">
-      <div className="container mx-auto px-4">
+    <div className="min-h-screen bg-gradient-to-bl from-[#C6B8FF] to-[#B8F3FF] dark:from-[#0E1428] dark:to-[#27193f] mx-auto px-4 py-8">
+      <div className=" mx-auto px-4">
         <h1 className="text-4xl font-bold bg-gradient-to-r from-[#5E035E] to-[#30036B] dark:from-[#FFD700] dark:to-[#DAA520] bg-clip-text text-transparent mb-12 text-center"
 > For Exact Stats 2024-25 Main Website - <a href="https://placements.spit.ac.in/" className="hover:text-[#023E7D] dark:hover:text-[#D9FFF8]">'Training & Placement Cell'</a>
           

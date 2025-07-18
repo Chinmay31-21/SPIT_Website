@@ -69,12 +69,12 @@ export const AICTE = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0A0A0A] py-8">
+    <div className="min-h-screen bg-gradient-to-bl from-[#C6B8FF] to-[#B8F3FF] dark:from-[#0E1428] dark:to-[#27193f] py-8">
       <div className="container mx-auto px-4">
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-4xl font-bold bg-gradient-to-r from-[#FFD700] to-[#4169E1] bg-clip-text text-transparent mb-8 text-center"
+          className="text-4xl font-bold  bg-clip-text bg-gradient-to-r from-[#5E035E] to-[#30036B] dark:from-[#FFD700] dark:to-[#DAA520] bg-clip-text text-transparent mb-8 text-center"
         >
           AICTE Approval & Compliance
         </motion.h1>
@@ -105,7 +105,7 @@ export const AICTE = () => {
 
         {/* Approved Programs */}
         <div className="mb-12">
-          <h2 className="text-3xl font-bold text-[#FFD700] mb-6 text-center">AICTE Approved Programs</h2>
+          <h2 className="text-4xl font-bold  bg-clip-text bg-gradient-to-r from-[#5E035E] to-[#30036B] dark:from-[#FFD700] dark:to-[#DAA520] bg-clip-text text-transparent mb-8 text-center">AICTE Approved Programs</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {approvals.map((program, index) => (
               <motion.div
@@ -140,7 +140,7 @@ export const AICTE = () => {
 
         {/* Facilities & Infrastructure */}
         <div className="mb-12">
-          <h2 className="text-3xl font-bold text-[#FFD700] mb-6 text-center">AICTE Compliant Facilities</h2>
+          <h2 className="text-4xl font-bold  bg-clip-text bg-gradient-to-r from-[#5E035E] to-[#30036B] dark:from-[#FFD700] dark:to-[#DAA520] bg-clip-text text-transparent mb-8 text-center">AICTE Compliant Facilities</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {facilities.map((facility, index) => (
               <motion.div

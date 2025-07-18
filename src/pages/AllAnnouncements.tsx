@@ -227,6 +227,7 @@ const announcements = [
     section: "notices",
     description: "Vacancy Notice for First Year B.Tech. 2024-25",
   },
+  /*Yeah wala code se tujhe edit karna hai that's it */
   {
    title: <a href="/assets/Vacancy-Notice-As-Of-12_00-Noon-On-22-October-2024.docx.pdf" className="hover:text-[#F7F6C5]">DSE VACANCY NOTICE & ROUND ON 17.10.24</a>,
     date: "November 16th, 2024",

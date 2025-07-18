@@ -7,11 +7,11 @@ import { motion } from 'framer-motion';
 
 const AcademicsLayout = () => {
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-[#FFD700] mb-8 border-b-2 border-[#FFD700] pb-2">
+    <div className="bg-gradient-to-bl from-[#C6B8FF] to-[#B8F3FF] dark:from-[#0E1428] dark:to-[#27193f] mx-auto px-4 py-8">
+      <h1 className="container text-3xl font-bold text-[#5E035E] mb-8 border-b-2 border-[#FFD700] pb-2">
         Academics
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="container grid grid-cols-1 md:grid-cols-4 gap-8">
         <div className="md:col-span-1 bg-black/30 p-4 rounded-lg shadow-lg">
           <nav>
             <ul className="space-y-2">
