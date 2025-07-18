@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react'; // Make sure this is the ONLY React import
 import { Routes, Route, Link } from 'react-router-dom';
+
+// ... rest of your code
 
 const StudentsLayout = () => {
   return (
@@ -516,14 +518,392 @@ const Seva = () => (
   </div>
 );
 const Sports = () => (
-  <div className="text-white/80">Sports Content</div>
+  <div 
+    className="relative text-white/80 leading-relaxed space-y-6 p-8 rounded-lg shadow-lg overflow-hidden"
+    style={{
+      backgroundImage: `url('https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')`, // **REPLACE WITH YOUR CHOSEN SPORTS BACKGROUND IMAGE URL**
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+    }}
+  >
+    {/* Overlay for better readability */}
+    <div className="absolute inset-0 bg-black/60 backdrop-blur-sm rounded-lg"></div>
+    
+    <div className="relative z-10 space-y-6"> {/* Content sits above the overlay */}
+      <h2 className="text-4xl font-bold text-[#FFD700] mb-6 border-b-4 border-[#FFD700] pb-2 animate-fade-in-down">
+        SPIT Sports: Cultivating Excellence & Teamwork
+      </h2>
+      <p className="text-xl mb-4 animate-fade-in-up">
+        The **Sports Committee at Sardar Patel Institute of Technology (S.P.I.T)** is a dynamic group of students dedicated to championing physical activity, sportsmanship, and overall well-being across the campus. We believe in the power of sports to build character, foster camaraderie, and unleash athletic potential.
+      </p>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="bg-black/40 p-6 rounded-lg border border-[#00BFFF]/30 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl animate-fade-in-left">
+          <h3 className="text-3xl font-bold text-[#FFD700] mb-4 border-b-2 border-[#FFD700] pb-2">Our Mission & Activities</h3>
+          <p className="text-lg mb-4">
+            Our mission is to foster a vibrant sports culture that encourages every student to stay active, build strong bonds, and showcase their athletic talents. We organize a diverse array of sporting events, inter-departmental tournaments, and fitness initiatives throughout the academic year.
+          </p>
+          <ul className="list-disc pl-6 space-y-2 text-lg">
+            <li>Promoting physical fitness and a healthy lifestyle.</li>
+            <li>Organizing competitive and recreational sports events.</li>
+            <li>Encouraging participation across all skill levels.</li>
+            <li>Fostering teamwork, discipline, and leadership qualities.</li>
+            <li>Enhancing the overall student experience at S.P.I.T.</li>
+          </ul>
+        </div>
+
+        <div className="bg-black/40 p-6 rounded-lg border border-[#00BFFF]/30 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl animate-fade-in-right">
+          <h3 className="text-3xl font-bold text-[#FFD700] mb-4 border-b-2 border-[#FFD700] pb-2">Flagship Events & Tournaments</h3>
+          <p className="text-lg mb-4">
+            The Sports Committee proudly organizes key annual events that draw widespread participation and excitement:
+          </p>
+          <ul className="list-disc pl-6 space-y-2 text-lg">
+            <li>
+              <span className="font-bold text-white">Spoorthi:</span> Our premier annual sports fest, featuring a wide range of indoor and outdoor games, competitive matches, and thrilling finals.
+            </li>
+            <li>
+              <span className="font-bold text-white">Marathon:</span> An exhilarating event promoting fitness and community spirit, open to all students and faculty.
+            </li>
+            <li>
+              <span className="font-bold text-white">Inter-Departmental Leagues:</span> Competitive leagues in various sports, fostering healthy rivalry and teamwork among departments.
+            </li>
+            <li>
+              <span className="font-bold text-white">Fitness Workshops:</span> Sessions focused on physical training, yoga, and overall well-being.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <p className="text-lg mt-8 text-center animate-fade-in-up">
+        To learn more about the SPIT Sports Committee, upcoming events, and how to get involved, visit our official website: {' '}
+        <a
+          href="https://sports.spit.ac.in/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block px-6 py-3 text-lg font-bold text-white bg-[#00BFFF] rounded-lg hover:bg-[#00A0E0] transition-all duration-300 mt-4 animate-bounce-in"
+        >
+          Explore SPIT Sports Online
+        </a>
+      </p>
+    </div>
+  </div>
 );
-const Oculus = () => (
-  <div className="text-white/80">Oculus Content</div>
-);
-const Rotaract = () => (
-  <div className="text-white/80">Rotaract Club Content</div>
-);
+//import React, { useEffect, useState } from 'react'; // Import useEffect and useState for the countdown
+
+const Oculus = () => {
+  // --- Countdown Logic (Placeholder) ---
+  // You would replace this with your actual target date for Oculus 2k25
+  const calculateTimeLeft = () => {
+    const difference = +new Date('2025-10-25T00:00:00') - +new Date(); // Example: Oct 25, 2025
+    let timeLeft = {};
+
+    if (difference > 0) {
+      timeLeft = {
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((difference / 1000 / 60) % 60),
+        seconds: Math.floor((difference / 1000) % 60),
+      };
+    }
+    return timeLeft;
+  };
+
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  });
+
+  const timerComponents = [];
+  Object.keys(timeLeft).forEach((interval) => {
+    if (!timeLeft[interval] && interval !== 'seconds') { // Don't show intervals that are 0 unless it's seconds
+        return;
+    }
+    timerComponents.push(
+      <span key={interval} className="px-3 py-1 bg-white/20 rounded-md text-xl md:text-3xl font-mono">
+        {timeLeft[interval]} {interval}{" "}
+      </span>
+    );
+  });
+  // --- End Countdown Logic ---
+
+  return (
+    <div 
+      className="relative text-white/80 leading-relaxed space-y-6 p-8 rounded-lg shadow-lg overflow-hidden"
+      style={{
+        // Choose a captivating "Arabian Nights" or futuristic/cultural festival background image
+        backgroundImage: `url('https://images.pexels.com/photos/994605/pexels-photo-994605.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')`, 
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed', // Optional: for a subtle parallax effect on scroll
+      }}
+    >
+      {/* Dynamic Overlay for readability and depth */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black/70 to-purple-900/60 backdrop-blur-sm rounded-lg animate-gradient-shift"></div>
+      
+      <div className="relative z-10 space-y-8"> {/* Content sits above the overlay */}
+        <h2 className="text-4xl md:text-5xl font-extrabold text-[#FFD700] mb-6 text-center border-b-4 border-[#FFD700] pb-2 animate-fade-in-down">
+          Oculus: An Arabian Nights Odyssey of Innovation & Culture
+        </h2>
+        <p className="text-xl md:text-2xl mb-4 text-center animate-fade-in-up font-serif italic">
+          "Where ancient mystique meets futuristic brilliance."
+        </p>
+
+        {/* Countdown Timer Section */}
+        {timerComponents.length ? (
+          <div className="bg-gradient-to-r from-[#00BFFF]/20 to-[#FFD700]/20 p-6 rounded-lg text-center shadow-lg border border-[#00BFFF]/50 animate-fade-in zoom-in">
+            <h3 className="text-2xl md:text-3xl font-bold text-[#FFD700] mb-4">
+              Oculus 2k25 Begins In:
+            </h3>
+            <div className="flex justify-center items-center space-x-3 md:space-x-5">
+              {timerComponents.length ? timerComponents : <span className="text-2xl text-green-400 font-bold">Oculus is LIVE!</span>}
+            </div>
+          </div>
+        ) : (
+            <div className="bg-gradient-to-r from-[#00BFFF]/20 to-[#FFD700]/20 p-6 rounded-lg text-center shadow-lg border border-[#00BFFF]/50 animate-fade-in zoom-in">
+                <h3 className="text-2xl md:text-3xl font-bold text-[#FFD700] mb-4">
+                    Oculus 2k25 is just around the corner!
+                </h3>
+                <span className="text-xl md:text-2xl text-green-400 font-bold">Stay tuned for exciting updates!</span>
+            </div>
+        )}
+
+        <p className="text-lg md:text-xl mb-4 text-center animate-fade-in-up">
+          Welcome to **Oculus 2k25**, the 7th mesmerizing edition of SPIT's annual technical and cultural festival! This year, we invite you to embark on an enchanting journey themed **"Arabian Nights,"** where the mystique of ancient tales fuses seamlessly with the brilliance of modern technology, innovation, and vibrant culture.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="bg-black/40 p-6 rounded-lg border border-[#00BFFF]/30 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl animate-fade-in-left">
+            <h3 className="text-3xl font-bold text-[#FFD700] mb-4 border-b-2 border-[#FFD700] pb-2">Experience the Magic: Key Events</h3>
+            <p className="text-lg mb-4">
+              Oculus is a spectacular fusion of intellect and artistry, offering an array of events designed to ignite your passion:
+            </p>
+            <ul className="list-disc pl-6 space-y-2 text-lg">
+              <li>
+                <span className="font-bold text-white">Aelaan-E-Jung:</span> The ultimate dance competition, where raw talent and fierce choreography battle for glory.
+              </li>
+              <li>
+                <span className="font-bold text-white">Carnival:</span> A spectacular fashion event, showcasing creativity, style, and design.
+              </li>
+              <li>
+                <span className="font-bold text-white">Pronite:</span> Mesmerizing performances by renowned artists and bands, ensuring an unforgettable night of music and entertainment.
+              </li>
+              <li>
+                <span className="font-bold text-white">War of Branches:</span> A thrilling cultural showdown where different college branches compete through captivating music and dance performances.
+              </li>
+              <li>
+                <span className="font-bold text-white">Techrace:</span> An exhilarating treasure hunt spanning across Mumbai, blending technology with adventure.
+              </li>
+            </ul>
+          </div>
+
+          <div className="bg-black/40 p-6 rounded-lg border border-[#00BFFF]/30 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl animate-fade-in-right">
+            <h3 className="text-3xl font-bold text-[#FFD700] mb-4 border-b-2 border-[#FFD700] pb-2">The Essence of Oculus: A Journey of Discovery</h3>
+            <p className="text-lg mb-4">
+              More than just a festival, Oculus is:
+            </p>
+            <ul className="list-disc pl-6 space-y-2 text-lg">
+              <li>
+                An **Odyssey of Oculus:** Where each event illuminates the path through innovation and exploration.
+              </li>
+              <li>
+                An **Oasis of Creativity:** A hub for technological brilliance, fostering groundbreaking ideas and solutions.
+              </li>
+              <li>
+                An **Essence of Wonder:** A celebration of innovation and artistic expression in its purest form.
+              </li>
+              <li>
+                A **Mirage of Possibilities:** For all who dare to dream, innovate, and transform tomorrow into a brighter reality.
+              </li>
+            </ul>
+            <p className="text-lg mt-4">
+              Relive the magic! Catch the enchanting moments from **Oculus 2023 Aftermovie** (link below).
+            </p>
+            <div className="mt-4">
+              {/* Placeholder for Aftermovie Link/Embed */}
+              <a 
+                href="https://www.youtube.com/watch?v=YOUR_OCULUS_2023_AFTERMOVIE_ID" // **REPLACE WITH ACTUAL AFTERMOVIE LINK**
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="inline-block px-4 py-2 text-white bg-red-600 rounded-lg hover:bg-red-700 transition-colors duration-300 text-sm md:text-base"
+              >
+                Watch Oculus 2023 Aftermovie
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Why Attend Section */}
+        <div className="bg-black/40 p-6 rounded-lg border border-[#00BFFF]/30 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl animate-fade-in-up">
+          <h3 className="text-3xl font-bold text-[#FFD700] mb-4 border-b-2 border-[#FFD700] pb-2">Why Attend Oculus?</h3>
+          <p className="text-lg mb-4">
+            Oculus offers an unparalleled platform for students to:
+          </p>
+          <ul className="list-disc pl-6 space-y-2 text-lg">
+            <li>**Showcase Talent:** Participate in diverse competitions and express your skills.</li>
+            <li>**Network:** Connect with industry experts, peers, and alumni.</li>
+            <li>**Learn & Grow:** Attend workshops, seminars, and gain practical insights.</li>
+            <li>**Experience Culture:** Immerse yourself in vibrant cultural performances and celebrations.</li>
+            <li>**Make Memories:** Create unforgettable experiences and friendships.</li>
+            <li>**Innovate:** Be part of cutting-edge tech challenges and problem-solving.</li>
+          </ul>
+        </div>
+
+        {/* Social Media Links */}
+        <div className="bg-black/40 p-6 rounded-lg border border-[#00BFFF]/30 text-center shadow-lg animate-fade-in-up">
+          <h3 className="text-3xl font-bold text-[#FFD700] mb-4">Connect with Oculus</h3>
+          <div className="flex justify-center space-x-6">
+            <a href="https://www.instagram.com/oculus.spit/" target="_blank" rel="noopener noreferrer" 
+              className="text-white hover:text-[#FFD700] transition-colors duration-300 text-4xl transform hover:scale-110">
+              {/* Replace with actual Instagram SVG icon or Font Awesome */}
+              <i className="fab fa-instagram"></i> {/* Placeholder for icon */}
+              <span className="sr-only">Instagram</span>
+            </a>
+            <a href="https://www.linkedin.com/company/oculus-spit/" target="_blank" rel="noopener noreferrer" 
+              className="text-white hover:text-[#FFD700] transition-colors duration-300 text-4xl transform hover:scale-110">
+              {/* Replace with actual LinkedIn SVG icon or Font Awesome */}
+              <i className="fab fa-linkedin"></i> {/* Placeholder for icon */}
+              <span className="sr-only">LinkedIn</span>
+            </a>
+            <a href="https://twitter.com/oculus_spit" target="_blank" rel="noopener noreferrer" 
+              className="text-white hover:text-[#FFD700] transition-colors duration-300 text-4xl transform hover:scale-110">
+              {/* Replace with actual X (Twitter) SVG icon or Font Awesome */}
+              <i className="fab fa-x-twitter"></i> {/* Placeholder for icon */}
+              <span className="sr-only">X (Twitter)</span>
+            </a>
+            <a href="https://www.youtube.com/@oculusspit" target="_blank" rel="noopener noreferrer" 
+              className="text-white hover:text-[#FFD700] transition-colors duration-300 text-4xl transform hover:scale-110">
+              {/* Replace with actual YouTube SVG icon or Font Awesome */}
+              <i className="fab fa-youtube"></i> {/* Placeholder for icon */}
+              <span className="sr-only">YouTube</span>
+            </a>
+          </div>
+        </div>
+
+
+        <p className="text-lg mt-8 text-center animate-fade-in-up">
+          Ready to be part of this grand celebration? Visit our official website for registrations and detailed event information: {' '}
+          <a
+            href="https://oculus.spit.ac.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-8 py-4 text-xl font-bold text-white bg-[#FF6347] rounded-full hover:bg-[#E05230] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 mt-4 animate-pulse-once"
+          >
+            Explore Oculus & Register Now!
+          </a>
+        </p>
+      </div>
+    </div>
+  );
+};
+const Rotaract = () => {
+  return (
+    <div 
+      className="relative text-white/80 leading-relaxed space-y-6 p-8 rounded-lg shadow-lg overflow-hidden"
+      style={{
+        // Choose an inspiring image related to community service, youth leadership, or global connection
+        backgroundImage: `url('https://images.pexels.com/photos/3184433/pexels-photo-3184433.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')`, 
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed', // For a subtle parallax effect
+      }}
+    >
+      {/* Dynamic Overlay for readability and depth */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/70 to-purple-900/60 backdrop-blur-sm rounded-lg animate-gradient-shift"></div>
+      
+      <div className="relative z-10 space-y-8"> {/* Content sits above the overlay */}
+        <h2 className="text-4xl md:text-5xl font-extrabold text-[#FFD700] mb-6 text-center border-b-4 border-[#FFD700] pb-2 animate-fade-in-down">
+          Rotaract Club of SPIT: Service, Leadership, Fellowship
+        </h2>
+        <p className="text-xl md:text-2xl mb-4 text-center animate-fade-in-up font-serif italic">
+          "Leading with purpose, serving with passion, connecting for change."
+        </p>
+
+        <p className="text-lg md:text-xl mb-4 text-center animate-fade-in-up">
+          The **Rotaract Club of Sardar Patel Institute of Technology (SPIT)** is a vibrant, youth-led organization dedicated to empowering students through service and leadership development. Sponsored by Rotary International, we are part of a global network of young leaders committed to making a positive impact in our local and global communities.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="bg-black/40 p-6 rounded-lg border border-[#00BFFF]/30 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl animate-fade-in-left">
+            <h3 className="text-3xl font-bold text-[#FFD700] mb-4 border-b-2 border-[#FFD700] pb-2">Our Pillars: Serve. Lead. Grow.</h3>
+            <p className="text-lg mb-4">
+              At Rotaract SPIT, we focus on three core pillars that guide all our initiatives:
+            </p>
+            <ul className="list-disc pl-6 space-y-2 text-lg">
+              <li>
+                <span className="font-bold text-white">Community Service:</span> Initiating and participating in impactful projects addressing local and global challenges, from environmental protection to educational support.
+              </li>
+              <li>
+                <span className="font-bold text-white">Leadership Development:</span> Providing platforms for members to hone their leadership, public speaking, and project management skills through hands-on experience.
+              </li>
+              <li>
+                <span className="font-bold text-white">Professional Growth:</span> Offering opportunities for networking, mentorship, and workshops that enhance career readiness and personal development.
+              </li>
+              <li>
+                <span className="font-bold text-white">Fellowship & Global Connection:</span> Building lasting friendships within the club and connecting with Rotaract members worldwide, fostering a sense of global citizenship.
+              </li>
+            </ul>
+          </div>
+
+          <div className="bg-black/40 p-6 rounded-lg border border-[#00BFFF]/30 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl animate-fade-in-right">
+            <h3 className="text-3xl font-bold text-[#FFD700] mb-4 border-b-2 border-[#FFD700] pb-2">Impactful Projects & Initiatives</h3>
+            <p className="text-lg mb-4">
+              We are proud of our diverse portfolio of projects that bring about tangible change:
+            </p>
+            <ul className="list-disc pl-6 space-y-2 text-lg">
+              <li>
+                <span className="font-bold text-white">Literacy Drives:</span> Organizing educational programs for underprivileged children.
+              </li>
+              <li>
+                <span className="font-bold text-white">Environmental Clean-ups:</span> Conducting drives to promote sustainability and a cleaner environment.
+              </li>
+              <li>
+                <span className="font-bold text-white">Health & Awareness Camps:</span> Facilitating blood donation camps, health check-ups, and awareness campaigns on critical social issues.
+              </li>
+              <li>
+                <span className="font-bold text-white">Skill Development Workshops:</span> Hosting sessions on resume building, interview skills, and other professional competencies.
+              </li>
+              <li>
+                <span className="font-bold text-white">Social Entrepreneurship:</span> Exploring innovative solutions to social problems.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Why Join Rotaract Section */}
+        <div className="bg-black/40 p-6 rounded-lg border border-[#00BFFF]/30 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl animate-fade-in-up">
+          <h3 className="text-3xl font-bold text-[#FFD700] mb-4 border-b-2 border-[#FFD700] pb-2">Why Join Rotaract SPIT?</h3>
+          <p className="text-lg mb-4">
+            Becoming a part of the Rotaract family means more than just joining a club; it's an opportunity to:
+          </p>
+          <ul className="list-disc pl-6 space-y-2 text-lg">
+            <li>**Develop Leadership:** Take on roles that challenge and grow your leadership abilities.</li>
+            <li>**Make a Difference:** Contribute to meaningful service projects that impact lives.</li>
+            <li>**Expand Your Network:** Connect with students, Rotarians, and professionals globally.</li>
+            <li>**Enhance Skills:** Improve communication, teamwork, and problem-solving skills.</li>
+            <li>**Build Friendships:** Form lasting bonds with like-minded individuals.</li>
+          </ul>
+        </div>
+
+        <p className="text-lg mt-8 text-center animate-fade-in-up">
+          Ready to ignite your passion for service and leadership? Discover more about the Rotaract Club of SPIT and how you can become a part of our thriving community: {' '}
+          <a
+            href="https://rotaract.spit.ac.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-8 py-4 text-xl font-bold text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 mt-4 animate-pulse-once"
+          >
+            Explore Rotaract SPIT
+          </a>
+        </p>
+      </div>
+    </div>
+  );
+};
 const Alumni = () => (
   <div className="text-white/80">Alumni Content</div>
 );
