@@ -3,6 +3,7 @@ import { ThemeToggle } from './components/ThemeToggle';
 import { SearchEngine } from './components/Search/SearchEngine';
 import { useSearch } from './hooks/useSearch';
 import { SEOLayout } from './components/Layout/SEOLayout';
+import { HeroSection } from "./components/HeroSection";
 
 import {
   Search,
