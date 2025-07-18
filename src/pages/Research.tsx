@@ -648,10 +648,10 @@ export const Research = () => {
   return (
     <div
       className={`min-h-screen py-8 ${
-        theme === 'dark' ? 'bg-black' : 'bg-white'
+        theme === 'dark' ? 'dark:from-[#0E1428] dark:to-[#27193f] mx-auto px-4 py-8 ' : 'bg-gradient-to-bl from-[#C6B8FF] to-[#B8F3FF] mx-auto px-4 py-8 '
       }`}
     >
-      <div className="container mx-auto px-4">
+      <div className=" mx-auto px-4">
         <h1
           className={`text-4xl font-bold mb-8 border-b-4 pb-2 ${
             theme === 'dark' ? 'text-[#FFD700] border-[#FFD700]' : 'text-black border-black'

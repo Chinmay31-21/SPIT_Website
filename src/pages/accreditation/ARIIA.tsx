@@ -3,9 +3,9 @@ import { Award, Target, BarChart2, Users, Rocket } from 'lucide-react';
 
 export const ARIIA = () => {
   return (
-    <div className="min-h-screen bg-[#0D0D0D] py-8">
+    <div className="min-h-screen bg-gradient-to-bl from-[#C6B8FF] to-[#B8F3FF] dark:from-[#0E1428] dark:to-[#27193f] mx-auto px-4 py-8 py-8 py-8">
       <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold bg-gradient-to-r from-[#FFD700] to-[#DAA520] bg-clip-text text-transparent mb-8">
+        <h1 className="text-4xl font-bold bg-gradient-to-r from-[#5E035E] to-[#30036B] dark:from-[#FFD700] dark:to-[#DAA520] bg-clip-text text-transparent mb-8">
           ARIIA Rankings
         </h1>
 

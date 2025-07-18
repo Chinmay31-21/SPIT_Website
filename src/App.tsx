@@ -45,7 +45,6 @@ import { RTI } from './pages/resources/RTI';
 import { Grievance } from './pages/resources/Grievance';
 import { FeesRegulatory } from './pages/resources/FeesRegulatory';
 import { AlumniNetworkDemo } from './pages/AlumniNetworkDemo';
-import AnnualReport from './pages/AnnualReport';
 
 const PageTransition = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
@@ -347,7 +346,6 @@ function App() {
               <Route path="/resources/rti" element={<RTI />} />
               <Route path="/resources/grievance" element={<Grievance />} />
               <Route path="/alumni-network" element={<AlumniNetworkDemo />} />
-              <Route path="/report" element={<AnnualReport />} />
             </Routes>
           </PageTransition>
 

@@ -60,12 +60,12 @@ export const IQAC = () => {
   ];
 
   return (
-    <div className="min-h-screen dark:bg-[#0A0A0A] light:bg-gradient-to-r from-[#02365E] to-[#30036B] py-8">
+    <div className="min-h-screen  bg-gradient-to-bl from-[#C6B8FF] to-[#B8F3FF] dark:from-[#0E1428] dark:to-[#27193f] py-8">
       <div className="container mx-auto px-4">
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-4xl font-bold bg-gradient-to-r from-[#5E035E] to-[#30036B] dark:from-[#FFD700] dark:to-[#EDAE49] bg-clip-text text-transparent mb-8 text-center"
+          className="text-4xl font-bold  bg-clip-text bg-gradient-to-r from-[#5E035E] to-[#30036B] dark:from-[#FFD700] dark:to-[#DAA520] bg-clip-text text-transparent mb-8 text-center"
         >
           Internal Quality Assurance Cell (IQAC)
         </motion.h1>
