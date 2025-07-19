@@ -30,6 +30,7 @@ import { Exams } from './pages/Exam';
 import CareerAtSpit from './pages/CareerAtSpit';
 import AllAnnouncements from './pages/AllAnnouncements';
 import MicroSpecializationPrograms from './pages/MicroSpecializationPrograms';
+import { Achievements } from './pages/Achievements';
 import { Contact } from './pages/Contact';
 import { NAAC } from './pages/accreditation/NAAC';
 import { NIRF } from './pages/accreditation/NIRF';
@@ -332,6 +333,7 @@ function App() {
               <Route path="/shresthaclub/*" element={<ShresthaClub />} />
               <Route path="/careeratspit/*" element={<CareerAtSpit />} />
               <Route path="/microspecializationprograms/*" element={<MicroSpecializationPrograms/>}/>
+              <Route path="/achievements/*" element={<Achievements/>}/>
               <Route path="/allannouncements/*" element={<AllAnnouncements/>}/>
               <Route path="/accreditation/NAAC" element={<NAAC />} />
               <Route path="/accreditation/NIRF" element={<NIRF />} />

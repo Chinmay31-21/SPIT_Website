@@ -12,9 +12,14 @@ const ColorfulFluidAnimation: React.FC = () => {
   const fluidPointsRef = React.useRef<any[]>([]);
   const mouseRef = React.useRef({ x: 0, y: 0, down: false });
   const colorPalette = [
-    { h: 280, s: 100, l: 70 }, { h: 320, s: 100, l: 60 }, { h: 60, s: 100, l: 60 },
-    { h: 120, s: 100, l: 50 }, { h: 200, s: 100, l: 60 }, { h: 40, s: 100, l: 50 },
-    { h: 260, s: 100, l: 80 }, { h: 180, s: 100, l: 40 }
+    { h: 200, s: 100, l: 60 }, // Neon Blue
+  { h: 170, s: 100, l: 55 }, // Electric Cyan
+  { h: 280, s: 90, l: 65 },  // Futuristic Purple
+  { h: 320, s: 95, l: 60 },  // Neon Magenta
+  { h: 45,  s: 100, l: 60 }, // Gold/Yellow
+  { h: 160, s: 95, l: 55 },  // Aqua Green
+  { h: 220, s: 100, l: 70 }, // Light Blue
+  { h: 30,  s: 100, l: 60 }, // Orange/Amber
   ];
   const maxPoints = 120;
   const timeRef = React.useRef(0);

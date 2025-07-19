@@ -219,9 +219,11 @@ const secondRowItems: NavItem[] = [
     ]
   },
   {
-    title: 'IBM',
+    title: 'ACHIEVEMENTS  ',
     items: [
-      { title: 'About IBM', href: '/accreditation/IBM' },
+      { title: 'Student Achievements', href: '/achievements/student-achievements' },
+      { title: 'Faculty Achievements', href: '/achievements/faculty-achievements' },
+      { title: 'Alumni Achievements', href: '/achievements/alumni-achievements' },
     ]
   },
   {
