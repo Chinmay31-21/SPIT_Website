@@ -5,7 +5,7 @@ import bgImage from '/assets/placementincrease.jpeg';
 
 // --- UPDATED & EXPANDED DATA ---
 const recruiterTestimonials = [
-    { logo: "/assets/jpmclogo.png", company: "JP Morgan Chase & Co.", text: "Our longstanding partnership with SPIT has been exceptionally gratifying. The students demonstrate impressive logical and analytical abilities, leaving us deeply impressed with their caliber." },
+    { logo: "/assets/jpmcdark.png", company: "JP Morgan Chase & Co.", text: "Our longstanding partnership with SPIT has been exceptionally gratifying. The students demonstrate impressive logical and analytical abilities, leaving us deeply impressed with their caliber." },
     { logo: "/assets/MorganStanley.png", company: "Morgan Stanley", text: "SPIT students display exceptional eagerness to learn and possess robust technical abilities. They collaborate effectively and provide valuable feedback to improve their colleagues' work." },
     { logo: "/assets/Google.webp", company: "Google", text: "SPIT graduates consistently demonstrate exceptional problem-solving skills and technical expertise, making them a great fit for our teams." },
     { logo: "/assets/Microsoft.png", company: "Microsoft", text: "The quality of talent from SPIT aligns perfectly with our innovation-driven culture and high standards for software engineering." },
@@ -18,7 +18,10 @@ const photoCards = [
     { img: "/assets/Internship25.jpg", title: "Internship Report 2024-25", desc: "Highlights of our students' internships with leading companies." },
     { img: "/assets/alumni.jpg", title: "Star Alumni 2020-25", desc: "Celebrating our outstanding alumni and their achievements." },
     { img: "/assets/phonepe.jpg", title: "Placed at PhonePe 2023-25", desc: "Our students at PhonePe and other top tech companies." },
-    { img: "/assets/jpmc.jpg", title: "Placed at JP Morgan Chase & Co.", desc: "Our students excelling at JP Morgan Chase and other financial giants." }
+    { img: "/assets/jpmc.jpg", title: "Placed at JP Morgan Chase & Co.", desc: "Our students excelling at JP Morgan Chase and other financial giants." },
+    { img: "/assets/Barc.jpg", title: "Placed at Barclays", desc: "Barclays welcomes our talented graduates into their workforce." },
+    { img: "/assets/WM.jpg", title: "Placed at WorkIndia and MSCI 2023-25", desc: "WorkIndia and MSCI recognize the potential of our students." },
+
 ];
 
 // --- ENHANCED CAROUSEL COMPONENTS ---
@@ -164,7 +167,7 @@ export const Placements = () => {
                         { src: "/assets/WorkIndia.jpeg", alt: "WorkIndia" }, { src: "/assets/Zomato.png", alt: "Zomato" }, { src: "/assets/Oracle.png", alt: "Oracle" },
                         { src: "/assets/MorganStanley.png", alt: "Morgan Stanley" }, { src: "/assets/DeutscheBank.png", alt: "Deutsche Bank" }, { src: "/assets/MSCI.png", alt: "MSCI" }
                     ].map((company, i) => (
-                        <div key={i} className="bg-gray-200/90 backdrop-blur-md border border-white/20 rounded-lg p-4 h-24 flex items-center justify-center transition-all duration-300 hover:scale-105 hover:border-blue-400/50">
+                        <div key={i} className="bg-white backdrop-blur-md border border-white/20 rounded-lg p-4 h-24 flex items-center justify-center transition-all duration-300 hover:scale-105 hover:border-blue-400/50">
                             <img src={company.src} alt={company.alt} className="max-h-12 object-contain" />
                         </div>
                     ))}
