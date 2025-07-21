@@ -340,7 +340,7 @@ function App() {
               <Route path="/allannouncements/*" element={<AllAnnouncements/>}/>
               <Route path="/pages/allannouncements2122/*" element={<AllAnnouncements2122/>}/> 
               <Route path="/pages/allannouncements2223/*" element={<AllAnnouncements2223/>}/>    
-              <Route path="/pages/allannouncements2324/*" element={<AllAnnouncements2223/>}/>
+              <Route path="/pages/allannouncements2324/*" element={<AllAnnouncements2324/>}/>
               <Route path="/accreditation/NAAC" element={<NAAC />} />
               <Route path="/accreditation/NIRF" element={<NIRF />} />
               <Route path="/accreditation/IIC" element={<IIC />} />

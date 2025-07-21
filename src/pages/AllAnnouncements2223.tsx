@@ -440,7 +440,7 @@ const announcements = [
   },
   {
     title: (
-      <a href="./pages/AllAnnouncements2122" className="hover:text-[#F7F6C5]" target="_blank" rel="opener referrer">
+      <a href="/pages/AllAnnouncements2122" className="hover:text-[#F7F6C5]" target="_blank" rel="opener referrer">
         Click here to read more announcements…
       </a>
     ),
