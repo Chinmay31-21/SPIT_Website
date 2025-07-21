@@ -651,7 +651,7 @@ export const Research = () => {
         theme === 'dark' ? 'dark:from-[#0E1428] dark:to-[#27193f] mx-auto px-4 py-8 ' : 'bg-gradient-to-bl from-[#C6B8FF] to-[#B8F3FF] mx-auto px-4 py-8 '
       }`}
     >
-      <div className=" container mx-auto px-4">
+      <div className=" mx-auto px-4">
         <h1
           className={`text-4xl font-bold mb-8 border-b-4 pb-2 ${
             theme === 'dark' ? 'text-[#FFD700] border-[#FFD700]' : 'text-black border-black'
@@ -664,7 +664,7 @@ export const Research = () => {
           {/* Sidebar Navigation */}
           <div
             className={`md:col-span-1 p-4 rounded-lg shadow-lg ${
-              theme === 'dark' ? 'bg-black/30' : 'bg-gradient-to-r from-[#02365e] to-[#30036b]'
+              theme === 'dark' ? 'bg-black/30' : 'bg-gray-200'
             }`}
           >
             <nav>
@@ -675,9 +675,9 @@ export const Research = () => {
                     className={`block px-4 py-2 rounded-md transition-all duration-300 ${
                       theme === 'dark'
                         ? 'text-white hover:bg-[#FFD700]/20 hover:text-[#FFD700]'
-                        : 'text-white hover:bg-gray-300 hover:text-black'
+                        : 'text-black hover:bg-gray-300 hover:text-black'
                     } focus:outline-none focus:ring-2 ${
-                      theme === 'dark' ? 'focus:ring-[#FFD700]' : 'focus:ring-white'
+                      theme === 'dark' ? 'focus:ring-[#FFD700]' : 'focus:ring-black'
                     }`}
                   >
                     Preamble
@@ -689,7 +689,7 @@ export const Research = () => {
                     className={`block px-4 py-2 rounded-md transition-all duration-300 ${
                       theme === 'dark'
                         ? 'text-white hover:bg-[#FFD700]/20 hover:text-[#FFD700]'
-                        : 'text-white hover:bg-gray-300 hover:text-black'
+                        : 'text-black hover:bg-gray-300 hover:text-black'
                     } focus:outline-none focus:ring-2 ${
                       theme === 'dark' ? 'focus:ring-[#FFD700]' : 'focus:ring-black'
                     }`}
@@ -703,7 +703,7 @@ export const Research = () => {
                     className={`block px-4 py-2 rounded-md transition-all duration-300 ${
                       theme === 'dark'
                         ? 'text-white hover:bg-[#FFD700]/20 hover:text-[#FFD700]'
-                        : 'text-white hover:bg-gray-300 hover:text-black'
+                        : 'text-black hover:bg-gray-300 hover:text-black'
                     } focus:outline-none focus:ring-2 ${
                       theme === 'dark' ? 'focus:ring-[#FFD700]' : 'focus:ring-black'
                     }`}
@@ -717,7 +717,7 @@ export const Research = () => {
                     className={`block px-4 py-2 rounded-md transition-all duration-300 ${
                       theme === 'dark'
                         ? 'text-white hover:bg-[#FFD700]/20 hover:text-[#FFD700]'
-                        : 'text-white hover:bg-gray-300 hover:text-black'
+                        : 'text-black hover:bg-gray-300 hover:text-black'
                     } focus:outline-none focus:ring-2 ${
                       theme === 'dark' ? 'focus:ring-[#FFD700]' : 'focus:ring-black'
                     }`}

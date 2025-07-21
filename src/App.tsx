@@ -29,6 +29,9 @@ import { Exams } from './pages/Exam';
  import  ShresthaClub  from './pages/ShresthaClub';
 import CareerAtSpit from './pages/CareerAtSpit';
 import AllAnnouncements from './pages/AllAnnouncements';
+import AllAnnouncements2122 from './pages/AllAnnouncements2122';
+import AllAnnouncements2223 from './pages/AllAnnouncements2223';
+import AllAnnouncements2324 from './pages/AllAnnouncements2324';
 import MicroSpecializationPrograms from './pages/MicroSpecializationPrograms';
 import { Achievements } from './pages/Achievements';
 import { Contact } from './pages/Contact';
@@ -335,6 +338,9 @@ function App() {
               <Route path="/microspecializationprograms/*" element={<MicroSpecializationPrograms/>}/>
               <Route path="/achievements/*" element={<Achievements/>}/>
               <Route path="/allannouncements/*" element={<AllAnnouncements/>}/>
+              <Route path="/pages/allannouncements2122/*" element={<AllAnnouncements2122/>}/> 
+              <Route path="/pages/allannouncements2223/*" element={<AllAnnouncements2223/>}/>    
+              <Route path="/pages/allannouncements2324/*" element={<AllAnnouncements2223/>}/>
               <Route path="/accreditation/NAAC" element={<NAAC />} />
               <Route path="/accreditation/NIRF" element={<NIRF />} />
               <Route path="/accreditation/IIC" element={<IIC />} />

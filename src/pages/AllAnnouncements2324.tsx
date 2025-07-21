@@ -440,7 +440,7 @@ const announcements = [
   },
   {
     title: (
-      <a href="./pages/AllAnnouncements2324" className="hover:text-[#F7F6C5]" target="_blank" rel="opener referrer">
+      <a href="./pages/AllAnnouncements2223" className="hover:text-[#F7F6C5]" target="_blank" rel="opener referrer">
         Click here to read more announcements…
       </a>
     ),
@@ -458,7 +458,7 @@ function filterAnnouncements(sectionKey: string) {
   return announcements.filter((a) => a.section === sectionKey);
 }
 
-const AllAnnouncements: React.FC = () => {
+const AllAnnouncements2324 : React.FC = () => {
   const [selectedSection, setSelectedSection] = useState("all");
 
   const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
@@ -524,7 +524,7 @@ const AllAnnouncements: React.FC = () => {
               textShadow: "0 2px 8px rgba(0,0,0,0.25)",
             }}
           >
-            Announcements of 2024-25
+            Announcements of 2023-24
           </Typography>
           <Tabs
             value={selectedSection}
@@ -657,4 +657,4 @@ const AllAnnouncements: React.FC = () => {
   );
 };
 
-export default AllAnnouncements;
+export default AllAnnouncements2324;
