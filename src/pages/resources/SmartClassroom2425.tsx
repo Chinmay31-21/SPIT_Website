@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Gavel, FileText, Download, Building, Phone, Mail, Clock, Calendar, Link2Icon } from 'lucide-react';
+import { Gavel, FileText, Download, Building, Phone, Mail, Clock, Calendar } from 'lucide-react';
 
 // --- Placeholder Data ---
 // In a real application, this data would be fetched from an API.
@@ -8,40 +8,40 @@ const procurementNotices = [
   // Open Tenders
   {
     id: 'SPIT/T/2025/001',
-    title: 'Notice Inviting Tender-1 _ Smart Classrooms-Labs-AY 2024-25',
+    title: 'Notice Inviting Tender for Smart Classrooms and Laboratories Renovation',
     type: 'tender',
     status: 'Open',
-    issueDate: '2024-06-13',
-    closingDate: '2024-06-21',
-    fileUrl: './resources/SmartClassroom2425',
+    issueDate: '2025-07-18',
+    closingDate: '2025-08-10',
+    fileUrl: '/assets/Tender-Notice.pdf',
   },
   {
     id: 'SPIT/T/2025/002',
-    title: 'Notice Inviting Tender-2 _ OCTOBER_2023',
+    title: 'Annuxure I: Bidders Information for Smart Classrooms Renovation',
     type: 'tender',
     status: 'Open',
-    issueDate: '2023-10-16',
-    closingDate: '2023-10-28',
-    fileUrl: './resources/NoticeTenderOctober2023',
+    issueDate: '2025-07-15',
+    closingDate: '2025-08-05',
+    fileUrl: '/assets/ANNEXURE-I-1.pdf',
   },
   // Quotations
   {
     id: 'SPIT/Q/2025/001',
-    title: 'Invitation for Quotation for Renewal of Campus-wide Wi-Fi AMC',
+    title: 'Annuxure II: Questionnaire for Smart Classrooms Renovation',
     type: 'quotation',
     status: 'Open',
     issueDate: '2025-07-20',
     closingDate: '2025-08-01',
-    fileUrl: '/procurement/quotations/SPIT_Q_2025_001.pdf',
+    fileUrl: '/assets/ANNEXURE-II-1.pdf',
   },
   {
     id: 'SPIT/Q/2025/002',
-    title: 'Quotation for Supply of Chemicals and Glassware for First Year Chemistry Lab',
+    title: 'Information of Digital Boards for Smart Classrooms',
     type: 'quotation',
     status: 'Open',
     issueDate: '2025-07-21',
     closingDate: '2025-08-04',
-    fileUrl: '/procurement/quotations/SPIT_Q_2025_002.pdf',
+    fileUrl: '/assets/ANNEXURE-III-1.pdf',
   },
   // Archived Tenders
   {
@@ -78,7 +78,7 @@ const StatusBadge = ({ status }) => {
 };
 
 // --- Main Procurement Component ---
-export const Procurement = () => {
+export const Smartclassroom2425 = () => {
   const [activeTab, setActiveTab] = useState('openTenders');
 
   const getFilteredNotices = () => {
@@ -126,7 +126,7 @@ export const Procurement = () => {
         >
           <Gavel className="mx-auto text-[#FFD700] h-16 w-16 mb-4" />
           <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-            Procurement & Tenders
+            Notice Inviting Tender-1 _ Smart Classrooms-Labs-AY 2024-25
           </h1>
           <p className="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">
             Sardar Patel Institute of Technology is committed to a transparent, fair, and competitive procurement process.
@@ -199,9 +199,9 @@ export const Procurement = () => {
                       </div>
                       <div className="flex items-center space-x-4">
                         <StatusBadge status={notice.status} />
-                        <a href={notice.fileUrl}  rel="opener referrer" className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md transition-colors text-sm">
-                          <Link2Icon size={16} />
-                          <span>Link</span>
+                        <a href={notice.fileUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md transition-colors text-sm">
+                          <Download size={16} />
+                          <span>Download</span>
                         </a>
                       </div>
                     </div>
@@ -263,4 +263,4 @@ export const Procurement = () => {
   );
 };
 
-export default Procurement;
+export default Smartclassroom2425;

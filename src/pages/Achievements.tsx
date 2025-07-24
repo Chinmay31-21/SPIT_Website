@@ -62,18 +62,27 @@ const facultyAchievements = {
 
 const studentAchievements = {
   competitions: [
-    { name: "Smart India Hackathon (SIH)", detail: "3 teams won First Prize at national-level hackathons." },
-    { name: "IIT Bombay & IIT-BHU", detail: "Multiple teams secured top positions in competitions like TechFiesta, StartBucks, and the National Entrepreneurship Challenge." },
+    { name: "Smart India Hackathon (SIH)", detail: "Multiple teams have won First Prize at national-level hackathons, securing significant cash prizes including ₹1,00,000." },
+    { name: "J.P. Morgan 'Code for Good'", detail: "Numerous students have been winners in the prestigious annual corporate hackathon, leading to job offers." },
+    { name: "Top Corporate Challenges", detail: "Podium finishes and top recognitions from major companies like Nomura (2nd Place, Kakushin 5.0) and Deloitte ('Changemaker' award)." },
+    { name: "Pan-IIT & IIM Dominance", detail: "Consistent winners and finalists in high-profile events at IIT Bombay (NEC, e-Yantra), IIM Bangalore (National Runner-up), and IIM Ahmedabad (National Finalist)." },
+    { name: "Global Recognition & Records", detail: "A student was part of a team setting a Guinness World Record, while others have achieved high ranks (World #142) in the IEEE Xtreme Programming Competition." },
     { name: "The Inventors Challenge-2022", detail: "A team of third-year students received the Best Project Award among 258 ideas." },
     { name: "Dr. APJ Abdul Kalam Satellite Launch Vehicle Mission-2023", detail: "Anashka Pilera received a Certificate of Merit for her participation." },
+    { name: "National Level Hackathons", detail: "Students have consistently excelled in national hackathons, winning top prizes and recognition." },
+    { name: "IEEE SPICON 2022", detail: "A team won the Best Paper Award for their research on 'A Novel Approach for Breast Cancer Detection using Machine Learning'." },
+    { name: "e-Yantra Robotics Competition", detail: "Students secured the 2nd position in the prestigious e-Yantra Robotics Competition at IIT Bombay." },
+    { name: "IEEE Xtreme Programming", detail: "Demonstrating elite coding skills on a global stage, a team achieved a World Ranking of 142 in the prestigious IEEE Xtreme Programming Competition." },
   ],
   internships: [
     { count: 236, detail: "B.Tech students underwent 6-month industry internships, including placements at Amazon." },
+    { name: "Mitacs Globalink Research Internship", detail: "A prestigious, fully-funded international research internship was awarded for work at Simon Fraser University, Canada." },
     { count: 49, detail: "Students are pursuing research internships at IIT Bombay, working on high-impact projects." },
     { name: "Contactless Biometry Project", detail: "A student team signed an MoU with UIDAI (Aadhaar) for a project developed at IITB." },
   ],
   academics: [
     { name: "Manas Abhyankar", detail: "Secured All India Rank 90 in the GATE (CS) 2023 examination." },
+    { name: "International Research Papers", detail: "Students have co-authored and won 'Best Paper' awards at international E-Conferences and IEEE events for their novel research." },
     { name: "National Level Competitions", detail: "Students won various coding and business plan contests at IIM Indore, Nomura (KakushIN 6.0), and more." },
   ]
 };
@@ -108,6 +117,11 @@ const reports = [
       title: "Faculty Achievements (Till 2021-22)",
       description: "A comprehensive list of faculty awards and recognitions over the years.",
       link: "/assets/Faculty-Achievement-till-2021-22.pdf" // IMPORTANT: Replace with your actual PDF path
+    },
+    {
+      title: "Student Achievements (Till 2021-22)",
+      description: "A comprehensive list of student awards and recognitions over the years.",
+      link: "/assets/Student-Achievement-till-2021-22-part1.pdf" // IMPORTANT: Replace with your actual PDF path
     },
     {
       title: "Faculty & Student Achievements 2019-20",
@@ -276,8 +290,8 @@ export const Achievements = () => {
           className="mt-24"
         >
           <h2 className="text-4xl font-bold text-center text-[#FFD700] mb-12">Download Full Reports</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {reports.map((report, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+            {reports.slice(0, 5).map((report, index) => (
               <motion.div
                 key={index}
                 variants={cardVariants}

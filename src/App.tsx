@@ -24,6 +24,7 @@ import { Students } from './pages/Students';
 import { Research } from './pages/Research';
 import { Library } from './pages/Library';
 import { Placements } from './pages/Placements';
+import { Procurement } from './pages/Procurement';
 import { Admissions } from './pages/Admissions';
 import { Exams } from './pages/Exam';
  import  ShresthaClub  from './pages/ShresthaClub';
@@ -43,11 +44,13 @@ import { NBA } from './pages/accreditation/NBA';
 import { IQAC } from './pages/accreditation/IQAC';
 import { AICTE } from './pages/accreditation/AICTE';
 import { MandatoryDisclosure } from './pages/resources/MandatoryDisclosure';
-import { Tender } from './pages/resources/Tender';
+import Tender from './pages/resources/Tender';
 import { AntiRagging } from './pages/resources/AntiRagging';
 import { RTI } from './pages/resources/RTI';
 import { Grievance } from './pages/resources/Grievance';
 import { FeesRegulatory } from './pages/resources/FeesRegulatory';
+import { Smartclassroom2425 } from './pages/resources/SmartClassroom2425';
+import { NoticeTenderOctober2023 } from './pages/resources/NoticeTenderOctober2023';
 import { AlumniNetworkDemo } from './pages/AlumniNetworkDemo';
 import AnnualReport from './pages/AnnualReport';
 
@@ -337,6 +340,7 @@ function App() {
               <Route path="/careeratspit/*" element={<CareerAtSpit />} />
               <Route path="/microspecializationprograms/*" element={<MicroSpecializationPrograms/>}/>
               <Route path="/achievements/*" element={<Achievements/>}/>
+              <Route path="/procurement/*" element={<Procurement />} />
               <Route path="/allannouncements/*" element={<AllAnnouncements/>}/>
               <Route path="/pages/allannouncements2122/*" element={<AllAnnouncements2122/>}/> 
               <Route path="/pages/allannouncements2223/*" element={<AllAnnouncements2223/>}/>    
@@ -354,6 +358,8 @@ function App() {
               <Route path="/resources/antiragging" element={<AntiRagging />} />
               <Route path="/resources/rti" element={<RTI />} />
               <Route path="/resources/grievance" element={<Grievance />} />
+              <Route path="/resources/smartclassroom2425" element={<Smartclassroom2425 />} />
+              <Route path="/resources/noticetenderoctober2023" element={<NoticeTenderOctober2023 />} />
               <Route path="/alumni-network" element={<AlumniNetworkDemo />} />
               <Route path="/report/*" element={<AnnualReport />} />
             </Routes>

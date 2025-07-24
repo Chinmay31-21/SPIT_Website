@@ -229,7 +229,7 @@ const secondRowItems: NavItem[] = [
   {
     title: 'PROCUREMENT',
     items: [
-      { title: 'About Procurement', href: '/accreditation/procurement' },
+      { title: 'About Procurement', href: '/procurement' },
     ]
   },
   {
