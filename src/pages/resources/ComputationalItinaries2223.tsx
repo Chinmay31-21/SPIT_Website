@@ -7,59 +7,51 @@ import { Gavel, FileText, Download, Building, Phone, Mail, Clock, Calendar } fro
 const procurementNotices = [
   // Closed Tenders
   {
-    id: 'SPIT/T/202310/001',
+    id: 'SPIT/T/202211/001',
     title: 'NOTICE INVITING TENDER (NIT)',
     type: 'tender',
     status: 'Closed',
-    issueDate: '2023-08-10',
-    closingDate: '2023-08-14',
+    issueDate: '2022-11-17',
+    closingDate: '2022-11-21',
     fileUrl: '/assets/tender-1-desktop-23-24-fy-NIT.pdf',
   },
   {
-    id: 'SPIT/T/202310/002',
+    id: 'SPIT/T/202211/002',
     title: 'ANNEXURE I – BIDDER’S INFORMATION',
     type: 'tender',
     status: 'Closed',
-    issueDate: '2023-08-10',
-    closingDate: '2023-08-14',
+    issueDate: '2022-11-17',
+    closingDate: '2022-11-21',
     fileUrl: '/assets/ANNEXURE-I-1.pdf',
   },
   {
-    id: 'SPIT/T/202310/003',
+    id: 'SPIT/T/202211/003',
     title: 'Annuxure II: Questionnaire Computer Hardware',
     type: 'tender',
     status: 'Closed',
-    issueDate: '2023-08-10',
-    closingDate: '2023-08-14',
+    issueDate: '2022-11-17',
+    closingDate: '2022-11-21',
     fileUrl: '/assets/ANNEXURE-II-1.pdf',
   },
   {
-    id: 'SPIT/T/202310/004',
+    id: 'SPIT/T/202211/004',
     title: 'ANNEXURE-III Technical Ittinaries',
     type: 'tender',
     status: 'Closed',
-    issueDate: '2023-08-10',
-    closingDate: '2023-08-14',
-    fileUrl: '/assets/ANNEXURE-III.pdf',
+    issueDate: '2022-11-17',
+    closingDate: '2022-11-21',
+    fileUrl: '/assets/ANNEXURE-III-22.pdf',
   },
   {
-    id: 'SPIT/T/202310/006',
+    id: 'SPIT/T/202211/005',
     title: 'TERMS-AND-CONDITIONS',
     type: 'tender',
     status: 'Closed',
-    issueDate: '2023-08-10',
-    closingDate: '2023-08-14',
-    fileUrl: '/assets/TERMS-AND-CONDITIONS.pdf',
+    issueDate: '2022-11-17',
+    closingDate: '2022-11-21',
+    fileUrl: '/assets/S.P.I.T-Terms-Conditions-for-Vendors.pdf',
   },
-  {
-    id: 'SPIT/Q/202310/005',
-    title: 'TENDER LAST DATE',
-    type: 'tender',
-    status: 'Closed',
-    issueDate: '2023-08-10',
-    closingDate: '2023-08-14',
-    fileUrl: '/assets/TENDERS-LAST-DATE.pdf',
-  },
+  
 ];
 
 // --- Helper Component for Status Badge ---
@@ -76,7 +68,7 @@ const StatusBadge = ({ status }) => {
 };
 
 // --- Main Procurement Component ---
-export const NoticeTenderAugust2023 = () => {
+export const ComputationalItinaries2223 = () => {
   const [activeTab, setActiveTab] = useState('openTenders');
 
   const getFilteredNotices = () => {
@@ -124,7 +116,7 @@ export const NoticeTenderAugust2023 = () => {
         >
           <Gavel className="mx-auto text-[#FFD700] h-16 w-16 mb-4" />
           <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-            Notice Inviting Tender1 August 2023
+            Tender Notice for Computational itineraries for the FY 2022-2023
           </h1>
           <p className="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">
             Sardar Patel Institute of Technology is committed to a transparent, fair, and competitive procurement process.
@@ -261,4 +253,4 @@ export const NoticeTenderAugust2023 = () => {
   );
 };
 
-export default NoticeTenderAugust2023;
+export default ComputationalItinaries2223;

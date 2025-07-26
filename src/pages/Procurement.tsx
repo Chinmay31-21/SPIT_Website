@@ -38,12 +38,21 @@ const procurementNotices = [
   },
   {
     id: 'SPIT/T/2024/016',
-    title: 'Supply and Installation of 120 Desktop Computers for FE Labs',
+    title: 'Tender Notice for Computational itineraries for the FY 2022-2023',
     type: 'tender',
     status: 'Closed',
     issueDate: '2024-10-25',
     closingDate: '2024-11-20',
-    fileUrl: '/procurement/archives/SPIT_T_2024_016.pdf',
+    fileUrl: './resources/ComputationalItinaries2223',
+  },
+  {
+    id: 'SPIT/T/2024/017',
+    title: 'Tender Notice for Electrical, Electronic itineraries (Hardware & Software) for the FY 2022-2023.',
+    type: 'tender',
+    status: 'Closed',
+    issueDate: '2024-10-25',
+    closingDate: '2024-11-20',
+    fileUrl: './resources/ElectronicsItinaries2223',
   },
 ];
 
@@ -222,8 +231,8 @@ export const Procurement = () => {
             <div className="space-y-4 text-gray-300">
               <p>For any queries related to procurement, tenders, or quotations, please contact the administrative office.</p>
               <div>
-                <h4 className="font-bold text-white">Mr. A. B. Kulkarni</h4>
-                <p className="text-sm">Administrative Officer (Procurement)</p>
+                <h4 className="font-bold text-white">Dr B.N.Chaudhari</h4>
+                <p className="text-sm">Principal</p>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="text-blue-400" size={20}/>
@@ -231,7 +240,7 @@ export const Procurement = () => {
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="text-blue-400" size={20}/>
-                <a href="tel:+91-22-69818888" className="hover:text-blue-300 transition-colors">+91-22-69818888 (Ext: 123)</a>
+                <a href="phone:+91-9820436099" className="hover:text-blue-300 transition-colors">+91-9820436099</a>
               </div>
                <div className="border-t border-gray-700 mt-4 pt-4 text-sm">
                 <p className="font-semibold text-white">Working Hours:</p>

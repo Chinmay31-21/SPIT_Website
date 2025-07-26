@@ -52,6 +52,8 @@ import { FeesRegulatory } from './pages/resources/FeesRegulatory';
 import { Smartclassroom2425 } from './pages/resources/SmartClassroom2425';
 import { NoticeTenderOctober2023 } from './pages/resources/NoticeTenderOctober2023';
 import { NoticeTenderAugust2023 } from './pages/resources/NoticeTenderAugust2023';
+import  ComputationalItinaries2223  from './pages/resources/ComputationalItinaries2223';
+import ElectronicsItinaries2223 from './pages/resources/ElectronicsItinaries2223';
 import { AlumniNetworkDemo } from './pages/AlumniNetworkDemo';
 import AnnualReport from './pages/AnnualReport';
 
@@ -362,6 +364,8 @@ function App() {
               <Route path="/resources/smartclassroom2425" element={<Smartclassroom2425 />} />
               <Route path="/resources/noticetenderoctober2023" element={<NoticeTenderOctober2023 />} />
               <Route path="/resources/noticetenderaugust2023" element={<NoticeTenderAugust2023 />} />
+              <Route path="/resources/computationalitinaries2223" element={<ComputationalItinaries2223 />} />
+              <Route path="/resources/electronicsitinaries2223" element={<ElectronicsItinaries2223 />} />
               <Route path="/alumni-network" element={<AlumniNetworkDemo />} />
               <Route path="/report/*" element={<AnnualReport />} />
             </Routes>

@@ -12,7 +12,7 @@ const procurementNotices = [
     type: 'tender',
     status: 'Open',
     issueDate: '2023-10-16',
-    closingDate: '2025-08-10',
+    closingDate: '2025-10-20',
     fileUrl: '/assets/NIT-EXTC-CSE-CE-2023-24.pdf',
   },
   {
@@ -21,7 +21,7 @@ const procurementNotices = [
     type: 'tender',
     status: 'Open',
     issueDate: '2023-10-16',
-    closingDate: '2025-08-10',
+    closingDate: '2025-10-20',
     fileUrl: '/assets/ANNEXURE-I-1.pdf',
   },
   {
@@ -30,7 +30,7 @@ const procurementNotices = [
     type: 'tender',
     status: 'Open',
     issueDate: '2023-10-16',
-    closingDate: '2025-08-10',
+    closingDate: '2025-10-20',
     fileUrl: '/assets/ANNEXURE-II-1.pdf',
   },
   {
@@ -39,7 +39,7 @@ const procurementNotices = [
     type: 'tender',
     status: 'Open',
     issueDate: '2023-10-16',
-    closingDate: '2025-08-10',
+    closingDate: '2025-10-20',
     fileUrl: '/assets/ANNEXURE-II-1.pdf',
   },
   {
@@ -48,7 +48,7 @@ const procurementNotices = [
     type: 'tender',
     status: 'Open',
     issueDate: '2023-10-16',
-    closingDate: '2025-08-10',
+    closingDate: '2025-10-20',
     fileUrl: '/assets/ANNEXURE-III-DESKTOPS-LAPTOPS-SOFTWARES.pdf',
   },
   {
@@ -57,7 +57,7 @@ const procurementNotices = [
     type: 'tender',
     status: 'Open',
     issueDate: '2023-10-16',
-    closingDate: '2025-08-10',
+    closingDate: '2025-10-20',
     fileUrl: '/assets/TERMS-AND-CONDITIONS.pdf',
   },
   // Quotations
@@ -246,22 +246,22 @@ export const NoticeTenderOctober2023 = () => {
             className="bg-black/30 backdrop-blur-sm rounded-xl border border-gray-700/60 p-6 md:p-8 h-fit"
           >
             <h2 className="text-2xl font-bold text-[#FFD700] mb-5 border-b-2 border-[#FFD700]/60 pb-3 flex items-center gap-3">
-              <Building/> Contact Information
-            </h2>
-            <div className="space-y-4 text-gray-300">
-              <p>For any queries related to procurement, tenders, or quotations, please contact the administrative office.</p>
-              <div>
-                <h4 className="font-bold text-white">Mr. A. B. Kulkarni</h4>
-                <p className="text-sm">Administrative Officer (Procurement)</p>
-              </div>
-              <div className="flex items-center gap-3">
-                <Mail className="text-blue-400" size={20}/>
-                <a href="mailto:procurement@spit.ac.in" className="hover:text-blue-300 transition-colors">procurement@spit.ac.in</a>
-              </div>
-              <div className="flex items-center gap-3">
-                <Phone className="text-blue-400" size={20}/>
-                <a href="tel:+91-22-69818888" className="hover:text-blue-300 transition-colors">+91-22-69818888 (Ext: 123)</a>
-              </div>
+                          <Building/> Contact Information
+                        </h2>
+                        <div className="space-y-4 text-gray-300">
+                          <p>For any queries related to procurement, tenders, or quotations, please contact the administrative office.</p>
+                          <div>
+                            <h4 className="font-bold text-white">Dr B.N.Chaudhari</h4>
+                            <p className="text-sm">Principal</p>
+                          </div>
+                          <div className="flex items-center gap-3">
+                            <Mail className="text-blue-400" size={20}/>
+                            <a href="mailto:procurement@spit.ac.in" className="hover:text-blue-300 transition-colors">procurement@spit.ac.in</a>
+                          </div>
+                          <div className="flex items-center gap-3">
+                            <Phone className="text-blue-400" size={20}/>
+                            <a href="phone:+91-9820436099" className="hover:text-blue-300 transition-colors">+91-9820436099</a>
+                          </div>
                <div className="border-t border-gray-700 mt-4 pt-4 text-sm">
                 <p className="font-semibold text-white">Working Hours:</p>
                 <p>Monday - Friday: 10:00 AM to 5:00 PM</p>

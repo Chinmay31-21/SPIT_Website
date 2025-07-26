@@ -7,59 +7,51 @@ import { Gavel, FileText, Download, Building, Phone, Mail, Clock, Calendar } fro
 const procurementNotices = [
   // Closed Tenders
   {
-    id: 'SPIT/T/202310/001',
+    id: 'SPIT/T/202211/001',
     title: 'NOTICE INVITING TENDER (NIT)',
     type: 'tender',
     status: 'Closed',
-    issueDate: '2023-08-10',
-    closingDate: '2023-08-14',
-    fileUrl: '/assets/tender-1-desktop-23-24-fy-NIT.pdf',
+    issueDate: '2022-11-25',
+    closingDate: '2022-11-29',
+    fileUrl: '/assets/N.I.T..pdf',
   },
   {
-    id: 'SPIT/T/202310/002',
+    id: 'SPIT/T/202211/002',
     title: 'ANNEXURE I – BIDDER’S INFORMATION',
     type: 'tender',
     status: 'Closed',
-    issueDate: '2023-08-10',
-    closingDate: '2023-08-14',
+    issueDate: '2022-11-25',
+    closingDate: '2022-11-29',
     fileUrl: '/assets/ANNEXURE-I-1.pdf',
   },
   {
-    id: 'SPIT/T/202310/003',
+    id: 'SPIT/T/202211/003',
     title: 'Annuxure II: Questionnaire Computer Hardware',
     type: 'tender',
     status: 'Closed',
-    issueDate: '2023-08-10',
-    closingDate: '2023-08-14',
+    issueDate: '2022-11-25',
+    closingDate: '2022-11-29',
     fileUrl: '/assets/ANNEXURE-II-1.pdf',
   },
   {
-    id: 'SPIT/T/202310/004',
-    title: 'ANNEXURE-III Technical Ittinaries',
+    id: 'SPIT/T/202211/004',
+    title: 'ANNEXURE-III Electronics Itineraries',
     type: 'tender',
     status: 'Closed',
-    issueDate: '2023-08-10',
-    closingDate: '2023-08-14',
-    fileUrl: '/assets/ANNEXURE-III.pdf',
+    issueDate: '2022-11-25',
+    closingDate: '2022-11-29',
+    fileUrl: '/assets/ANNEXURE-III-Electronics-22.pdf',
   },
   {
-    id: 'SPIT/T/202310/006',
+    id: 'SPIT/T/202211/005',
     title: 'TERMS-AND-CONDITIONS',
     type: 'tender',
     status: 'Closed',
-    issueDate: '2023-08-10',
-    closingDate: '2023-08-14',
-    fileUrl: '/assets/TERMS-AND-CONDITIONS.pdf',
+    issueDate: '2022-11-25',
+    closingDate: '2022-11-29',
+    fileUrl: '/assets/S.P.I.T-Terms-Conditions-for-Vendors-1.pdf',
   },
-  {
-    id: 'SPIT/Q/202310/005',
-    title: 'TENDER LAST DATE',
-    type: 'tender',
-    status: 'Closed',
-    issueDate: '2023-08-10',
-    closingDate: '2023-08-14',
-    fileUrl: '/assets/TENDERS-LAST-DATE.pdf',
-  },
+  
 ];
 
 // --- Helper Component for Status Badge ---
@@ -76,7 +68,7 @@ const StatusBadge = ({ status }) => {
 };
 
 // --- Main Procurement Component ---
-export const NoticeTenderAugust2023 = () => {
+export const ElectronicsItinaries2223 = () => {
   const [activeTab, setActiveTab] = useState('openTenders');
 
   const getFilteredNotices = () => {
@@ -124,7 +116,7 @@ export const NoticeTenderAugust2023 = () => {
         >
           <Gavel className="mx-auto text-[#FFD700] h-16 w-16 mb-4" />
           <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-            Notice Inviting Tender1 August 2023
+            Tender Notice for Electrical, Electronic itineraries (Hardware & Software) for the FY 2022-2023.
           </h1>
           <p className="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">
             Sardar Patel Institute of Technology is committed to a transparent, fair, and competitive procurement process.
@@ -231,23 +223,23 @@ export const NoticeTenderAugust2023 = () => {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="bg-black/30 backdrop-blur-sm rounded-xl border border-gray-700/60 p-6 md:p-8 h-fit"
           >
-            <h2 className="text-2xl font-bold text-[#FFD700] mb-5 border-b-2 border-[#FFD700]/60 pb-3 flex items-center gap-3">
-                          <Building/> Contact Information
-                        </h2>
-                        <div className="space-y-4 text-gray-300">
-                          <p>For any queries related to procurement, tenders, or quotations, please contact the administrative office.</p>
-                          <div>
-                            <h4 className="font-bold text-white">Dr B.N.Chaudhari</h4>
-                            <p className="text-sm">Principal</p>
-                          </div>
-                          <div className="flex items-center gap-3">
-                            <Mail className="text-blue-400" size={20}/>
-                            <a href="mailto:procurement@spit.ac.in" className="hover:text-blue-300 transition-colors">procurement@spit.ac.in</a>
-                          </div>
-                          <div className="flex items-center gap-3">
-                            <Phone className="text-blue-400" size={20}/>
-                            <a href="phone:+91-9820436099" className="hover:text-blue-300 transition-colors">+91-9820436099</a>
-                          </div>
+           <h2 className="text-2xl font-bold text-[#FFD700] mb-5 border-b-2 border-[#FFD700]/60 pb-3 flex items-center gap-3">
+                         <Building/> Contact Information
+                       </h2>
+                       <div className="space-y-4 text-gray-300">
+                         <p>For any queries related to procurement, tenders, or quotations, please contact the administrative office.</p>
+                         <div>
+                           <h4 className="font-bold text-white">Dr B.N.Chaudhari</h4>
+                           <p className="text-sm">Principal</p>
+                         </div>
+                         <div className="flex items-center gap-3">
+                           <Mail className="text-blue-400" size={20}/>
+                           <a href="mailto:procurement@spit.ac.in" className="hover:text-blue-300 transition-colors">procurement@spit.ac.in</a>
+                         </div>
+                         <div className="flex items-center gap-3">
+                           <Phone className="text-blue-400" size={20}/>
+                           <a href="phone:+91-9820436099" className="hover:text-blue-300 transition-colors">+91-9820436099</a>
+                         </div>
                <div className="border-t border-gray-700 mt-4 pt-4 text-sm">
                 <p className="font-semibold text-white">Working Hours:</p>
                 <p>Monday - Friday: 10:00 AM to 5:00 PM</p>
@@ -261,4 +253,4 @@ export const NoticeTenderAugust2023 = () => {
   );
 };
 
-export default NoticeTenderAugust2023;
+export default ElectronicsItinaries2223;
