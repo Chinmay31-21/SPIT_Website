@@ -7,7 +7,7 @@ import { Gavel, FileText, Download, Building, Phone, Mail, Clock, Calendar } fro
 const procurementNotices = [
   // Open Tenders
   {
-    id: 'SPIT/T/2024/001',
+    id: 'SPIT/T/2025/001',
     title: 'Notice Inviting Tender for Smart Classrooms and Laboratories Renovation',
     type: 'tender',
     status: 'Open',
@@ -16,7 +16,7 @@ const procurementNotices = [
     fileUrl: '/assets/Tender-Notice.pdf',
   },
   {
-    id: 'SPIT/T/2024/002',
+    id: 'SPIT/T/2025/002',
     title: 'Annuxure I: Bidders Information for Smart Classrooms Renovation',
     type: 'tender',
     status: 'Open',
@@ -24,37 +24,44 @@ const procurementNotices = [
     closingDate: '2025-08-05',
     fileUrl: '/assets/ANNEXURE-I-1.pdf',
   },
+  // Quotations
   {
-    id: 'SPIT/T/2024/003',
+    id: 'SPIT/Q/2025/001',
     title: 'Annuxure II: Questionnaire for Smart Classrooms Renovation',
-    type: 'tender',
+    type: 'quotation',
     status: 'Open',
     issueDate: '2025-07-20',
     closingDate: '2025-08-01',
     fileUrl: '/assets/ANNEXURE-II-1.pdf',
   },
   {
-    id: 'SPIT/T/2024/004',
+    id: 'SPIT/Q/2025/002',
     title: 'Information of Digital Boards for Smart Classrooms',
-    type: 'tender',
+    type: 'quotation',
     status: 'Open',
     issueDate: '2025-07-21',
     closingDate: '2025-08-04',
     fileUrl: '/assets/ANNEXURE-III-1.pdf',
   },
-  {
-    id: 'SPIT/T/2024/005',
-    title: 'Terms and Conditions for Vendors',
-    type: 'tender',
-    status: 'Open',
-    issueDate: '',
-    closingDate: '',
-    fileUrl: '/assets/S.P.I.T.-Terms-and-Conditions-for-Vendors.pdf',
-  },
-  // Quotations
-  
   // Archived Tenders
-  
+  {
+    id: 'SPIT/T/2024/015',
+    title: 'Civil and Electrical Work for Renovation of Library Building',
+    type: 'tender',
+    status: 'Closed',
+    issueDate: '2024-11-10',
+    closingDate: '2024-12-05',
+    fileUrl: '/procurement/archives/SPIT_T_2024_015.pdf',
+  },
+  {
+    id: 'SPIT/T/2024/016',
+    title: 'Supply and Installation of 120 Desktop Computers for FE Labs',
+    type: 'tender',
+    status: 'Closed',
+    issueDate: '2024-10-25',
+    closingDate: '2024-11-20',
+    fileUrl: '/procurement/archives/SPIT_T_2024_016.pdf',
+  },
 ];
 
 // --- Helper Component for Status Badge ---
@@ -71,7 +78,7 @@ const StatusBadge = ({ status }) => {
 };
 
 // --- Main Procurement Component ---
-export const Smartclassroom2425 = () => {
+export const NoticeTenderAugust2023 = () => {
   const [activeTab, setActiveTab] = useState('openTenders');
 
   const getFilteredNotices = () => {
@@ -119,7 +126,7 @@ export const Smartclassroom2425 = () => {
         >
           <Gavel className="mx-auto text-[#FFD700] h-16 w-16 mb-4" />
           <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-            Notice Inviting Tender-1 _ Smart Classrooms-Labs-AY 2024-25
+            Notice Inviting Tender1 August 2023
           </h1>
           <p className="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">
             Sardar Patel Institute of Technology is committed to a transparent, fair, and competitive procurement process.
@@ -256,4 +263,4 @@ export const Smartclassroom2425 = () => {
   );
 };
 
-export default Smartclassroom2425;
+export default NoticeTenderAugust2023;

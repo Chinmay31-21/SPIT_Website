@@ -25,33 +25,16 @@ const procurementNotices = [
     fileUrl: './resources/NoticeTenderOctober2023',
   },
   // Quotations
-  {
-    id: 'SPIT/Q/2025/001',
-    title: 'Invitation for Quotation for Renewal of Campus-wide Wi-Fi AMC',
-    type: 'quotation',
-    status: 'Open',
-    issueDate: '2025-07-20',
-    closingDate: '2025-08-01',
-    fileUrl: '/procurement/quotations/SPIT_Q_2025_001.pdf',
-  },
-  {
-    id: 'SPIT/Q/2025/002',
-    title: 'Quotation for Supply of Chemicals and Glassware for First Year Chemistry Lab',
-    type: 'quotation',
-    status: 'Open',
-    issueDate: '2025-07-21',
-    closingDate: '2025-08-04',
-    fileUrl: '/procurement/quotations/SPIT_Q_2025_002.pdf',
-  },
+  
   // Archived Tenders
   {
-    id: 'SPIT/T/2024/015',
-    title: 'Civil and Electrical Work for Renovation of Library Building',
+    id: 'SPIT/T/2025/002',
+    title: 'Notice Inviting Tender1 August 2023',
     type: 'tender',
     status: 'Closed',
-    issueDate: '2024-11-10',
-    closingDate: '2024-12-05',
-    fileUrl: '/procurement/archives/SPIT_T_2024_015.pdf',
+    issueDate: '2023-08-10',
+    closingDate: '2023-08-14',
+    fileUrl: './resources/NoticeTenderAugust2023',
   },
   {
     id: 'SPIT/T/2024/016',

@@ -59,7 +59,7 @@ export const EventsSection = () => {
     {
       company: "PhonePe",
       quote: "The innovative mindset and technical proficiency of SPIT students make them valuable assets in the fintech industry. We look forward to collaborating with them in the future.",
-      photo: "/assets/Phonepe1.png"
+      photo: "/assets/PP.svg"
     }
   ];
 
@@ -162,7 +162,7 @@ export const EventsSection = () => {
                 <img
                   src={recruiter.photo}
                   alt={recruiter.company}
-                  className="w-full h-40 object-cover rounded-t-lg"
+                  className="w-full h-40  rounded-t-lg"
                 />
                 <h3 className="text-xl font-bold text-white mb-4">{recruiter.company}</h3>
                 <p className="text-white/70">"{recruiter.quote}"</p>
