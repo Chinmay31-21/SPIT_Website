@@ -25,19 +25,21 @@ const tenderNotices = [
   { title: 'Notice Inviting Tender-2 _ Smart LABS-AY 2024-25', documents: [{ label: 'Tender Document', url: '/assets/tenders/NIT_2_Smart_Labs_AY24-25.pdf' }] },
   { title: 'Notice Inviting Tender-1 _ Smart Classrooms-Labs-AY 2024-25', documents: [{ label: 'Tender Document', url: '/assets/tenders/NIT_1_Smart_Classrooms_AY24-25.pdf' }] },
   { title: 'ALTERATION and REFURBISHMENT of Room 008, 104 and 105 of the COLLEGE BUILDING', documents: [{ label: 'Tender Document', url: '/assets/tenders/Room_Alteration_Refurbishment.pdf' }] },
+  /******Not a pdf, a link to a pdf******/
   { title: 'Notice Inviting Tender-2 _ OCTOBER_2023', documents: [{ label: 'Tender Document', url: '/assets/tenders/NIT_2_Oct_2023.pdf' }] },
-  { title: 'Tender for Canteen', documents: [{ label: 'Tender Document', url: '/assets/tenders/Canteen_Tender.pdf' }] },
-  { title: 'Tender for Datacenter Development', documents: [{ label: 'Tender Document', url: '/assets/tenders/Datacenter_Tender.pdf' }] },
-  { title: 'Tender for Internet Bandwidth', documents: [{ label: 'Tender Document', url: '/assets/tenders/Internet_Bandwidth_Tender.pdf' }] },
-  { title: 'Tender Notice Power Electronics', documents: [{ label: 'Tender Document', url: '/assets/tenders/Power_Electronics_Tender.pdf' }] },
-  { title: 'Tender Notice for open air duct shade work', documents: [{ label: 'Tender Document', url: '/assets/tenders/Open_Air_Duct_Shade_Tender.pdf' }] },
-  { title: 'Tender Notice for 3rd floor passage shade work', documents: [{ label: 'Tender Document', url: '/assets/tenders/Third_Floor_Passage_Shade_Tender.pdf' }] },
-  { title: 'Tender Notice for Visitor Bench', documents: [{ label: 'Tender Document', url: '/assets/tenders/Visitor_Bench_Tender.pdf' }] },
-  { title: 'IT Infrastructure Requirements List', documents: [{ label: 'Tender Document', url: '/assets/tenders/IT_Infra_Requirements.pdf' }] },
-  { title: 'CCTV Tender Notice', documents: [{ label: 'Tender Document', url: '/assets/tenders/CCTV_Tender.pdf' }] },
-  { title: 'Security Tender', documents: [{ label: 'Tender Document', url: '/assets/tenders/Security_Tender.pdf' }] },
-  { title: 'Housekeeping tender', documents: [{ label: 'Tender Document', url: '/assets/tenders/Housekeeping_Tender.pdf' }] },
-  { title: 'Electrical Maintenance Services Tender', documents: [{ label: 'Tender Document', url: '/assets/tenders/Electrical_Maintenance_Tender.pdf' }] },
+  /**************************************/
+  { title: 'Tender for Canteen', documents: [{ label: 'Tender Document', url: '/assets/Request-for-quotation.pdf' }] },
+  { title: 'Tender for Datacenter Development', documents: [{ label: 'Tender Document', url: '/assets/RFQ-for-Datacenter.pdf' }] },
+  { title: 'Tender for Internet Bandwidth', documents: [{ label: 'Tender Document', url: '/assets/SPIT_IT-Infrastructure.pdf' }] },
+  { title: 'Tender Notice Power Electronics', documents: [{ label: 'Tender Document', url: '/assets/Tender-Notice-Power-Electronics-27-7-2022.pdf' }] },
+  { title: 'Tender Notice for open air duct shade work', documents: [{ label: 'Tender Document', url: '/assets/Tender-Notice-for-open-air-duct-shade-work.pdf' }] },
+  { title: 'Tender Notice for 3rd floor passage shade work', documents: [{ label: 'Tender Document', url: '/assets/Tender-Notice-for-3rd-floor-passage-shade-work.pdf' }] },
+  { title: 'Tender Notice for Visitor Bench', documents: [{ label: 'Tender Document', url: '/assets/Tender-Notice-for-Visitor-Bench.pdf' }] },
+  { title: 'IT Infrastructure Requirements List', documents: [{ label: 'Tender Document', url: '/assets/Updated-IT-Infrastructure-Requirements-List-v2.1-1.pdf' }] },
+  { title: 'CCTV Tender Notice', documents: [{ label: 'Tender Document', url: '/assets/cctv-tender-15-3-22.pdf' }] },
+  { title: 'Security Tender', documents: [{ label: 'Tender Document', url: '/assets/Tender-Security-2022-23.pdf' }] },
+  { title: 'Housekeeping tender', documents: [{ label: 'Tender Document', url: '/assets/ousekeeping-tender.pdf' }] },
+  { title: 'Electrical Maintenance Services Tender', documents: [{ label: 'Tender Document', url: '/assets/EWC-Maint-Tender-Final_April-2022.pdf' }] },
 ];
 
 const Tender: React.FC = () => {
