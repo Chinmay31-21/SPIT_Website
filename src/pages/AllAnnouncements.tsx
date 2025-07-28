@@ -467,9 +467,9 @@ const announcements = [
         Click here to read more announcements…
       </a>
     ),
-    date: "November 16th, 2024",
-    section: "notices",
-    description: "Vacancy Notice for First Year B.Tech. 2024-25",
+    date: "",
+    section: "",
+    description: "",
   },
   
 
