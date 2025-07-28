@@ -234,6 +234,8 @@ export const Placements = () => {
             {/* --- Contact Section --- */}
             <motion.section variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
                 <div className="max-w-4xl mx-auto bg-black/50 backdrop-blur-lg border border-[#00BFFF]/40 rounded-xl p-8 md:p-12 shadow-2xl">
+                    <img src="/assets/PlacementTeam.jpg" alt="Placement Team 24-25" className='w-128 h-128 mx-auto rounded-lg mb-8' />
+                    <h4 className="text-lg font-semibold text-center text-gray-300 mb-4">Placement Team 24-25</h4>
                     <h2 className="text-3xl font-bold text-center text-[#FFD700] mb-8">Contact TPO</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-lg">
                         <div>
