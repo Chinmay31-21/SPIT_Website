@@ -1,84 +1,277 @@
-import React, { useState } from 'react';
-import { Book, Search, Download, Calendar, ExternalLink } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
+import { motion } from 'framer-motion';
+import { 
+  Book, 
+  Search, 
+  Download, 
+  Calendar, 
+  ExternalLink, 
+  Library as LibraryIcon,
+  CheckCircle,
+  XCircle,
+  MapPin,
+  ChevronRight,
+  FileText,
+  Server
+} from 'lucide-react';
+import { ClassNames } from '@emotion/react';
 
-// Sample data for search (expanded with engineering books)
-const resources = [
-  { type: 'Digital', title: 'E-Books Collection' },
-  { type: 'Digital', title: 'Online Journals' },
-  { type: 'Digital', title: 'Research Papers' },
-  { type: 'Digital', title: 'Academic Databases' },
-  { type: 'Digital', title: 'Video Lectures' },
-  { type: 'Engineering', title: 'Introduction to Algorithms by Cormen, Leiserson, Rivest, Stein' },
-  { type: 'Engineering', title: 'Fundamentals of Engineering Thermodynamics by Moran & Shapiro' },
-  { type: 'Engineering', title: 'Digital Design by M. Morris Mano' },
-  { type: 'Engineering', title: 'Mechanics of Materials by Gere & Timoshenko' },
-  { type: 'Engineering', title: 'Signals and Systems by Oppenheim & Willsky' },
-  { type: 'Study', title: 'Previous Year Papers' },
-  { type: 'Study', title: 'Course Notes' },
-  { type: 'Study', title: 'Sample Papers' },
-  { type: 'Study', title: 'Reference Books' },
-  { type: 'Study', title: 'Practice Sets' },
-  { type: 'Service', title: 'Book Borrowing' },
-  { type: 'Service', title: 'Inter-Library Loan' },
-  { type: 'Service', title: 'Reference Services' },
-  { type: 'Service', title: 'Reading Rooms' },
-  { type: 'Service', title: 'Print & Copy' },
-];
+// --- TYPE DEFINITION FOR OUR DATA (for TypeScript) ---
+interface LibraryResource {
+  id: string;
+  type: 'Book' | 'E-Books' | 'Online Journals' | 'Research Papers' | 'Academic Databases' | 'Previous Year Papers' | 'Course Notes' | 'Reference Books' | 'Service';
+  title: string;
+  author?: string;
+  status?: 'Available' | 'Checked Out';
+  location?: string;
+  coverImage?: string;
+  url?: string;
+  description: string;
+  isbn?: string;
+}
 
-const engineeringBooks = [
+// --- CENTRALIZED & ENHANCED DATA SOURCE ---
+const libraryData: LibraryResource[] = [
+  // Engineering Books
   {
-    title: 'Introduction to Algorithms',
-    author: 'Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein',
-    cover: '/assets/BLTharejaVol1.jpeg', // Add cover image URL if available
-    url: 'https://mitpress.mit.edu/9780262046305/introduction-to-algorithms-third-edition/',
+    id: 'b001',
+    type: 'Book',
+    title: 'Basic Electrical Engineering',
+    author: 'Ravish R. Singh',
+    status: 'Available',
+    location: 'FE-BEE-12',
+    coverImage: '/assets/BEE_RavishSingh.jpeg', // Use an actual path like '/covers/clrs.jpg' or leave empty
+    url: '/assets/Basic-Electrical-Engineering-Ravish-R.-Singh.pdf',
+    description: 'A comprehensive introduction to electrical engineering concepts, covering circuits, systems, and applications.',
+    isbn: '978-0262046305',
   },
   {
-    title: 'Fundamentals of Engineering Thermodynamics',
-    author: 'Michael J. Moran, Howard N. Shapiro',
-    cover: '',
-    url: 'https://www.wiley.com/en-us/Fundamentals+of+Engineering+Thermodynamics%2C+9th+Edition-p-9781119723026',
+    id: 'b002',
+    type: 'Book',
+    title: 'Basic Electrical Engineering',
+    author: 'D C Kulshresta',
+    status: 'Available',
+    location: 'FE-BEE-05',
+    coverImage: '/assets/D C Kulshresta.jpeg', // Use an actual path like '/covers/clrs.jpg' or leave empty
+    url: '/assets/D C Kulshresta.pdf',
+    description: 'A foundational text for understanding electrical engineering principles, focusing on circuit analysis and electrical machines.',
+    isbn: '978-1119723026',
   },
   {
-    title: 'Digital Design',
-    author: 'M. Morris Mano',
-    cover: '',
-    url: 'https://www.pearson.com/store/p/digital-design/P100000677978',
+    id: 'b003',
+    type: 'Book',
+    title: 'Power Electronics: A First Course',
+    author: 'Ned Mohan, Tore M. Undeland, William P. Robbins',
+    status: 'Available',
+    location: 'FE-BEE-01',
+    coverImage: '/assets/PowerElectronicsNedMohan.jpeg', // Use an actual path like '/covers/clrs.jpg' or leave empty
+    url: '/assets/Power Electronics A First Course Book by Ned Mohan.pdf',
+    description: 'An introductory text on power electronics, covering converters, inverters, and applications in modern electrical systems.',
+    isbn: '978-0134549897',
   },
   {
-    title: 'Mechanics of Materials',
-    author: 'James M. Gere, Stephen P. Timoshenko',
-    cover: '',
-    url: 'https://www.pearson.com/store/p/mechanics-of-materials/P100000677978',
+    id: 'b004',
+    type: 'Book',
+    title: 'Fundamental of Mathematics Sem-1 by G V Kumbhojkar',
+    author: 'G V Kumbhojkar',
+    status: 'Available',
+    location: 'FE-Maths-11',
+    coverImage: '/assets/GVKUMSem1.jpeg',
+    url: '/assets/G V Kumbhojkar SEM-1.pdf',
+    description: 'A comprehensive introduction to mathematical concepts and techniques for engineering students.',
+    isbn: '978-1337093347',
   },
   {
+    id: 'b005',
+    type: 'Book',
     title: 'Signals and Systems',
     author: 'Alan V. Oppenheim, Alan S. Willsky',
-    cover: '',
-    url: 'https://www.pearson.com/store/p/signals-and-systems/P100000677978',
+    status: 'Checked Out',
+    location: 'ECE-F-08',
+    coverImage: '',
+    url: 'https://www.pearson.com/en-us/subject-catalog/p/signals-and-systems/P200000000201',
+    description: 'A comprehensive treatment of signals and systems, an core subject in electrical engineering.',
+    isbn: '978-0138147570',
   },
+
+  // Digital & Study Resources (as searchable items)
+  { id: 'r001', type: 'E-Books', title: 'E-Books Collection', description: 'Access our vast digital library of e-books across all engineering disciplines.' },
+  { id: 'r002', type: 'Online Journals', title: 'Online Journals Access', description: 'Read the latest research from IEEE, ACM, Springer, and more.' },
+  { id: 'r003', type: 'Research Papers', title: 'Faculty Research Papers', description: 'A collection of papers published by SPIT faculty.' },
+  { id: 'r004', type: 'Academic Databases', title: 'Academic Databases Portal', description: 'Search Scopus, Web of Science, and other academic databases.' },
+  { id: 'r005', type: 'Previous Year Papers', title: 'Previous Year Question Papers', description: 'Download question papers from previous university examinations.' },
+  { id: 'r006', type: 'Course Notes', title: 'Shared Course Notes', description: 'Find notes and study material uploaded by faculty and students.' },
+  
+  // Services (as searchable items)
+  { id: 's001', type: 'Service', title: 'Book Borrowing', description: 'Information on borrowing policies, duration, and renewals.' },
+  { id: 's002', type: 'Service', title: 'Inter-Library Loan', description: 'Request books or articles not available in the SPIT library.' },
 ];
 
-export const Library = () => {
-  const [search, setSearch] = useState('');
-  const filteredResources = resources.filter(r =>
-    r.title.toLowerCase().includes(search.toLowerCase())
-  );
-  const filteredBooks = engineeringBooks.filter(b =>
-    b.title.toLowerCase().includes(search.toLowerCase()) ||
-    b.author.toLowerCase().includes(search.toLowerCase())
-  );
 
-  // Dynamic SEO based on search
-  const seoTitle = search
-    ? `SPIT Library | Results for "${search}"`
-    : 'SPIT Library | Engineering Books, Digital Resources, DSpace, Moodle';
-  const seoDescription = search
-    ? `Search results for "${search}" in SPIT Library. Find engineering books, digital resources, DSpace, Moodle, and more.`
-    : 'SPIT Library: Find top engineering books, digital resources, e-books, DSpace repository, Moodle platform, study materials, and academic services for students and faculty.';
-  const seoKeywords = search
-    ? `${search}, SPIT Library, engineering books, DSpace, Moodle, study materials`
-    : 'SPIT Library, engineering books, Introduction to Algorithms, Thermodynamics, Digital Design, Mechanics of Materials, Signals and Systems, DSpace, Moodle, e-books, journals, study materials, research papers';
+// --- HELPER COMPONENTS (Co-located for simplicity) ---
+
+// BookCard Component
+const BookCard: React.FC<{ book: LibraryResource }> = ({ book }) => {
+  const cardVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    show: { opacity: 1, scale: 1, transition: { type: 'spring', stiffness: 300, damping: 20 } },
+  };
+  const isAvailable = book.status === 'Available';
+
+  return (
+    <motion.div
+      variants={cardVariants}
+      className="bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg p-4 flex flex-col group transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,191,255,0.3)] hover:border-[#00BFFF]/50"
+    >
+      {book.coverImage ? (
+        <img src={book.coverImage} alt={`Cover of ${book.title}`} className="aspect-[3/4] w-full object-cover rounded-md mb-4 shadow-lg" />
+      ) : (
+        <div className="aspect-[3/4] w-full bg-gradient-to-br from-[#00BFFF]/20 to-[#FFD700]/20 rounded-md mb-4 flex items-center justify-center">
+          <Book className="h-12 w-12 text-white/20" />
+        </div>
+      )}
+      <div className="flex flex-col flex-grow">
+        <h3 className="font-bold text-white text-md mb-1 flex-grow">{book.title}</h3>
+        {book.author && <p className="text-sm text-white/60 mb-3">{book.author}</p>}
+        <div className="text-xs space-y-2 mt-auto">
+            {book.status && (
+              <div className={`flex items-center ${isAvailable ? 'text-green-400' : 'text-red-400'}`}>
+                {isAvailable ? <CheckCircle className="h-4 w-4 mr-2"/> : <XCircle className="h-4 w-4 mr-2"/>}
+                {book.status}
+              </div>
+            )}
+            {book.location && (
+              <div className="flex items-center text-white/70">
+                <MapPin className="h-4 w-4 mr-2"/>
+                Location: {book.location}
+              </div>
+            )}
+        </div>
+        {book.url && (
+          <a href={book.url} target="_blank" rel="noopener noreferrer" className="mt-4 text-center w-full bg-[#00BFFF]/80 text-white font-semibold py-2 rounded-md text-sm hover:bg-[#00BFFF] transition-colors flex items-center justify-center gap-2">
+            View Details <ExternalLink className="h-4 w-4"/>
+          </a>
+        )}
+      </div>
+    </motion.div>
+  );
+};
+
+// ResourceSection Component
+const ResourceSection: React.FC<{ icon: React.ReactNode; title: string; items: string[]; onItemClick: (item: string) => void; }> = ({ icon, title, items, onItemClick }) => {
+    return (
+        <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="bg-black/20 backdrop-blur-md border border-white/20 rounded-xl p-6 h-full flex flex-col"
+        >
+        <div className="flex items-center mb-4">
+            {icon}
+            <h3 className="text-2xl font-bold text-[#FFD700] ml-3">{title}</h3>
+        </div>
+        <ul className="space-y-3 text-white mt-2 flex-grow">
+            {items.map((item, idx) => (
+            <li key={idx}>
+                <button onClick={() => onItemClick(item)} className="flex items-center w-full text-left text-white hover:text-[#FFD700] hover:translate-x-1 transition-all duration-200 group">
+                <ChevronRight className="h-5 w-5 mr-2 text-[#00BFFF] group-hover:text-[#FFD700] transition-colors" />
+                {item}
+                </button>
+            </li>
+            ))}
+        </ul>
+        </motion.div>
+    );
+};
+
+// SearchResults Component
+const SearchResults: React.FC<{ results: LibraryResource[] }> = ({ results }) => {
+    const containerVariants = { hidden: { opacity: 0 }, show: { opacity: 1, transition: { staggerChildren: 0.1 } } };
+    const itemVariants = { hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } };
+
+    if (results.length === 0) {
+        return <div className="text-center py-16"><h3 className="text-2xl font-semibold text-white/80">No Results Found</h3><p className="text-white/60 mt-2">Try a different search term or check your spelling.</p></div>;
+    }
+  
+    const books = results.filter(item => item.type === 'Book');
+    const otherResources = results.filter(item => item.type !== 'Book');
+
+    return (
+        <motion.div variants={containerVariants} initial="hidden" animate="show">
+        <h2 className="text-2xl font-bold mb-6 text-[#00BFFF]">Search Results ({results.length})</h2>
+        {books.length > 0 && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                {books.map((book) => <BookCard key={book.id} book={book} />)}
+            </div>
+        )}
+        {otherResources.length > 0 && (
+            <div className="space-y-4">
+                {otherResources.map((item) => (
+                    <motion.div key={item.id} variants={itemVariants} className="bg-black/30 backdrop-blur-sm p-4 rounded-lg border border-white/20 flex items-center gap-4">
+                        {item.type === 'Service' ? <Server className="h-6 w-6 text-[#FFD700]"/> : <FileText className="h-6 w-6 text-[#FFD700]"/>}
+                        <div>
+                            <h4 className="font-semibold text-lg">{item.title}</h4>
+                            <p className="text-sm text-white/60">{item.description}</p>
+                        </div>
+                    </motion.div>
+                ))}
+            </div>
+        )}
+        </motion.div>
+    );
+};
+
+// NewArrivals Component
+const NewArrivals = () => {
+    const newBooks = libraryData.filter((item) => item.type === 'Book').slice(0, 4);
+    const containerVariants = { hidden: { opacity: 0 }, show: { opacity: 1, transition: { staggerChildren: 0.15 } } };
+
+    return (
+        <div className="mt-16">
+        <h2 className="text-3xl font-bold text-center mb-8 bg-clip-text text-transparent bg-[#4C2A85] dark:bg-[#BCEDF6]">New Arrivals</h2>
+        <motion.div variants={containerVariants} initial="hidden" animate="show" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {newBooks.map((book) => <BookCard key={book.id} book={book} />)}
+        </motion.div>
+        </div>
+    );
+};
+
+
+// --- MAIN LIBRARY COMPONENT ---
+export const Library = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState<LibraryResource[]>([]);
+
+  useEffect(() => {
+    if (searchTerm.trim() === '') { setSearchResults([]); return; }
+    const lowercasedTerm = searchTerm.toLowerCase();
+    const filtered = libraryData.filter(item =>
+        item.title.toLowerCase().includes(lowercasedTerm) ||
+        (item.author && item.author.toLowerCase().includes(lowercasedTerm)) ||
+        item.type.toLowerCase().includes(lowercasedTerm) ||
+        item.description.toLowerCase().includes(lowercasedTerm)
+    );
+    setSearchResults(filtered);
+  }, [searchTerm]);
+
+  const handleResourceClick = (resourceTitle: string) => setSearchTerm(resourceTitle);
+
+  const seoTitle = searchTerm ? `SPIT Library | Results for "${searchTerm}"` : 'SPIT Library | Advanced Engineering Book Search & Digital Resources';
+  const seoDescription = searchTerm ? `Find results for "${searchTerm}" in the SPIT Library catalogue. Check availability, location, and access digital resources.` : 'SPIT Library: Your gateway to knowledge. Search for engineering books with real-time availability, access our DSpace repository, Moodle platform, and a vast collection of digital resources.';
+  const seoKeywords = 'SPIT Library, engineering books, book availability, DSpace, Moodle, digital library, online catalogue, computer science books, mechanical engineering books';
+
+  const bookSchema = libraryData
+    .filter((item) => item.type === 'Book')
+    .map(book => `{
+      "@type": "Book",
+      "name": "${book.title}",
+      "author": {"@type": "Person", "name": "${book.author}"},
+      "isbn": "${book.isbn}",
+      "url": "${book.url}",
+      "description": "${book.description.replace(/"/g, '\\"')}",
+      "bookFormat": "https://schema.org/Hardcover"
+    }`).join(',');
 
   return (
     <>
@@ -86,223 +279,50 @@ export const Library = () => {
         <title>{seoTitle}</title>
         <meta name="description" content={seoDescription} />
         <meta name="keywords" content={seoKeywords} />
-        {/* Open Graph tags */}
-        <meta property="og:title" content="SPIT Library | Engineering Books & Digital Resources" />
-        <meta property="og:description" content="Discover engineering books, digital resources, DSpace, Moodle, and more at SPIT Library." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://spit.ac.in/library" />
-        {/* Twitter Card tags */}
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="SPIT Library | Engineering Books & Digital Resources" />
-        <meta name="twitter:description" content="Discover engineering books, digital resources, DSpace, Moodle, and more at SPIT Library." />
-        {/* Structured Data for Library and Books */}
+        <meta property="og:title" content={seoTitle} />
+        <meta property="og:description" content={seoDescription} />
+        <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">
-          {`
-          {
-            "@context": "https://schema.org",
-            "@type": "Library",
-            "name": "SPIT Library",
-            "url": "https://spit.ac.in/library",
-            "description": "SPIT Library offers engineering books, digital resources, DSpace repository, Moodle platform, and academic services.",
-            "hasBook": [
-              ${engineeringBooks.map(book => `
-                {
-                  "@type": "Book",
-                  "name": "${book.title}",
-                  "author": "${book.author}",
-                  "url": "${book.url}"
-                }
-              `).join(',')}
-            ]
-          }
-          `}
+          {`{"@context": "https://schema.org", "@type": "Library", "name": "SPIT Library", "url": "https://spit.ac.in/library", "hasPart": [${bookSchema}]}`}
         </script>
       </Helmet>
-      <div className="min-h-screen bg-gradient-to-bl from-[#C6B8FF] to-[#B8F3FF] dark:from-[#0E1428] dark:to-[#27193f] py-8">
+      <div className="min-h-screen bg-gradient-to-bl from-[#C6B8FF] to-[#B8F3FF] dark:from-[#0E1428] dark:to-[#27193f] mx-auto px-4 py-8">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-bold  bg-clip-text bg-gradient-to-r from-[#5E035E] to-[#30036B] dark:from-[#FFD700] dark:to-[#DAA520] bg-clip-text text-transparent mb-8 text-center">
-            SPIT Library
-          </h1>
+          <motion.div initial={{ opacity: 0, y: -30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="text-center mb-12">
+            <h1 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#3993DD] to-[#2F4858] dark:bg-gradient-to-r from-[#00BFFF] to-[#FFD700] mb-2">SPIT Library Portal</h1>
+            <p className="text-lg text-white/70">Your Advanced Gateway to Knowledge</p>
+          </motion.div>
 
-          {/* Search Section */}
-          <div className="mb-12 ">
-            <div className="max-w-2xl mx-auto bg-gradient-to-r from-[#5E035E] to-[#30036B] ">
-              <div className="relative">
-                <input
-                  type="text"
-                  value={search}
-                  onChange={e => setSearch(e.target.value)}
-                  placeholder="Search books, journals, engineering books, and resources..."
-                  className="w-full px-6 py-4 rounded-lg bg-black/30 backdrop-blur-md border border-[#00BFFF]/30 text-white placeholder-white/50 focus:outline-none focus:border-[#00BFFF]"
-                  aria-label="Search library resources"
-                />
-                <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 text-[#00BFFF]" />
+          <div className="max-w-3xl mx-auto mb-12">
+            <div className="relative">
+              <input type="search" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} placeholder="Search the entire library catalogue..." className="w-full px-6 py-4 rounded-full bg-black/30 backdrop-blur-sm border border-[#00BFFF]/30 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-[#FFD700] transition-all duration-300" aria-label="Search library catalogue"/>
+              <Search className="absolute right-6 top-1/2 transform -translate-y-1/2 text-[#00BFFF] h-6 w-6" />
+            </div>
+          </div>
+          
+          {searchTerm ? (
+            <SearchResults results={searchResults} />
+          ) : (
+            <>
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2, duration: 0.5 }} className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <a href="http://dspace.spit.ac.in/xmlui/handle/123456789/6" target="_blank" rel="noopener noreferrer" className="bg-black/30 p-6 rounded-xl border border-transparent hover:border-[#FFD700]/50 hover:shadow-[0_0_20px_rgba(255,215,0,0.3)] transition-all duration-300 flex items-center gap-4">
+                  <Book className="text-[#FFD700] h-10 w-10" />
+                  <div><h2 className="text-xl font-bold text-[#FFD700]">DSpace Repository</h2><p className="text-white/70">Access research papers, theses, and digital collections.</p></div>
+                </a>
+                <a href="http://moodle.spit.ac.in" target="_blank" rel="noopener noreferrer" className="bg-black/30 p-6 rounded-xl border border-transparent hover:border-[#00BFFF]/50 hover:shadow-[0_0_20px_rgba(0,191,255,0.3)] transition-all duration-300 flex items-center gap-4">
+                  <Download className="text-[#00BFFF] h-10 w-10" />
+                  <div><h2 className="text-xl font-bold text-[#00BFFF]">Moodle Platform</h2><p className="text-white/70">Find course materials, assignments, and online resources.</p></div>
+                </a>
+              </motion.div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <ResourceSection icon={<LibraryIcon className="text-[#FFD700] h-8 w-8" />} title="Digital Resources" items={["E-Books", "Online Journals", "Research Papers", "Academic Databases"]} onItemClick={handleResourceClick} />
+                <ResourceSection icon={<Download className="text-[#FFD700] h-8 w-8" />} title="Study Materials" items={["Previous Year Papers", "Course Notes", "Reference Books"]} onItemClick={handleResourceClick} />
+                <ResourceSection icon={<Calendar className="text-[#FFD700] h-8 w-8" />} title="Library Services" items={["Book Borrowing", "Inter-Library Loan", "Reading Rooms"]} onItemClick={handleResourceClick} />
               </div>
-              {search && (
-                <div className="mt-4 bg-black/40 rounded-lg p-4">
-                  <h3 className="text-[#FFD700] font-semibold mb-2">Search Results:</h3>
-                  <ul className="space-y-2 text-white/80">
-                    {filteredResources.map((r, idx) => (
-                      <li key={idx}>{r.title}</li>
-                    ))}
-                    {filteredBooks.map((b, idx) => (
-                      <li key={`book-${idx}`}>
-                        <a
-                          href={b.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-[#FFD700] underline"
-                        >
-                          {b.title} <span className="text-white/60">by {b.author}</span>
-                        </a>
-                      </li>
-                    ))}
-                    {filteredResources.length === 0 && filteredBooks.length === 0 && (
-                      <li>No results found.</li>
-                    )}
-                  </ul>
-                </div>
-              )}
-            </div>
-          </div>
-
-          {/* Important Section: DSpace & Moodle */}
-          <div className="mb-12">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <a
-                href="http://dspace.spit.ac.in/xmlui/handle/123456789/6"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center bg-black/30 backdrop-blur-md border border-[#FFD700]/40 rounded-lg p-6 hover:bg-black/40 transition"
-              >
-                <Book className="text-[#FFD700] mr-4 h-8 w-8" />
-                <div>
-                  <h2 className="text-xl font-bold text-[#FFD700]">DSpace Repository</h2>
-                  <p className="text-white/80 text-sm">Access SPIT's institutional repository for research papers, theses, and digital collections.</p>
-                </div>
-                <ExternalLink className="ml-auto text-[#FFD700]" />
-              </a>
-              <a
-                href="http://moodle.spit.ac.in"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center bg-black/30 backdrop-blur-md border border-[#FFD700]/40 rounded-lg p-6 hover:bg-black/40 transition"
-              >
-                <Download className="text-[#FFD700] mr-4 h-8 w-8" />
-                <div>
-                  <h2 className="text-xl font-bold text-[#FFD700]">Moodle Platform</h2>
-                  <p className="text-white/80 text-sm">Access course materials, assignments, and online learning resources.</p>
-                </div>
-                <ExternalLink className="ml-auto text-[#FFD700]" />
-              </a>
-            </div>
-          </div>
-
-          {/* Resources Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Digital Resources */}
-            <div className="bg-black/30 backdrop-blur-md border border-[#00BFFF]/30 rounded-lg p-6">
-              <Book className="text-[#FFD700] mb-4 h-8 w-8" />
-              <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Digital Resources & Engineering Books</h2>
-              <ul className="space-y-3 text-white/80">
-                <li>
-                  <a
-                    href="http://dspace.spit.ac.in/xmlui/handle/123456789/6"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center hover:text-[#FFD700] transition"
-                  >
-                    DSpace Repository <ExternalLink className="ml-2 h-4 w-4" />
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="http://moodle.spit.ac.in"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center hover:text-[#FFD700] transition"
-                  >
-                    Moodle Platform <ExternalLink className="ml-2 h-4 w-4" />
-                  </a>
-                </li>
-                <li>E-Books Collection</li>
-                <li>Online Journals</li>
-                <li>Research Papers</li>
-                <li>Academic Databases</li>
-                <li>Video Lectures</li>
-                {/* Engineering books for SEO */}
-                {engineeringBooks.map((book, idx) => (
-                  <li key={idx}>
-                    <a
-                      href={book.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[#FFD700] underline"
-                    >
-                      {book.title} <span className="text-white/60">by {book.author}</span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Study Materials */}
-            <div className="bg-black/30 backdrop-blur-md border border-[#00BFFF]/30 rounded-lg p-6">
-              <Download className="text-[#FFD700] mb-4 h-8 w-8" />
-              <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Study Materials</h2>
-              <ul className="space-y-3 text-white/80">
-                <li>Previous Year Papers</li>
-                <li>Course Notes</li>
-                <li>Sample Papers</li>
-                <li>Reference Books</li>
-                <li>Practice Sets</li>
-              </ul>
-            </div>
-
-            {/* Library Services */}
-            <div className="bg-black/30 backdrop-blur-md border border-[#00BFFF]/30 rounded-lg p-6">
-              <Calendar className="text-[#FFD700] mb-4 h-8 w-8" />
-              <h2 className="text-2xl font-bold text-[#FFD700] mb-4">Library Services</h2>
-              <ul className="space-y-3 text-white/80">
-                <li>Book Borrowing</li>
-                <li>Inter-Library Loan</li>
-                <li>Reference Services</li>
-                <li>Reading Rooms</li>
-                <li>Print & Copy</li>
-              </ul>
-            </div>
-          </div>
-
-          {/* New Arrivals */}
-          <div className="mt-12">
-            <h2 className="text-3xl font-bold text-[#FFD700] mb-6">New Arrivals</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {engineeringBooks.map((book, idx) => (
-                <div key={idx} className="bg-black/30 backdrop-blur-md border border-[#00BFFF]/30 rounded-lg p-4">
-                  {book.cover ? (
-                    <img
-                      src={book.cover}
-                      alt={book.title}
-                      className="aspect-[3/4] mb-4 rounded-md object-cover w-full h-auto"
-                    />
-                  ) : (
-                    <div className="aspect-[3/4] mb-4 bg-gradient-to-br from-[#00BFFF]/20 to-[#FFD700]/20 rounded-md"></div>
-                  )}
-                  <h3 className="text-white font-semibold mb-2">{book.title}</h3>
-                  <p className="text-white/60 text-sm">{book.author}</p>
-                  <a
-                    href={book.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#FFD700] underline text-sm"
-                  >
-                    View Book
-                  </a>
-                </div>
-              ))}
-              {/* ...existing code for other books if needed... */}
-            </div>
-          </div>
+              <NewArrivals />
+            </>
+          )}
         </div>
       </div>
     </>
