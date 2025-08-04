@@ -289,7 +289,7 @@ export const Library = () => {
       <div className="min-h-screen bg-gradient-to-bl from-[#C6B8FF] to-[#B8F3FF] dark:from-[#0E1428] dark:to-[#27193f] mx-auto px-4 py-8">
         <div className="container mx-auto px-4">
           <motion.div initial={{ opacity: 0, y: -30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="text-center mb-12">
-            <h1 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#3993DD] to-[#2F4858] mb-2">SPIT Library Portal</h1>
+            <h1 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-[#3993DD] to-[#2F4858] mb-2">SPIT Library Portal</h1>
             <p className="text-lg text-white/70">Your Advanced Gateway to Knowledge</p>
           </motion.div>
 
