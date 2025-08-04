@@ -164,19 +164,35 @@ export const AlumniModal: React.FC<AlumniModalProps> = ({ alumni, onClose }) => 
         {/* Action Buttons */}
         <div className="flex gap-3">
           <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex-1 bg-gradient-to-r from-[#4169E1] to-[#FFD700] text-white font-semibold py-3 rounded-lg hover:shadow-lg transition-all duration-300"
-          >
-            Connect
-          </motion.button>
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+  className="flex-1 bg-gradient-to-r from-[#4169E1] to-[#FFD700] text-white font-semibold py-3 rounded-lg hover:shadow-lg transition-all duration-300"
+  onClick={() => {
+    if (alumni.linkedin) {
+      window.open(alumni.linkedin, "_blank");
+    } else if (alumni.email) {
+      window.location.href = `mailto:${alumni.email}`;
+    } else {
+      alert("No contact method available.");
+    }
+  }}
+>
+  Connect
+</motion.button>
           <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-6 py-3 border border-white/20 text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300"
-          >
-            Message
-          </motion.button>
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+  className="px-6 py-3 border border-white/20 text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300"
+  onClick={() => {
+    if (alumni.email) {
+      window.location.href = `mailto:${alumni.email}`;
+    } else {
+      alert("No email available.");
+    }
+  }}
+>
+  Message
+</motion.button>
         </div>
       </motion.div>
     </motion.div>
