@@ -91,7 +91,7 @@ export const NAAC = () => {
         <div className="mt-8 bg-black/30 backdrop-blur-md border border-[#00BFFF]/30 rounded-lg p-6">
           <h2 className="text-2xl font-bold text-[#FFD700] mb-6 flex items-center gap-2">
             <Users className="w-6 h-6" />
-            NAAC Total Disclosure and Criteria Follow this link : <button className=""><a href="#" className='bg-gradient-to-r from-[#5E035E] to-[#30036B] hover:bg-gradient-to-l hover:from-[#FED99B] hover:to-[#FED18C] rounded-lg backdrop-blur-md text-[#D6EFFF] hover:text-[#022F40] px-4 py-0 transition-colors duration-300'>
+            NAAC Total Disclosure and Criteria Follow this link : <button className=""><a href="https://naac-spit-ac-in.vercel.app/" className='bg-gradient-to-r from-[#5E035E] to-[#30036B] hover:bg-gradient-to-l hover:from-[#FED99B] hover:to-[#FED18C] rounded-lg backdrop-blur-md text-[#D6EFFF] hover:text-[#022F40] px-4 py-0 transition-colors duration-300'>
               NAAC
              </a> </button>
           </h2>
