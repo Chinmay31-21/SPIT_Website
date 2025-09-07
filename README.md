@@ -12,7 +12,7 @@ Welcome to the official repository for the new **Sardar Patel Institute of Techn
 
 ## 👥 Project Team
 
-This project was developed under the **Project-Based Learning (PBL)** initiative by final-year students at SPIT. Each member played a vital role in the design, development, and deployment of this large-scale institutional project.
+This project was developed under the **Project-Based Learning (PBL)** initiative by first-year students at SPIT. Each member played a vital role in the design, development, and deployment of this large-scale institutional project.
 
 | Name               | Role                                                                 |
 |--------------------|----------------------------------------------------------------------|
