@@ -3,6 +3,17 @@ import { ThemeToggle } from './components/ThemeToggle';
 import { SearchEngine } from './components/Search/SearchEngine';
 import { useSearch } from './hooks/useSearch';
 import { SEOLayout } from './components/Layout/SEOLayout';
+import { AuthProvider } from './contexts/AuthContext';
+import { AdminLoginButton } from './components/AdminLoginButton';
+import { ProtectedRoute } from './components/ProtectedRoute';
+import {
+  LoginPage,
+  DashboardLayout,
+  DashboardOverview,
+  AnnouncementsManagement,
+  UpdatePanelManagement,
+  ActivityLogs,
+} from './pages/admin';
 
 import {
   Search,
@@ -170,10 +181,11 @@ function App() {
 
   return (
     <SEOLayout>
-      <Router>
-        <>
-          {/* Popup only after coin flip animation */}
-          {showPopup && (
+      <AuthProvider>
+        <Router>
+          <>
+            {/* Popup only after coin flip animation */}
+            {showPopup && (
             <div className="popup-overlay flex items-center justify-center z-[9999]">
               <div
                 className="popup-container relative flex flex-col items-center bg-gradient-to-br from-[#f8f9fa] via-[#e9ecef] to-[#dee2e6] dark:from-[#18181b] dark:via-[#192351] dark:to-[#27193f] rounded-xl shadow-2xl p-0 w-full max-w-lg"
@@ -242,9 +254,8 @@ function App() {
               </div>
             </div>
           )}
-        </>
-        <div className="min-h-screen bg-white dark:bg-[#0A0A0A] flex flex-col">
-          <header className="relative border-t-2 border-[#4169E1] bg-black/30 backdrop-blur-md">
+          <div className="min-h-screen bg-white dark:bg-[#0A0A0A] flex flex-col">
+            <header className="relative border-t-2 border-[#4169E1] bg-black/30 backdrop-blur-md">
             <div className="container mx-auto px-4 py-4">
               <div className="flex flex-col md:flex-row items-start gap-8">
                 <div className="flex items-start gap-4 w-full md:w-auto">
@@ -301,6 +312,7 @@ function App() {
                   <a href="https://www.facebook.com/SPITCOLLEGE/" aria-label="Facebook" className="text-white/80 hover:text-[#4169E1] transition-colors">
                     <Facebook size={20} />
                   </a>
+                  <AdminLoginButton />
                 </div>
               </div>
 
@@ -323,11 +335,11 @@ function App() {
                
               </div>
             </div>
-          </header>
+            </header>
 
-          <Navbar />
+            <Navbar />
 
-          <PageTransition>
+            <PageTransition>
             <Routes>
               <Route path="/" element={<MainContent />} />
               <Route path="/about/*" element={<About />} />
@@ -368,21 +380,36 @@ function App() {
               <Route path="/resources/electronicsitinaries2223" element={<ElectronicsItinaries2223 />} />
               <Route path="/alumni-network" element={<AlumniNetworkDemo />} />
               <Route path="/report/*" element={<AnnualReport />} />
+              
+              {/* Admin Routes */}
+              <Route path="/admin/login" element={<LoginPage />} />
+              <Route path="/admin/*" element={
+                <ProtectedRoute>
+                  <DashboardLayout />
+                </ProtectedRoute>
+              }>
+                <Route path="dashboard" element={<DashboardOverview />} />
+                <Route path="announcements" element={<AnnouncementsManagement />} />
+                <Route path="update-panel" element={<UpdatePanelManagement />} />
+                <Route path="logs" element={<ActivityLogs />} />
+              </Route>
             </Routes>
-          </PageTransition>
+            </PageTransition>
 
-          <Footer />
+            <Footer />
 
-          {/* Search Engine Modal */}
-          <SearchEngine
-            isOpen={showSearch}
-            onClose={() => setShowSearch(false)}
-            onSearch={handleSearch}
-            results={searchResults}
-            isLoading={searchLoading}
-          />
-        </div>
-      </Router>
+            {/* Search Engine Modal */}
+            <SearchEngine
+              isOpen={showSearch}
+              onClose={() => setShowSearch(false)}
+              onSearch={handleSearch}
+              results={searchResults}
+              isLoading={searchLoading}
+            />
+          </div>
+          </>
+        </Router>
+      </AuthProvider>
     </SEOLayout>
   );
 }

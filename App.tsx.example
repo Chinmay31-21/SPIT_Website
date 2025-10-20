@@ -1,0 +1,74 @@
+// Example App.tsx with Admin Dashboard Integration
+// Copy this structure into your existing App.tsx
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './contexts/AuthContext';
+import { ProtectedRoute } from './components/ProtectedRoute';
+
+// Admin Pages
+import {
+  LoginPage,
+  DashboardLayout,
+  DashboardOverview,
+  AnnouncementsManagement,
+  UpdatePanelManagement,
+  EventsManagement,
+  GalleryManagement,
+  ActivityLogs,
+} from './pages/admin';
+
+// Your existing page imports (keep these as they are)
+// import HomePage from './pages/HomePage';
+// import AboutPage from './pages/AboutPage';
+// etc...
+
+function App() {
+  return (
+    <AuthProvider>
+      <Router>
+        <Routes>
+          {/* ========================================
+              YOUR EXISTING ROUTES - KEEP THESE
+             ======================================== */}
+          {/* Example:
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/admissions" element={<AdmissionsPage />} />
+          <Route path="/AllAnnouncements" element={<AllAnnouncements />} />
+          ... add all your existing routes here ...
+          */}
+
+          {/* ========================================
+              NEW ADMIN ROUTES - ADD THESE
+             ======================================== */}
+          
+          {/* Admin Login - Public Route */}
+          <Route path="/admin/login" element={<LoginPage />} />
+          
+          {/* Admin Dashboard - Protected Routes */}
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute>
+                <DashboardLayout />
+              </ProtectedRoute>
+            }
+          >
+            {/* All these routes are nested inside the dashboard layout */}
+            <Route path="dashboard" element={<DashboardOverview />} />
+            <Route path="announcements" element={<AnnouncementsManagement />} />
+            <Route path="update-panel" element={<UpdatePanelManagement />} />
+            <Route path="events" element={<EventsManagement />} />
+            <Route path="gallery" element={<GalleryManagement />} />
+            <Route path="logs" element={<ActivityLogs />} />
+          </Route>
+
+          {/* Redirect /admin to /admin/dashboard */}
+          <Route path="/admin" element={<Navigate to="/admin/dashboard" replace />} />
+        </Routes>
+      </Router>
+    </AuthProvider>
+  );
+}
+
+export default App;

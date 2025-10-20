@@ -19,6 +19,7 @@
     "@splinetool/react-spline": "^2.2.6",
     "@splinetool/runtime": "^1.0.17",
     "@types/react-helmet": "^6.1.11",
+    "axios": "^1.12.2",
     "framer-motion": "^10.18.0",
     "gsap": "^3.13.0",
     "lucide-react": "^0.284.0",
